@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DishesGo.src.dbClasses;
+using DishesGo.src.tools;
+using System;
 using System.Windows.Forms;
 
 namespace DishesGo
@@ -14,6 +13,8 @@ namespace DishesGo
         [STAThread]
         static void Main()
         {
+            SQLConection.SetInstance(configs.conectionString); // Create the instance of sql con.
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RegistrLoginForm());

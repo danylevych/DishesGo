@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using ComponentFactory.Krypton.Toolkit;
+using DishesGo.Data;
+using DishesGo.src;
 using DishesGo.src.dbClasses;
 
 namespace DishesGo
@@ -225,29 +227,32 @@ namespace DishesGo
             if (loginLoginPlateButton.Text != "Введіть логін" && loginLoginPlateButton.Text != "" &&
                 passwordLoginPlateLabel.Text != "Введіть пароль" && passwordLoginPlateLabel.Text != "")
             {
-                string login = loginLoginPlateText.Text;
-                string password = passwordLoginPlateText.Text;
+                string login = loginLoginPlateText.Text.Trim();
+                string password = passwordLoginPlateText.Text.Trim();
 
-                string sqlQuery = "SELECT * FROM Users WHERE user_password = @password AND (nickname = @login OR email = @login);";
-
-                using (SqlCommand command = new SqlCommand(sqlQuery, SQLConection.Instance))
+                using(DishesGo_dbEntities db = new DishesGo_dbEntities())
                 {
-                    command.Parameters.AddWithValue("@password", password);
-                    command.Parameters.AddWithValue("@login", login);
+                    bool isEmail = db.Users.Any(user => user.email == login);
+                    bool isNickname = db.Users.Any(user => user.nickname == login);
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    if (isEmail || isNickname)
                     {
-
-                        if (reader.HasRows)
+                        if (db.Users.Any(user => user.user_password == password && (user.nickname == login || user.email == login)))
                         {
-                            // TODO: open form.
+                            MainForm mainForm = new MainForm();
+                            mainForm.Show();
+                            this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("На жаль, такого користувача не знайдено.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ви ввели направильний пароль.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
+                    else
+                    {
+                        MessageBox.Show("Ви ввели направильний логін.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }                
             }
         }
 
@@ -262,6 +267,21 @@ namespace DishesGo
                 addToTable = false;
             }
 
+            using(DishesGo_dbEntities db = new DishesGo_dbEntities())
+            {
+                if (db.Users.Any(user => user.email == emailText.Text.Trim()))
+                {
+                    MessageBox.Show("Користувач із таким email уже існує.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    addToTable = false;
+                }
+
+                if (db.Users.Any(user => user.nickname == nicnameText.Text.Trim()))
+                {
+                    MessageBox.Show("Користувач із таким nickname уже існує.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    addToTable = false;
+                }
+            }
+
             if (lastnameText.Text == "Введіть своє прізвище" && lastnameLabel.Text != "")
             {
                 MessageBox.Show("Поле - Прізвище не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -274,7 +294,7 @@ namespace DishesGo
                 addToTable = false;
             }
 
-            if (nicnameText.Text == "Введіть своє нікнейм" && nicnameText.Text != "")
+            if (nicnameText.Text == "Введіть нікнейм" && nicnameText.Text != "")
             {
                 MessageBox.Show("Поле - Нікнейм не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 addToTable = false;
@@ -294,27 +314,30 @@ namespace DishesGo
 
             if (addToTable)
             {
-                string firstName = nameText.Text;
-                string lastName = lastnameText.Text;
-                string email = emailText.Text;
-                string nickname = nicnameText.Text;
-                string userPassword = passwordText.Text;
+                string firstName = nameText.Text.Trim();
+                string lastName = lastnameText.Text.Trim();
+                string email = emailText.Text.Trim();
+                string nickname = nicnameText.Text.Trim();
+                string userPassword = passwordText.Text.Trim();
 
-                string sqlQuery = "INSERT INTO YourTableName (first_name, last_name, email, nickname, user_password)" +
-                    " VALUES (@firstName, @lastName, @email, @nickname, @userPassword);";
-
-                using (SqlCommand command = new SqlCommand(sqlQuery, SQLConection.Instance))
+                Users user = new Users()
                 {
-                    command.Parameters.AddWithValue("@firstName", firstName);
-                    command.Parameters.AddWithValue("@lastName", lastName);
-                    command.Parameters.AddWithValue("@email", email);
-                    command.Parameters.AddWithValue("@nickname", nickname);
-                    command.Parameters.AddWithValue("@userPassword", userPassword);
+                    first_name = firstName,
+                    last_name = lastName,
+                    email = email,
+                    nickname = nickname,
+                    user_password = userPassword
+                };
 
+                using(DishesGo_dbEntities db = new DishesGo_dbEntities())
+                {
+                    db.Users.Add(user);
 
-                    if (command.ExecuteNonQuery() > 0)
+                    if (db.SaveChanges() > 0)
                     {
-
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
+                        this.Hide();
                     }
                     else
                     {

@@ -13,7 +13,7 @@ namespace DishesGo
         [STAThread]
         static void Main()
         {
-            SQLConection.SetInstance(configs.conectionString); // Create the instance of sql con.
+            ///SQLConection.SetInstance(configs.conectionString); // Create the instance of sql con.
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

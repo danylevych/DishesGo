@@ -856,9 +856,7 @@
             // 
             // loginLoginPlateButton
             // 
-            this.loginLoginPlateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginLoginPlateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loginLoginPlateButton.Location = new System.Drawing.Point(128, 341);
             this.loginLoginPlateButton.Name = "loginLoginPlateButton";
             this.loginLoginPlateButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -1120,6 +1118,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DishesGo";
             ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrPanel)).EndInit();

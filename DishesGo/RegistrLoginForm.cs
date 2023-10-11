@@ -232,14 +232,15 @@ namespace DishesGo
 
                 using(DishesGo_dbEntities db = new DishesGo_dbEntities())
                 {
-                    bool isEmail = db.Users.Any(user => user.email == login);
-                    bool isNickname = db.Users.Any(user => user.nickname == login);
+                    /*bool isEmail = db.Users.Any(user => user.email == login);
+                    bool isNickname = db.Users.Any(user => user.nickname == login);*/
 
-                    if (isEmail || isNickname)
+                    Users currentUser = db.Users.FirstOrDefault(user => user.email == login || user.nickname == login);
+                    if (currentUser != null)
                     {
                         if (db.Users.Any(user => user.user_password == password && (user.nickname == login || user.email == login)))
                         {
-                            MainForm mainForm = new MainForm();
+                            MainForm mainForm = new MainForm(currentUser);
                             mainForm.Show();
                             this.Hide();
                         }
@@ -335,7 +336,7 @@ namespace DishesGo
 
                     if (db.SaveChanges() > 0)
                     {
-                        MainForm mainForm = new MainForm();
+                        MainForm mainForm = new MainForm(user );
                         mainForm.Show();
                         this.Hide();
                     }

@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrLoginForm));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.titleLabel = new System.Windows.Forms.Label();
             this.discriptionLabel = new System.Windows.Forms.Label();
             this.quetionLable = new System.Windows.Forms.Label();
-            this.titleImage = new System.Windows.Forms.PictureBox();
             this.loginButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.signinButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.registrPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -59,11 +57,12 @@
             this.passwordLoginPlateLabel = new System.Windows.Forms.Label();
             this.loginLoginPlateLabel = new System.Windows.Forms.Label();
             this.titleLoginPlate = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.titleImage)).BeginInit();
+            this.titleImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.registrPanel)).BeginInit();
             this.registrPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPanel)).BeginInit();
             this.loginPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.titleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -115,18 +114,6 @@
             this.quetionLable.Size = new System.Drawing.Size(163, 66);
             this.quetionLable.TabIndex = 2;
             this.quetionLable.Text = "- Dishes? \r\n- GO.";
-            // 
-            // titleImage
-            // 
-            this.titleImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.titleImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("titleImage.BackgroundImage")));
-            this.titleImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.titleImage.Location = new System.Drawing.Point(431, -9);
-            this.titleImage.Name = "titleImage";
-            this.titleImage.Size = new System.Drawing.Size(381, 516);
-            this.titleImage.TabIndex = 0;
-            this.titleImage.TabStop = false;
             // 
             // loginButton
             // 
@@ -322,9 +309,9 @@
             this.registrPanel.Controls.Add(this.lastnameLabel);
             this.registrPanel.Controls.Add(this.emailLabel);
             this.registrPanel.Controls.Add(this.registrationTitle);
-            this.registrPanel.Location = new System.Drawing.Point(440, 0);
+            this.registrPanel.Location = new System.Drawing.Point(441, -9);
             this.registrPanel.Name = "registrPanel";
-            this.registrPanel.Size = new System.Drawing.Size(381, 516);
+            this.registrPanel.Size = new System.Drawing.Size(381, 529);
             this.registrPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.registrPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.registrPanel.TabIndex = 7;
@@ -846,7 +833,7 @@
             this.loginPanel.Controls.Add(this.passwordLoginPlateLabel);
             this.loginPanel.Controls.Add(this.loginLoginPlateLabel);
             this.loginPanel.Controls.Add(this.titleLoginPlate);
-            this.loginPanel.Location = new System.Drawing.Point(431, 0);
+            this.loginPanel.Location = new System.Drawing.Point(429, 1);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(393, 516);
             this.loginPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
@@ -1101,6 +1088,18 @@
             this.titleLoginPlate.TabIndex = 0;
             this.titleLoginPlate.Text = "Вхід";
             // 
+            // titleImage
+            // 
+            this.titleImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.titleImage.BackgroundImage = global::DishesGo.Properties.Resources.titlePhoto2;
+            this.titleImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.titleImage.Location = new System.Drawing.Point(431, -9);
+            this.titleImage.Name = "titleImage";
+            this.titleImage.Size = new System.Drawing.Size(381, 516);
+            this.titleImage.TabIndex = 0;
+            this.titleImage.TabStop = false;
+            // 
             // RegistrLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1120,13 +1119,13 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DishesGo";
-            ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrPanel)).EndInit();
             this.registrPanel.ResumeLayout(false);
             this.registrPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPanel)).EndInit();
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.titleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

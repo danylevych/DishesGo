@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
+using DishesGo.src.tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,27 +31,18 @@ namespace DishesGo.src
             {
                 using (MemoryStream ms = new MemoryStream(user.user_photo))
                 {
-                    Image image = Image.FromStream(ms);
-
-                    userPhoto.Image = image;
+                    userPhoto.Image = Image.FromStream(ms);
                 }
             }
 
-            System.Drawing.Drawing2D.GraphicsPath obj = new System.Drawing.Drawing2D.GraphicsPath();
-            obj.AddEllipse(0, 0, userPhoto.Width, userPhoto.Height);
-            userPhoto.Region = new Region(obj);
+            //userPhoto.Image = ImageRedactor.ResizeImage(userPhoto.Image, 30, 30);
+            
+            //userPhoto.Region = ImageRedactor.CropAsElips(userPhoto);
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void CropeImage()
-        {
-            System.Drawing.Drawing2D.GraphicsPath obj = new System.Drawing.Drawing2D.GraphicsPath();
-            obj.AddEllipse(0, 0, userPhoto.Width, userPhoto.Height);
-
         }
 
         private void userPhoto_Click(object sender, EventArgs e)

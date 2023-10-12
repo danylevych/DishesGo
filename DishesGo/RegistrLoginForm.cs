@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
 using DishesGo.src;
-using DishesGo.src.dbClasses;
+using System.IO;
+using DishesGo.src.tools;
+using Newtonsoft.Json;
+using System.Runtime.Remoting.Contexts;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DishesGo
 {
@@ -230,7 +227,7 @@ namespace DishesGo
                 string login = loginLoginPlateText.Text.Trim();
                 string password = passwordLoginPlateText.Text.Trim();
 
-                using(DishesGo_dbEntities db = new DishesGo_dbEntities())
+                using (DishesGo_dbEntities db = new DishesGo_dbEntities())
                 {
                     /*bool isEmail = db.Users.Any(user => user.email == login);
                     bool isNickname = db.Users.Any(user => user.nickname == login);*/
@@ -240,6 +237,15 @@ namespace DishesGo
                     {
                         if (db.Users.Any(user => user.user_password == password && (user.nickname == login || user.email == login)))
                         {
+                            JsonUserData userData = new JsonUserData()
+                            {
+                                email = currentUser.email,
+                                nickname = currentUser.nickname,
+                                isLogined = true
+                            };
+
+                            File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
+
                             MainForm mainForm = new MainForm(currentUser);
                             mainForm.Show();
                             this.Hide();
@@ -253,7 +259,7 @@ namespace DishesGo
                     {
                         MessageBox.Show("Ви ввели направильний логін.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }                
+                }
             }
         }
 
@@ -268,7 +274,7 @@ namespace DishesGo
                 addToTable = false;
             }
 
-            using(DishesGo_dbEntities db = new DishesGo_dbEntities())
+            using (DishesGo_dbEntities db = new DishesGo_dbEntities())
             {
                 if (db.Users.Any(user => user.email == emailText.Text.Trim()))
                 {
@@ -330,13 +336,22 @@ namespace DishesGo
                     user_password = userPassword
                 };
 
-                using(DishesGo_dbEntities db = new DishesGo_dbEntities())
+                using (DishesGo_dbEntities db = new DishesGo_dbEntities())
                 {
                     db.Users.Add(user);
 
                     if (db.SaveChanges() > 0)
                     {
-                        MainForm mainForm = new MainForm(user );
+                        JsonUserData userData = new JsonUserData()
+                        { 
+                            email = email,
+                            nickname = nickname,
+                            isLogined = true
+                        };
+
+                        File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
+
+                        MainForm mainForm = new MainForm(user);
                         mainForm.Show();
                         this.Hide();
                     }
@@ -348,6 +363,6 @@ namespace DishesGo
             }
         }
 
-       
+
     }
 }

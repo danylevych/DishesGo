@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
+using DishesGo.src.Elements;
 using DishesGo.src.tools;
 using System;
 using System.Collections.Generic;
@@ -35,9 +36,10 @@ namespace DishesGo.src
                 }
             }
 
-            //userPhoto.Image = ImageRedactor.ResizeImage(userPhoto.Image, 30, 30);
-            
-            //userPhoto.Region = ImageRedactor.CropAsElips(userPhoto);
+            // Set user's info.
+            /*profileImg.Image = userPhoto.Image;
+            nicknameLabel.Text = user.nickname;
+            profileNameLabel.Text = user?.last_name + " " + user?.first_name;*/
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,7 +49,19 @@ namespace DishesGo.src
 
         private void userPhoto_Click(object sender, EventArgs e)
         {
-            photoLine.Visible = true;
+            if (photoLine.Visible)
+            {
+                photoLine.Visible = false;
+                contextPanel.Controls.Clear();
+            }
+            else
+            {
+                photoLine.Visible = true;
+                ProfilePlate profilePlate = new ProfilePlate(user, userPhoto.Image);
+                profilePlate.Dock = DockStyle.Fill;
+                contextPanel.Controls.Add(profilePlate);
+
+            }
         }
     }
 }

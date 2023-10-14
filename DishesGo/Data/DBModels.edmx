@@ -4,7 +4,36 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DishesGo_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DishesGo_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kitchens">
+          <Key>
+            <PropertyRef Name="kitchen_id" />
+          </Key>
+          <Property Name="kitchen_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+          </Key>
+          <Property Name="recipe_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="500" />
+          <Property Name="recipe_photo" Type="varbinary(max)" />
+          <Property Name="time_prepare" Type="int" />
+          <Property Name="calories" Type="int" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="kitchen_id" Type="int" />
+          <Property Name="type_id" Type="int" />
+        </EntityType>
+        <EntityType Name="RecipeTypes">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="user_id" />
@@ -17,11 +46,61 @@
           <Property Name="nickname" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="user_password" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <Association Name="FK__Recipes__kitchen__4E88ABD4">
+          <End Role="Kitchens" Type="Self.Kitchens" Multiplicity="0..1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitchens">
+              <PropertyRef Name="kitchen_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="kitchen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipes__type_id__4F7CD00D">
+          <End Role="RecipeTypes" Type="Self.RecipeTypes" Multiplicity="0..1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeTypes">
+              <PropertyRef Name="type_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipes__user_id__4D94879B">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DishesGo_dbModelStoreContainer">
+          <EntitySet Name="Kitchens" EntityType="Self.Kitchens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeTypes" EntityType="Self.RecipeTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Recipes__kitchen__4E88ABD4" Association="Self.FK__Recipes__kitchen__4E88ABD4">
+            <End Role="Kitchens" EntitySet="Kitchens" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__type_id__4F7CD00D" Association="Self.FK__Recipes__type_id__4F7CD00D">
+            <End Role="RecipeTypes" EntitySet="RecipeTypes" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__user_id__4D94879B" Association="Self.FK__Recipes__user_id__4D94879B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DishesGo_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -36,10 +115,96 @@
           <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nickname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Users" ToRole="Recipes" />
         </EntityType>
         <EntityContainer Name="DishesGo_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Kitchens" EntityType="DishesGo_dbModel.Kitchens" />
+          <EntitySet Name="Recipes" EntityType="DishesGo_dbModel.Recipes" />
+          <EntitySet Name="RecipeTypes" EntityType="DishesGo_dbModel.RecipeTypes" />
+          <AssociationSet Name="FK__Recipes__kitchen__4E88ABD4" Association="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4">
+            <End Role="Kitchens" EntitySet="Kitchens" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__type_id__4F7CD00D" Association="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D">
+            <End Role="RecipeTypes" EntitySet="RecipeTypes" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__user_id__4D94879B" Association="DishesGo_dbModel.FK__Recipes__user_id__4D94879B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Kitchens">
+          <Key>
+            <PropertyRef Name="kitchen_id" />
+          </Key>
+          <Property Name="kitchen_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4" FromRole="Kitchens" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+          </Key>
+          <Property Name="recipe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="recipe_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="time_prepare" Type="Int32" />
+          <Property Name="calories" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="kitchen_id" Type="Int32" />
+          <Property Name="type_id" Type="Int32" />
+          <NavigationProperty Name="Kitchens" Relationship="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4" FromRole="Recipes" ToRole="Kitchens" />
+          <NavigationProperty Name="RecipeTypes" Relationship="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D" FromRole="Recipes" ToRole="RecipeTypes" />
+          <NavigationProperty Name="Users" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Recipes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="RecipeTypes">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D" FromRole="RecipeTypes" ToRole="Recipes" />
+        </EntityType>
+        <Association Name="FK__Recipes__kitchen__4E88ABD4">
+          <End Type="DishesGo_dbModel.Kitchens" Role="Kitchens" Multiplicity="0..1" />
+          <End Type="DishesGo_dbModel.Recipes" Role="Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitchens">
+              <PropertyRef Name="kitchen_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="kitchen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipes__type_id__4F7CD00D">
+          <End Type="DishesGo_dbModel.RecipeTypes" Role="RecipeTypes" Multiplicity="0..1" />
+          <End Type="DishesGo_dbModel.Recipes" Role="Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeTypes">
+              <PropertyRef Name="type_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipes__user_id__4D94879B">
+          <End Type="DishesGo_dbModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="DishesGo_dbModel.Recipes" Role="Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -56,6 +221,38 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="nickname" ColumnName="nickname" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kitchens">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.Kitchens">
+              <MappingFragment StoreEntitySet="Kitchens">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="kitchen_id" ColumnName="kitchen_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.Recipes">
+              <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="kitchen_id" ColumnName="kitchen_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="calories" ColumnName="calories" />
+                <ScalarProperty Name="time_prepare" ColumnName="time_prepare" />
+                <ScalarProperty Name="recipe_photo" ColumnName="recipe_photo" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeTypes">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.RecipeTypes">
+              <MappingFragment StoreEntitySet="RecipeTypes">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,6 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="20ba6bf071e942a68620d372e314b3e3" Name="Diagram1">
         <EntityTypeShape EntityType="DishesGo_dbModel.Users" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.Kitchens" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.Recipes" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.RecipeTypes" Width="1.5" PointX="0.75" PointY="7.5" />
+        <AssociationConnector Association="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4" />
+        <AssociationConnector Association="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D" />
+        <AssociationConnector Association="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

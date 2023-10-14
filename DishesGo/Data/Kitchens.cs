@@ -12,21 +12,17 @@ namespace DishesGo.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Kitchens
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Kitchens()
         {
             this.Recipes = new HashSet<Recipes>();
         }
     
-        public int user_id { get; set; }
-        public byte[] user_photo { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string email { get; set; }
-        public string nickname { get; set; }
-        public string user_password { get; set; }
+        public int kitchen_id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recipes> Recipes { get; set; }

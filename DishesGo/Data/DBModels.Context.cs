@@ -26,5 +26,8 @@ namespace DishesGo.Data
         }
     
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Kitchens> Kitchens { get; set; }
+        public virtual DbSet<Recipes> Recipes { get; set; }
+        public virtual DbSet<RecipeTypes> RecipeTypes { get; set; }
     }
 }

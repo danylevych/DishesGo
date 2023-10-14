@@ -80,6 +80,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModels.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\Kitchens.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Recipes.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RecipeTypes.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +103,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\dbClasses\SQLConection.cs" />
+    <Compile Include="src\Elements\OwnRecipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Elements\OwnRecipe.Designer.cs">
+      <DependentUpon>OwnRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Elements\ProfilePlate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Elements\ProfilePlate.Designer.cs">
+      <DependentUpon>ProfilePlate.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Elements\RashiCircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -116,6 +137,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Elements\OwnRecipe.resx">
+      <DependentUpon>OwnRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Elements\ProfilePlate.resx">
+      <DependentUpon>ProfilePlate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

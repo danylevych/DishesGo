@@ -103,6 +103,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\dbClasses\SQLConection.cs" />
+    <Compile Include="src\Elements\OwnDishViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Elements\OwnDishViewer.Designer.cs">
+      <DependentUpon>OwnDishViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Elements\OwnRecipe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +143,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Elements\OwnDishViewer.resx">
+      <DependentUpon>OwnDishViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Elements\OwnRecipe.resx">
       <DependentUpon>OwnRecipe.cs</DependentUpon>
@@ -189,6 +198,11 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\border.png" />
+    <None Include="Resources\Img\leftButtomCorner.png" />
+    <None Include="Resources\Img\rightButtomCorner.png" />
+    <None Include="Resources\Img\topRightCorner.png" />
+    <None Include="Resources\Img\corner.png" />
     <None Include="Resources\titlePhoto.png" />
     <Resource Include="Resources\Img\withoutPhoto.png" />
     <Resource Include="Resources\Img\titlePhoto.png" />

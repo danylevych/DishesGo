@@ -45,7 +45,7 @@
             this.recipesPanel.AutoScroll = true;
             this.recipesPanel.Location = new System.Drawing.Point(46, 199);
             this.recipesPanel.Name = "recipesPanel";
-            this.recipesPanel.Size = new System.Drawing.Size(733, 204);
+            this.recipesPanel.Size = new System.Drawing.Size(733, 221);
             this.recipesPanel.TabIndex = 11;
             // 
             // nicknameLabel
@@ -102,8 +102,7 @@
             // 
             // ProfilePlate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -114,7 +113,7 @@
             this.Controls.Add(this.profileNameLabel);
             this.Controls.Add(this.profileImg);
             this.Name = "ProfilePlate";
-            this.Size = new System.Drawing.Size(830, 443);
+            this.Size = new System.Drawing.Size(830, 460);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             this.ResumeLayout(false);

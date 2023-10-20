@@ -63,6 +63,36 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap border {
+            get {
+                object obj = ResourceManager.GetObject("border", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap corner {
+            get {
+                object obj = ResourceManager.GetObject("corner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leftButtomCorner {
+            get {
+                object obj = ResourceManager.GetObject("leftButtomCorner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_clipart_drawing_dish_кастрюля_food_photography {
             get {
                 object obj = ResourceManager.GetObject("png-clipart-drawing-dish-кастрюля-food-photography", resourceCulture);
@@ -93,6 +123,16 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rightButtomCorner {
+            get {
+                object obj = ResourceManager.GetObject("rightButtomCorner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap titlePhoto {
             get {
                 object obj = ResourceManager.GetObject("titlePhoto", resourceCulture);
@@ -116,6 +156,16 @@ namespace DishesGo.Properties {
         internal static System.Drawing.Bitmap titlePhoto2 {
             get {
                 object obj = ResourceManager.GetObject("titlePhoto2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap topRightCorner {
+            get {
+                object obj = ResourceManager.GetObject("topRightCorner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

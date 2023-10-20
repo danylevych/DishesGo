@@ -17,26 +17,28 @@ namespace DishesGo.src.Elements
         public OwnRecipe()
         {
             InitializeComponent();
+            border.Parent = recipeImg;
         }
 
-        public OwnRecipe(Image image, string recipeName, int receptId)
+        public OwnRecipe(Image image, int receiptId)
         {
             InitializeComponent();
+            border.Parent = recipeImg;
 
             Image = image;
-            RecipeName = recipeName;
-            ReceptId = receptId;
+            ReceiptId = receiptId;
         }
 
         public OwnRecipe(Recipes recipe)
         {
             InitializeComponent();
+            border.Parent = recipeImg;
 
-            ReceptId = recipe.recipe_id;
+            ReceiptId = recipe.recipe_id;
 
             if (recipe.recipe_photo == null)
             {
-                Image temp = Properties.Resources.withoutPhoto;
+                Image temp = Properties.Resources.titlePhoto;
                 Image = temp;
             }
             else
@@ -46,14 +48,15 @@ namespace DishesGo.src.Elements
                     Image = Image.FromStream(ms);
                 }
             }
-
-            RecipeName = recipe.title;
-            RecipeDescription = recipe.description.Substring(0, 150);
         }
 
-        public int ReceptId { get; set; }
+        public int ReceiptId { get; set; }
         public Image Image { get { return recipeImg.Image; } set { recipeImg.Image = value; } }
-        public string RecipeName { get { return recipeName.Text; } set { recipeName.Text = value; } }
-        public string RecipeDescription { get { return recipeDescription.Text; } set { recipeDescription.Text =  value; } }
+
+
+        private void border_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

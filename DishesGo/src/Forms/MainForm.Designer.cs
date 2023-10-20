@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.mainPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.photoLine = new System.Windows.Forms.PictureBox();
             this.contextPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.photoLine = new System.Windows.Forms.PictureBox();
             this.userPhoto = new RashiUI.RashiCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).BeginInit();
             this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.photoLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +70,19 @@
             this.mainPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.TabIndex = 1;
             // 
+            // contextPanel
+            // 
+            this.contextPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.contextPanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.contextPanel.Location = new System.Drawing.Point(0, 50);
+            this.contextPanel.Name = "contextPanel";
+            this.contextPanel.Size = new System.Drawing.Size(781, 410);
+            this.contextPanel.StateCommon.Color1 = System.Drawing.SystemColors.AppWorkspace;
+            this.contextPanel.StateCommon.Color2 = System.Drawing.SystemColors.Control;
+            this.contextPanel.TabIndex = 2;
+            // 
             // photoLine
             // 
             this.photoLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -81,19 +94,6 @@
             this.photoLine.TabIndex = 2;
             this.photoLine.TabStop = false;
             this.photoLine.Visible = false;
-            // 
-            // contextPanel
-            // 
-            this.contextPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.contextPanel.AutoSize = true;
-            this.contextPanel.Location = new System.Drawing.Point(0, 50);
-            this.contextPanel.Name = "contextPanel";
-            this.contextPanel.Size = new System.Drawing.Size(781, 410);
-            this.contextPanel.StateCommon.Color1 = System.Drawing.SystemColors.AppWorkspace;
-            this.contextPanel.StateCommon.Color2 = System.Drawing.SystemColors.Control;
-            this.contextPanel.TabIndex = 2;
             // 
             // userPhoto
             // 
@@ -130,11 +130,10 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).EndInit();
             this.mainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.photoLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

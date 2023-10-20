@@ -35,11 +35,6 @@ namespace DishesGo.src
                     userPhoto.Image = Image.FromStream(ms);
                 }
             }
-
-            // Set user's info.
-            /*profileImg.Image = userPhoto.Image;
-            nicknameLabel.Text = user.nickname;
-            profileNameLabel.Text = user?.last_name + " " + user?.first_name;*/
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

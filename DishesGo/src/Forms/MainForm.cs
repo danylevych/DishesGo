@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,10 +18,29 @@ namespace DishesGo.src
 {
     public partial class MainForm : KryptonForm
     {
+        private static MainForm instance;
+        public static MainForm Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public KryptonPanel Context
+        {
+            get
+            {
+                return contextPanel;
+            }
+        }
+
         private Users user;
 
         public MainForm(Users user)
         {
+            instance = this;
+
             this.user = user;
             InitializeComponent();
 
@@ -55,7 +75,6 @@ namespace DishesGo.src
                 ProfilePlate profilePlate = new ProfilePlate(user, userPhoto.Image);
                 profilePlate.Dock = DockStyle.Fill;
                 contextPanel.Controls.Add(profilePlate);
-
             }
         }
     }

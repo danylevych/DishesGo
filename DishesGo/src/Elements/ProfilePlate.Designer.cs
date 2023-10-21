@@ -43,9 +43,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.recipesPanel.AutoScroll = true;
-            this.recipesPanel.Location = new System.Drawing.Point(46, 199);
+            this.recipesPanel.Location = new System.Drawing.Point(36, 199);
             this.recipesPanel.Name = "recipesPanel";
-            this.recipesPanel.Size = new System.Drawing.Size(733, 221);
+            this.recipesPanel.Size = new System.Drawing.Size(760, 223);
             this.recipesPanel.TabIndex = 11;
             // 
             // nicknameLabel
@@ -54,7 +54,7 @@
             this.nicknameLabel.AutoSize = true;
             this.nicknameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nicknameLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.nicknameLabel.Location = new System.Drawing.Point(414, 73);
+            this.nicknameLabel.Location = new System.Drawing.Point(415, 73);
             this.nicknameLabel.Name = "nicknameLabel";
             this.nicknameLabel.Size = new System.Drawing.Size(101, 23);
             this.nicknameLabel.TabIndex = 10;
@@ -66,7 +66,7 @@
             this.profileNameLabel.AutoSize = true;
             this.profileNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.profileNameLabel.Font = new System.Drawing.Font("Russo One", 12F);
-            this.profileNameLabel.Location = new System.Drawing.Point(414, 112);
+            this.profileNameLabel.Location = new System.Drawing.Point(415, 112);
             this.profileNameLabel.Name = "profileNameLabel";
             this.profileNameLabel.Size = new System.Drawing.Size(83, 19);
             this.profileNameLabel.TabIndex = 9;
@@ -79,7 +79,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.pictureBox1.Location = new System.Drawing.Point(36, 188);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(758, 5);
+            this.pictureBox1.Size = new System.Drawing.Size(760, 5);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -93,7 +93,7 @@
             this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
             this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.profileImg.Gradiant = 50F;
-            this.profileImg.Location = new System.Drawing.Point(245, 40);
+            this.profileImg.Location = new System.Drawing.Point(246, 40);
             this.profileImg.Name = "profileImg";
             this.profileImg.Size = new System.Drawing.Size(124, 124);
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -106,14 +106,13 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.recipesPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.profileNameLabel);
             this.Controls.Add(this.profileImg);
             this.Name = "ProfilePlate";
-            this.Size = new System.Drawing.Size(830, 460);
+            this.Size = new System.Drawing.Size(832, 462);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             this.ResumeLayout(false);

@@ -14,6 +14,16 @@ namespace DishesGo.Data
     
     public partial class Recipes
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Recipes()
+        {
+            this.Bookmarks = new HashSet<Bookmarks>();
+            this.DishIngredients = new HashSet<DishIngredients>();
+            this.Likes = new HashSet<Likes>();
+            this.RecipeSteps = new HashSet<RecipeSteps>();
+            this.Review = new HashSet<Review>();
+        }
+    
         public int recipe_id { get; set; }
         public string title { get; set; }
         public string description { get; set; }
@@ -23,9 +33,20 @@ namespace DishesGo.Data
         public Nullable<int> user_id { get; set; }
         public Nullable<int> kitchen_id { get; set; }
         public Nullable<int> type_id { get; set; }
+        public Nullable<System.DateTime> posting_date { get; set; }
     
         public virtual Kitchens Kitchens { get; set; }
         public virtual RecipeTypes RecipeTypes { get; set; }
         public virtual Users Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bookmarks> Bookmarks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DishIngredients> DishIngredients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Likes> Likes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecipeSteps> RecipeSteps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review> Review { get; set; }
     }
 }

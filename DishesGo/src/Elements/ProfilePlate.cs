@@ -28,10 +28,9 @@ namespace DishesGo.src.Elements
                 {
                     foreach (var recipe in userRecipes)
                     {
-                        recipesPanel.Controls.Add(new OwnRecipe(recipe));
-                        recipesPanel.Controls.Add(new OwnRecipe(recipe));
-                        recipesPanel.Controls.Add(new OwnRecipe(recipe));
-                        recipesPanel.Controls.Add(new OwnRecipe(recipe));
+                        OwnRecipe ownRecipe = new OwnRecipe(recipe);
+                        ownRecipe.Parent = this;
+                        recipesPanel.Controls.Add(ownRecipe);
                     }
                 }
             }

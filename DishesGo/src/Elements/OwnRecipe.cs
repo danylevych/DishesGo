@@ -1,4 +1,5 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +57,9 @@ namespace DishesGo.src.Elements
 
         private void border_Click(object sender, EventArgs e)
         {
-
+            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, true);
+            //MainForm.Instance.Hide();
+            recipeViewerForm.ShowDialog(MainForm.Instance);
         }
     }
 }

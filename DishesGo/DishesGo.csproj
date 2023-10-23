@@ -95,6 +95,9 @@
     <Compile Include="Data\Likes.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\RecipeDetails.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Recipes.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
@@ -102,9 +105,6 @@
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\RecipeTypes.cs">
-      <DependentUpon>DBModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Review.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\sysdiagrams.cs">
@@ -228,6 +228,12 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\MoreButton.png" />
+    <None Include="Resources\Img\UserAcrivity\Back.png" />
+    <Resource Include="Resources\Img\UserAcrivity\FullBookmark.png" />
+    <Resource Include="Resources\Img\UserAcrivity\EmptyBookmark.png" />
+    <Resource Include="Resources\Img\UserAcrivity\FullLike.png" />
+    <Resource Include="Resources\Img\UserAcrivity\EmptyLike.png" />
     <None Include="Resources\Img\border.png" />
     <None Include="Resources\Img\leftButtomCorner.png" />
     <None Include="Resources\Img\rightButtomCorner.png" />

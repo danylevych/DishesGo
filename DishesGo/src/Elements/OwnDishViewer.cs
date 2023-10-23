@@ -14,8 +14,10 @@ namespace DishesGo.src.Elements
 {
     public partial class OwnDishViewer : UserControl
     {
-        public int ReceiptId { get; set; }
+        private RecipeDetails recipeDetails;
 
+        public int ReceiptId { get; set; }
+        
         public OwnDishViewer()
         {
             InitializeComponent();
@@ -30,16 +32,17 @@ namespace DishesGo.src.Elements
 
         public void Init()
         {
-            using(DishesGo_dbEntities db =  new DishesGo_dbEntities()) 
+            using (DishesGo_dbEntities db = new DishesGo_dbEntities())
             {
-                Recipes receiptObj = db.Recipes.FirstOrDefault(receipt => receipt.recipe_id == ReceiptId);
+                recipeDetails = db.RecipeDetails.FirstOrDefault(receipt => receipt.recipe_id == ReceiptId);
+
                 // Set all info about receipt.
-                if (receiptObj != null) 
+                if (recipeDetails != null)
                 {
-                    if(receiptObj.recipe_photo != null)
+                    if (recipeDetails.recipe_photo != null)
                     {
-                        using(MemoryStream ms = new MemoryStream(receiptObj.recipe_photo))
-                        { 
+                        using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
+                        {
                             dishImg.Image = Image.FromStream(ms);
                         }
                     }
@@ -50,32 +53,29 @@ namespace DishesGo.src.Elements
                     }
 
                     // Set the header panel.
-                    Users currentUser = db.Users.FirstOrDefault(user => user.user_id == receiptObj.user_id);
-                    if (currentUser != null) 
+                    if (recipeDetails.user_photo != null)
                     {
-                        if (currentUser.user_photo != null)
+                        using (MemoryStream ms = new MemoryStream(recipeDetails.user_photo))
                         {
-                            using (MemoryStream ms = new MemoryStream(currentUser.user_photo))
-                            {
-                                profileImg.Image = Image.FromStream(ms);
-                            }
+                            profileImg.Image = Image.FromStream(ms);
                         }
-                        else
-                        {
-                            profileImg.Image = Properties.Resources.withoutPhoto;
-                        }
-                        nicknameLabel.Text = currentUser.nickname;
                     }
-                    
-                    // Set all fields.
-                    receiptName.Text = receiptObj.title;
-                    kitchenVal.Text = db.Kitchens.FirstOrDefault(kitchen => kitchen.kitchen_id == receiptObj.kitchen_id)?.title;
-                    timeVal.Text = receiptObj.time_prepare.ToString() + " хв.";
-                    caloriesVal.Text = receiptObj.calories.ToString() + " ккал.";
-                    descriptionVal.Text = receiptObj.description;
-                    dateVal.Text = receiptObj.posting_date?.ToString("yyyy-MM-dd");
+                    else
+                    {
+                        profileImg.Image = Properties.Resources.withoutPhoto;
+                    }
+                    nicknameLabel.Text = recipeDetails.nickname;
 
-                    // Add steps.
+
+                    // Set all fields.
+                    receiptName.Text = recipeDetails.recipe_title;
+                    kitchenVal.Text = recipeDetails.kitchen_title;
+                    timeVal.Text = recipeDetails.time_prepare.ToString() + " хв.";
+                    caloriesVal.Text = recipeDetails.calories.ToString() + " ккал.";
+                    descriptionVal.Text = recipeDetails.recipe_description;
+                    dateVal.Text = recipeDetails.posting_date?.ToString("yyyy-MM-dd");
+
+                    // Add steps and bottom panel elements.
                     using (var context = new DishesGo_dbEntities())
                     {
                         var recipeSteps = context.RecipeSteps.Where(rs => rs.id_recipe == ReceiptId).ToList();
@@ -113,9 +113,139 @@ namespace DishesGo.src.Elements
                         }
 
                         stepsVal.Text = formattedSteps.ToString();
-                    } 
+
+
+                        // Set like button.
+                        var likes = context.Likes
+                                           .Where(like => like.id_recipe == ReceiptId &&
+                                                          like.id_user == recipeDetails.user_id)
+                                           .ToList();
+
+                        bool isOwnerLikes = (likes.Find(like => like.id_user == recipeDetails.user_id) != null);
+
+                        if (isOwnerLikes) 
+                        {
+                            likeButtonImg.Image = Properties.Resources.FullLike;
+                            likeButtonImg.Tag = "FullLike";
+                        }
+                        else
+                        {
+                            likeButtonImg.Image = Properties.Resources.EmptyLike;
+                            likeButtonImg.Tag = "EmptyLike";
+                        }
+
+                        countOfLikeLabel.Text = likes.Count.ToString();
+
+                        // Set bookmark button.
+                        bool isOwnBookmark = (context.Bookmarks.FirstOrDefault(bookmark => bookmark.id_recipe == recipeDetails.recipe_id &&
+                                                                                           bookmark.id_user == recipeDetails.user_id) != null);
+
+                        if (isOwnBookmark) 
+                        {
+                            bookmarkButtonImage.Image = Properties.Resources.FullBookmark;
+                            bookmarkButtonImage.Tag = "FullBookmark";
+                        }
+                        else
+                        {
+                            bookmarkButtonImage.Image = Properties.Resources.EmptyBookmark;
+                            bookmarkButtonImage.Tag = "EmptyBookmark";
+                        }
+                    }
                 }
             }
+        }
+
+        private void likeButton_Click(object sender, EventArgs e)
+        {
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                // Owner does not liked his post.
+                if (likeButtonImg.Tag.ToString() == "EmptyLike")
+                {
+                    countOfLikeLabel.Text = (Convert.ToInt64(countOfLikeLabel.Text) + 1).ToString();
+                    likeButtonImg.Tag = "FullLike";
+                    likeButtonImg.Image = Properties.Resources.FullLike;
+
+                    // Save like.
+                    Likes like = new Likes
+                    {
+                        id_user = recipeDetails.user_id,
+                        id_recipe = recipeDetails.recipe_id
+                    };
+                    context.Likes.Add(like);
+                }
+                else
+                {
+                    countOfLikeLabel.Text = (Convert.ToInt64(countOfLikeLabel.Text) - 1).ToString();
+                    likeButtonImg.Tag = "EmptyLike";
+                    likeButtonImg.Image = Properties.Resources.EmptyLike;
+
+                    // Delete like.
+                    Likes likeToDelete = context.Likes.FirstOrDefault(like => like.id_user == recipeDetails.user_id && like.id_recipe == ReceiptId);
+                    if (likeToDelete != null)
+                    {
+                        context.Likes.Remove(likeToDelete);
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
+
+        private void bookmarkButtonImage_Click(object sender, EventArgs e)
+        {
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                // Owner does not saved his post.
+                if (bookmarkButtonImage.Tag.ToString() == "EmptyBookmark")
+                {
+                    bookmarkButtonImage.Tag = "FullBookmark";
+                    bookmarkButtonImage.Image = Properties.Resources.FullBookmark;
+
+                    // Save to bookmarks.
+                    Bookmarks bookmark = new Bookmarks
+                    {
+                        id_user = recipeDetails.user_id,
+                        id_recipe = recipeDetails.recipe_id
+                    };
+
+                    context.Bookmarks.Add(bookmark);
+                }
+                else
+                {
+                    bookmarkButtonImage.Tag = "EmptyBookmark";
+                    bookmarkButtonImage.Image = Properties.Resources.EmptyBookmark;
+
+                    // Delete from bookmarks.
+                    Bookmarks bookmarkToDelete = context.Bookmarks
+                                                        .FirstOrDefault(bookmark => bookmark.id_user == recipeDetails.user_id &&
+                                                                                    bookmark.id_recipe == ReceiptId);
+
+                    if (bookmarkToDelete != null)
+                    {
+                        context.Bookmarks.Remove(bookmarkToDelete);
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
+
+        private void moreButton_Click(object sender, EventArgs e)
+        {
+            moreOptionPanel.Visible = true;
+        }
+
+        private void moreOptionPanel_MouseLeave(object sender, EventArgs e)
+        {
+            if (!moreOptionPanel.Bounds.Contains(PointToClient(MousePosition)))
+            {
+                moreOptionPanel.Visible = false;
+            }
+        }
+
+        // Deleting recipe.
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

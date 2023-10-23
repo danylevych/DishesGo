@@ -21,7 +21,6 @@ namespace DishesGo.Data
             this.DishIngredients = new HashSet<DishIngredients>();
             this.Likes = new HashSet<Likes>();
             this.RecipeSteps = new HashSet<RecipeSteps>();
-            this.Review = new HashSet<Review>();
         }
     
         public int recipe_id { get; set; }
@@ -46,7 +45,5 @@ namespace DishesGo.Data
         public virtual ICollection<Likes> Likes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecipeSteps> RecipeSteps { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Review { get; set; }
     }
 }

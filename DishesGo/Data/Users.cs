@@ -20,7 +20,6 @@ namespace DishesGo.Data
             this.Recipes = new HashSet<Recipes>();
             this.Bookmarks = new HashSet<Bookmarks>();
             this.Likes = new HashSet<Likes>();
-            this.Review = new HashSet<Review>();
         }
     
         public int user_id { get; set; }
@@ -37,7 +36,5 @@ namespace DishesGo.Data
         public virtual ICollection<Bookmarks> Bookmarks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Likes> Likes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Review { get; set; }
     }
 }

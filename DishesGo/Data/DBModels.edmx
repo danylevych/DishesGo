@@ -77,16 +77,6 @@
           <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Review">
-          <Key>
-            <PropertyRef Name="id_review" />
-          </Key>
-          <Property Name="id_review" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_recipe" Type="int" />
-          <Property Name="id_user" Type="int" />
-          <Property Name="text" Type="nvarchar(max)" />
-          <Property Name="posting_date" Type="datetime" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -108,6 +98,32 @@
           <Property Name="email" Type="varchar" MaxLength="90" Nullable="false" />
           <Property Name="nickname" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="user_password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecipeDetails">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_title" />
+          </Key>
+          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="recipe_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="recipe_description" Type="varchar" MaxLength="500" />
+          <Property Name="recipe_photo" Type="varbinary(max)" />
+          <Property Name="time_prepare" Type="int" />
+          <Property Name="calories" Type="int" />
+          <Property Name="posting_date" Type="datetime" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_photo" Type="varbinary(max)" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="70" />
+          <Property Name="email" Type="varchar" MaxLength="90" />
+          <Property Name="nickname" Type="varchar" MaxLength="45" />
+          <Property Name="kitchen_id" Type="int" />
+          <Property Name="kitchen_title" Type="varchar" MaxLength="50" />
+          <Property Name="kitchen_description" Type="varchar" MaxLength="200" />
+          <Property Name="type_id" Type="int" />
+          <Property Name="recipe_type_title" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__Bookmarks__id_re__5CD6CB2B">
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
@@ -229,30 +245,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Review__id_recip__5441852A">
-          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
-          <End Role="Review" Type="Self.Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Recipes">
-              <PropertyRef Name="recipe_id" />
-            </Principal>
-            <Dependent Role="Review">
-              <PropertyRef Name="id_recipe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Review__id_user__5535A963">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Review" Type="Self.Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Review">
-              <PropertyRef Name="id_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DishesGo_dbModelStoreContainer">
           <EntitySet Name="Bookmarks" EntityType="Self.Bookmarks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DishIngredients" EntityType="Self.DishIngredients" Schema="dbo" store:Type="Tables" />
@@ -262,9 +254,30 @@
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeSteps" EntityType="Self.RecipeSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeTypes" EntityType="Self.RecipeTypes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeDetails" EntityType="Self.RecipeDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecipeDetails].[recipe_id] AS [recipe_id], 
+    [RecipeDetails].[recipe_title] AS [recipe_title], 
+    [RecipeDetails].[recipe_description] AS [recipe_description], 
+    [RecipeDetails].[recipe_photo] AS [recipe_photo], 
+    [RecipeDetails].[time_prepare] AS [time_prepare], 
+    [RecipeDetails].[calories] AS [calories], 
+    [RecipeDetails].[posting_date] AS [posting_date], 
+    [RecipeDetails].[user_id] AS [user_id], 
+    [RecipeDetails].[user_photo] AS [user_photo], 
+    [RecipeDetails].[first_name] AS [first_name], 
+    [RecipeDetails].[last_name] AS [last_name], 
+    [RecipeDetails].[email] AS [email], 
+    [RecipeDetails].[nickname] AS [nickname], 
+    [RecipeDetails].[kitchen_id] AS [kitchen_id], 
+    [RecipeDetails].[kitchen_title] AS [kitchen_title], 
+    [RecipeDetails].[kitchen_description] AS [kitchen_description], 
+    [RecipeDetails].[type_id] AS [type_id], 
+    [RecipeDetails].[recipe_type_title] AS [recipe_type_title]
+    FROM [dbo].[RecipeDetails] AS [RecipeDetails]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Bookmarks__id_re__5CD6CB2B" Association="Self.FK__Bookmarks__id_re__5CD6CB2B">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="Bookmarks" EntitySet="Bookmarks" />
@@ -305,14 +318,6 @@
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="RecipeSteps" EntitySet="RecipeSteps" />
           </AssociationSet>
-          <AssociationSet Name="FK__Review__id_recip__5441852A" Association="Self.FK__Review__id_recip__5441852A">
-            <End Role="Recipes" EntitySet="Recipes" />
-            <End Role="Review" EntitySet="Review" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Review__id_user__5535A963" Association="Self.FK__Review__id_user__5535A963">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Review" EntitySet="Review" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -332,7 +337,6 @@
           <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Users" ToRole="Recipes" />
           <NavigationProperty Name="Bookmarks" Relationship="DishesGo_dbModel.FK__Bookmarks__id_us__5BE2A6F2" FromRole="Users" ToRole="Bookmarks" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_user__59063A47" FromRole="Users" ToRole="Likes" />
-          <NavigationProperty Name="Review" Relationship="DishesGo_dbModel.FK__Review__id_user__5535A963" FromRole="Users" ToRole="Review" />
         </EntityType>
         <EntityContainer Name="DishesGo_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.Users" />
@@ -356,7 +360,6 @@
           <EntitySet Name="Ingredients" EntityType="DishesGo_dbModel.Ingredients" />
           <EntitySet Name="Likes" EntityType="DishesGo_dbModel.Likes" />
           <EntitySet Name="RecipeSteps" EntityType="DishesGo_dbModel.RecipeSteps" />
-          <EntitySet Name="Review" EntityType="DishesGo_dbModel.Review" />
           <EntitySet Name="sysdiagrams" EntityType="DishesGo_dbModel.sysdiagrams" />
           <AssociationSet Name="FK__Bookmarks__id_re__5CD6CB2B" Association="DishesGo_dbModel.FK__Bookmarks__id_re__5CD6CB2B">
             <End Role="Recipes" EntitySet="Recipes" />
@@ -386,14 +389,7 @@
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="RecipeSteps" EntitySet="RecipeSteps" />
           </AssociationSet>
-          <AssociationSet Name="FK__Review__id_recip__5441852A" Association="DishesGo_dbModel.FK__Review__id_recip__5441852A">
-            <End Role="Recipes" EntitySet="Recipes" />
-            <End Role="Review" EntitySet="Review" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Review__id_user__5535A963" Association="DishesGo_dbModel.FK__Review__id_user__5535A963">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Review" EntitySet="Review" />
-          </AssociationSet>
+          <EntitySet Name="RecipeDetails" EntityType="DishesGo_dbModel.RecipeDetails" />
         </EntityContainer>
         <EntityType Name="Kitchens">
           <Key>
@@ -425,7 +421,6 @@
           <NavigationProperty Name="DishIngredients" Relationship="DishesGo_dbModel.FK__DishIngre__recip__619B8048" FromRole="Recipes" ToRole="DishIngredients" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_recipe__5812160E" FromRole="Recipes" ToRole="Likes" />
           <NavigationProperty Name="RecipeSteps" Relationship="DishesGo_dbModel.FK__RecipeSte__id_re__656C112C" FromRole="Recipes" ToRole="RecipeSteps" />
-          <NavigationProperty Name="Review" Relationship="DishesGo_dbModel.FK__Review__id_recip__5441852A" FromRole="Recipes" ToRole="Review" />
         </EntityType>
         <EntityType Name="RecipeTypes">
           <Key>
@@ -521,18 +516,6 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__RecipeSte__id_re__656C112C" FromRole="RecipeSteps" ToRole="Recipes" />
         </EntityType>
-        <EntityType Name="Review">
-          <Key>
-            <PropertyRef Name="id_review" />
-          </Key>
-          <Property Name="id_review" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_recipe" Type="Int32" />
-          <Property Name="id_user" Type="Int32" />
-          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="posting_date" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Review__id_recip__5441852A" FromRole="Review" ToRole="Recipes" />
-          <NavigationProperty Name="Users" Relationship="DishesGo_dbModel.FK__Review__id_user__5535A963" FromRole="Review" ToRole="Users" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -627,30 +610,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Review__id_recip__5441852A">
-          <End Type="DishesGo_dbModel.Recipes" Role="Recipes" Multiplicity="0..1" />
-          <End Type="DishesGo_dbModel.Review" Role="Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Recipes">
-              <PropertyRef Name="recipe_id" />
-            </Principal>
-            <Dependent Role="Review">
-              <PropertyRef Name="id_recipe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Review__id_user__5535A963">
-          <End Type="DishesGo_dbModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="DishesGo_dbModel.Review" Role="Review" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Review">
-              <PropertyRef Name="id_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="RecipeDetails">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_title" />
+          </Key>
+          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="recipe_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="recipe_description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="recipe_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="time_prepare" Type="Int32" />
+          <Property Name="calories" Type="Int32" />
+          <Property Name="posting_date" Type="DateTime" Precision="3" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="nickname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="kitchen_id" Type="Int32" />
+          <Property Name="kitchen_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kitchen_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="type_id" Type="Int32" />
+          <Property Name="recipe_type_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -750,17 +733,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Review">
-            <EntityTypeMapping TypeName="DishesGo_dbModel.Review">
-              <MappingFragment StoreEntitySet="Review">
-                <ScalarProperty Name="posting_date" ColumnName="posting_date" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="id_user" ColumnName="id_user" />
-                <ScalarProperty Name="id_recipe" ColumnName="id_recipe" />
-                <ScalarProperty Name="id_review" ColumnName="id_review" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DishesGo_dbModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -769,6 +741,30 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeDetails">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.RecipeDetails">
+              <MappingFragment StoreEntitySet="RecipeDetails">
+                <ScalarProperty Name="recipe_type_title" ColumnName="recipe_type_title" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="kitchen_description" ColumnName="kitchen_description" />
+                <ScalarProperty Name="kitchen_title" ColumnName="kitchen_title" />
+                <ScalarProperty Name="kitchen_id" ColumnName="kitchen_id" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="user_photo" ColumnName="user_photo" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="posting_date" ColumnName="posting_date" />
+                <ScalarProperty Name="calories" ColumnName="calories" />
+                <ScalarProperty Name="time_prepare" ColumnName="time_prepare" />
+                <ScalarProperty Name="recipe_photo" ColumnName="recipe_photo" />
+                <ScalarProperty Name="recipe_description" ColumnName="recipe_description" />
+                <ScalarProperty Name="recipe_title" ColumnName="recipe_title" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -786,7 +782,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

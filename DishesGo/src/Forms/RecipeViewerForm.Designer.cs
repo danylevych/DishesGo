@@ -31,7 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.context = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.backButtonImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.context)).BeginInit();
+            this.context.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -52,12 +55,25 @@
             // 
             // context
             // 
+            this.context.Controls.Add(this.backButtonImg);
             this.context.Location = new System.Drawing.Point(12, 12);
             this.context.Name = "context";
             this.context.Size = new System.Drawing.Size(781, 410);
             this.context.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.context.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.context.TabIndex = 0;
+            // 
+            // backButtonImg
+            // 
+            this.backButtonImg.BackColor = System.Drawing.Color.Transparent;
+            this.backButtonImg.Image = global::DishesGo.Properties.Resources.Back;
+            this.backButtonImg.Location = new System.Drawing.Point(0, 0);
+            this.backButtonImg.Name = "backButtonImg";
+            this.backButtonImg.Size = new System.Drawing.Size(50, 50);
+            this.backButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.backButtonImg.TabIndex = 0;
+            this.backButtonImg.TabStop = false;
+            this.backButtonImg.Click += new System.EventHandler(this.backButtonImg_Click);
             // 
             // RecipeViewerForm
             // 
@@ -73,6 +89,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OwnRecipeViewerForm";
             ((System.ComponentModel.ISupportInitialize)(this.context)).EndInit();
+            this.context.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,5 +99,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel context;
+        private System.Windows.Forms.PictureBox backButtonImg;
     }
 }

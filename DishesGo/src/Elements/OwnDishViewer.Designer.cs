@@ -30,7 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.moreOptionPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.deleteButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.addingComment = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.bookmarkButtonImage = new System.Windows.Forms.PictureBox();
+            this.countOfLikeLabel = new System.Windows.Forms.Label();
+            this.likeButtonImg = new System.Windows.Forms.PictureBox();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.postingDateGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.dateVal = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.receiptName = new System.Windows.Forms.Label();
             this.stepsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.stepsVal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -45,19 +54,28 @@
             this.caloriesGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
             this.caloriesVal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.addingComment = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.header = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.moreButton = new System.Windows.Forms.PictureBox();
             this.profileImg = new RashiUI.RashiCircularPictureBox();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.dishImg = new System.Windows.Forms.PictureBox();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.postingDateGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateVal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.moreOptionPanel)).BeginInit();
+            this.moreOptionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addingComment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addingComment.Panel)).BeginInit();
+            this.addingComment.Panel.SuspendLayout();
+            this.addingComment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookmarkButtonImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.likeButtonImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup.Panel)).BeginInit();
+            this.postingDateGroup.Panel.SuspendLayout();
+            this.postingDateGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepsGroupBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepsGroupBox.Panel)).BeginInit();
             this.stepsGroupBox.Panel.SuspendLayout();
@@ -78,26 +96,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.caloriesGroup.Panel)).BeginInit();
             this.caloriesGroup.Panel.SuspendLayout();
             this.caloriesGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addingComment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addingComment.Panel)).BeginInit();
-            this.addingComment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.header.Panel)).BeginInit();
             this.header.Panel.SuspendLayout();
             this.header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.moreButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup.Panel)).BeginInit();
-            this.postingDateGroup.Panel.SuspendLayout();
-            this.postingDateGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel1.Controls.Add(this.moreOptionPanel);
             this.kryptonPanel1.Controls.Add(this.addingComment);
+            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
             this.kryptonPanel1.Controls.Add(this.header);
             this.kryptonPanel1.Controls.Add(this.dishImg);
             this.kryptonPanel1.Location = new System.Drawing.Point(-2, -1);
@@ -109,6 +122,165 @@
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.kryptonPanel1.StateCommon.ColorAngle = 130F;
             this.kryptonPanel1.TabIndex = 0;
+            // 
+            // moreOptionPanel
+            // 
+            this.moreOptionPanel.Controls.Add(this.deleteButton);
+            this.moreOptionPanel.Location = new System.Drawing.Point(604, 30);
+            this.moreOptionPanel.Name = "moreOptionPanel";
+            this.moreOptionPanel.Size = new System.Drawing.Size(159, 49);
+            this.moreOptionPanel.StateCommon.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.moreOptionPanel.StateCommon.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.moreOptionPanel.TabIndex = 13;
+            this.moreOptionPanel.Visible = false;
+            this.moreOptionPanel.MouseLeave += new System.EventHandler(this.moreOptionPanel_MouseLeave);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.deleteButton.Location = new System.Drawing.Point(3, 8);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideDefault.Back.ColorAngle = 45F;
+            this.deleteButton.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideDefault.Border.ColorAngle = 45F;
+            this.deleteButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.OverrideDefault.Border.Rounding = 13;
+            this.deleteButton.OverrideDefault.Border.Width = 1;
+            this.deleteButton.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideFocus.Back.ColorAngle = 45F;
+            this.deleteButton.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.OverrideFocus.Border.ColorAngle = 45F;
+            this.deleteButton.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.OverrideFocus.Border.Rounding = 13;
+            this.deleteButton.OverrideFocus.Border.Width = 1;
+            this.deleteButton.Size = new System.Drawing.Size(150, 27);
+            this.deleteButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateCommon.Back.ColorAngle = 45F;
+            this.deleteButton.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateCommon.Border.ColorAngle = 45F;
+            this.deleteButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.StateCommon.Border.Rounding = 13;
+            this.deleteButton.StateCommon.Border.Width = 1;
+            this.deleteButton.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Orbitron", 8F, System.Drawing.FontStyle.Bold);
+            this.deleteButton.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateDisabled.Back.ColorAngle = 45F;
+            this.deleteButton.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateDisabled.Border.ColorAngle = 45F;
+            this.deleteButton.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.StateDisabled.Border.Rounding = 13;
+            this.deleteButton.StateDisabled.Border.Width = 1;
+            this.deleteButton.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateNormal.Back.ColorAngle = 45F;
+            this.deleteButton.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateNormal.Border.ColorAngle = 45F;
+            this.deleteButton.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.StateNormal.Border.Rounding = 13;
+            this.deleteButton.StateNormal.Border.Width = 1;
+            this.deleteButton.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StatePressed.Back.ColorAngle = 45F;
+            this.deleteButton.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.deleteButton.StatePressed.Border.ColorAngle = 45F;
+            this.deleteButton.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.StatePressed.Border.Rounding = 13;
+            this.deleteButton.StatePressed.Border.Width = 1;
+            this.deleteButton.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateTracking.Back.ColorAngle = 45F;
+            this.deleteButton.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.deleteButton.StateTracking.Border.ColorAngle = 45F;
+            this.deleteButton.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.deleteButton.StateTracking.Border.Rounding = 13;
+            this.deleteButton.StateTracking.Border.Width = 1;
+            this.deleteButton.TabIndex = 6;
+            this.deleteButton.Values.Text = "Видалити рецепт";
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // addingComment
+            // 
+            this.addingComment.Location = new System.Drawing.Point(410, 360);
+            this.addingComment.Name = "addingComment";
+            // 
+            // addingComment.Panel
+            // 
+            this.addingComment.Panel.Controls.Add(this.bookmarkButtonImage);
+            this.addingComment.Panel.Controls.Add(this.countOfLikeLabel);
+            this.addingComment.Panel.Controls.Add(this.likeButtonImg);
+            this.addingComment.Size = new System.Drawing.Size(370, 50);
+            this.addingComment.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.addingComment.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.addingComment.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.addingComment.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.addingComment.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.addingComment.StateCommon.Border.Rounding = 0;
+            this.addingComment.StateCommon.Border.Width = 1;
+            this.addingComment.TabIndex = 13;
+            this.addingComment.Values.Heading = "";
+            // 
+            // bookmarkButtonImage
+            // 
+            this.bookmarkButtonImage.BackColor = System.Drawing.Color.Transparent;
+            this.bookmarkButtonImage.Image = global::DishesGo.Properties.Resources.EmptyBookmark;
+            this.bookmarkButtonImage.Location = new System.Drawing.Point(320, 7);
+            this.bookmarkButtonImage.Name = "bookmarkButtonImage";
+            this.bookmarkButtonImage.Size = new System.Drawing.Size(30, 31);
+            this.bookmarkButtonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bookmarkButtonImage.TabIndex = 19;
+            this.bookmarkButtonImage.TabStop = false;
+            this.bookmarkButtonImage.Click += new System.EventHandler(this.bookmarkButtonImage_Click);
+            // 
+            // countOfLikeLabel
+            // 
+            this.countOfLikeLabel.AutoSize = true;
+            this.countOfLikeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.countOfLikeLabel.Font = new System.Drawing.Font("Russo One", 12F);
+            this.countOfLikeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.countOfLikeLabel.Location = new System.Drawing.Point(61, 15);
+            this.countOfLikeLabel.Name = "countOfLikeLabel";
+            this.countOfLikeLabel.Size = new System.Drawing.Size(15, 19);
+            this.countOfLikeLabel.TabIndex = 18;
+            this.countOfLikeLabel.Text = "1";
+            // 
+            // likeButtonImg
+            // 
+            this.likeButtonImg.BackColor = System.Drawing.Color.Transparent;
+            this.likeButtonImg.Image = global::DishesGo.Properties.Resources.EmptyLike;
+            this.likeButtonImg.Location = new System.Drawing.Point(16, 2);
+            this.likeButtonImg.Name = "likeButtonImg";
+            this.likeButtonImg.Size = new System.Drawing.Size(40, 40);
+            this.likeButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.likeButtonImg.TabIndex = 0;
+            this.likeButtonImg.TabStop = false;
+            this.likeButtonImg.Click += new System.EventHandler(this.likeButton_Click);
             // 
             // kryptonPanel2
             // 
@@ -127,6 +299,51 @@
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.LightGray;
             this.kryptonPanel2.TabIndex = 23;
             // 
+            // postingDateGroup
+            // 
+            this.postingDateGroup.Location = new System.Drawing.Point(171, 65);
+            this.postingDateGroup.Name = "postingDateGroup";
+            // 
+            // postingDateGroup.Panel
+            // 
+            this.postingDateGroup.Panel.Controls.Add(this.dateVal);
+            this.postingDateGroup.Panel.Controls.Add(this.label1);
+            this.postingDateGroup.Size = new System.Drawing.Size(182, 30);
+            this.postingDateGroup.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.postingDateGroup.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.postingDateGroup.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.postingDateGroup.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.postingDateGroup.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.postingDateGroup.StateCommon.Border.Rounding = 5;
+            this.postingDateGroup.StateCommon.Border.Width = 1;
+            this.postingDateGroup.TabIndex = 23;
+            // 
+            // dateVal
+            // 
+            this.dateVal.AutoSize = true;
+            this.dateVal.BackColor = System.Drawing.Color.Transparent;
+            this.dateVal.Font = new System.Drawing.Font("Russo One", 6F);
+            this.dateVal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dateVal.Location = new System.Drawing.Point(98, 8);
+            this.dateVal.Name = "dateVal";
+            this.dateVal.Size = new System.Drawing.Size(24, 9);
+            this.dateVal.TabIndex = 19;
+            this.dateVal.Text = "date";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Russo One", 6F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 9);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Дата завантаження:";
+            // 
             // receiptName
             // 
             this.receiptName.AutoSize = true;
@@ -142,7 +359,7 @@
             // 
             this.stepsGroupBox.AutoSize = true;
             this.stepsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.stepsGroupBox.Location = new System.Drawing.Point(8, 190);
+            this.stepsGroupBox.Location = new System.Drawing.Point(8, 265);
             this.stepsGroupBox.Name = "stepsGroupBox";
             // 
             // stepsGroupBox.Panel
@@ -351,23 +568,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Калорійність:";
             // 
-            // addingComment
-            // 
-            this.addingComment.Location = new System.Drawing.Point(410, 370);
-            this.addingComment.Name = "addingComment";
-            this.addingComment.Size = new System.Drawing.Size(370, 40);
-            this.addingComment.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.addingComment.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.addingComment.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.addingComment.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.addingComment.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.addingComment.StateCommon.Border.Rounding = 0;
-            this.addingComment.StateCommon.Border.Width = 1;
-            this.addingComment.TabIndex = 13;
-            this.addingComment.Values.Heading = "";
-            // 
             // header
             // 
             this.header.Location = new System.Drawing.Point(410, 0);
@@ -375,6 +575,7 @@
             // 
             // header.Panel
             // 
+            this.header.Panel.Controls.Add(this.moreButton);
             this.header.Panel.Controls.Add(this.profileImg);
             this.header.Panel.Controls.Add(this.nicknameLabel);
             this.header.Size = new System.Drawing.Size(370, 40);
@@ -389,6 +590,18 @@
             this.header.StateCommon.Border.Width = 1;
             this.header.TabIndex = 12;
             this.header.Values.Heading = "";
+            // 
+            // moreButton
+            // 
+            this.moreButton.BackColor = System.Drawing.Color.Transparent;
+            this.moreButton.Image = global::DishesGo.Properties.Resources.MoreButton;
+            this.moreButton.Location = new System.Drawing.Point(320, 6);
+            this.moreButton.Name = "moreButton";
+            this.moreButton.Size = new System.Drawing.Size(32, 22);
+            this.moreButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.moreButton.TabIndex = 12;
+            this.moreButton.TabStop = false;
+            this.moreButton.Click += new System.EventHandler(this.moreButton_Click);
             // 
             // profileImg
             // 
@@ -438,51 +651,6 @@
             this.kryptonPalette1.Common.StateCommon.Border.Rounding = 12;
             this.kryptonPalette1.Common.StateCommon.Border.Width = 5;
             // 
-            // postingDateGroup
-            // 
-            this.postingDateGroup.Location = new System.Drawing.Point(171, 65);
-            this.postingDateGroup.Name = "postingDateGroup";
-            // 
-            // postingDateGroup.Panel
-            // 
-            this.postingDateGroup.Panel.Controls.Add(this.dateVal);
-            this.postingDateGroup.Panel.Controls.Add(this.label1);
-            this.postingDateGroup.Size = new System.Drawing.Size(182, 30);
-            this.postingDateGroup.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.postingDateGroup.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.postingDateGroup.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.postingDateGroup.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.postingDateGroup.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.postingDateGroup.StateCommon.Border.Rounding = 5;
-            this.postingDateGroup.StateCommon.Border.Width = 1;
-            this.postingDateGroup.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Russo One", 6F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 9);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Дата завантаження:";
-            // 
-            // dateVal
-            // 
-            this.dateVal.AutoSize = true;
-            this.dateVal.BackColor = System.Drawing.Color.Transparent;
-            this.dateVal.Font = new System.Drawing.Font("Russo One", 6F);
-            this.dateVal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dateVal.Location = new System.Drawing.Point(98, 8);
-            this.dateVal.Name = "dateVal";
-            this.dateVal.Size = new System.Drawing.Size(24, 9);
-            this.dateVal.TabIndex = 19;
-            this.dateVal.Text = "date";
-            // 
             // OwnDishViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,9 +661,23 @@
             this.Size = new System.Drawing.Size(778, 410);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.moreOptionPanel)).EndInit();
+            this.moreOptionPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addingComment.Panel)).EndInit();
+            this.addingComment.Panel.ResumeLayout(false);
+            this.addingComment.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addingComment)).EndInit();
+            this.addingComment.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bookmarkButtonImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.likeButtonImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup.Panel)).EndInit();
+            this.postingDateGroup.Panel.ResumeLayout(false);
+            this.postingDateGroup.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup)).EndInit();
+            this.postingDateGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stepsGroupBox.Panel)).EndInit();
             this.stepsGroupBox.Panel.ResumeLayout(false);
             this.stepsGroupBox.Panel.PerformLayout();
@@ -520,21 +702,14 @@
             this.caloriesGroup.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.caloriesGroup)).EndInit();
             this.caloriesGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.addingComment.Panel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addingComment)).EndInit();
-            this.addingComment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.header.Panel)).EndInit();
             this.header.Panel.ResumeLayout(false);
             this.header.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.header)).EndInit();
             this.header.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.moreButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup.Panel)).EndInit();
-            this.postingDateGroup.Panel.ResumeLayout(false);
-            this.postingDateGroup.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.postingDateGroup)).EndInit();
-            this.postingDateGroup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -566,5 +741,11 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroup postingDateGroup;
         private System.Windows.Forms.Label dateVal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox likeButtonImg;
+        private System.Windows.Forms.Label countOfLikeLabel;
+        private System.Windows.Forms.PictureBox bookmarkButtonImage;
+        private System.Windows.Forms.PictureBox moreButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel moreOptionPanel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton deleteButton;
     }
 }

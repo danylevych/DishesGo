@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="DishesGo_dbModel.Ingredients" Width="1.5" PointX="5.125" PointY="8.5" />
         <EntityTypeShape EntityType="DishesGo_dbModel.Likes" Width="1.5" PointX="6.375" PointY="3.5" />
         <EntityTypeShape EntityType="DishesGo_dbModel.RecipeSteps" Width="1.5" PointX="7.875" PointY="5.5" />
-        <EntityTypeShape EntityType="DishesGo_dbModel.Review" Width="1.5" PointX="4.625" PointY="3.375" />
         <EntityTypeShape EntityType="DishesGo_dbModel.sysdiagrams" Width="1.5" PointX="5.5" PointY="6.25" />
         <AssociationConnector Association="DishesGo_dbModel.FK__Bookmarks__id_re__5CD6CB2B" />
         <AssociationConnector Association="DishesGo_dbModel.FK__Bookmarks__id_us__5BE2A6F2" />
@@ -27,8 +26,7 @@
         <AssociationConnector Association="DishesGo_dbModel.FK__Likes__id_user__59063A47" />
         <AssociationConnector Association="DishesGo_dbModel.FK__RecipeSte__id_re__656C112C" ManuallyRouted="false" >
         </AssociationConnector>
-        <AssociationConnector Association="DishesGo_dbModel.FK__Review__id_recip__5441852A" />
-        <AssociationConnector Association="DishesGo_dbModel.FK__Review__id_user__5535A963" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.RecipeDetails" Width="1.5" PointX="8.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

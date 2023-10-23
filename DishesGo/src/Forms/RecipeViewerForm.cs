@@ -16,8 +16,14 @@ namespace DishesGo.src.Forms
             InitializeComponent();
             if (isOwn)
             {
-               context.Controls.Add(new OwnDishViewer(idRecipe));
+                context.Controls.Add(new OwnDishViewer(idRecipe));
             }
+        }
+
+        private void backButtonImg_Click(object sender, System.EventArgs e)
+        {
+            MainForm.Instance.Show();
+            this.Close();
         }
     }
 }

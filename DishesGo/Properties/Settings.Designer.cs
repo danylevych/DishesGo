@@ -32,5 +32,15 @@ namespace DishesGo.Properties {
                 return ((string)(this["connectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=DishesGo_db;Integrated Security=True")]
+        public string DishesGo_dbConnectionString {
+            get {
+                return ((string)(this["DishesGo_dbConnectionString"]));
+            }
+        }
     }
 }

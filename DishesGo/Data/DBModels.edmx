@@ -125,8 +125,25 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
           <Property Name="type_id" Type="int" />
           <Property Name="recipe_type_title" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Bookmarks__id_re__5CD6CB2B">
-          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecipeIngredientsView">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_title" />
+            <PropertyRef Name="ingredient_id" />
+            <PropertyRef Name="ingredient_name" />
+          </Key>
+          <Property Name="recipe_id" Type="int" Nullable="false" />
+          <Property Name="recipe_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ingredient_id" Type="int" Nullable="false" />
+          <Property Name="ingredient_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="quantity" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <Association Name="FK_Bookmarks_Recipes">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Bookmarks" Type="Self.Bookmarks" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
@@ -137,7 +154,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bookmarks__id_us__5BE2A6F2">
+        <Association Name="FK_Bookmarks_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Bookmarks" Type="Self.Bookmarks" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,7 +166,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DishIngre__ingre__628FA481">
+        <Association Name="FK_DishIngredients_Ingredients">
           <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="0..1" />
           <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
           <ReferentialConstraint>
@@ -161,8 +178,10 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DishIngre__recip__619B8048">
-          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+        <Association Name="FK_DishIngredients_Recipes">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DishIngredients" Type="Self.DishIngredients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
@@ -173,8 +192,10 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__id_recipe__5812160E">
-          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+        <Association Name="FK_Likes_Recipes">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
@@ -185,7 +206,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__id_user__59063A47">
+        <Association Name="FK_Likes_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +218,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__kitchen__4E88ABD4">
+        <Association Name="FK_Recipes_Kitchens">
           <End Role="Kitchens" Type="Self.Kitchens" Multiplicity="0..1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +230,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__type_id__4F7CD00D">
+        <Association Name="FK_Recipes_RecipeTypes">
           <End Role="RecipeTypes" Type="Self.RecipeTypes" Multiplicity="0..1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,8 +242,10 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__user_id__4D94879B">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+        <Association Name="FK_Recipes_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -233,8 +256,10 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RecipeSte__id_re__656C112C">
-          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+        <Association Name="FK_RecipeSteps_Recipes">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="RecipeSteps" Type="Self.RecipeSteps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
@@ -278,43 +303,52 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
     [RecipeDetails].[recipe_type_title] AS [recipe_type_title]
     FROM [dbo].[RecipeDetails] AS [RecipeDetails]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Bookmarks__id_re__5CD6CB2B" Association="Self.FK__Bookmarks__id_re__5CD6CB2B">
+          <EntitySet Name="RecipeIngredientsView" EntityType="Self.RecipeIngredientsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecipeIngredientsView].[recipe_id] AS [recipe_id], 
+    [RecipeIngredientsView].[recipe_title] AS [recipe_title], 
+    [RecipeIngredientsView].[ingredient_id] AS [ingredient_id], 
+    [RecipeIngredientsView].[ingredient_name] AS [ingredient_name], 
+    [RecipeIngredientsView].[quantity] AS [quantity]
+    FROM [dbo].[RecipeIngredientsView] AS [RecipeIngredientsView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bookmarks_Recipes" Association="Self.FK_Bookmarks_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="Bookmarks" EntitySet="Bookmarks" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bookmarks__id_us__5BE2A6F2" Association="Self.FK__Bookmarks__id_us__5BE2A6F2">
+          <AssociationSet Name="FK_Bookmarks_Users" Association="Self.FK_Bookmarks_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Bookmarks" EntitySet="Bookmarks" />
           </AssociationSet>
-          <AssociationSet Name="FK__DishIngre__ingre__628FA481" Association="Self.FK__DishIngre__ingre__628FA481">
+          <AssociationSet Name="FK_DishIngredients_Ingredients" Association="Self.FK_DishIngredients_Ingredients">
             <End Role="Ingredients" EntitySet="Ingredients" />
             <End Role="DishIngredients" EntitySet="DishIngredients" />
           </AssociationSet>
-          <AssociationSet Name="FK__DishIngre__recip__619B8048" Association="Self.FK__DishIngre__recip__619B8048">
+          <AssociationSet Name="FK_DishIngredients_Recipes" Association="Self.FK_DishIngredients_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="DishIngredients" EntitySet="DishIngredients" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__id_recipe__5812160E" Association="Self.FK__Likes__id_recipe__5812160E">
+          <AssociationSet Name="FK_Likes_Recipes" Association="Self.FK_Likes_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__id_user__59063A47" Association="Self.FK__Likes__id_user__59063A47">
+          <AssociationSet Name="FK_Likes_Users" Association="Self.FK_Likes_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__kitchen__4E88ABD4" Association="Self.FK__Recipes__kitchen__4E88ABD4">
+          <AssociationSet Name="FK_Recipes_Kitchens" Association="Self.FK_Recipes_Kitchens">
             <End Role="Kitchens" EntitySet="Kitchens" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__type_id__4F7CD00D" Association="Self.FK__Recipes__type_id__4F7CD00D">
+          <AssociationSet Name="FK_Recipes_RecipeTypes" Association="Self.FK_Recipes_RecipeTypes">
             <End Role="RecipeTypes" EntitySet="RecipeTypes" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__user_id__4D94879B" Association="Self.FK__Recipes__user_id__4D94879B">
+          <AssociationSet Name="FK_Recipes_Users" Association="Self.FK_Recipes_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__RecipeSte__id_re__656C112C" Association="Self.FK__RecipeSte__id_re__656C112C">
+          <AssociationSet Name="FK_RecipeSteps_Recipes" Association="Self.FK_RecipeSteps_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="RecipeSteps" EntitySet="RecipeSteps" />
           </AssociationSet>
@@ -390,6 +424,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
             <End Role="RecipeSteps" EntitySet="RecipeSteps" />
           </AssociationSet>
           <EntitySet Name="RecipeDetails" EntityType="DishesGo_dbModel.RecipeDetails" />
+          <EntitySet Name="RecipeIngredientsViews" EntityType="DishesGo_dbModel.RecipeIngredientsView" />
         </EntityContainer>
         <EntityType Name="Kitchens">
           <Key>
@@ -634,6 +669,19 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
           <Property Name="type_id" Type="Int32" />
           <Property Name="recipe_type_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="RecipeIngredientsView">
+          <Key>
+            <PropertyRef Name="recipe_id" />
+            <PropertyRef Name="recipe_title" />
+            <PropertyRef Name="ingredient_id" />
+            <PropertyRef Name="ingredient_name" />
+          </Key>
+          <Property Name="recipe_id" Type="Int32" Nullable="false" />
+          <Property Name="recipe_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ingredient_id" Type="Int32" Nullable="false" />
+          <Property Name="ingredient_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -763,6 +811,17 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a pri
                 <ScalarProperty Name="time_prepare" ColumnName="time_prepare" />
                 <ScalarProperty Name="recipe_photo" ColumnName="recipe_photo" />
                 <ScalarProperty Name="recipe_description" ColumnName="recipe_description" />
+                <ScalarProperty Name="recipe_title" ColumnName="recipe_title" />
+                <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeIngredientsViews">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.RecipeIngredientsView">
+              <MappingFragment StoreEntitySet="RecipeIngredientsView">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="ingredient_name" ColumnName="ingredient_name" />
+                <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
                 <ScalarProperty Name="recipe_title" ColumnName="recipe_title" />
                 <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
               </MappingFragment>

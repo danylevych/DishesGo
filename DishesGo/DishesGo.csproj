@@ -98,6 +98,9 @@
     <Compile Include="Data\RecipeDetails.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\RecipeIngredientsView.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Recipes.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
@@ -109,6 +112,11 @@
     </Compile>
     <Compile Include="Data\sysdiagrams.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DishesGo_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,6 +202,17 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
     </None>
     <Resource Include="Data\Json\user.json" />
+    <None Include="DishesGo_dbDataSet.xsc">
+      <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DishesGo_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DishesGo_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DishesGo_dbDataSet.xss">
+      <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -66,7 +66,6 @@ namespace DishesGo.src.Elements
                     }
                     nicknameLabel.Text = recipeDetails.nickname;
 
-
                     // Set all fields.
                     receiptName.Text = recipeDetails.recipe_title;
                     kitchenVal.Text = recipeDetails.kitchen_title;
@@ -78,6 +77,30 @@ namespace DishesGo.src.Elements
                     // Add steps and bottom panel elements.
                     using (var context = new DishesGo_dbEntities())
                     {
+                        // Set the recipe ingredients.
+                        var recipeIngredients = context.RecipeIngredientsViews.Where(recipeIng => recipeIng.recipe_id == ReceiptId).ToList();
+                        if (recipeIngredients != null)
+                        {
+                            int prevHeight = ingredientsGroupBox.Height;
+
+                            StringBuilder formattedIngredients = new StringBuilder();
+
+                            foreach (var ingredient in recipeIngredients)
+                            {
+                                formattedIngredients.AppendLine($"◍ {ingredient.ingredient_name} - {ingredient.quantity}");
+                                formattedIngredients.AppendLine();
+                            }
+
+                            ingredientsVal.Text = formattedIngredients.ToString();
+
+                            int x = ingredientsGroupBox.Location.X;
+                            int y = ingredientsGroupBox.Location.Y;
+                            int height = ingredientsGroupBox.Height;
+
+                            //stepsGroupBox.Location = new Point(x, y + height + 10);
+                            //stepsGroupBox.Width = ingredientsGroupBox.Width;
+                        }
+
                         var recipeSteps = context.RecipeSteps.Where(rs => rs.id_recipe == ReceiptId).ToList();
                         StringBuilder formattedSteps = new StringBuilder();
 
@@ -245,7 +268,12 @@ namespace DishesGo.src.Elements
         // Deleting recipe.
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            using (DishesGo_dbEntities context =  new DishesGo_dbEntities()) 
+            {
+                context.Recipes.Remove(context.Recipes.FirstOrDefault(receipt => receipt.recipe_id == ReceiptId));
 
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -36,5 +36,6 @@ namespace DishesGo.Data
         public virtual DbSet<RecipeSteps> RecipeSteps { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<RecipeDetails> RecipeDetails { get; set; }
+        public virtual DbSet<RecipeIngredientsView> RecipeIngredientsViews { get; set; }
     }
 }

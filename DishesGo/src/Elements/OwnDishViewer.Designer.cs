@@ -43,6 +43,8 @@
             this.receiptName = new System.Windows.Forms.Label();
             this.stepsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.stepsVal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ingredientsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.ingredientsVal = new System.Windows.Forms.Label();
             this.kitchenGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
             this.kitchenVal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,10 +58,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.header = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.moreButton = new System.Windows.Forms.PictureBox();
-            this.profileImg = new RashiUI.RashiCircularPictureBox();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.dishImg = new System.Windows.Forms.PictureBox();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.profileImg = new RashiUI.RashiCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moreOptionPanel)).BeginInit();
@@ -80,6 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepsGroupBox.Panel)).BeginInit();
             this.stepsGroupBox.Panel.SuspendLayout();
             this.stepsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsGroupBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsGroupBox.Panel)).BeginInit();
+            this.ingredientsGroupBox.Panel.SuspendLayout();
+            this.ingredientsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenGroup.Panel)).BeginInit();
             this.kitchenGroup.Panel.SuspendLayout();
@@ -101,8 +107,8 @@
             this.header.Panel.SuspendLayout();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moreButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -288,13 +294,16 @@
             this.kryptonPanel2.Controls.Add(this.postingDateGroup);
             this.kryptonPanel2.Controls.Add(this.receiptName);
             this.kryptonPanel2.Controls.Add(this.stepsGroupBox);
+            this.kryptonPanel2.Controls.Add(this.ingredientsGroupBox);
             this.kryptonPanel2.Controls.Add(this.kitchenGroup);
             this.kryptonPanel2.Controls.Add(this.descriptiomGroupBox);
             this.kryptonPanel2.Controls.Add(this.timeGroup);
             this.kryptonPanel2.Controls.Add(this.caloriesGroup);
             this.kryptonPanel2.Location = new System.Drawing.Point(410, 42);
+            this.kryptonPanel2.Margin = new System.Windows.Forms.Padding(5);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(370, 334);
+            this.kryptonPanel2.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.kryptonPanel2.Size = new System.Drawing.Size(370, 318);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.LightGray;
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.LightGray;
             this.kryptonPanel2.TabIndex = 23;
@@ -349,7 +358,7 @@
             this.receiptName.AutoSize = true;
             this.receiptName.BackColor = System.Drawing.Color.Transparent;
             this.receiptName.Font = new System.Drawing.Font("Russo One", 12F);
-            this.receiptName.Location = new System.Drawing.Point(3, 7);
+            this.receiptName.Location = new System.Drawing.Point(11, 7);
             this.receiptName.Name = "receiptName";
             this.receiptName.Size = new System.Drawing.Size(114, 19);
             this.receiptName.TabIndex = 15;
@@ -359,14 +368,15 @@
             // 
             this.stepsGroupBox.AutoSize = true;
             this.stepsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.stepsGroupBox.Location = new System.Drawing.Point(8, 265);
+            this.stepsGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.stepsGroupBox.Location = new System.Drawing.Point(8, 270);
             this.stepsGroupBox.Name = "stepsGroupBox";
             // 
             // stepsGroupBox.Panel
             // 
             this.stepsGroupBox.Panel.AutoScroll = true;
             this.stepsGroupBox.Panel.Controls.Add(this.stepsVal);
-            this.stepsGroupBox.Size = new System.Drawing.Size(345, 130);
+            this.stepsGroupBox.Size = new System.Drawing.Size(362, 48);
             this.stepsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.stepsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.stepsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -384,7 +394,7 @@
             // 
             // stepsVal
             // 
-            this.stepsVal.Location = new System.Drawing.Point(4, 3);
+            this.stepsVal.Location = new System.Drawing.Point(3, 3);
             this.stepsVal.Name = "stepsVal";
             this.stepsVal.Size = new System.Drawing.Size(42, 17);
             this.stepsVal.StateCommon.LongText.Color1 = System.Drawing.SystemColors.ControlDarkDark;
@@ -397,6 +407,45 @@
             this.stepsVal.StateCommon.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.stepsVal.TabIndex = 0;
             this.stepsVal.Values.Text = "steps";
+            // 
+            // ingredientsGroupBox
+            // 
+            this.ingredientsGroupBox.AutoSize = true;
+            this.ingredientsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ingredientsGroupBox.Location = new System.Drawing.Point(8, 175);
+            this.ingredientsGroupBox.Name = "ingredientsGroupBox";
+            // 
+            // ingredientsGroupBox.Panel
+            // 
+            this.ingredientsGroupBox.Panel.AutoScroll = true;
+            this.ingredientsGroupBox.Panel.Controls.Add(this.ingredientsVal);
+            this.ingredientsGroupBox.Size = new System.Drawing.Size(345, 85);
+            this.ingredientsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.ingredientsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.ingredientsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.ingredientsGroupBox.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.ingredientsGroupBox.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ingredientsGroupBox.StateCommon.Border.Rounding = 5;
+            this.ingredientsGroupBox.StateCommon.Border.Width = 1;
+            this.ingredientsGroupBox.StateCommon.Content.ShortText.Color1 = System.Drawing.SystemColors.ControlDarkDark;
+            this.ingredientsGroupBox.StateCommon.Content.ShortText.Color2 = System.Drawing.SystemColors.ControlDarkDark;
+            this.ingredientsGroupBox.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Russo One", 8.249999F);
+            this.ingredientsGroupBox.TabIndex = 22;
+            this.ingredientsGroupBox.Values.Heading = "Інгридієнти:";
+            // 
+            // ingredientsVal
+            // 
+            this.ingredientsVal.AutoSize = true;
+            this.ingredientsVal.BackColor = System.Drawing.Color.Transparent;
+            this.ingredientsVal.Font = new System.Drawing.Font("Russo One", 8F);
+            this.ingredientsVal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ingredientsVal.Location = new System.Drawing.Point(4, 3);
+            this.ingredientsVal.Name = "ingredientsVal";
+            this.ingredientsVal.Size = new System.Drawing.Size(73, 13);
+            this.ingredientsVal.TabIndex = 19;
+            this.ingredientsVal.Text = "ingredients";
             // 
             // kitchenGroup
             // 
@@ -451,7 +500,7 @@
             // descriptiomGroupBox.Panel
             // 
             this.descriptiomGroupBox.Panel.Controls.Add(this.descriptionVal);
-            this.descriptiomGroupBox.Size = new System.Drawing.Size(345, 77);
+            this.descriptiomGroupBox.Size = new System.Drawing.Size(345, 67);
             this.descriptiomGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.descriptiomGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.descriptiomGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -601,24 +650,8 @@
             this.moreButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.moreButton.TabIndex = 12;
             this.moreButton.TabStop = false;
+            this.moreButton.Visible = false;
             this.moreButton.Click += new System.EventHandler(this.moreButton_Click);
-            // 
-            // profileImg
-            // 
-            this.profileImg.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.profileImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.profileImg.Border = 1;
-            this.profileImg.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
-            this.profileImg.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
-            this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.profileImg.Gradiant = 50F;
-            this.profileImg.Location = new System.Drawing.Point(0, 1);
-            this.profileImg.Name = "profileImg";
-            this.profileImg.Size = new System.Drawing.Size(31, 31);
-            this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profileImg.TabIndex = 9;
-            this.profileImg.TabStop = false;
             // 
             // nicknameLabel
             // 
@@ -650,6 +683,23 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPalette1.Common.StateCommon.Border.Rounding = 12;
             this.kryptonPalette1.Common.StateCommon.Border.Width = 5;
+            // 
+            // profileImg
+            // 
+            this.profileImg.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.profileImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.profileImg.Border = 1;
+            this.profileImg.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
+            this.profileImg.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
+            this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.profileImg.Gradiant = 50F;
+            this.profileImg.Location = new System.Drawing.Point(0, 1);
+            this.profileImg.Name = "profileImg";
+            this.profileImg.Size = new System.Drawing.Size(31, 31);
+            this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profileImg.TabIndex = 9;
+            this.profileImg.TabStop = false;
             // 
             // OwnDishViewer
             // 
@@ -683,6 +733,11 @@
             this.stepsGroupBox.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stepsGroupBox)).EndInit();
             this.stepsGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsGroupBox.Panel)).EndInit();
+            this.ingredientsGroupBox.Panel.ResumeLayout(false);
+            this.ingredientsGroupBox.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientsGroupBox)).EndInit();
+            this.ingredientsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kitchenGroup.Panel)).EndInit();
             this.kitchenGroup.Panel.ResumeLayout(false);
             this.kitchenGroup.Panel.PerformLayout();
@@ -708,8 +763,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.header)).EndInit();
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.moreButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -723,7 +778,7 @@
         private System.Windows.Forms.Label nicknameLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private System.Windows.Forms.Label receiptName;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox stepsGroupBox;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox ingredientsGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel stepsVal;
         private ComponentFactory.Krypton.Toolkit.KryptonGroup kitchenGroup;
         private System.Windows.Forms.Label kitchenVal;
@@ -747,5 +802,7 @@
         private System.Windows.Forms.PictureBox moreButton;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel moreOptionPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton deleteButton;
+        private System.Windows.Forms.Label ingredientsVal;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox stepsGroupBox;
     }
 }

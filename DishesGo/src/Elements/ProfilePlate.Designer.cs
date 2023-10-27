@@ -31,10 +31,17 @@
             this.recipesPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.profileNameLabel = new System.Windows.Forms.Label();
+            this.settings = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.profileImg = new RashiUI.RashiCircularPictureBox();
+            this.settingsPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.exitFromProfile = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).BeginInit();
+            this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // recipesPanel
@@ -54,7 +61,7 @@
             this.nicknameLabel.AutoSize = true;
             this.nicknameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nicknameLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.nicknameLabel.Location = new System.Drawing.Point(415, 73);
+            this.nicknameLabel.Location = new System.Drawing.Point(325, 67);
             this.nicknameLabel.Name = "nicknameLabel";
             this.nicknameLabel.Size = new System.Drawing.Size(101, 23);
             this.nicknameLabel.TabIndex = 10;
@@ -66,11 +73,23 @@
             this.profileNameLabel.AutoSize = true;
             this.profileNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.profileNameLabel.Font = new System.Drawing.Font("Russo One", 12F);
-            this.profileNameLabel.Location = new System.Drawing.Point(415, 112);
+            this.profileNameLabel.Location = new System.Drawing.Point(325, 112);
             this.profileNameLabel.Name = "profileNameLabel";
             this.profileNameLabel.Size = new System.Drawing.Size(83, 19);
             this.profileNameLabel.TabIndex = 9;
             this.profileNameLabel.Text = "fullName";
+            // 
+            // settings
+            // 
+            this.settings.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.settings.Image = global::DishesGo.Properties.Resources.Settings;
+            this.settings.Location = new System.Drawing.Point(746, 67);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(50, 50);
+            this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.settings.TabIndex = 12;
+            this.settings.TabStop = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // pictureBox1
             // 
@@ -93,12 +112,200 @@
             this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
             this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.profileImg.Gradiant = 50F;
-            this.profileImg.Location = new System.Drawing.Point(246, 40);
+            this.profileImg.Location = new System.Drawing.Point(175, 40);
             this.profileImg.Name = "profileImg";
             this.profileImg.Size = new System.Drawing.Size(124, 124);
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.profileImg.TabIndex = 8;
             this.profileImg.TabStop = false;
+            // 
+            // settingsPanel
+            // 
+            this.settingsPanel.Controls.Add(this.exitFromProfile);
+            this.settingsPanel.Controls.Add(this.editPtofileButton);
+            this.settingsPanel.Location = new System.Drawing.Point(635, 112);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.settingsPanel.Size = new System.Drawing.Size(161, 81);
+            this.settingsPanel.StateCommon.Color1 = System.Drawing.Color.Gainsboro;
+            this.settingsPanel.TabIndex = 13;
+            this.settingsPanel.Visible = false;
+            this.settingsPanel.MouseLeave += new System.EventHandler(this.settingsPanel_MouseLeave);
+            // 
+            // exitFromProfile
+            // 
+            this.exitFromProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitFromProfile.Location = new System.Drawing.Point(3, 44);
+            this.exitFromProfile.Name = "exitFromProfile";
+            this.exitFromProfile.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideDefault.Back.ColorAngle = 45F;
+            this.exitFromProfile.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideDefault.Border.ColorAngle = 45F;
+            this.exitFromProfile.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.OverrideDefault.Border.Rounding = 13;
+            this.exitFromProfile.OverrideDefault.Border.Width = 1;
+            this.exitFromProfile.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideFocus.Back.ColorAngle = 45F;
+            this.exitFromProfile.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.OverrideFocus.Border.ColorAngle = 45F;
+            this.exitFromProfile.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.OverrideFocus.Border.Rounding = 13;
+            this.exitFromProfile.OverrideFocus.Border.Width = 1;
+            this.exitFromProfile.Size = new System.Drawing.Size(155, 27);
+            this.exitFromProfile.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateCommon.Back.ColorAngle = 45F;
+            this.exitFromProfile.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateCommon.Border.ColorAngle = 45F;
+            this.exitFromProfile.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.StateCommon.Border.Rounding = 13;
+            this.exitFromProfile.StateCommon.Border.Width = 1;
+            this.exitFromProfile.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Orbitron", 8F, System.Drawing.FontStyle.Bold);
+            this.exitFromProfile.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateDisabled.Back.ColorAngle = 45F;
+            this.exitFromProfile.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateDisabled.Border.ColorAngle = 45F;
+            this.exitFromProfile.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.StateDisabled.Border.Rounding = 13;
+            this.exitFromProfile.StateDisabled.Border.Width = 1;
+            this.exitFromProfile.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateNormal.Back.ColorAngle = 45F;
+            this.exitFromProfile.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateNormal.Border.ColorAngle = 45F;
+            this.exitFromProfile.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.StateNormal.Border.Rounding = 13;
+            this.exitFromProfile.StateNormal.Border.Width = 1;
+            this.exitFromProfile.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StatePressed.Back.ColorAngle = 45F;
+            this.exitFromProfile.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StatePressed.Border.ColorAngle = 45F;
+            this.exitFromProfile.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.StatePressed.Border.Rounding = 13;
+            this.exitFromProfile.StatePressed.Border.Width = 1;
+            this.exitFromProfile.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateTracking.Back.ColorAngle = 45F;
+            this.exitFromProfile.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.exitFromProfile.StateTracking.Border.ColorAngle = 45F;
+            this.exitFromProfile.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.exitFromProfile.StateTracking.Border.Rounding = 13;
+            this.exitFromProfile.StateTracking.Border.Width = 1;
+            this.exitFromProfile.TabIndex = 15;
+            this.exitFromProfile.Values.Text = "Вихід";
+            this.exitFromProfile.Click += new System.EventHandler(this.exitFromProfile_Click);
+            // 
+            // editPtofileButton
+            // 
+            this.editPtofileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editPtofileButton.Location = new System.Drawing.Point(3, 11);
+            this.editPtofileButton.Name = "editPtofileButton";
+            this.editPtofileButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideDefault.Back.ColorAngle = 45F;
+            this.editPtofileButton.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideDefault.Border.ColorAngle = 45F;
+            this.editPtofileButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.OverrideDefault.Border.Rounding = 13;
+            this.editPtofileButton.OverrideDefault.Border.Width = 1;
+            this.editPtofileButton.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideFocus.Back.ColorAngle = 45F;
+            this.editPtofileButton.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.OverrideFocus.Border.ColorAngle = 45F;
+            this.editPtofileButton.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.OverrideFocus.Border.Rounding = 13;
+            this.editPtofileButton.OverrideFocus.Border.Width = 1;
+            this.editPtofileButton.Size = new System.Drawing.Size(155, 27);
+            this.editPtofileButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateCommon.Back.ColorAngle = 45F;
+            this.editPtofileButton.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateCommon.Border.ColorAngle = 45F;
+            this.editPtofileButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.StateCommon.Border.Rounding = 13;
+            this.editPtofileButton.StateCommon.Border.Width = 1;
+            this.editPtofileButton.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Orbitron", 8F, System.Drawing.FontStyle.Bold);
+            this.editPtofileButton.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateDisabled.Back.ColorAngle = 45F;
+            this.editPtofileButton.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateDisabled.Border.ColorAngle = 45F;
+            this.editPtofileButton.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.StateDisabled.Border.Rounding = 13;
+            this.editPtofileButton.StateDisabled.Border.Width = 1;
+            this.editPtofileButton.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateNormal.Back.ColorAngle = 45F;
+            this.editPtofileButton.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateNormal.Border.ColorAngle = 45F;
+            this.editPtofileButton.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.StateNormal.Border.Rounding = 13;
+            this.editPtofileButton.StateNormal.Border.Width = 1;
+            this.editPtofileButton.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StatePressed.Back.ColorAngle = 45F;
+            this.editPtofileButton.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StatePressed.Border.ColorAngle = 45F;
+            this.editPtofileButton.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.StatePressed.Border.Rounding = 13;
+            this.editPtofileButton.StatePressed.Border.Width = 1;
+            this.editPtofileButton.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateTracking.Back.ColorAngle = 45F;
+            this.editPtofileButton.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.editPtofileButton.StateTracking.Border.ColorAngle = 45F;
+            this.editPtofileButton.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPtofileButton.StateTracking.Border.Rounding = 13;
+            this.editPtofileButton.StateTracking.Border.Width = 1;
+            this.editPtofileButton.TabIndex = 14;
+            this.editPtofileButton.Values.Text = "Редагувати профіль";
             // 
             // ProfilePlate
             // 
@@ -106,6 +313,8 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.settingsPanel);
+            this.Controls.Add(this.settings);
             this.Controls.Add(this.recipesPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nicknameLabel);
@@ -113,8 +322,11 @@
             this.Controls.Add(this.profileImg);
             this.Name = "ProfilePlate";
             this.Size = new System.Drawing.Size(832, 462);
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).EndInit();
+            this.settingsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +339,9 @@
         private System.Windows.Forms.Label nicknameLabel;
         private System.Windows.Forms.Label profileNameLabel;
         private RashiUI.RashiCircularPictureBox profileImg;
+        private System.Windows.Forms.PictureBox settings;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel settingsPanel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton editPtofileButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton exitFromProfile;
     }
 }

@@ -51,9 +51,11 @@ namespace DishesGo.src.Elements
 
         private void border_Click(object sender, EventArgs e)
         {
+            // Show the information about reciept.
             RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, true);
             MainForm.Instance.Hide();
             recipeViewerForm.ShowDialog(MainForm.Instance);
+            MainForm.Instance.Show();
         }
     }
 }

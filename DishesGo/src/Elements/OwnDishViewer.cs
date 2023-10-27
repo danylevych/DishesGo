@@ -81,8 +81,6 @@ namespace DishesGo.src.Elements
                         var recipeIngredients = context.RecipeIngredientsViews.Where(recipeIng => recipeIng.recipe_id == ReceiptId).ToList();
                         if (recipeIngredients != null)
                         {
-                            int prevHeight = ingredientsGroupBox.Height;
-
                             StringBuilder formattedIngredients = new StringBuilder();
 
                             foreach (var ingredient in recipeIngredients)
@@ -92,13 +90,6 @@ namespace DishesGo.src.Elements
                             }
 
                             ingredientsVal.Text = formattedIngredients.ToString();
-
-                            int x = ingredientsGroupBox.Location.X;
-                            int y = ingredientsGroupBox.Location.Y;
-                            int height = ingredientsGroupBox.Height;
-
-                            //stepsGroupBox.Location = new Point(x, y + height + 10);
-                            //stepsGroupBox.Width = ingredientsGroupBox.Width;
                         }
 
                         var recipeSteps = context.RecipeSteps.Where(rs => rs.id_recipe == ReceiptId).ToList();

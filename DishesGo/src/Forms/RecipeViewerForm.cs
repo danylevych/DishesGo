@@ -22,7 +22,6 @@ namespace DishesGo.src.Forms
 
         private void backButtonImg_Click(object sender, System.EventArgs e)
         {
-            MainForm.Instance.Show();
             this.Close();
         }
     }

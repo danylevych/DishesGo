@@ -113,7 +113,7 @@
     <Compile Include="Data\sysdiagrams.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="DishesGo_dbDataSet.Designer.cs">
+    <Compile Include="Data\DishesGo_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
@@ -153,6 +153,12 @@
     <Compile Include="src\Elements\RashiCircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Forms\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     <EmbeddedResource Include="src\Elements\ProfilePlate.resx">
       <DependentUpon>ProfilePlate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,15 +211,15 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
     </None>
     <Resource Include="Data\Json\user.json" />
-    <None Include="DishesGo_dbDataSet.xsc">
+    <None Include="Data\DishesGo_dbDataSet.xsc">
       <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DishesGo_dbDataSet.xsd">
+    <None Include="Data\DishesGo_dbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DishesGo_dbDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DishesGo_dbDataSet.xss">
+    <None Include="Data\DishesGo_dbDataSet.xss">
       <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -247,6 +256,8 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\Edit.png" />
+    <None Include="Resources\Img\UserAcrivity\Settings.png" />
     <None Include="Resources\Img\UserAcrivity\MoreButton.png" />
     <None Include="Resources\Img\UserAcrivity\Back.png" />
     <Resource Include="Resources\Img\UserAcrivity\FullBookmark.png" />

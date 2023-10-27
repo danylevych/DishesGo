@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace DishesGo {
+namespace DishesGo.Data {
     
     
     /// <summary>
@@ -5973,7 +5973,7 @@ namespace DishesGo {
         }
     }
 }
-namespace DishesGo.DishesGo_dbDataSetTableAdapters {
+namespace DishesGo.Data.DishesGo_dbDataSetTableAdapters {
     
     
     /// <summary>

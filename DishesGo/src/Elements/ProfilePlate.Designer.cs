@@ -35,6 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.profileImg = new RashiUI.RashiCircularPictureBox();
             this.settingsPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.bookMarksButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.exitFromProfile = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
@@ -83,7 +84,7 @@
             // 
             this.settings.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.settings.Image = global::DishesGo.Properties.Resources.Settings;
-            this.settings.Location = new System.Drawing.Point(746, 67);
+            this.settings.Location = new System.Drawing.Point(628, 63);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(50, 50);
             this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,21 +122,110 @@
             // 
             // settingsPanel
             // 
+            this.settingsPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.settingsPanel.Controls.Add(this.bookMarksButton);
             this.settingsPanel.Controls.Add(this.exitFromProfile);
             this.settingsPanel.Controls.Add(this.editPtofileButton);
-            this.settingsPanel.Location = new System.Drawing.Point(635, 112);
+            this.settingsPanel.Location = new System.Drawing.Point(517, 112);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.settingsPanel.Size = new System.Drawing.Size(161, 81);
+            this.settingsPanel.Size = new System.Drawing.Size(161, 119);
             this.settingsPanel.StateCommon.Color1 = System.Drawing.Color.Gainsboro;
             this.settingsPanel.TabIndex = 13;
             this.settingsPanel.Visible = false;
             this.settingsPanel.MouseLeave += new System.EventHandler(this.settingsPanel_MouseLeave);
             // 
+            // bookMarksButton
+            // 
+            this.bookMarksButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bookMarksButton.Location = new System.Drawing.Point(3, 46);
+            this.bookMarksButton.Name = "bookMarksButton";
+            this.bookMarksButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideDefault.Back.ColorAngle = 45F;
+            this.bookMarksButton.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideDefault.Border.ColorAngle = 45F;
+            this.bookMarksButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.OverrideDefault.Border.Rounding = 13;
+            this.bookMarksButton.OverrideDefault.Border.Width = 1;
+            this.bookMarksButton.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideFocus.Back.ColorAngle = 45F;
+            this.bookMarksButton.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.OverrideFocus.Border.ColorAngle = 45F;
+            this.bookMarksButton.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.OverrideFocus.Border.Rounding = 13;
+            this.bookMarksButton.OverrideFocus.Border.Width = 1;
+            this.bookMarksButton.Size = new System.Drawing.Size(155, 27);
+            this.bookMarksButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateCommon.Back.ColorAngle = 45F;
+            this.bookMarksButton.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateCommon.Border.ColorAngle = 45F;
+            this.bookMarksButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.StateCommon.Border.Rounding = 13;
+            this.bookMarksButton.StateCommon.Border.Width = 1;
+            this.bookMarksButton.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Orbitron", 8F, System.Drawing.FontStyle.Bold);
+            this.bookMarksButton.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateDisabled.Back.ColorAngle = 45F;
+            this.bookMarksButton.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateDisabled.Border.ColorAngle = 45F;
+            this.bookMarksButton.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.StateDisabled.Border.Rounding = 13;
+            this.bookMarksButton.StateDisabled.Border.Width = 1;
+            this.bookMarksButton.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateNormal.Back.ColorAngle = 45F;
+            this.bookMarksButton.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateNormal.Border.ColorAngle = 45F;
+            this.bookMarksButton.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.StateNormal.Border.Rounding = 13;
+            this.bookMarksButton.StateNormal.Border.Width = 1;
+            this.bookMarksButton.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StatePressed.Back.ColorAngle = 45F;
+            this.bookMarksButton.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StatePressed.Border.ColorAngle = 45F;
+            this.bookMarksButton.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.StatePressed.Border.Rounding = 13;
+            this.bookMarksButton.StatePressed.Border.Width = 1;
+            this.bookMarksButton.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateTracking.Back.ColorAngle = 45F;
+            this.bookMarksButton.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.bookMarksButton.StateTracking.Border.ColorAngle = 45F;
+            this.bookMarksButton.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.bookMarksButton.StateTracking.Border.Rounding = 13;
+            this.bookMarksButton.StateTracking.Border.Width = 1;
+            this.bookMarksButton.TabIndex = 16;
+            this.bookMarksButton.Values.Text = "Закладки";
+            // 
             // exitFromProfile
             // 
             this.exitFromProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitFromProfile.Location = new System.Drawing.Point(3, 44);
+            this.exitFromProfile.Location = new System.Drawing.Point(3, 79);
             this.exitFromProfile.Name = "exitFromProfile";
             this.exitFromProfile.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.exitFromProfile.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -306,6 +396,7 @@
             this.editPtofileButton.StateTracking.Border.Width = 1;
             this.editPtofileButton.TabIndex = 14;
             this.editPtofileButton.Values.Text = "Редагувати профіль";
+            this.editPtofileButton.Click += new System.EventHandler(this.editPtofileButton_Click);
             // 
             // ProfilePlate
             // 
@@ -343,5 +434,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel settingsPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton editPtofileButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton exitFromProfile;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton bookMarksButton;
     }
 }

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.nicname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.nickname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.name = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -38,22 +38,26 @@
             this.lastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.namesGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.nickEmailGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.enailLabel = new System.Windows.Forms.Label();
             this.email = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonGroupBox3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.oldPasswordLabel = new System.Windows.Forms.Label();
-            this.newPasswordLabel = new System.Windows.Forms.Label();
-            this.comfirmPasswordLabel = new System.Windows.Forms.Label();
-            this.oldPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.newPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.passwordsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.comfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.newPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.oldPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.comfirmPasswordLabel = new System.Windows.Forms.Label();
+            this.newPasswordLabel = new System.Windows.Forms.Label();
+            this.oldPasswordLabel = new System.Windows.Forms.Label();
             this.saveChanging = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.editNickEmail = new System.Windows.Forms.PictureBox();
-            this.userPhoto = new RashiUI.RashiCircularPictureBox();
-            this.backButtonImg = new System.Windows.Forms.PictureBox();
-            this.editPassword = new System.Windows.Forms.PictureBox();
-            this.editNames = new System.Windows.Forms.PictureBox();
+            this.canslePhoto = new System.Windows.Forms.PictureBox();
             this.editUserImg = new System.Windows.Forms.PictureBox();
+            this.editNames = new System.Windows.Forms.PictureBox();
+            this.editPassword = new System.Windows.Forms.PictureBox();
+            this.editNickEmail = new System.Windows.Forms.PictureBox();
+            this.backButtonImg = new System.Windows.Forms.PictureBox();
+            this.cancleNickEmail = new System.Windows.Forms.PictureBox();
+            this.canclePassword = new System.Windows.Forms.PictureBox();
+            this.cancleNames = new System.Windows.Forms.PictureBox();
+            this.userPhoto = new RashiUI.RashiCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox.Panel)).BeginInit();
             this.namesGroupBox.Panel.SuspendLayout();
@@ -62,16 +66,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.nickEmailGroupBox.Panel)).BeginInit();
             this.nickEmailGroupBox.Panel.SuspendLayout();
             this.nickEmailGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3.Panel)).BeginInit();
-            this.kryptonGroupBox3.Panel.SuspendLayout();
-            this.kryptonGroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNames)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox.Panel)).BeginInit();
+            this.passwordsGroupBox.Panel.SuspendLayout();
+            this.passwordsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canslePhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUserImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editNames)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancleNickEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canclePassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancleNames)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -90,21 +98,24 @@
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
             // 
-            // nicname
+            // nickname
             // 
-            this.nicname.Location = new System.Drawing.Point(114, 12);
-            this.nicname.Name = "nicname";
-            this.nicname.Size = new System.Drawing.Size(140, 30);
-            this.nicname.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
-            this.nicname.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.nicname.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.nicname.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.nickname.Location = new System.Drawing.Point(114, 12);
+            this.nickname.Name = "nickname";
+            this.nickname.Size = new System.Drawing.Size(140, 30);
+            this.nickname.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
+            this.nickname.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.nickname.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.nickname.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.nicname.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.nicname.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.nicname.TabIndex = 4;
-            this.nicname.Text = "nickName";
+            this.nickname.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.nickname.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 14.25F);
+            this.nickname.TabIndex = 4;
+            this.nickname.Tag = "nickname";
+            this.nickname.Text = "nickName";
+            this.nickname.TextChanged += new System.EventHandler(this.nickname_TextChanged);
+            this.nickname.Leave += new System.EventHandler(this.nickname_Leave);
             // 
             // name
             // 
@@ -122,6 +133,7 @@
             this.name.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.name.TabIndex = 5;
             this.name.Text = "name";
+            this.name.Leave += new System.EventHandler(this.firstName_Leave);
             // 
             // nicknameLabel
             // 
@@ -178,6 +190,7 @@
             this.lastName.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.lastName.TabIndex = 14;
             this.lastName.Text = "lastName";
+            this.lastName.Leave += new System.EventHandler(this.lastName_Leave);
             // 
             // namesGroupBox
             // 
@@ -213,9 +226,9 @@
             // nickEmailGroupBox.Panel
             // 
             this.nickEmailGroupBox.Panel.Controls.Add(this.email);
-            this.nickEmailGroupBox.Panel.Controls.Add(this.enailLabel);
+            this.nickEmailGroupBox.Panel.Controls.Add(this.emailLabel);
             this.nickEmailGroupBox.Panel.Controls.Add(this.nicknameLabel);
-            this.nickEmailGroupBox.Panel.Controls.Add(this.nicname);
+            this.nickEmailGroupBox.Panel.Controls.Add(this.nickname);
             this.nickEmailGroupBox.Size = new System.Drawing.Size(317, 98);
             this.nickEmailGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.nickEmailGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
@@ -228,19 +241,6 @@
             this.nickEmailGroupBox.StateCommon.Border.Width = 5;
             this.nickEmailGroupBox.TabIndex = 16;
             this.nickEmailGroupBox.Values.Heading = "";
-            // 
-            // enailLabel
-            // 
-            this.enailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.enailLabel.AutoSize = true;
-            this.enailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.enailLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.enailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.enailLabel.Location = new System.Drawing.Point(52, 48);
-            this.enailLabel.Name = "enailLabel";
-            this.enailLabel.Size = new System.Drawing.Size(56, 17);
-            this.enailLabel.TabIndex = 15;
-            this.enailLabel.Text = "e-mail:";
             // 
             // email
             // 
@@ -256,73 +256,89 @@
             this.email.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.email.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.email.TabIndex = 15;
+            this.email.Tag = "email";
             this.email.Text = "email";
+            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
+            this.email.Leave += new System.EventHandler(this.email_Leave);
             // 
-            // kryptonGroupBox3
+            // emailLabel
             // 
-            this.kryptonGroupBox3.Enabled = false;
-            this.kryptonGroupBox3.Location = new System.Drawing.Point(35, 180);
-            this.kryptonGroupBox3.Name = "kryptonGroupBox3";
+            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
+            this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.emailLabel.Location = new System.Drawing.Point(52, 48);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(56, 17);
+            this.emailLabel.TabIndex = 15;
+            this.emailLabel.Text = "e-mail:";
             // 
-            // kryptonGroupBox3.Panel
+            // passwordsGroupBox
             // 
-            this.kryptonGroupBox3.Panel.Controls.Add(this.comfirmPassword);
-            this.kryptonGroupBox3.Panel.Controls.Add(this.newPassword);
-            this.kryptonGroupBox3.Panel.Controls.Add(this.oldPassword);
-            this.kryptonGroupBox3.Panel.Controls.Add(this.comfirmPasswordLabel);
-            this.kryptonGroupBox3.Panel.Controls.Add(this.newPasswordLabel);
-            this.kryptonGroupBox3.Panel.Controls.Add(this.oldPasswordLabel);
-            this.kryptonGroupBox3.Size = new System.Drawing.Size(318, 100);
-            this.kryptonGroupBox3.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonGroupBox3.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonGroupBox3.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.kryptonGroupBox3.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.kryptonGroupBox3.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.passwordsGroupBox.Enabled = false;
+            this.passwordsGroupBox.Location = new System.Drawing.Point(35, 180);
+            this.passwordsGroupBox.Name = "passwordsGroupBox";
+            // 
+            // passwordsGroupBox.Panel
+            // 
+            this.passwordsGroupBox.Panel.Controls.Add(this.comfirmPassword);
+            this.passwordsGroupBox.Panel.Controls.Add(this.newPassword);
+            this.passwordsGroupBox.Panel.Controls.Add(this.oldPassword);
+            this.passwordsGroupBox.Panel.Controls.Add(this.comfirmPasswordLabel);
+            this.passwordsGroupBox.Panel.Controls.Add(this.newPasswordLabel);
+            this.passwordsGroupBox.Panel.Controls.Add(this.oldPasswordLabel);
+            this.passwordsGroupBox.Size = new System.Drawing.Size(318, 100);
+            this.passwordsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.passwordsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.passwordsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.passwordsGroupBox.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.passwordsGroupBox.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonGroupBox3.StateCommon.Border.Rounding = 12;
-            this.kryptonGroupBox3.StateCommon.Border.Width = 5;
-            this.kryptonGroupBox3.TabIndex = 17;
-            this.kryptonGroupBox3.Values.Heading = "";
+            this.passwordsGroupBox.StateCommon.Border.Rounding = 12;
+            this.passwordsGroupBox.StateCommon.Border.Width = 5;
+            this.passwordsGroupBox.TabIndex = 17;
+            this.passwordsGroupBox.Values.Heading = "";
             // 
-            // oldPasswordLabel
+            // comfirmPassword
             // 
-            this.oldPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.oldPasswordLabel.AutoSize = true;
-            this.oldPasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.oldPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.oldPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.oldPasswordLabel.Location = new System.Drawing.Point(16, 10);
-            this.oldPasswordLabel.Name = "oldPasswordLabel";
-            this.oldPasswordLabel.Size = new System.Drawing.Size(118, 17);
-            this.oldPasswordLabel.TabIndex = 16;
-            this.oldPasswordLabel.Text = "Старий пароль:";
+            this.comfirmPassword.Enabled = false;
+            this.comfirmPassword.Location = new System.Drawing.Point(140, 57);
+            this.comfirmPassword.Name = "comfirmPassword";
+            this.comfirmPassword.Size = new System.Drawing.Size(141, 24);
+            this.comfirmPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
+            this.comfirmPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.comfirmPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.comfirmPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.comfirmPassword.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.comfirmPassword.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
+            this.comfirmPassword.TabIndex = 20;
+            this.comfirmPassword.Text = "пароль ще раз";
+            this.comfirmPassword.TextChanged += new System.EventHandler(this.comfirmPassword_TextChanged);
+            this.comfirmPassword.Enter += new System.EventHandler(this.comfirmPassword_Enter);
+            this.comfirmPassword.Leave += new System.EventHandler(this.comfirmPassword_Leave);
             // 
-            // newPasswordLabel
+            // newPassword
             // 
-            this.newPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.newPasswordLabel.AutoSize = true;
-            this.newPasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.newPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.newPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.newPasswordLabel.Location = new System.Drawing.Point(22, 37);
-            this.newPasswordLabel.Name = "newPasswordLabel";
-            this.newPasswordLabel.Size = new System.Drawing.Size(112, 17);
-            this.newPasswordLabel.TabIndex = 17;
-            this.newPasswordLabel.Text = "Новий пароль:";
-            // 
-            // comfirmPasswordLabel
-            // 
-            this.comfirmPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comfirmPasswordLabel.AutoSize = true;
-            this.comfirmPasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.comfirmPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.comfirmPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.comfirmPasswordLabel.Location = new System.Drawing.Point(10, 61);
-            this.comfirmPasswordLabel.Name = "comfirmPasswordLabel";
-            this.comfirmPasswordLabel.Size = new System.Drawing.Size(124, 17);
-            this.comfirmPasswordLabel.TabIndex = 18;
-            this.comfirmPasswordLabel.Text = "Підтвердження:";
+            this.newPassword.Enabled = false;
+            this.newPassword.Location = new System.Drawing.Point(140, 34);
+            this.newPassword.Name = "newPassword";
+            this.newPassword.Size = new System.Drawing.Size(141, 24);
+            this.newPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
+            this.newPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.newPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.newPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.newPassword.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.newPassword.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
+            this.newPassword.TabIndex = 19;
+            this.newPassword.Text = "новий пароль";
+            this.newPassword.Enter += new System.EventHandler(this.newPassword_Enter);
+            this.newPassword.Leave += new System.EventHandler(this.newPassword_Leave);
             // 
             // oldPassword
             // 
@@ -338,44 +354,55 @@
             this.oldPassword.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.oldPassword.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.oldPassword.TabIndex = 16;
-            this.oldPassword.Text = "oldPassword";
+            this.oldPassword.Text = "старий пароль";
+            this.oldPassword.TextChanged += new System.EventHandler(this.oldPassword_TextChanged);
+            this.oldPassword.Enter += new System.EventHandler(this.oldPassword_Enter);
+            this.oldPassword.Leave += new System.EventHandler(this.oldPassword_Leave);
             // 
-            // newPassword
+            // comfirmPasswordLabel
             // 
-            this.newPassword.Location = new System.Drawing.Point(140, 34);
-            this.newPassword.Name = "newPassword";
-            this.newPassword.Size = new System.Drawing.Size(141, 24);
-            this.newPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
-            this.newPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.newPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.newPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.newPassword.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.newPassword.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
-            this.newPassword.TabIndex = 19;
-            this.newPassword.Text = "newPassword";
+            this.comfirmPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comfirmPasswordLabel.AutoSize = true;
+            this.comfirmPasswordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.comfirmPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.comfirmPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.comfirmPasswordLabel.Location = new System.Drawing.Point(10, 61);
+            this.comfirmPasswordLabel.Name = "comfirmPasswordLabel";
+            this.comfirmPasswordLabel.Size = new System.Drawing.Size(124, 17);
+            this.comfirmPasswordLabel.TabIndex = 18;
+            this.comfirmPasswordLabel.Text = "Підтвердження:";
             // 
-            // comfirmPassword
+            // newPasswordLabel
             // 
-            this.comfirmPassword.Location = new System.Drawing.Point(140, 57);
-            this.comfirmPassword.Name = "comfirmPassword";
-            this.comfirmPassword.Size = new System.Drawing.Size(141, 24);
-            this.comfirmPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
-            this.comfirmPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.comfirmPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.comfirmPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.comfirmPassword.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.comfirmPassword.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
-            this.comfirmPassword.TabIndex = 20;
-            this.comfirmPassword.Text = "comfirmPassword";
+            this.newPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.newPasswordLabel.AutoSize = true;
+            this.newPasswordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.newPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.newPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.newPasswordLabel.Location = new System.Drawing.Point(22, 37);
+            this.newPasswordLabel.Name = "newPasswordLabel";
+            this.newPasswordLabel.Size = new System.Drawing.Size(112, 17);
+            this.newPasswordLabel.TabIndex = 17;
+            this.newPasswordLabel.Text = "Новий пароль:";
+            // 
+            // oldPasswordLabel
+            // 
+            this.oldPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.oldPasswordLabel.AutoSize = true;
+            this.oldPasswordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.oldPasswordLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.oldPasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.oldPasswordLabel.Location = new System.Drawing.Point(16, 10);
+            this.oldPasswordLabel.Name = "oldPasswordLabel";
+            this.oldPasswordLabel.Size = new System.Drawing.Size(118, 17);
+            this.oldPasswordLabel.TabIndex = 16;
+            this.oldPasswordLabel.Text = "Старий пароль:";
             // 
             // saveChanging
             // 
             this.saveChanging.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveChanging.Location = new System.Drawing.Point(538, 12);
+            this.saveChanging.Enabled = false;
+            this.saveChanging.Location = new System.Drawing.Point(538, 15);
             this.saveChanging.Name = "saveChanging";
             this.saveChanging.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.saveChanging.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -459,6 +486,50 @@
             this.saveChanging.TabIndex = 18;
             this.saveChanging.Values.Text = "Зберегти";
             // 
+            // canslePhoto
+            // 
+            this.canslePhoto.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.canslePhoto.Location = new System.Drawing.Point(157, 145);
+            this.canslePhoto.Name = "canslePhoto";
+            this.canslePhoto.Size = new System.Drawing.Size(20, 20);
+            this.canslePhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.canslePhoto.TabIndex = 23;
+            this.canslePhoto.TabStop = false;
+            this.canslePhoto.Click += new System.EventHandler(this.canslePhoto_Click);
+            // 
+            // editUserImg
+            // 
+            this.editUserImg.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editUserImg.Location = new System.Drawing.Point(183, 131);
+            this.editUserImg.Name = "editUserImg";
+            this.editUserImg.Size = new System.Drawing.Size(20, 20);
+            this.editUserImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editUserImg.TabIndex = 22;
+            this.editUserImg.TabStop = false;
+            this.editUserImg.Click += new System.EventHandler(this.editUserImg_Click);
+            // 
+            // editNames
+            // 
+            this.editNames.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editNames.Location = new System.Drawing.Point(606, 205);
+            this.editNames.Name = "editNames";
+            this.editNames.Size = new System.Drawing.Size(20, 20);
+            this.editNames.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editNames.TabIndex = 21;
+            this.editNames.TabStop = false;
+            this.editNames.Click += new System.EventHandler(this.editNames_Click);
+            // 
+            // editPassword
+            // 
+            this.editPassword.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editPassword.Location = new System.Drawing.Point(347, 205);
+            this.editPassword.Name = "editPassword";
+            this.editPassword.Size = new System.Drawing.Size(20, 20);
+            this.editPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editPassword.TabIndex = 20;
+            this.editPassword.TabStop = false;
+            this.editPassword.Click += new System.EventHandler(this.editPassword_Click);
+            // 
             // editNickEmail
             // 
             this.editNickEmail.Image = global::DishesGo.Properties.Resources.Edit;
@@ -468,6 +539,52 @@
             this.editNickEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.editNickEmail.TabIndex = 19;
             this.editNickEmail.TabStop = false;
+            this.editNickEmail.Click += new System.EventHandler(this.editNickEmail_Click);
+            // 
+            // backButtonImg
+            // 
+            this.backButtonImg.BackColor = System.Drawing.Color.Transparent;
+            this.backButtonImg.Image = global::DishesGo.Properties.Resources.Back;
+            this.backButtonImg.Location = new System.Drawing.Point(12, 12);
+            this.backButtonImg.Name = "backButtonImg";
+            this.backButtonImg.Size = new System.Drawing.Size(36, 36);
+            this.backButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.backButtonImg.TabIndex = 1;
+            this.backButtonImg.TabStop = false;
+            this.backButtonImg.Click += new System.EventHandler(this.backButtonImg_Click);
+            // 
+            // cancleNickEmail
+            // 
+            this.cancleNickEmail.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.cancleNickEmail.Location = new System.Drawing.Point(546, 90);
+            this.cancleNickEmail.Name = "cancleNickEmail";
+            this.cancleNickEmail.Size = new System.Drawing.Size(20, 20);
+            this.cancleNickEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cancleNickEmail.TabIndex = 24;
+            this.cancleNickEmail.TabStop = false;
+            this.cancleNickEmail.Click += new System.EventHandler(this.cancleNickEmail_Click);
+            // 
+            // canclePassword
+            // 
+            this.canclePassword.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.canclePassword.Location = new System.Drawing.Point(347, 234);
+            this.canclePassword.Name = "canclePassword";
+            this.canclePassword.Size = new System.Drawing.Size(20, 20);
+            this.canclePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.canclePassword.TabIndex = 25;
+            this.canclePassword.TabStop = false;
+            this.canclePassword.Click += new System.EventHandler(this.canclePassword_Click);
+            // 
+            // cancleNames
+            // 
+            this.cancleNames.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.cancleNames.Location = new System.Drawing.Point(606, 234);
+            this.cancleNames.Name = "cancleNames";
+            this.cancleNames.Size = new System.Drawing.Size(20, 20);
+            this.cancleNames.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cancleNames.TabIndex = 26;
+            this.cancleNames.TabStop = false;
+            this.cancleNames.Click += new System.EventHandler(this.cancleNames_Click);
             // 
             // userPhoto
             // 
@@ -486,58 +603,21 @@
             this.userPhoto.TabIndex = 3;
             this.userPhoto.TabStop = false;
             // 
-            // backButtonImg
-            // 
-            this.backButtonImg.BackColor = System.Drawing.Color.Transparent;
-            this.backButtonImg.Image = global::DishesGo.Properties.Resources.Back;
-            this.backButtonImg.Location = new System.Drawing.Point(12, 12);
-            this.backButtonImg.Name = "backButtonImg";
-            this.backButtonImg.Size = new System.Drawing.Size(36, 36);
-            this.backButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.backButtonImg.TabIndex = 1;
-            this.backButtonImg.TabStop = false;
-            // 
-            // editPassword
-            // 
-            this.editPassword.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editPassword.Location = new System.Drawing.Point(349, 195);
-            this.editPassword.Name = "editPassword";
-            this.editPassword.Size = new System.Drawing.Size(20, 20);
-            this.editPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editPassword.TabIndex = 20;
-            this.editPassword.TabStop = false;
-            // 
-            // editNames
-            // 
-            this.editNames.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editNames.Location = new System.Drawing.Point(609, 195);
-            this.editNames.Name = "editNames";
-            this.editNames.Size = new System.Drawing.Size(20, 20);
-            this.editNames.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editNames.TabIndex = 21;
-            this.editNames.TabStop = false;
-            // 
-            // editUserImg
-            // 
-            this.editUserImg.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editUserImg.Location = new System.Drawing.Point(182, 131);
-            this.editUserImg.Name = "editUserImg";
-            this.editUserImg.Size = new System.Drawing.Size(20, 20);
-            this.editUserImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editUserImg.TabIndex = 22;
-            this.editUserImg.TabStop = false;
-            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 306);
+            this.Controls.Add(this.cancleNames);
+            this.Controls.Add(this.canclePassword);
+            this.Controls.Add(this.cancleNickEmail);
+            this.Controls.Add(this.canslePhoto);
             this.Controls.Add(this.editUserImg);
             this.Controls.Add(this.editNames);
             this.Controls.Add(this.editPassword);
             this.Controls.Add(this.editNickEmail);
             this.Controls.Add(this.saveChanging);
-            this.Controls.Add(this.kryptonGroupBox3);
+            this.Controls.Add(this.passwordsGroupBox);
             this.Controls.Add(this.nickEmailGroupBox);
             this.Controls.Add(this.namesGroupBox);
             this.Controls.Add(this.userPhoto);
@@ -558,17 +638,21 @@
             this.nickEmailGroupBox.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nickEmailGroupBox)).EndInit();
             this.nickEmailGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3.Panel)).EndInit();
-            this.kryptonGroupBox3.Panel.ResumeLayout(false);
-            this.kryptonGroupBox3.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).EndInit();
-            this.kryptonGroupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNames)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox.Panel)).EndInit();
+            this.passwordsGroupBox.Panel.ResumeLayout(false);
+            this.passwordsGroupBox.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox)).EndInit();
+            this.passwordsGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.canslePhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editUserImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editNames)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancleNickEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canclePassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancleNames)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,7 +662,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private System.Windows.Forms.PictureBox backButtonImg;
         private RashiUI.RashiCircularPictureBox userPhoto;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox nicname;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox nickname;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox name;
         private System.Windows.Forms.Label nicknameLabel;
         private System.Windows.Forms.Label nameLabel;
@@ -587,8 +671,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox namesGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox nickEmailGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox email;
-        private System.Windows.Forms.Label enailLabel;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox3;
+        private System.Windows.Forms.Label emailLabel;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox passwordsGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox comfirmPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox newPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox oldPassword;
@@ -600,5 +684,9 @@
         private System.Windows.Forms.PictureBox editPassword;
         private System.Windows.Forms.PictureBox editNames;
         private System.Windows.Forms.PictureBox editUserImg;
+        private System.Windows.Forms.PictureBox canslePhoto;
+        private System.Windows.Forms.PictureBox cancleNickEmail;
+        private System.Windows.Forms.PictureBox canclePassword;
+        private System.Windows.Forms.PictureBox cancleNames;
     }
 }

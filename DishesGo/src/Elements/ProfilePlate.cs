@@ -1,4 +1,5 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Forms;
 using DishesGo.src.tools;
 using System;
 using System.Data;
@@ -11,8 +12,12 @@ namespace DishesGo.src.Elements
 {
     public partial class ProfilePlate : UserControl
     {
+        private Users user;
+
         public ProfilePlate(Users user, Image userPhoto)
         {
+            this.user = user;
+
             InitializeComponent();
 
             profileImg.Image = userPhoto;
@@ -58,6 +63,14 @@ namespace DishesGo.src.Elements
             File.WriteAllText(configs.userDataPath, string.Empty); // Rewrite user data file.
             MainForm.Instance.Close();                             // Close MainForm.
             Application.Run(new RegistrLoginForm());               // Run RegistrationForm.
+        }
+
+        private void editPtofileButton_Click(object sender, EventArgs e)
+        {
+            EditUserForm editUserForm = new EditUserForm(user);
+            MainForm.Instance.Hide();
+            editUserForm.ShowDialog(MainForm.Instance);
+            MainForm.Instance.Show();
         }
     }
 }

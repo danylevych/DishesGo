@@ -83,6 +83,16 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cansle {
+            get {
+                object obj = ResourceManager.GetObject("Cansle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap corner {
             get {
                 object obj = ResourceManager.GetObject("corner", resourceCulture);

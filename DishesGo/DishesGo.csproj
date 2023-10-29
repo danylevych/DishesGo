@@ -256,6 +256,7 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\Cansle.png" />
     <None Include="Resources\Img\UserAcrivity\Edit.png" />
     <None Include="Resources\Img\UserAcrivity\Settings.png" />
     <None Include="Resources\Img\UserAcrivity\MoreButton.png" />

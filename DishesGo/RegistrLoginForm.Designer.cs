@@ -410,6 +410,7 @@
             this.comfirmPassText.AlwaysActive = false;
             this.comfirmPassText.Location = new System.Drawing.Point(34, 384);
             this.comfirmPassText.Name = "comfirmPassText";
+            this.comfirmPassText.PasswordChar = '●';
             this.comfirmPassText.Size = new System.Drawing.Size(314, 29);
             this.comfirmPassText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
             this.comfirmPassText.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -458,6 +459,7 @@
             this.comfirmPassText.TabIndex = 17;
             this.comfirmPassText.Text = "Введіть пароль іще раз";
             this.comfirmPassText.UseMnemonic = false;
+            this.comfirmPassText.UseSystemPasswordChar = true;
             this.comfirmPassText.TextChanged += new System.EventHandler(this.comfirmPassText_TextChanged);
             this.comfirmPassText.Enter += new System.EventHandler(this.comfirmPassText_Enter);
             this.comfirmPassText.Leave += new System.EventHandler(this.comfirmPassText_Leave);
@@ -467,6 +469,7 @@
             this.passwordText.AlwaysActive = false;
             this.passwordText.Location = new System.Drawing.Point(123, 315);
             this.passwordText.Name = "passwordText";
+            this.passwordText.PasswordChar = '●';
             this.passwordText.Size = new System.Drawing.Size(227, 29);
             this.passwordText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
             this.passwordText.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -515,6 +518,7 @@
             this.passwordText.TabIndex = 16;
             this.passwordText.Text = "Введіть пароль";
             this.passwordText.UseMnemonic = false;
+            this.passwordText.UseSystemPasswordChar = true;
             this.passwordText.Enter += new System.EventHandler(this.passwordText_Enter);
             this.passwordText.Leave += new System.EventHandler(this.passwordText_Leave);
             // 
@@ -937,6 +941,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordLoginPlateText.Location = new System.Drawing.Point(128, 278);
             this.passwordLoginPlateText.Name = "passwordLoginPlateText";
+            this.passwordLoginPlateText.PasswordChar = '●';
             this.passwordLoginPlateText.Size = new System.Drawing.Size(223, 29);
             this.passwordLoginPlateText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
             this.passwordLoginPlateText.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -985,6 +990,7 @@
             this.passwordLoginPlateText.TabIndex = 16;
             this.passwordLoginPlateText.Text = "Введіть пароль";
             this.passwordLoginPlateText.UseMnemonic = false;
+            this.passwordLoginPlateText.UseSystemPasswordChar = true;
             this.passwordLoginPlateText.Enter += new System.EventHandler(this.passwordLoginPlateText_Enter);
             this.passwordLoginPlateText.Leave += new System.EventHandler(this.passwordLoginPlateText_Leave);
             // 

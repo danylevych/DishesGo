@@ -1,6 +1,6 @@
 ﻿namespace DishesGo.src.Elements
 {
-    partial class OwnDishViewer
+    partial class DishViewer
     {
         /// <summary> 
         /// Required designer variable.
@@ -643,6 +643,7 @@
             // moreButton
             // 
             this.moreButton.BackColor = System.Drawing.Color.Transparent;
+            this.moreButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.moreButton.Image = global::DishesGo.Properties.Resources.MoreButton;
             this.moreButton.Location = new System.Drawing.Point(320, 6);
             this.moreButton.Name = "moreButton";
@@ -650,7 +651,6 @@
             this.moreButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.moreButton.TabIndex = 12;
             this.moreButton.TabStop = false;
-            this.moreButton.Visible = false;
             this.moreButton.Click += new System.EventHandler(this.moreButton_Click);
             // 
             // nicknameLabel

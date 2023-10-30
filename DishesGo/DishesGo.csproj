@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>..\..\..\includes\Krypton\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
@@ -132,31 +135,43 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\dbClasses\SQLConection.cs" />
-    <Compile Include="src\Elements\OwnDishViewer.cs">
+    <Compile Include="src\Components\BookmarksComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Elements\OwnDishViewer.Designer.cs">
-      <DependentUpon>OwnDishViewer.cs</DependentUpon>
+    <Compile Include="src\Components\BookmarksComponent.Designer.cs">
+      <DependentUpon>BookmarksComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Elements\OwnRecipe.cs">
+    <Compile Include="src\Components\DishViewerComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Elements\OwnRecipe.Designer.cs">
-      <DependentUpon>OwnRecipe.cs</DependentUpon>
+    <Compile Include="src\Components\DishViewerComponent.Designer.cs">
+      <DependentUpon>DishViewerComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Elements\ProfilePlate.cs">
+    <Compile Include="src\Components\OwnRecipeComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Elements\ProfilePlate.Designer.cs">
-      <DependentUpon>ProfilePlate.cs</DependentUpon>
+    <Compile Include="src\Components\OwnRecipeComponent.Designer.cs">
+      <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\ProfilePlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\ProfilePlateComponent.Designer.cs">
+      <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Elements\RashiCircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\Forms\EditUserForm.cs">
+    <Compile Include="src\Forms\ProfileForms\BookmarksForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Forms\EditUserForm.Designer.cs">
+    <Compile Include="src\Forms\ProfileForms\BookmarksForm.Designer.cs">
+      <DependentUpon>BookmarksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ProfileForms\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ProfileForms\EditUserForm.Designer.cs">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\MainForm.cs">
@@ -171,12 +186,12 @@
     <Compile Include="src\Forms\RecipeViewerForm.Designer.cs">
       <DependentUpon>RecipeViewerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\tools\configs.cs" />
+    <Compile Include="src\Tools\configs.cs" />
     <Compile Include="Data\Users.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\tools\ImageRedactor.cs" />
-    <Compile Include="src\tools\JsonUserData.cs" />
+    <Compile Include="src\Tools\ImageRedactor.cs" />
+    <Compile Include="src\Tools\JsonUserData.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,16 +200,22 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Elements\OwnDishViewer.resx">
-      <DependentUpon>OwnDishViewer.cs</DependentUpon>
+    <EmbeddedResource Include="src\Components\BookmarksComponent.resx">
+      <DependentUpon>BookmarksComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Elements\OwnRecipe.resx">
-      <DependentUpon>OwnRecipe.cs</DependentUpon>
+    <EmbeddedResource Include="src\Components\DishViewerComponent.resx">
+      <DependentUpon>DishViewerComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Elements\ProfilePlate.resx">
-      <DependentUpon>ProfilePlate.cs</DependentUpon>
+    <EmbeddedResource Include="src\Components\OwnRecipeComponent.resx">
+      <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\EditUserForm.resx">
+    <EmbeddedResource Include="src\Components\ProfilePlateComponent.resx">
+      <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ProfileForms\BookmarksForm.resx">
+      <DependentUpon>BookmarksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ProfileForms\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\MainForm.resx">
@@ -256,6 +277,7 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\Check.png" />
     <None Include="Resources\Img\UserAcrivity\Cansle.png" />
     <None Include="Resources\Img\UserAcrivity\Edit.png" />
     <None Include="Resources\Img\UserAcrivity\Settings.png" />

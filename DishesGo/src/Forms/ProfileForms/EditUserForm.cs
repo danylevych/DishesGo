@@ -17,13 +17,8 @@ namespace DishesGo.src.Forms
     {
         private Users user;
 
-        // Flags for the save button.
-        private bool isPhotoChanged = false;      // +
-        private bool isNicknameChanged = false;   // +
-        private bool isEmailChanged = false;      // +
-        private bool isFirstNameChanged = false;  //
-        private bool isLastNameChanged = false;   //
-        private bool isPasswordChanged = false;   //
+        private bool isWrongNickOrEmail = false;
+        private bool isPasswordChanged = false;
 
 
         public EditUserForm(Users user)
@@ -62,9 +57,36 @@ namespace DishesGo.src.Forms
             this.Close();
         }
 
+        private void saveChanging_Click(object sender, EventArgs e)
+        {
+            // User did not save all changes.
+            if(applyNames.Enabled || applyPhoto.Enabled || applyNickEmail.Enabled || applyPassword.Enabled)
+            {
+                MessageBox.Show("Ви не зберегли всі дані.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                Users findedUser = context.Users.FirstOrDefault(userdb => userdb.user_id == user.user_id);
+                
+                if (findedUser != null)
+                {
+                    findedUser.email = user.email;
+                    findedUser.nickname = user.nickname;
+                    findedUser.first_name = user.first_name;
+                    findedUser.last_name = user.last_name;
+                    findedUser.user_photo = user.user_photo;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
 
         private void editUserImg_Click(object sender, EventArgs e)
         {
+            applyPhoto.Enabled = true;
             // Open dialog window where user can choose image.
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -74,7 +96,7 @@ namespace DishesGo.src.Forms
                     try
                     {
                         userPhoto.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
-                        isPhotoChanged = true; // User change the photo.
+                        applyPhoto.Enabled = true; // User change the photo.
                     }
                     catch (Exception ex)
                     {
@@ -90,8 +112,25 @@ namespace DishesGo.src.Forms
             using (MemoryStream ms = new MemoryStream(user.user_photo))
             {
                 userPhoto.Image = Image.FromStream(ms);
-                isPhotoChanged = false;
+                applyPhoto.Enabled = false;
             }
+        }
+
+        private void applyPhoto_Click(object sender, EventArgs e)
+        {
+            // Set photo.
+            Image image = userPhoto.Image;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                byte[] imageBytes = ms.ToArray();
+
+                user.user_photo = imageBytes;
+            }
+
+            applyPhoto.Enabled = false; // User setted photo.
         }
 
 
@@ -100,6 +139,7 @@ namespace DishesGo.src.Forms
         {
             // Set enable as true, now user can edit the info.
             nickEmailGroupBox.Enabled = true;
+            applyNickEmail.Enabled = true;
         }
 
         private void cancleNickEmail_Click(object sender, EventArgs e)
@@ -109,9 +149,28 @@ namespace DishesGo.src.Forms
 
             nickname.Text = user.nickname;
             email.Text = user.email;
-            
-            isNicknameChanged = false;
-            isEmailChanged = false;
+
+            applyNickEmail.Enabled = false;
+
+            //isNicknameChanged = false;
+            //isEmailChanged = false;
+        }
+
+        private void applyNickEmail_Click(object sender, EventArgs e)
+        {
+            // If user entered values that is incorect.
+            if (isWrongNickOrEmail)
+            {
+                MessageBox.Show("На жаль, дані в полях 'Нікнейм' та 'e-mail' неправильні.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Set new values.
+            user.email = email.Text.Trim();
+            user.nickname = nickname.Text.Trim();
+
+            nickEmailGroupBox.Enabled = false;
+            applyNickEmail.Enabled = false;
         }
 
         private void nickname_TextChanged(object sender, EventArgs e)
@@ -147,10 +206,12 @@ namespace DishesGo.src.Forms
                     if (fieldExists)
                     {
                         label.ForeColor = Color.Red;
+                        isWrongNickOrEmail = true;
                     }
                     else
                     {
                         label.ForeColor = System.Drawing.SystemColors.ControlDark;
+                        isWrongNickOrEmail = false;
                     }
                 }
             }
@@ -167,11 +228,7 @@ namespace DishesGo.src.Forms
                     {
                         nicknameLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
                         nickname.Text = user.nickname;
-                    }
-                    else
-                    {
-                        isNicknameChanged = true;   
-                    }
+                    }                 
                 }
             }
             else if (nickname.Text.Trim() != "") // if user doesn't enter new nickname.
@@ -197,10 +254,6 @@ namespace DishesGo.src.Forms
                         emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
                         email.Text = user.email;
                     }
-                    else
-                    {
-                        isEmailChanged = true;
-                    }
                 }
             }
             else if (email.Text.Trim() != "") // if user doesn't enter new email.
@@ -220,6 +273,8 @@ namespace DishesGo.src.Forms
         {
             // Set enable as true, now user can edit info.
             namesGroupBox.Enabled = true;
+
+            applyNames.Enabled = true;
         }
 
         private void cancleNames_Click(object sender, EventArgs e)
@@ -230,8 +285,18 @@ namespace DishesGo.src.Forms
             name.Text = user.first_name;
             lastName.Text = user.last_name;
 
-            isFirstNameChanged = false;
-            isLastNameChanged = false;
+            //isFirstNameChanged = false;
+            //isLastNameChanged = false;
+        }
+
+        private void applyNames_Click(object sender, EventArgs e)
+        {
+            // Set new values.
+            user.first_name = name.Text.Trim();
+            user.last_name = lastName.Text.Trim();
+
+            namesGroupBox.Enabled = false;
+            applyNames.Enabled = false;
         }
 
         private void firstName_Leave(object sender, EventArgs e)
@@ -239,10 +304,6 @@ namespace DishesGo.src.Forms
             if (name.Text.Trim() == "")
             {
                 name.Text = user.first_name;
-            }
-            else if (name.Text.Trim() != user.first_name)
-            {
-                isFirstNameChanged = true;
             }
         }
 
@@ -252,10 +313,6 @@ namespace DishesGo.src.Forms
             {
                 lastName.Text = user.last_name;
             }
-            else if (lastName.Text.Trim() != user.last_name)
-            {
-                isLastNameChanged = true;
-            }
         }
 
 
@@ -264,6 +321,8 @@ namespace DishesGo.src.Forms
         {
             // Set enable in true, now user can change password.
             passwordsGroupBox.Enabled = true;
+
+            applyPassword.Enabled = true;
         }
 
         private void canclePassword_Click(object sender, EventArgs e)
@@ -284,6 +343,22 @@ namespace DishesGo.src.Forms
             // Disable access ability to old and comfirm variable.
             newPassword.Enabled = false;
             comfirmPassword.Enabled = false;
+
+            applyPassword.Enabled = false;
+        }
+
+        private void applyPassword_Click(object sender, EventArgs e)
+        {
+            if (!isPasswordChanged)
+            {
+                MessageBox.Show("Поля в групі 'Паролі' не збережені.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            user.user_password = newPassword.Text.Trim();
+            
+            passwordsGroupBox.Enabled = false;
+            applyPassword.Enabled = false;
         }
 
         private void oldPassword_Enter(object sender, EventArgs e)
@@ -301,34 +376,6 @@ namespace DishesGo.src.Forms
             {
                 oldPassword.Text = "старий пароль";
                 oldPassword.UseSystemPasswordChar = false; // Visualise as text.
-            }
-        }
-
-        private void oldPassword_TextChanged(object sender, EventArgs e)
-        {
-            if(oldPassword.Text != "" &&  oldPassword.Text != "старий пароль" && oldPassword.Text.Trim() != user.user_password)
-            {
-                oldPassword.StateCommon.Content.Color1 = Color.Red;
-
-                // Disallow user to the next action.
-                newPassword.Enabled = false;
-                comfirmPassword.Enabled = false;
-
-                // Set previous values.
-                newPassword.Text = "новий пароль";
-                comfirmPassword.Text = "пароль ще раз";
-            }
-            else if (oldPassword.Text != "" && oldPassword.Text != "старий пароль") // User entered password, that equal previous.
-            {
-                oldPassword.StateCommon.Content.Color1 = Color.Black;
-
-                // Allow usere to make changes.
-                newPassword.Enabled = true;
-                comfirmPassword.Enabled = true;
-            }
-            else
-            {
-                oldPassword.StateCommon.Content.Color1 = Color.Black;
             }
         }
 
@@ -374,16 +421,54 @@ namespace DishesGo.src.Forms
             }
         }
 
+
         private void comfirmPassword_TextChanged(object sender, EventArgs e)
         {
             if (comfirmPassword.Text != "" && comfirmPassword.Text != "пароль ще раз" && comfirmPassword.Text.Trim() != newPassword.Text.Trim())
             {
                 comfirmPassword.StateCommon.Content.Color1 = Color.Red;
+                isPasswordChanged = false;
             }
             else
             {
                 comfirmPassword.StateCommon.Content.Color1 = Color.Black;
+                isPasswordChanged = true;
             }
+        }
+
+        private void oldPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (oldPassword.Text != "" && oldPassword.Text != "старий пароль" && oldPassword.Text.Trim() != user.user_password)
+            {
+                oldPassword.StateCommon.Content.Color1 = Color.Red;
+
+                // Disallow user to the next action.
+                newPassword.Enabled = false;
+                comfirmPassword.Enabled = false;
+
+                // Set previous values.
+                newPassword.Text = "новий пароль";
+                comfirmPassword.Text = "пароль ще раз";
+                
+                isPasswordChanged = false; // User entered invalid password.
+                return;
+            }
+            else if (oldPassword.Text != "" && oldPassword.Text != "старий пароль") // User entered password, that equal previous.
+            {
+                oldPassword.StateCommon.Content.Color1 = Color.Black;
+
+                // Allow usere to make changes.
+                newPassword.Enabled = true;
+                comfirmPassword.Enabled = true;
+            }
+            else
+            {
+                oldPassword.StateCommon.Content.Color1 = Color.Black;
+                isPasswordChanged = false; // User did not enter password.
+                return;
+            }
+
+            isPasswordChanged = true; // User enter new password.
         }
     }
 }

@@ -12,19 +12,25 @@ using System.Windows.Forms;
 
 namespace DishesGo.src.Elements
 {
-    public partial class OwnDishViewer : UserControl
+    public partial class DishViewer : UserControl
     {
         private RecipeDetails recipeDetails;
+        private bool isOwn;
+        private Users user;
+
 
         public int ReceiptId { get; set; }
         
-        public OwnDishViewer()
+
+        public DishViewer()
         {
             InitializeComponent();
         }
 
-        public OwnDishViewer(int id)
+        public DishViewer(int id, Users user, bool isOwn = true)
         {
+            this.isOwn = isOwn;
+            this.user = user;
             ReceiptId = id;
             InitializeComponent();
             Init();
@@ -129,15 +135,33 @@ namespace DishesGo.src.Elements
                         stepsVal.Text = formattedSteps.ToString();
 
 
+
+
+                        // Set bookmark button.
+                        
+                        bool isOwnBookmark = (context.Bookmarks.FirstOrDefault(bookmark => bookmark.id_recipe == recipeDetails.recipe_id &&
+                                                                                           bookmark.id_user == user.user_id) != null);
+
+                        if (isOwnBookmark)
+                        {
+                            bookmarkButtonImage.Image = Properties.Resources.FullBookmark;
+                            bookmarkButtonImage.Tag = "FullBookmark";
+                        }
+                        else
+                        {
+                            bookmarkButtonImage.Image = Properties.Resources.EmptyBookmark;
+                            bookmarkButtonImage.Tag = "EmptyBookmark";
+                        }
+
                         // Set like button.
                         var likes = context.Likes
                                            .Where(like => like.id_recipe == ReceiptId &&
-                                                          like.id_user == recipeDetails.user_id)
+                                                          like.id_user == user.user_id)
                                            .ToList();
 
-                        bool isOwnerLikes = (likes.Find(like => like.id_user == recipeDetails.user_id) != null);
+                        bool isOwnerLikes = (likes.Find(like => like.id_user == user.user_id) != null);
 
-                        if (isOwnerLikes) 
+                        if (isOwnerLikes)
                         {
                             likeButtonImg.Image = Properties.Resources.FullLike;
                             likeButtonImg.Tag = "FullLike";
@@ -149,20 +173,10 @@ namespace DishesGo.src.Elements
                         }
 
                         countOfLikeLabel.Text = likes.Count.ToString();
-
-                        // Set bookmark button.
-                        bool isOwnBookmark = (context.Bookmarks.FirstOrDefault(bookmark => bookmark.id_recipe == recipeDetails.recipe_id &&
-                                                                                           bookmark.id_user == recipeDetails.user_id) != null);
-
-                        if (isOwnBookmark) 
+                        
+                        if (!isOwn)
                         {
-                            bookmarkButtonImage.Image = Properties.Resources.FullBookmark;
-                            bookmarkButtonImage.Tag = "FullBookmark";
-                        }
-                        else
-                        {
-                            bookmarkButtonImage.Image = Properties.Resources.EmptyBookmark;
-                            bookmarkButtonImage.Tag = "EmptyBookmark";
+                            moreButton.Visible = false;
                         }
                     }
                 }
@@ -183,7 +197,7 @@ namespace DishesGo.src.Elements
                     // Save like.
                     Likes like = new Likes
                     {
-                        id_user = recipeDetails.user_id,
+                        id_user = user.user_id,
                         id_recipe = recipeDetails.recipe_id
                     };
                     context.Likes.Add(like);
@@ -218,7 +232,7 @@ namespace DishesGo.src.Elements
                     // Save to bookmarks.
                     Bookmarks bookmark = new Bookmarks
                     {
-                        id_user = recipeDetails.user_id,
+                        id_user = user.user_id,
                         id_recipe = recipeDetails.recipe_id
                     };
 

@@ -39,7 +39,6 @@
             this.namesGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.nickEmailGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.email = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.emailLabel = new System.Windows.Forms.Label();
             this.passwordsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.comfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.newPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -48,16 +47,21 @@
             this.newPasswordLabel = new System.Windows.Forms.Label();
             this.oldPasswordLabel = new System.Windows.Forms.Label();
             this.saveChanging = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.canslePhoto = new System.Windows.Forms.PictureBox();
-            this.editUserImg = new System.Windows.Forms.PictureBox();
-            this.editNames = new System.Windows.Forms.PictureBox();
-            this.editPassword = new System.Windows.Forms.PictureBox();
-            this.editNickEmail = new System.Windows.Forms.PictureBox();
-            this.backButtonImg = new System.Windows.Forms.PictureBox();
-            this.cancleNickEmail = new System.Windows.Forms.PictureBox();
-            this.canclePassword = new System.Windows.Forms.PictureBox();
-            this.cancleNames = new System.Windows.Forms.PictureBox();
+            this.editPhoto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.canclePhoto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.backButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.editNickEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cancleNickEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.editPassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.canclePassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.editNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cancleNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.applyPhoto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.userPhoto = new RashiUI.RashiCircularPictureBox();
+            this.applyNickEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.applyPassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.applyNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.emailLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox.Panel)).BeginInit();
             this.namesGroupBox.Panel.SuspendLayout();
@@ -70,15 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox.Panel)).BeginInit();
             this.passwordsGroupBox.Panel.SuspendLayout();
             this.passwordsGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canslePhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editUserImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNames)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancleNickEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canclePassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancleNames)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -261,23 +256,10 @@
             this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             this.email.Leave += new System.EventHandler(this.email_Leave);
             // 
-            // emailLabel
-            // 
-            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.emailLabel.Location = new System.Drawing.Point(52, 48);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(56, 17);
-            this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "e-mail:";
-            // 
             // passwordsGroupBox
             // 
             this.passwordsGroupBox.Enabled = false;
-            this.passwordsGroupBox.Location = new System.Drawing.Point(35, 180);
+            this.passwordsGroupBox.Location = new System.Drawing.Point(25, 180);
             this.passwordsGroupBox.Name = "passwordsGroupBox";
             // 
             // passwordsGroupBox.Panel
@@ -401,7 +383,6 @@
             // saveChanging
             // 
             this.saveChanging.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveChanging.Enabled = false;
             this.saveChanging.Location = new System.Drawing.Point(538, 15);
             this.saveChanging.Name = "saveChanging";
             this.saveChanging.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -485,106 +466,302 @@
             this.saveChanging.StateTracking.Border.Width = 1;
             this.saveChanging.TabIndex = 18;
             this.saveChanging.Values.Text = "Зберегти";
+            this.saveChanging.Click += new System.EventHandler(this.saveChanging_Click);
             // 
-            // canslePhoto
+            // editPhoto
             // 
-            this.canslePhoto.Image = global::DishesGo.Properties.Resources.Cansle;
-            this.canslePhoto.Location = new System.Drawing.Point(157, 145);
-            this.canslePhoto.Name = "canslePhoto";
-            this.canslePhoto.Size = new System.Drawing.Size(20, 20);
-            this.canslePhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.canslePhoto.TabIndex = 23;
-            this.canslePhoto.TabStop = false;
-            this.canslePhoto.Click += new System.EventHandler(this.canslePhoto_Click);
+            this.editPhoto.Location = new System.Drawing.Point(195, 135);
+            this.editPhoto.Name = "editPhoto";
+            this.editPhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPhoto.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPhoto.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editPhoto.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editPhoto.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editPhoto.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPhoto.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPhoto.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPhoto.Size = new System.Drawing.Size(17, 17);
+            this.editPhoto.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPhoto.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPhoto.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editPhoto.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editPhoto.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editPhoto.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editPhoto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPhoto.TabIndex = 27;
+            this.editPhoto.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.editPhoto.Values.Text = "";
+            this.editPhoto.Click += new System.EventHandler(this.editUserImg_Click);
             // 
-            // editUserImg
+            // canclePhoto
             // 
-            this.editUserImg.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editUserImg.Location = new System.Drawing.Point(183, 131);
-            this.editUserImg.Name = "editUserImg";
-            this.editUserImg.Size = new System.Drawing.Size(20, 20);
-            this.editUserImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editUserImg.TabIndex = 22;
-            this.editUserImg.TabStop = false;
-            this.editUserImg.Click += new System.EventHandler(this.editUserImg_Click);
+            this.canclePhoto.Location = new System.Drawing.Point(173, 155);
+            this.canclePhoto.Name = "canclePhoto";
+            this.canclePhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePhoto.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePhoto.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.canclePhoto.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.canclePhoto.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.canclePhoto.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.canclePhoto.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePhoto.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePhoto.Size = new System.Drawing.Size(17, 17);
+            this.canclePhoto.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePhoto.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePhoto.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.canclePhoto.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.canclePhoto.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.canclePhoto.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.canclePhoto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.canclePhoto.TabIndex = 28;
+            this.canclePhoto.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.canclePhoto.Values.Text = "";
+            this.canclePhoto.Click += new System.EventHandler(this.canslePhoto_Click);
             // 
-            // editNames
+            // backButton
             // 
-            this.editNames.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editNames.Location = new System.Drawing.Point(606, 205);
-            this.editNames.Name = "editNames";
-            this.editNames.Size = new System.Drawing.Size(20, 20);
-            this.editNames.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editNames.TabIndex = 21;
-            this.editNames.TabStop = false;
-            this.editNames.Click += new System.EventHandler(this.editNames_Click);
-            // 
-            // editPassword
-            // 
-            this.editPassword.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editPassword.Location = new System.Drawing.Point(347, 205);
-            this.editPassword.Name = "editPassword";
-            this.editPassword.Size = new System.Drawing.Size(20, 20);
-            this.editPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editPassword.TabIndex = 20;
-            this.editPassword.TabStop = false;
-            this.editPassword.Click += new System.EventHandler(this.editPassword_Click);
+            this.backButton.Location = new System.Drawing.Point(12, 15);
+            this.backButton.Name = "backButton";
+            this.backButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.backButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.backButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.backButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.backButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.backButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.backButton.OverrideDefault.Border.Rounding = 1;
+            this.backButton.OverrideDefault.Border.Width = 0;
+            this.backButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.backButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.backButton.Size = new System.Drawing.Size(30, 30);
+            this.backButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.backButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.backButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Back;
+            this.backButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.backButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.backButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.backButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.backButton.StateCommon.Border.Rounding = 0;
+            this.backButton.StateCommon.Border.Width = 0;
+            this.backButton.TabIndex = 29;
+            this.backButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.backButton.Values.Text = "";
+            this.backButton.Click += new System.EventHandler(this.backButtonImg_Click);
             // 
             // editNickEmail
             // 
-            this.editNickEmail.Image = global::DishesGo.Properties.Resources.Edit;
-            this.editNickEmail.Location = new System.Drawing.Point(546, 64);
+            this.editNickEmail.Location = new System.Drawing.Point(555, 95);
             this.editNickEmail.Name = "editNickEmail";
-            this.editNickEmail.Size = new System.Drawing.Size(20, 20);
-            this.editNickEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.editNickEmail.TabIndex = 19;
-            this.editNickEmail.TabStop = false;
+            this.editNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNickEmail.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editNickEmail.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editNickEmail.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editNickEmail.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editNickEmail.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNickEmail.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNickEmail.Size = new System.Drawing.Size(17, 17);
+            this.editNickEmail.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNickEmail.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNickEmail.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editNickEmail.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editNickEmail.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editNickEmail.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editNickEmail.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editNickEmail.TabIndex = 30;
+            this.editNickEmail.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.editNickEmail.Values.Text = "";
             this.editNickEmail.Click += new System.EventHandler(this.editNickEmail_Click);
-            // 
-            // backButtonImg
-            // 
-            this.backButtonImg.BackColor = System.Drawing.Color.Transparent;
-            this.backButtonImg.Image = global::DishesGo.Properties.Resources.Back;
-            this.backButtonImg.Location = new System.Drawing.Point(12, 12);
-            this.backButtonImg.Name = "backButtonImg";
-            this.backButtonImg.Size = new System.Drawing.Size(36, 36);
-            this.backButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.backButtonImg.TabIndex = 1;
-            this.backButtonImg.TabStop = false;
-            this.backButtonImg.Click += new System.EventHandler(this.backButtonImg_Click);
             // 
             // cancleNickEmail
             // 
-            this.cancleNickEmail.Image = global::DishesGo.Properties.Resources.Cansle;
-            this.cancleNickEmail.Location = new System.Drawing.Point(546, 90);
+            this.cancleNickEmail.Location = new System.Drawing.Point(555, 123);
             this.cancleNickEmail.Name = "cancleNickEmail";
-            this.cancleNickEmail.Size = new System.Drawing.Size(20, 20);
-            this.cancleNickEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cancleNickEmail.TabIndex = 24;
-            this.cancleNickEmail.TabStop = false;
+            this.cancleNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.cancleNickEmail.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cancleNickEmail.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.Size = new System.Drawing.Size(17, 17);
+            this.cancleNickEmail.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.cancleNickEmail.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.cancleNickEmail.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cancleNickEmail.TabIndex = 31;
+            this.cancleNickEmail.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.cancleNickEmail.Values.Text = "";
             this.cancleNickEmail.Click += new System.EventHandler(this.cancleNickEmail_Click);
+            // 
+            // editPassword
+            // 
+            this.editPassword.Location = new System.Drawing.Point(343, 225);
+            this.editPassword.Name = "editPassword";
+            this.editPassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPassword.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editPassword.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editPassword.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editPassword.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPassword.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPassword.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPassword.Size = new System.Drawing.Size(17, 17);
+            this.editPassword.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editPassword.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editPassword.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editPassword.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editPassword.TabIndex = 32;
+            this.editPassword.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.editPassword.Values.Text = "";
+            this.editPassword.Click += new System.EventHandler(this.editPassword_Click);
             // 
             // canclePassword
             // 
-            this.canclePassword.Image = global::DishesGo.Properties.Resources.Cansle;
-            this.canclePassword.Location = new System.Drawing.Point(347, 234);
+            this.canclePassword.Location = new System.Drawing.Point(343, 250);
             this.canclePassword.Name = "canclePassword";
-            this.canclePassword.Size = new System.Drawing.Size(20, 20);
-            this.canclePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.canclePassword.TabIndex = 25;
-            this.canclePassword.TabStop = false;
+            this.canclePassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePassword.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.canclePassword.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.canclePassword.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.canclePassword.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.canclePassword.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePassword.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePassword.Size = new System.Drawing.Size(17, 17);
+            this.canclePassword.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.canclePassword.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.canclePassword.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.canclePassword.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.canclePassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.canclePassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.canclePassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.canclePassword.TabIndex = 33;
+            this.canclePassword.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.canclePassword.Values.Text = "";
             this.canclePassword.Click += new System.EventHandler(this.canclePassword_Click);
+            // 
+            // editNames
+            // 
+            this.editNames.Location = new System.Drawing.Point(613, 220);
+            this.editNames.Name = "editNames";
+            this.editNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNames.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editNames.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editNames.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editNames.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editNames.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNames.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNames.Size = new System.Drawing.Size(17, 17);
+            this.editNames.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.editNames.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.editNames.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Edit;
+            this.editNames.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.editNames.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.editNames.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.editNames.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.editNames.TabIndex = 34;
+            this.editNames.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.editNames.Values.Text = "";
+            this.editNames.Click += new System.EventHandler(this.editNames_Click);
             // 
             // cancleNames
             // 
-            this.cancleNames.Image = global::DishesGo.Properties.Resources.Cansle;
-            this.cancleNames.Location = new System.Drawing.Point(606, 234);
+            this.cancleNames.Location = new System.Drawing.Point(613, 245);
             this.cancleNames.Name = "cancleNames";
-            this.cancleNames.Size = new System.Drawing.Size(20, 20);
-            this.cancleNames.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cancleNames.TabIndex = 26;
-            this.cancleNames.TabStop = false;
+            this.cancleNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNames.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.cancleNames.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNames.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNames.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cancleNames.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNames.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNames.Size = new System.Drawing.Size(17, 17);
+            this.cancleNames.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNames.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNames.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.cancleNames.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.cancleNames.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.cancleNames.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.cancleNames.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cancleNames.TabIndex = 35;
+            this.cancleNames.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.cancleNames.Values.Text = "";
             this.cancleNames.Click += new System.EventHandler(this.cancleNames_Click);
+            // 
+            // applyPhoto
+            // 
+            this.applyPhoto.Enabled = false;
+            this.applyPhoto.Location = new System.Drawing.Point(208, 109);
+            this.applyPhoto.Name = "applyPhoto";
+            this.applyPhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPhoto.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPhoto.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyPhoto.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyPhoto.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyPhoto.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyPhoto.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPhoto.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPhoto.Size = new System.Drawing.Size(17, 17);
+            this.applyPhoto.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPhoto.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPhoto.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Check;
+            this.applyPhoto.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyPhoto.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyPhoto.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyPhoto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyPhoto.TabIndex = 36;
+            this.applyPhoto.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.applyPhoto.Values.Text = "";
+            this.applyPhoto.Click += new System.EventHandler(this.applyPhoto_Click);
             // 
             // userPhoto
             // 
@@ -603,25 +780,132 @@
             this.userPhoto.TabIndex = 3;
             this.userPhoto.TabStop = false;
             // 
+            // applyNickEmail
+            // 
+            this.applyNickEmail.Enabled = false;
+            this.applyNickEmail.Location = new System.Drawing.Point(555, 72);
+            this.applyNickEmail.Name = "applyNickEmail";
+            this.applyNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyNickEmail.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyNickEmail.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.Size = new System.Drawing.Size(17, 17);
+            this.applyNickEmail.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Check;
+            this.applyNickEmail.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyNickEmail.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyNickEmail.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyNickEmail.TabIndex = 37;
+            this.applyNickEmail.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.applyNickEmail.Values.Text = "";
+            this.applyNickEmail.Click += new System.EventHandler(this.applyNickEmail_Click);
+            // 
+            // applyPassword
+            // 
+            this.applyPassword.Enabled = false;
+            this.applyPassword.Location = new System.Drawing.Point(343, 202);
+            this.applyPassword.Name = "applyPassword";
+            this.applyPassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPassword.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyPassword.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyPassword.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyPassword.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyPassword.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPassword.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPassword.Size = new System.Drawing.Size(17, 17);
+            this.applyPassword.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyPassword.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyPassword.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Check;
+            this.applyPassword.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyPassword.TabIndex = 38;
+            this.applyPassword.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.applyPassword.Values.Text = "";
+            this.applyPassword.Click += new System.EventHandler(this.applyPassword_Click);
+            // 
+            // applyNames
+            // 
+            this.applyNames.Enabled = false;
+            this.applyNames.Location = new System.Drawing.Point(613, 197);
+            this.applyNames.Name = "applyNames";
+            this.applyNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNames.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyNames.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyNames.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyNames.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyNames.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNames.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNames.Size = new System.Drawing.Size(17, 17);
+            this.applyNames.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.applyNames.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.applyNames.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Check;
+            this.applyNames.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.applyNames.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.applyNames.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.applyNames.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyNames.TabIndex = 39;
+            this.applyNames.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.applyNames.Values.Text = "";
+            this.applyNames.Click += new System.EventHandler(this.applyNames_Click);
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
+            this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.emailLabel.Location = new System.Drawing.Point(52, 48);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(56, 17);
+            this.emailLabel.TabIndex = 15;
+            this.emailLabel.Text = "e-mail:";
+            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 306);
+            this.Controls.Add(this.applyNames);
+            this.Controls.Add(this.applyPassword);
+            this.Controls.Add(this.applyNickEmail);
+            this.Controls.Add(this.applyPhoto);
             this.Controls.Add(this.cancleNames);
-            this.Controls.Add(this.canclePassword);
-            this.Controls.Add(this.cancleNickEmail);
-            this.Controls.Add(this.canslePhoto);
-            this.Controls.Add(this.editUserImg);
             this.Controls.Add(this.editNames);
+            this.Controls.Add(this.canclePassword);
             this.Controls.Add(this.editPassword);
+            this.Controls.Add(this.cancleNickEmail);
             this.Controls.Add(this.editNickEmail);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.canclePhoto);
+            this.Controls.Add(this.editPhoto);
             this.Controls.Add(this.saveChanging);
             this.Controls.Add(this.passwordsGroupBox);
             this.Controls.Add(this.nickEmailGroupBox);
             this.Controls.Add(this.namesGroupBox);
             this.Controls.Add(this.userPhoto);
-            this.Controls.Add(this.backButtonImg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditUserForm";
             this.Palette = this.kryptonPalette1;
@@ -643,15 +927,6 @@
             this.passwordsGroupBox.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passwordsGroupBox)).EndInit();
             this.passwordsGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.canslePhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editUserImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNames)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editNickEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backButtonImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancleNickEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canclePassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancleNames)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             this.ResumeLayout(false);
 
@@ -660,7 +935,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private System.Windows.Forms.PictureBox backButtonImg;
         private RashiUI.RashiCircularPictureBox userPhoto;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox nickname;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox name;
@@ -671,7 +945,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox namesGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox nickEmailGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox email;
-        private System.Windows.Forms.Label emailLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox passwordsGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox comfirmPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox newPassword;
@@ -680,13 +953,19 @@
         private System.Windows.Forms.Label newPasswordLabel;
         private System.Windows.Forms.Label oldPasswordLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton saveChanging;
-        private System.Windows.Forms.PictureBox editNickEmail;
-        private System.Windows.Forms.PictureBox editPassword;
-        private System.Windows.Forms.PictureBox editNames;
-        private System.Windows.Forms.PictureBox editUserImg;
-        private System.Windows.Forms.PictureBox canslePhoto;
-        private System.Windows.Forms.PictureBox cancleNickEmail;
-        private System.Windows.Forms.PictureBox canclePassword;
-        private System.Windows.Forms.PictureBox cancleNames;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton editPhoto;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton canclePhoto;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton backButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton editNickEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton cancleNickEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton editPassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton canclePassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton editNames;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton cancleNames;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton applyPhoto;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton applyNickEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton applyPassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton applyNames;
+        private System.Windows.Forms.Label emailLabel;
     }
 }

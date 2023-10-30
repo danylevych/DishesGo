@@ -1,6 +1,6 @@
 ﻿namespace DishesGo.src.Elements
 {
-    partial class ProfilePlate
+    partial class ProfilePlateComponent
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,14 +31,13 @@
             this.recipesPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.profileNameLabel = new System.Windows.Forms.Label();
-            this.settings = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.profileImg = new RashiUI.RashiCircularPictureBox();
             this.settingsPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.bookMarksButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.exitFromProfile = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
+            this.settings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).BeginInit();
@@ -62,7 +61,7 @@
             this.nicknameLabel.AutoSize = true;
             this.nicknameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nicknameLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.nicknameLabel.Location = new System.Drawing.Point(325, 67);
+            this.nicknameLabel.Location = new System.Drawing.Point(426, 67);
             this.nicknameLabel.Name = "nicknameLabel";
             this.nicknameLabel.Size = new System.Drawing.Size(101, 23);
             this.nicknameLabel.TabIndex = 10;
@@ -74,23 +73,11 @@
             this.profileNameLabel.AutoSize = true;
             this.profileNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.profileNameLabel.Font = new System.Drawing.Font("Russo One", 12F);
-            this.profileNameLabel.Location = new System.Drawing.Point(325, 112);
+            this.profileNameLabel.Location = new System.Drawing.Point(426, 112);
             this.profileNameLabel.Name = "profileNameLabel";
             this.profileNameLabel.Size = new System.Drawing.Size(83, 19);
             this.profileNameLabel.TabIndex = 9;
             this.profileNameLabel.Text = "fullName";
-            // 
-            // settings
-            // 
-            this.settings.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.settings.Image = global::DishesGo.Properties.Resources.Settings;
-            this.settings.Location = new System.Drawing.Point(628, 63);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(50, 50);
-            this.settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.settings.TabIndex = 12;
-            this.settings.TabStop = false;
-            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // pictureBox1
             // 
@@ -113,7 +100,7 @@
             this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
             this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.profileImg.Gradiant = 50F;
-            this.profileImg.Location = new System.Drawing.Point(175, 40);
+            this.profileImg.Location = new System.Drawing.Point(276, 40);
             this.profileImg.Name = "profileImg";
             this.profileImg.Size = new System.Drawing.Size(124, 124);
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +113,7 @@
             this.settingsPanel.Controls.Add(this.bookMarksButton);
             this.settingsPanel.Controls.Add(this.exitFromProfile);
             this.settingsPanel.Controls.Add(this.editPtofileButton);
-            this.settingsPanel.Location = new System.Drawing.Point(517, 112);
+            this.settingsPanel.Location = new System.Drawing.Point(67, 66);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.settingsPanel.Size = new System.Drawing.Size(161, 119);
@@ -221,6 +208,7 @@
             this.bookMarksButton.StateTracking.Border.Width = 1;
             this.bookMarksButton.TabIndex = 16;
             this.bookMarksButton.Values.Text = "Закладки";
+            this.bookMarksButton.Click += new System.EventHandler(this.bookMarksButton_Click);
             // 
             // exitFromProfile
             // 
@@ -398,14 +386,44 @@
             this.editPtofileButton.Values.Text = "Редагувати профіль";
             this.editPtofileButton.Click += new System.EventHandler(this.editPtofileButton_Click);
             // 
+            // settings
+            // 
+            this.settings.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.settings.Location = new System.Drawing.Point(36, 40);
+            this.settings.Name = "settings";
+            this.settings.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.settings.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.settings.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.settings.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.settings.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.settings.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.settings.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.settings.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.settings.Size = new System.Drawing.Size(30, 30);
+            this.settings.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.settings.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.settings.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Settings;
+            this.settings.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.settings.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.settings.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.settings.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.settings.TabIndex = 31;
+            this.settings.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.settings.Values.Text = "";
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
             // ProfilePlate
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.settings);
+            this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.recipesPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nicknameLabel);
@@ -413,7 +431,6 @@
             this.Controls.Add(this.profileImg);
             this.Name = "ProfilePlate";
             this.Size = new System.Drawing.Size(832, 462);
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).EndInit();
@@ -430,10 +447,10 @@
         private System.Windows.Forms.Label nicknameLabel;
         private System.Windows.Forms.Label profileNameLabel;
         private RashiUI.RashiCircularPictureBox profileImg;
-        private System.Windows.Forms.PictureBox settings;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel settingsPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton editPtofileButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton exitFromProfile;
         private ComponentFactory.Krypton.Toolkit.KryptonButton bookMarksButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton settings;
     }
 }

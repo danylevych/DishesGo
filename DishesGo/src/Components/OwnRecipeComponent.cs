@@ -3,19 +3,23 @@ using DishesGo.src.Forms;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Elements
 {
-    public partial class OwnRecipe : UserControl
+    public partial class OwnRecipeComponent : UserControl
     {
-        public OwnRecipe()
+        private Users user;
+
+
+        public OwnRecipeComponent()
         {
             InitializeComponent();
             border.Parent = recipeImg;
         }
 
-        public OwnRecipe(Image image, int receiptId)
+        public OwnRecipeComponent(Image image, int receiptId)
         {
             InitializeComponent();
             border.Parent = recipeImg;
@@ -24,7 +28,7 @@ namespace DishesGo.src.Elements
             ReceiptId = receiptId;
         }
 
-        public OwnRecipe(Recipes recipe)
+        public OwnRecipeComponent(Recipes recipe)
         {
             InitializeComponent();
             border.Parent = recipeImg;
@@ -43,6 +47,11 @@ namespace DishesGo.src.Elements
                     Image = Image.FromStream(ms);
                 }
             }
+
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                user = context.Users.FirstOrDefault(userdb => userdb.user_id == recipe.user_id);
+            }
         }
 
         public int ReceiptId { get; set; }
@@ -52,7 +61,7 @@ namespace DishesGo.src.Elements
         private void border_Click(object sender, EventArgs e)
         {
             // Show the information about reciept.
-            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, true);
+            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, true);
             MainForm.Instance.Hide();
             recipeViewerForm.ShowDialog(MainForm.Instance);
             MainForm.Instance.Show();

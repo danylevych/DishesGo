@@ -93,9 +93,9 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap corner {
+        internal static System.Drawing.Bitmap Check {
             get {
-                object obj = ResourceManager.GetObject("corner", resourceCulture);
+                object obj = ResourceManager.GetObject("Check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,59 +153,9 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap leftButtomCorner {
-            get {
-                object obj = ResourceManager.GetObject("leftButtomCorner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap MoreButton {
             get {
                 object obj = ResourceManager.GetObject("MoreButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap png_clipart_drawing_dish_кастрюля_food_photography {
-            get {
-                object obj = ResourceManager.GetObject("png-clipart-drawing-dish-кастрюля-food-photography", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pngegg {
-            get {
-                object obj = ResourceManager.GetObject("pngegg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pngegg1 {
-            get {
-                object obj = ResourceManager.GetObject("pngegg1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rightButtomCorner {
-            get {
-                object obj = ResourceManager.GetObject("rightButtomCorner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,49 +183,9 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap titlePhoto1 {
-            get {
-                object obj = ResourceManager.GetObject("titlePhoto1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap titlePhoto2 {
-            get {
-                object obj = ResourceManager.GetObject("titlePhoto2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap topRightCorner {
-            get {
-                object obj = ResourceManager.GetObject("topRightCorner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap withoutPhoto {
             get {
                 object obj = ResourceManager.GetObject("withoutPhoto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap withoutPhoto1 {
-            get {
-                object obj = ResourceManager.GetObject("withoutPhoto1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

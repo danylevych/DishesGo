@@ -1098,7 +1098,7 @@
             // 
             this.titleImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.titleImage.BackgroundImage = global::DishesGo.Properties.Resources.titlePhoto2;
+            this.titleImage.BackgroundImage = global::DishesGo.Properties.Resources.titlePhoto;
             this.titleImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.titleImage.Location = new System.Drawing.Point(431, -9);
             this.titleImage.Name = "titleImage";

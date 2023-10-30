@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace DishesGo.src.Elements
 {
-    public partial class ProfilePlate : UserControl
+    public partial class ProfilePlateComponent : UserControl
     {
         private Users user;
 
-        public ProfilePlate(Users user, Image userPhoto)
+        public ProfilePlateComponent(Users user, Image userPhoto)
         {
             this.user = user;
 
@@ -31,7 +31,7 @@ namespace DishesGo.src.Elements
                 {
                     foreach (var recipe in userRecipes)
                     {
-                        OwnRecipe ownRecipe = new OwnRecipe(recipe);
+                        OwnRecipeComponent ownRecipe = new OwnRecipeComponent(recipe);
                         ownRecipe.Parent = this;
                         recipesPanel.Controls.Add(ownRecipe);
                     }
@@ -70,6 +70,14 @@ namespace DishesGo.src.Elements
             EditUserForm editUserForm = new EditUserForm(user);
             MainForm.Instance.Hide();
             editUserForm.ShowDialog(MainForm.Instance);
+            MainForm.Instance.Show();
+        }
+
+        private void bookMarksButton_Click(object sender, EventArgs e)
+        {
+            BookmarksForm bookmarksForm = new BookmarksForm(user.user_id);
+            MainForm.Instance.Hide();
+            bookmarksForm.ShowDialog(MainForm.Instance);
             MainForm.Instance.Show();
         }
     }

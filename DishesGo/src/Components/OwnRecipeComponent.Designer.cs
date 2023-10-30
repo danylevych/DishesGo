@@ -1,6 +1,6 @@
 ﻿namespace DishesGo.src.Elements
 {
-    partial class OwnRecipe
+    partial class OwnRecipeComponent
     {
         /// <summary> 
         /// Required designer variable.
@@ -52,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.recipeImg.BackColor = System.Drawing.Color.Black;
-            this.recipeImg.Image = global::DishesGo.Properties.Resources.pngegg;
+            this.recipeImg.Image = global::DishesGo.Properties.Resources.titlePhoto;
             this.recipeImg.Location = new System.Drawing.Point(0, 0);
             this.recipeImg.Name = "recipeImg";
             this.recipeImg.Size = new System.Drawing.Size(220, 240);

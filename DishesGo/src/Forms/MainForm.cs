@@ -72,7 +72,7 @@ namespace DishesGo.src
             else
             {
                 photoLine.Visible = true;
-                ProfilePlate profilePlate = new ProfilePlate(user, userPhoto.Image);
+                ProfilePlateComponent profilePlate = new ProfilePlateComponent(user, userPhoto.Image);
                 profilePlate.Dock = DockStyle.Fill;
                 contextPanel.Controls.Add(profilePlate);
             }

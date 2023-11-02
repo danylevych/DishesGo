@@ -79,8 +79,12 @@ namespace DishesGo.src.Forms
                     findedUser.user_photo = user.user_photo;
 
                     context.SaveChanges();
+
+                    MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
+
         }
 
 

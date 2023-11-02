@@ -134,6 +134,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Components\AddRecipePlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\AddRecipePlateComponent.Designer.cs">
+      <DependentUpon>AddRecipePlateComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\IngridientsComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\IngridientsComponent.Designer.cs">
+      <DependentUpon>IngridientsComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\RecipeStepComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\RecipeStepComponent.Designer.cs">
+      <DependentUpon>RecipeStepComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\dbClasses\SQLConection.cs" />
     <Compile Include="src\Components\BookmarksComponent.cs">
       <SubType>UserControl</SubType>
@@ -200,17 +218,26 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\AddRecipePlateComponent.resx">
+      <DependentUpon>AddRecipePlateComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Components\BookmarksComponent.resx">
       <DependentUpon>BookmarksComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\DishViewerComponent.resx">
       <DependentUpon>DishViewerComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\IngridientsComponent.resx">
+      <DependentUpon>IngridientsComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Components\OwnRecipeComponent.resx">
       <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\ProfilePlateComponent.resx">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\RecipeStepComponent.resx">
+      <DependentUpon>RecipeStepComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ProfileForms\BookmarksForm.resx">
       <DependentUpon>BookmarksForm.cs</DependentUpon>
@@ -277,6 +304,7 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\Add.png" />
     <None Include="Resources\Img\UserAcrivity\Check.png" />
     <None Include="Resources\Img\UserAcrivity\Cansle.png" />
     <None Include="Resources\Img\UserAcrivity\Edit.png" />

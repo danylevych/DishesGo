@@ -37,14 +37,23 @@ namespace DishesGo.src.Elements
 
             if (recipe.recipe_photo == null)
             {
-                Image temp = Properties.Resources.titlePhoto;
-                Image = temp;
+                this.Image = Properties.Resources.titlePhoto;
             }
             else
             {
-                using (MemoryStream ms = new MemoryStream(recipe.recipe_photo))
+                // When user's recipe has image, we try to show it,
+                // but this action can throw exeption, when the format
+                // or else image data is wrong.
+                try
                 {
-                    Image = Image.FromStream(ms);
+                    using (MemoryStream ms = new MemoryStream(recipe.recipe_photo))
+                    {
+                        this.Image = Image.FromStream(ms);
+                    }
+                }
+                catch
+                {
+                    this.Image = Properties.Resources.titlePhoto;
                 }
             }
 

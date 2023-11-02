@@ -102,7 +102,7 @@ namespace DishesGo
         // TODO: chech if nikname has already exist in db.
         private void nicnameText_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -227,9 +227,6 @@ namespace DishesGo
 
                 using (DishesGo_dbEntities db = new DishesGo_dbEntities())
                 {
-                    /*bool isEmail = db.Users.Any(user => user.email == login);
-                    bool isNickname = db.Users.Any(user => user.nickname == login);*/
-
                     Users currentUser = db.Users.FirstOrDefault(user => user.email == login || user.nickname == login);
                     if (currentUser != null)
                     {
@@ -250,12 +247,12 @@ namespace DishesGo
                         }
                         else
                         {
-                            MessageBox.Show("Ви ввели направильний пароль.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ви ввели направильний пароль.", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Ви ввели направильний логін.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ви ввели направильний логін.", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

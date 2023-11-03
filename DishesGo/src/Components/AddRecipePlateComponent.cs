@@ -65,5 +65,10 @@ namespace DishesGo.src.Components
                 }
             }
         }
+
+        private void addIngridientsButton_Click(object sender, EventArgs e)
+        {
+            ingrigientsPanel.Controls.Add(new IngridientsComponent());
+        }
     }
 }

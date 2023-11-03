@@ -36,7 +36,7 @@
             this.stepsLabels = new System.Windows.Forms.Label();
             this.ingridientsLabel = new System.Windows.Forms.Label();
             this.ingrigientsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.backButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.addIngridientsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.titleLabel = new System.Windows.Forms.Label();
             this.addStepsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.RecipeImg = new System.Windows.Forms.PictureBox();
@@ -228,39 +228,40 @@
             this.ingrigientsPanel.Size = new System.Drawing.Size(487, 94);
             this.ingrigientsPanel.TabIndex = 34;
             // 
-            // backButton
+            // addIngridientsButton
             // 
-            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.backButton.AutoSize = true;
-            this.backButton.Location = new System.Drawing.Point(411, 119);
-            this.backButton.Name = "backButton";
-            this.backButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
-            this.backButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.backButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
-            this.backButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.addIngridientsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addIngridientsButton.AutoSize = true;
+            this.addIngridientsButton.Location = new System.Drawing.Point(411, 119);
+            this.addIngridientsButton.Name = "addIngridientsButton";
+            this.addIngridientsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.addIngridientsButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.backButton.OverrideDefault.Border.Rounding = 1;
-            this.backButton.OverrideDefault.Border.Width = 0;
-            this.backButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
-            this.backButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
-            this.backButton.Size = new System.Drawing.Size(20, 20);
-            this.backButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.backButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Add;
-            this.backButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.backButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.backButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.addIngridientsButton.OverrideDefault.Border.Rounding = 1;
+            this.addIngridientsButton.OverrideDefault.Border.Width = 0;
+            this.addIngridientsButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
+            this.addIngridientsButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
+            this.addIngridientsButton.Size = new System.Drawing.Size(20, 20);
+            this.addIngridientsButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Add;
+            this.addIngridientsButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.addIngridientsButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.backButton.StateCommon.Border.Rounding = 0;
-            this.backButton.StateCommon.Border.Width = 0;
-            this.backButton.TabIndex = 36;
-            this.backButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.backButton.Values.Text = "";
+            this.addIngridientsButton.StateCommon.Border.Rounding = 0;
+            this.addIngridientsButton.StateCommon.Border.Width = 0;
+            this.addIngridientsButton.TabIndex = 36;
+            this.addIngridientsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.addIngridientsButton.Values.Text = "";
+            this.addIngridientsButton.Click += new System.EventHandler(this.addIngridientsButton_Click);
             // 
             // titleLabel
             // 
@@ -387,7 +388,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.deleteStepButton);
             this.Controls.Add(this.addStepsButton);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.addIngridientsButton);
             this.Controls.Add(this.ingridientsLabel);
             this.Controls.Add(this.ingrigientsPanel);
             this.Controls.Add(this.stepsLabels);
@@ -418,7 +419,7 @@
         private System.Windows.Forms.Label stepsLabels;
         private System.Windows.Forms.Label ingridientsLabel;
         private System.Windows.Forms.FlowLayoutPanel ingrigientsPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton backButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton addIngridientsButton;
         private System.Windows.Forms.Label titleLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton addStepsButton;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox descriptionVal;

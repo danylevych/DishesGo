@@ -113,6 +113,12 @@
     <Compile Include="Data\RecipeTypes.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\sysdiagrams.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
@@ -177,6 +183,10 @@
     <Compile Include="src\Components\ProfilePlateComponent.Designer.cs">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Elements\ImageComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Elements\ImageComboBoxItem.cs" />
     <Compile Include="src\Elements\RashiCircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>

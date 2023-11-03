@@ -10,6 +10,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DishesGo.src.Components
@@ -38,6 +39,22 @@ namespace DishesGo.src.Components
                         ingredientComboBox.AddItem(item.ingredient_name, Properties.Resources.titlePhoto);
                     }
                 }
+            }
+        }
+
+        private void quantityVal_Enter(object sender, EventArgs e)
+        {
+            if (quantityVal.Text == "Кількість")
+            {
+                quantityVal.Text = string.Empty;
+            }
+        }
+
+        private void quantityVal_Leave(object sender, EventArgs e)
+        {
+            if (quantityVal.Text == string.Empty)
+            {
+                quantityVal.Text = "Кількість";
             }
         }
     }

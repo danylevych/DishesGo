@@ -59,6 +59,7 @@
             this.stepVal.StateCommon.Border.Rounding = 5;
             this.stepVal.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.stepVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
+            this.stepVal.StateDisabled.Back.Color1 = System.Drawing.Color.Transparent;
             this.stepVal.TabIndex = 16;
             this.stepVal.Tag = "";
             this.stepVal.Text = "\r\n";

@@ -186,7 +186,7 @@
             this.stepsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.stepsPanel.Location = new System.Drawing.Point(284, 280);
             this.stepsPanel.Name = "stepsPanel";
-            this.stepsPanel.Size = new System.Drawing.Size(487, 113);
+            this.stepsPanel.Size = new System.Drawing.Size(480, 113);
             this.stepsPanel.TabIndex = 32;
             // 
             // stepsLabels
@@ -225,7 +225,7 @@
             this.ingrigientsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ingrigientsPanel.Location = new System.Drawing.Point(284, 144);
             this.ingrigientsPanel.Name = "ingrigientsPanel";
-            this.ingrigientsPanel.Size = new System.Drawing.Size(487, 94);
+            this.ingrigientsPanel.Size = new System.Drawing.Size(480, 94);
             this.ingrigientsPanel.TabIndex = 34;
             // 
             // addIngridientsButton
@@ -332,7 +332,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionVal.Location = new System.Drawing.Point(355, 72);
             this.descriptionVal.Name = "descriptionVal";
-            this.descriptionVal.Size = new System.Drawing.Size(416, 34);
+            this.descriptionVal.Size = new System.Drawing.Size(409, 34);
             this.descriptionVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.descriptionVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.descriptionVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;

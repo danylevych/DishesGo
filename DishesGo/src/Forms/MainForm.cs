@@ -70,9 +70,14 @@ namespace DishesGo.src
             settingsPanel.Visible = !settingsPanel.Visible;
         }
 
+        private void settingsPanel_MouseEnter(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = true;
+        }
+
         private void settingsPanel_MouseLeave(object sender, EventArgs e)
         {
-            settingsPanel.Visible = !settingsPanel.Visible;
+            settingsPanel.Visible = true;
         }
 
         // Exit from account.

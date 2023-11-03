@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.mainPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.addLine = new System.Windows.Forms.PictureBox();
+            this.addRecipe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.settings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.photoLine = new System.Windows.Forms.PictureBox();
             this.userPhoto = new RashiUI.RashiCircularPictureBox();
@@ -39,16 +41,14 @@
             this.bookMarksButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.exitFromProfile = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.addRecipe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.addLine = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).BeginInit();
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).BeginInit();
             this.settingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addLine)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -83,9 +83,53 @@
             this.mainPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.TabIndex = 1;
             // 
+            // addLine
+            // 
+            this.addLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.addLine.Location = new System.Drawing.Point(658, 45);
+            this.addLine.Name = "addLine";
+            this.addLine.Size = new System.Drawing.Size(60, 5);
+            this.addLine.TabIndex = 34;
+            this.addLine.TabStop = false;
+            this.addLine.Visible = false;
+            // 
+            // addRecipe
+            // 
+            this.addRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addRecipe.Location = new System.Drawing.Point(672, 10);
+            this.addRecipe.Name = "addRecipe";
+            this.addRecipe.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.addRecipe.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.addRecipe.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.addRecipe.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.addRecipe.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.addRecipe.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.addRecipe.OverrideFocus.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.addRecipe.OverrideFocus.Back.Color2 = System.Drawing.Color.Gainsboro;
+            this.addRecipe.Size = new System.Drawing.Size(30, 30);
+            this.addRecipe.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.addRecipe.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.addRecipe.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Add;
+            this.addRecipe.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.addRecipe.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.addRecipe.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.addRecipe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.addRecipe.TabIndex = 33;
+            this.addRecipe.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.addRecipe.Values.Text = "";
+            this.addRecipe.Click += new System.EventHandler(this.addRecipe_Click);
+            // 
             // settings
             // 
-            this.settings.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.settings.Location = new System.Drawing.Point(10, 10);
             this.settings.Name = "settings";
             this.settings.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -159,7 +203,6 @@
             // 
             // settingsPanel
             // 
-            this.settingsPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.settingsPanel.Controls.Add(this.bookMarksButton);
             this.settingsPanel.Controls.Add(this.exitFromProfile);
             this.settingsPanel.Controls.Add(this.editPtofileButton);
@@ -170,6 +213,7 @@
             this.settingsPanel.StateCommon.Color1 = System.Drawing.Color.Gainsboro;
             this.settingsPanel.TabIndex = 33;
             this.settingsPanel.Visible = false;
+            this.settingsPanel.MouseEnter += new System.EventHandler(this.settingsPanel_MouseEnter);
             this.settingsPanel.MouseLeave += new System.EventHandler(this.settingsPanel_MouseLeave);
             // 
             // bookMarksButton
@@ -436,48 +480,6 @@
             this.editPtofileButton.Values.Text = "Редагувати профіль";
             this.editPtofileButton.Click += new System.EventHandler(this.editPtofileButton_Click);
             // 
-            // addRecipe
-            // 
-            this.addRecipe.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.addRecipe.Location = new System.Drawing.Point(672, 10);
-            this.addRecipe.Name = "addRecipe";
-            this.addRecipe.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
-            this.addRecipe.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
-            this.addRecipe.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.addRecipe.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
-            this.addRecipe.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
-            this.addRecipe.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.addRecipe.OverrideFocus.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.addRecipe.OverrideFocus.Back.Color2 = System.Drawing.Color.Gainsboro;
-            this.addRecipe.Size = new System.Drawing.Size(30, 30);
-            this.addRecipe.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.addRecipe.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.addRecipe.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Add;
-            this.addRecipe.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.addRecipe.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.addRecipe.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.addRecipe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.addRecipe.TabIndex = 33;
-            this.addRecipe.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.addRecipe.Values.Text = "";
-            this.addRecipe.Click += new System.EventHandler(this.addRecipe_Click);
-            // 
-            // addLine
-            // 
-            this.addLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.addLine.Location = new System.Drawing.Point(658, 45);
-            this.addLine.Name = "addLine";
-            this.addLine.Size = new System.Drawing.Size(60, 5);
-            this.addLine.TabIndex = 34;
-            this.addLine.TabStop = false;
-            this.addLine.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,12 +497,12 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).EndInit();
             this.settingsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.addLine)).EndInit();
             this.ResumeLayout(false);
 
         }

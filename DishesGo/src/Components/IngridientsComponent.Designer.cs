@@ -55,8 +55,7 @@
             // 
             // descriptionLabel
             // 
-            this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.BackColor = System.Drawing.Color.Transparent;
             this.descriptionLabel.Font = new System.Drawing.Font("Russo One", 10F);
@@ -69,9 +68,9 @@
             // 
             // quantityVal
             // 
-            this.quantityVal.Location = new System.Drawing.Point(203, 26);
+            this.quantityVal.Location = new System.Drawing.Point(13, 83);
             this.quantityVal.Name = "quantityVal";
-            this.quantityVal.Size = new System.Drawing.Size(250, 28);
+            this.quantityVal.Size = new System.Drawing.Size(161, 28);
             this.quantityVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.quantityVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.quantityVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -91,17 +90,20 @@
             // 
             // ingredientComboBox
             // 
+            this.ingredientComboBox.BackColor = System.Drawing.Color.LightYellow;
             this.ingredientComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ingredientComboBox.DropDownHeight = 50;
-            this.ingredientComboBox.DropDownWidth = 120;
+            this.ingredientComboBox.DropDownHeight = 120;
+            this.ingredientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ingredientComboBox.DropDownWidth = 260;
             this.ingredientComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ingredientComboBox.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.ingredientComboBox.Font = new System.Drawing.Font("Russo One", 10F);
+            this.ingredientComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ingredientComboBox.IntegralHeight = false;
             this.ingredientComboBox.ItemHeight = 30;
-            this.ingredientComboBox.Location = new System.Drawing.Point(19, 33);
+            this.ingredientComboBox.Location = new System.Drawing.Point(13, 26);
             this.ingredientComboBox.Name = "ingredientComboBox";
             this.ingredientComboBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ingredientComboBox.Size = new System.Drawing.Size(121, 36);
+            this.ingredientComboBox.Size = new System.Drawing.Size(161, 36);
             this.ingredientComboBox.Sorted = true;
             this.ingredientComboBox.TabIndex = 18;
             this.ingredientComboBox.TabStop = false;
@@ -115,7 +117,7 @@
             this.Controls.Add(this.quantityVal);
             this.Controls.Add(this.descriptionLabel);
             this.Name = "IngridientsComponent";
-            this.Size = new System.Drawing.Size(470, 73);
+            this.Size = new System.Drawing.Size(189, 125);
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishesGo_dbDataSet)).EndInit();
             this.ResumeLayout(false);

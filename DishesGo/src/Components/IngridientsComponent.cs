@@ -1,4 +1,5 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Elements;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,11 +7,9 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DishesGo.src.Components
@@ -25,7 +24,7 @@ namespace DishesGo.src.Components
             {
                 var ingredients = context.Ingredients.ToList();
 
-                foreach(var item in ingredients)
+                foreach (var item in ingredients)
                 {
                     if (item.ingredient_photo != null)
                     {

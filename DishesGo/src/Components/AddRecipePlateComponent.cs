@@ -70,5 +70,10 @@ namespace DishesGo.src.Components
         {
             ingrigientsPanel.Controls.Add(new IngridientsComponent());
         }
+
+        private void RecipeImg_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

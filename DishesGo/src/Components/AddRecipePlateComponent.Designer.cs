@@ -47,13 +47,13 @@
             // 
             // descriptionLabel
             // 
-            this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.descriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.BackColor = System.Drawing.Color.Transparent;
             this.descriptionLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
             this.descriptionLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.descriptionLabel.Location = new System.Drawing.Point(280, 75);
+            this.descriptionLabel.Location = new System.Drawing.Point(17, 334);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(63, 23);
             this.descriptionLabel.TabIndex = 12;
@@ -63,10 +63,10 @@
             // 
             this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("Russo One", 27F, System.Drawing.FontStyle.Bold);
-            this.title.Location = new System.Drawing.Point(177, 5);
+            this.title.Font = new System.Drawing.Font("Russo One", 19F, System.Drawing.FontStyle.Bold);
+            this.title.Location = new System.Drawing.Point(238, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(409, 43);
+            this.title.Size = new System.Drawing.Size(298, 31);
             this.title.TabIndex = 14;
             this.title.Text = "Додавання рецепту";
             // 
@@ -74,9 +74,9 @@
             // 
             this.titleVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleVal.Location = new System.Drawing.Point(92, 326);
+            this.titleVal.Location = new System.Drawing.Point(95, 296);
             this.titleVal.Name = "titleVal";
-            this.titleVal.Size = new System.Drawing.Size(171, 34);
+            this.titleVal.Size = new System.Drawing.Size(194, 31);
             this.titleVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.titleVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.titleVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -85,7 +85,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.titleVal.StateCommon.Border.Rounding = 5;
             this.titleVal.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.titleVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 14.25F);
+            this.titleVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 12F);
             this.titleVal.TabIndex = 15;
             this.titleVal.Tag = "";
             this.titleVal.Text = "title";
@@ -94,7 +94,7 @@
             // 
             this.addRecipeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.addRecipeButton.AutoSize = true;
-            this.addRecipeButton.Location = new System.Drawing.Point(60, 370);
+            this.addRecipeButton.Location = new System.Drawing.Point(79, 364);
             this.addRecipeButton.Name = "addRecipeButton";
             this.addRecipeButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.addRecipeButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -184,9 +184,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stepsPanel.AutoScroll = true;
             this.stepsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.stepsPanel.Location = new System.Drawing.Point(284, 280);
+            this.stepsPanel.Location = new System.Drawing.Point(290, 69);
             this.stepsPanel.Name = "stepsPanel";
-            this.stepsPanel.Size = new System.Drawing.Size(480, 113);
+            this.stepsPanel.Size = new System.Drawing.Size(480, 118);
             this.stepsPanel.TabIndex = 32;
             // 
             // stepsLabels
@@ -197,7 +197,7 @@
             this.stepsLabels.BackColor = System.Drawing.Color.Transparent;
             this.stepsLabels.Font = new System.Drawing.Font("Russo One", 14.25F);
             this.stepsLabels.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.stepsLabels.Location = new System.Drawing.Point(280, 250);
+            this.stepsLabels.Location = new System.Drawing.Point(286, 43);
             this.stepsLabels.Name = "stepsLabels";
             this.stepsLabels.Size = new System.Drawing.Size(70, 23);
             this.stepsLabels.TabIndex = 33;
@@ -206,12 +206,12 @@
             // ingridientsLabel
             // 
             this.ingridientsLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.ingridientsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ingridientsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ingridientsLabel.AutoSize = true;
             this.ingridientsLabel.BackColor = System.Drawing.Color.Transparent;
             this.ingridientsLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
             this.ingridientsLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.ingridientsLabel.Location = new System.Drawing.Point(280, 118);
+            this.ingridientsLabel.Location = new System.Drawing.Point(286, 200);
             this.ingridientsLabel.Name = "ingridientsLabel";
             this.ingridientsLabel.Size = new System.Drawing.Size(131, 23);
             this.ingridientsLabel.TabIndex = 35;
@@ -220,19 +220,19 @@
             // ingrigientsPanel
             // 
             this.ingrigientsPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.ingrigientsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ingrigientsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ingrigientsPanel.AutoScroll = true;
             this.ingrigientsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ingrigientsPanel.Location = new System.Drawing.Point(284, 144);
+            this.ingrigientsPanel.Location = new System.Drawing.Point(316, 226);
             this.ingrigientsPanel.Name = "ingrigientsPanel";
-            this.ingrigientsPanel.Size = new System.Drawing.Size(480, 94);
+            this.ingrigientsPanel.Size = new System.Drawing.Size(418, 150);
             this.ingrigientsPanel.TabIndex = 34;
             // 
             // addIngridientsButton
             // 
-            this.addIngridientsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addIngridientsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addIngridientsButton.AutoSize = true;
-            this.addIngridientsButton.Location = new System.Drawing.Point(411, 119);
+            this.addIngridientsButton.Location = new System.Drawing.Point(290, 226);
             this.addIngridientsButton.Name = "addIngridientsButton";
             this.addIngridientsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.addIngridientsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -271,7 +271,7 @@
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
             this.titleLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.titleLabel.Location = new System.Drawing.Point(20, 329);
+            this.titleLabel.Location = new System.Drawing.Point(17, 296);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(72, 23);
             this.titleLabel.TabIndex = 13;
@@ -281,7 +281,7 @@
             // 
             this.addStepsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addStepsButton.AutoSize = true;
-            this.addStepsButton.Location = new System.Drawing.Point(355, 253);
+            this.addStepsButton.Location = new System.Drawing.Point(361, 46);
             this.addStepsButton.Name = "addStepsButton";
             this.addStepsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.addStepsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -319,20 +319,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RecipeImg.BackColor = System.Drawing.SystemColors.ControlDark;
             this.RecipeImg.Image = global::DishesGo.Properties.Resources.titlePhoto;
-            this.RecipeImg.Location = new System.Drawing.Point(24, 72);
+            this.RecipeImg.Location = new System.Drawing.Point(24, 43);
             this.RecipeImg.Name = "RecipeImg";
             this.RecipeImg.Size = new System.Drawing.Size(240, 240);
             this.RecipeImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.RecipeImg.TabIndex = 0;
             this.RecipeImg.TabStop = false;
+            this.RecipeImg.Click += new System.EventHandler(this.RecipeImg_Click);
             // 
             // descriptionVal
             // 
-            this.descriptionVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.descriptionVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionVal.Location = new System.Drawing.Point(355, 72);
+            this.descriptionVal.Location = new System.Drawing.Point(86, 333);
             this.descriptionVal.Name = "descriptionVal";
-            this.descriptionVal.Size = new System.Drawing.Size(409, 34);
+            this.descriptionVal.Size = new System.Drawing.Size(203, 24);
             this.descriptionVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.descriptionVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.descriptionVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -341,7 +342,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.descriptionVal.StateCommon.Border.Rounding = 5;
             this.descriptionVal.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.descriptionVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 14.25F);
+            this.descriptionVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 8F);
             this.descriptionVal.TabIndex = 16;
             this.descriptionVal.Tag = "";
             this.descriptionVal.Text = "description";
@@ -350,7 +351,7 @@
             // 
             this.deleteStepButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteStepButton.AutoSize = true;
-            this.deleteStepButton.Location = new System.Drawing.Point(391, 254);
+            this.deleteStepButton.Location = new System.Drawing.Point(397, 46);
             this.deleteStepButton.Name = "deleteStepButton";
             this.deleteStepButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.deleteStepButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;

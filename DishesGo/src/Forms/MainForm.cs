@@ -133,7 +133,7 @@ namespace DishesGo.src
             {
                 contextPanel.Controls.Clear();
                 addLine.Visible = true;
-                AddRecipePlateComponent addRecipePlate = new AddRecipePlateComponent();
+                AddRecipePlateComponent addRecipePlate = new AddRecipePlateComponent(user.user_id);
                 addRecipePlate.Dock = DockStyle.Fill;
                 contextPanel.Controls.Add(addRecipePlate);
             }

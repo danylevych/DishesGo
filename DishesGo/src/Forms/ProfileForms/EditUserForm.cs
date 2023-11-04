@@ -94,7 +94,7 @@ namespace DishesGo.src.Forms
             // Open dialog window where user can choose image.
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Файли зображень|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                openFileDialog.Filter = "Файли зображень|*.jpg;*.jpeg;*.png";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     try
@@ -127,7 +127,7 @@ namespace DishesGo.src.Forms
 
             using (MemoryStream ms = new MemoryStream())
             {
-                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                image.Save(ms, image.RawFormat);
 
                 byte[] imageBytes = ms.ToArray();
 

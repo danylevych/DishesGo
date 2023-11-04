@@ -127,6 +127,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Data\UpdateLog.cs">
+      <DependentUpon>DBModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +221,7 @@
     <Compile Include="Data\Users.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Tools\Flyweights\IngredientsFactory.cs" />
     <Compile Include="src\Tools\ImageRedactor.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
@@ -314,6 +318,7 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Img\UserAcrivity\Info.png" />
     <None Include="Resources\Img\UserAcrivity\Add.png" />
     <None Include="Resources\Img\UserAcrivity\Check.png" />
     <None Include="Resources\Img\UserAcrivity\Cansle.png" />

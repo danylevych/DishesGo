@@ -27,12 +27,12 @@ namespace DishesGo.Data
         public string title { get; set; }
         public string description { get; set; }
         public byte[] recipe_photo { get; set; }
-        public Nullable<int> time_prepare { get; set; }
-        public Nullable<int> calories { get; set; }
+        public int time_prepare { get; set; }
+        public int calories { get; set; }
         public Nullable<int> user_id { get; set; }
         public Nullable<int> kitchen_id { get; set; }
         public Nullable<int> type_id { get; set; }
-        public Nullable<System.DateTime> posting_date { get; set; }
+        public System.DateTime posting_date { get; set; }
     
         public virtual Kitchens Kitchens { get; set; }
         public virtual RecipeTypes RecipeTypes { get; set; }

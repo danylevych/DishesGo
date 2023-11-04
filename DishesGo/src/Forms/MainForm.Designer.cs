@@ -78,7 +78,7 @@
             this.mainPanel.Controls.Add(this.userPhoto);
             this.mainPanel.Location = new System.Drawing.Point(-3, -1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(792, 50);
+            this.mainPanel.Size = new System.Drawing.Size(992, 50);
             this.mainPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.TabIndex = 1;
@@ -88,7 +88,7 @@
             this.addLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.addLine.Location = new System.Drawing.Point(658, 45);
+            this.addLine.Location = new System.Drawing.Point(858, 45);
             this.addLine.Name = "addLine";
             this.addLine.Size = new System.Drawing.Size(60, 5);
             this.addLine.TabIndex = 34;
@@ -99,7 +99,7 @@
             // 
             this.addRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRecipe.Location = new System.Drawing.Point(672, 10);
+            this.addRecipe.Location = new System.Drawing.Point(872, 10);
             this.addRecipe.Name = "addRecipe";
             this.addRecipe.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.addRecipe.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -162,7 +162,7 @@
             this.photoLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.photoLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.photoLine.Location = new System.Drawing.Point(724, 45);
+            this.photoLine.Location = new System.Drawing.Point(924, 45);
             this.photoLine.Name = "photoLine";
             this.photoLine.Size = new System.Drawing.Size(60, 5);
             this.photoLine.TabIndex = 2;
@@ -180,7 +180,7 @@
             this.userPhoto.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
             this.userPhoto.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.userPhoto.Gradiant = 50F;
-            this.userPhoto.Location = new System.Drawing.Point(733, 3);
+            this.userPhoto.Location = new System.Drawing.Point(933, 3);
             this.userPhoto.Name = "userPhoto";
             this.userPhoto.Size = new System.Drawing.Size(40, 40);
             this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -196,7 +196,7 @@
             this.contextPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.contextPanel.Location = new System.Drawing.Point(0, 48);
             this.contextPanel.Name = "contextPanel";
-            this.contextPanel.Size = new System.Drawing.Size(786, 408);
+            this.contextPanel.Size = new System.Drawing.Size(986, 608);
             this.contextPanel.StateCommon.Color1 = System.Drawing.SystemColors.AppWorkspace;
             this.contextPanel.StateCommon.Color2 = System.Drawing.SystemColors.Control;
             this.contextPanel.TabIndex = 2;
@@ -484,7 +484,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.contextPanel);
             this.Controls.Add(this.mainPanel);

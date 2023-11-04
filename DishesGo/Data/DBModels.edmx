@@ -54,12 +54,12 @@
           <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="500" />
           <Property Name="recipe_photo" Type="varbinary(max)" />
-          <Property Name="time_prepare" Type="int" />
-          <Property Name="calories" Type="int" />
+          <Property Name="time_prepare" Type="int" Nullable="false" />
+          <Property Name="calories" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" />
           <Property Name="kitchen_id" Type="int" />
           <Property Name="type_id" Type="int" />
-          <Property Name="posting_date" Type="datetime" />
+          <Property Name="posting_date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="RecipeSteps">
           <Key>
@@ -86,6 +86,13 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UpdateLogs">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Name="table_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_update" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -311,6 +318,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <EntitySet Name="RecipeSteps" EntityType="Self.RecipeSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeTypes" EntityType="Self.RecipeTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UpdateLogs" EntityType="Self.UpdateLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeDetails" EntityType="Self.RecipeDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -486,6 +494,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="UpdateLogs" EntityType="DishesGo_dbModel.UpdateLog" />
         </EntityContainer>
         <EntityType Name="Kitchens">
           <Key>
@@ -504,15 +513,15 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <Property Name="title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="recipe_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="time_prepare" Type="Int32" />
-          <Property Name="calories" Type="Int32" />
+          <Property Name="time_prepare" Type="Int32" Nullable="false" />
+          <Property Name="calories" Type="Int32" Nullable="false" />
           <Property Name="user_id" Type="Int32" />
           <Property Name="kitchen_id" Type="Int32" />
           <Property Name="type_id" Type="Int32" />
           <NavigationProperty Name="Kitchens" Relationship="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4" FromRole="Recipes" ToRole="Kitchens" />
           <NavigationProperty Name="RecipeTypes" Relationship="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D" FromRole="Recipes" ToRole="RecipeTypes" />
           <NavigationProperty Name="Users" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Recipes" ToRole="Users" />
-          <Property Name="posting_date" Type="DateTime" Precision="3" />
+          <Property Name="posting_date" Type="DateTime" Precision="3" Nullable="false" />
           <NavigationProperty Name="Bookmarks" Relationship="DishesGo_dbModel.FK__Bookmarks__id_re__5CD6CB2B" FromRole="Recipes" ToRole="Bookmarks" />
           <NavigationProperty Name="DishIngredients" Relationship="DishesGo_dbModel.FK__DishIngre__recip__619B8048" FromRole="Recipes" ToRole="DishIngredients" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_recipe__5812160E" FromRole="Recipes" ToRole="Likes" />
@@ -754,6 +763,13 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="UpdateLog">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Name="table_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -923,6 +939,14 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DishesGo_dbModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DishesGo_dbModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="UpdateLogs">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.UpdateLog">
+              <MappingFragment StoreEntitySet="UpdateLogs">
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="table_name" ColumnName="table_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,6 +1,6 @@
 ﻿namespace DishesGo.src.Components
 {
-    partial class IngridientsComponent
+    partial class IngredientsComponent
     {
         /// <summary> 
         /// Required designer variable.

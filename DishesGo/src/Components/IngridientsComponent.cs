@@ -1,5 +1,6 @@
 ﻿using DishesGo.Data;
 using DishesGo.src.Elements;
+using DishesGo.src.Tools.Flyweights;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,31 +15,32 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DishesGo.src.Components
 {
-    public partial class IngridientsComponent : UserControl
+    public partial class IngredientsComponent : UserControl
     {
-        public IngridientsComponent()
+        public string Quantity { get { return quantityVal.Text.Trim(); } }
+        public int IngredientID { get { return IngredientsFactory.GetIngridientID(ingredientComboBox.SelectedItem.ToString().Trim()); } }
+
+        public IngredientsComponent(int number)
         {
             InitializeComponent();
 
-            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            // One feelling for all instance.
+            if (IngredientsFactory.CanUpdate())
             {
-                var ingredients = context.Ingredients.ToList();
-
-                foreach (var item in ingredients)
-                {
-                    if (item.ingredient_photo != null)
-                    {
-                        using (MemoryStream ms = new MemoryStream(item.ingredient_photo))
-                        {
-                            ingredientComboBox.AddItem(item.ingredient_name, Image.FromStream(ms));
-                        }
-                    }
-                    else
-                    {
-                        ingredientComboBox.AddItem(item.ingredient_name, Properties.Resources.titlePhoto);
-                    }
-                }
+                IngredientsFactory.FeelAndUpdateValues();
             }
+
+            foreach (var item in IngredientsFactory.Pairs)
+            {
+                ingredientComboBox.AddItem(item.Key, item.Value);
+            }
+
+            this.Tag = number.ToString();
+        }
+
+        public void UpdateIngredients(int number)
+        {
+            this.Tag = number.ToString();
         }
 
         private void quantityVal_Enter(object sender, EventArgs e)

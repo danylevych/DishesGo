@@ -27,7 +27,8 @@
         <AssociationConnector Association="DishesGo_dbModel.FK__RecipeSte__id_re__656C112C" ManuallyRouted="false" >
         </AssociationConnector>
         <EntityTypeShape EntityType="DishesGo_dbModel.RecipeDetails" Width="1.5" PointX="8.375" PointY="8.75" />
-        <EntityTypeShape EntityType="DishesGo_dbModel.RecipeIngredientsView" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.RecipeIngredientsView" Width="2.625" PointX="7.375" PointY="0.625" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.UpdateLog" Width="1.5" PointX="0.875" PointY="9.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

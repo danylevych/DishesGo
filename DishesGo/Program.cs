@@ -1,9 +1,11 @@
 ﻿using DishesGo.Data;
 using DishesGo.src;
 using DishesGo.src.dbClasses;
+using DishesGo.src.Forms.ToolForms;
 using DishesGo.src.tools;
 using Newtonsoft.Json;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,7 +22,17 @@ namespace DishesGo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+#if false
+            Image image = Image.FromFile("D:\\OneDrive\\Pictures\\Знімки екрана\\Знімок екрана (1).png");
+            
+            var form = new CropingImage(image);
+            Application.Run(form);
+            Image image1 = form.OutImage;
+            image = image1;
 
+            
+
+#else
             JsonUserData userData = new JsonUserData()
             {
                 email = "",
@@ -57,6 +69,7 @@ namespace DishesGo
             {
                 Application.Run(new RegistrLoginForm());
             }
+#endif
         }
     }
 }

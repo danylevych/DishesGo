@@ -1,14 +1,11 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
+using DishesGo.src.Forms.ToolForms;
+using DishesGo.src.tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Forms
@@ -83,8 +80,6 @@ namespace DishesGo.src.Forms
                     MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-
         }
 
 
@@ -99,8 +94,15 @@ namespace DishesGo.src.Forms
                 {
                     try
                     {
-                        userPhoto.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
-                        applyPhoto.Enabled = true; // User change the photo.
+                        Image image = new System.Drawing.Bitmap(openFileDialog.FileName);
+
+                        CropingImageForm cropingImgForm = new CropingImageForm(image);
+                        cropingImgForm.ShowDialog(this);
+                        if (cropingImgForm.SelectedButton == Tools.ImageCropingFormButton.SAVE)
+                        {
+                            userPhoto.Image = new Bitmap(cropingImgForm.GetCroppedImage());
+                            applyPhoto.Enabled = true; // User change the photo.
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -123,16 +125,7 @@ namespace DishesGo.src.Forms
         private void applyPhoto_Click(object sender, EventArgs e)
         {
             // Set photo.
-            Image image = userPhoto.Image;
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, image.RawFormat);
-
-                byte[] imageBytes = ms.ToArray();
-
-                user.user_photo = imageBytes;
-            }
+            user.user_photo = ImageRedactor.ToByteArray(userPhoto.Image);
 
             applyPhoto.Enabled = false; // User setted photo.
         }

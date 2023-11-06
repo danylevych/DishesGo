@@ -1,16 +1,10 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
+using DishesGo.src.Forms.ToolForms;
+using DishesGo.src.tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Components
@@ -207,8 +201,15 @@ namespace DishesGo.src.Components
                 {
                     try
                     {
-                        RecipeImg.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
-                        isPhotoSetted = true; // User setted the photo.
+                        System.Drawing.Image image = new System.Drawing.Bitmap(openFileDialog.FileName);
+                        CropingImageForm cropingImgForm = new CropingImageForm(image);
+                        cropingImgForm.ShowDialog(this);
+
+                        if (cropingImgForm.SelectedButton == Tools.ImageCropingFormButton.SAVE)
+                        {
+                            RecipeImg.Image = new Bitmap(cropingImgForm.GetCroppedImage());
+                            isPhotoSetted = true; // User setted the photo.
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -429,7 +430,7 @@ namespace DishesGo.src.Components
                 {
                     title = titleVal.Text.Trim(),
                     description = (descriptionVal.Text.Trim() == "введіть опис" ? null : descriptionVal.Text.Trim()),
-                    recipe_photo = (isPhotoSetted ? ConvertImageToByteArray(RecipeImg.Image) : null),
+                    recipe_photo = (isPhotoSetted ? ImageRedactor.ToByteArray(RecipeImg.Image) : null),
                     time_prepare = Convert.ToInt32(timePrepareVal.Text.Trim()),
                     calories = Convert.ToInt32(caloriesVal.Text.Trim()),
                     user_id = userId,
@@ -469,20 +470,6 @@ namespace DishesGo.src.Components
                 context.SaveChanges();
 
                 MessageBox.Show("Ви успішно створили рецепт.", "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        public byte[] ConvertImageToByteArray(Image image)
-        {
-            if (image == null)
-            {
-                return null;
-            }
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, image.RawFormat);
-                return ms.ToArray();
             }
         }
     }

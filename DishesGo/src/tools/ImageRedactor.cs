@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DishesGo.src.tools
@@ -23,14 +25,18 @@ namespace DishesGo.src.tools
             return resizedImage;
         }
 
-        public static Region CropAsElips(PictureBox photo)
+        public static byte[] ToByteArray(Image image)
         {
-            GraphicsPath path = new GraphicsPath();
-            path.AddEllipse(0, 0, photo.Width, photo.Height);
+            if (image == null) // If our image is not exist.
+            {
+                return null;
+            }
 
-            Region region = new Region(path);
-
-            return region;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Jpeg);
+                return ms.ToArray(); // Return the byte array.
+            }
         }
     }
 }

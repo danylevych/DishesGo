@@ -39,6 +39,7 @@
             this.namesGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.nickEmailGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.email = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
             this.passwordsGroupBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.comfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.newPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -61,7 +62,6 @@
             this.applyNickEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.applyPassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.applyNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.emailLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox.Panel)).BeginInit();
             this.namesGroupBox.Panel.SuspendLayout();
@@ -255,6 +255,19 @@
             this.email.Text = "email";
             this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             this.email.Leave += new System.EventHandler(this.email_Leave);
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
+            this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.emailLabel.Location = new System.Drawing.Point(52, 48);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(56, 17);
+            this.emailLabel.TabIndex = 15;
+            this.emailLabel.Text = "e-mail:";
             // 
             // passwordsGroupBox
             // 
@@ -869,19 +882,6 @@
             this.applyNames.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.applyNames.Values.Text = "";
             this.applyNames.Click += new System.EventHandler(this.applyNames_Click);
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.emailLabel.Location = new System.Drawing.Point(52, 48);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(56, 17);
-            this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "e-mail:";
             // 
             // EditUserForm
             // 

@@ -217,12 +217,19 @@
     <Compile Include="src\Forms\RecipeViewerForm.Designer.cs">
       <DependentUpon>RecipeViewerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\ToolForms\CropingImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ToolForms\CropingImageForm.Designer.cs">
+      <DependentUpon>CropingImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Tools\configs.cs" />
     <Compile Include="Data\Users.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Tools\Flyweights\IngredientsFactory.cs" />
     <Compile Include="src\Tools\ImageRedactor.cs" />
+    <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
@@ -264,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\RecipeViewerForm.resx">
       <DependentUpon>RecipeViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ToolForms\CropingImageForm.resx">
+      <DependentUpon>CropingImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Data\DBModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

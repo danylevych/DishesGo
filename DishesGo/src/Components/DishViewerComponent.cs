@@ -273,11 +273,14 @@ namespace DishesGo.src.Elements
         // Deleting recipe.
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            using (DishesGo_dbEntities context =  new DishesGo_dbEntities()) 
+            if (MessageBox.Show("Ви дійсно бажаєте видалити цей рецепт?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                context.Recipes.Remove(context.Recipes.FirstOrDefault(receipt => receipt.recipe_id == ReceiptId));
+                using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+                {
+                    context.Recipes.Remove(context.Recipes.FirstOrDefault(receipt => receipt.recipe_id == ReceiptId));
 
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
             }
         }
     }

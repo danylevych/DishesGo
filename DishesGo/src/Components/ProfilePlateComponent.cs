@@ -12,8 +12,16 @@ namespace DishesGo.src.Elements
 {
     public partial class ProfilePlateComponent : UserControl
     {
+        private Users user;
+
+        public string Nickname { get { return nicknameLabel.Text; } set { nicknameLabel.Text = value; } }
+        public string ProfileName { get { return profileNameLabel.Text; } set { profileNameLabel.Text = value; } }
+        public Image Image { get { return profileImg.Image; } set { profileImg.Image = value; } }
+
         public ProfilePlateComponent(Users user, Image userPhoto)
         {
+            this.user = user;
+
             InitializeComponent();
 
             profileImg.Image = userPhoto;
@@ -22,7 +30,7 @@ namespace DishesGo.src.Elements
 
             using (DishesGo_dbEntities db = new DishesGo_dbEntities())
             {
-                var userRecipes = db.Recipes.Where(r => r.user_id == user.user_id).ToList();
+                var userRecipes = db.Recipes.Where(r => r.user_id == user.user_id).OrderByDescending(r => r.posting_date).ToList();
                 if (userRecipes.Count > 0)
                 {
                     foreach (var recipe in userRecipes)
@@ -35,8 +43,13 @@ namespace DishesGo.src.Elements
             }
         }
 
-        public string Nickname { get { return nicknameLabel.Text; } set { nicknameLabel.Text = value; } }
-        public string ProfileName { get { return profileNameLabel.Text; } set { profileNameLabel.Text = value; } }
-        public Image Image { get { return profileImg.Image; } set { profileImg.Image = value; } }
+        
+        private void profileImg_Click(object sender, EventArgs e)
+        {
+            EditUserForm editUserForm = new EditUserForm(user);
+            MainForm.Instance.Hide();
+            editUserForm.ShowDialog(MainForm.Instance);
+            MainForm.Instance.Show();
+        }
     }
 }

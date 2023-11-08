@@ -50,6 +50,46 @@ namespace DishesGo.src.Components
             }
         }
 
+        // Resizing of steps panel's elements. 
+        private void stepsPanel_SizeChanged(object sender, EventArgs e)
+        {
+            stepsPanel.SuspendLayout();
+            foreach (var ctrl in stepsPanel.Controls)
+            {
+                if (ctrl is RecipeStepComponent)
+                {
+                    (ctrl as RecipeStepComponent).Width = stepsPanel.ClientSize.Width - 7;
+                }
+            }
+            stepsPanel.ResumeLayout();
+        }
+        private void RecipeStepComponent_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                RecipeStepComponent control = sender as RecipeStepComponent;
+                DoDragDrop(control, DragDropEffects.Move);
+            }
+        }
+
+        private void stepsPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(RecipeStepComponent)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+        }
+
+        private void stepsPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            Point clientPoint = stepsPanel.PointToClient(new Point(e.X, e.Y));
+            RecipeStepComponent component = e.Data.GetData(typeof(RecipeStepComponent)) as RecipeStepComponent;
+            if (component != null)
+            {
+                component.Location = new Point(clientPoint.X - component.Size.Width / 2, clientPoint.Y - component.Size.Height / 2);
+                stepsPanel.Controls.Add(component);
+            }
+        }
 
 
         // Select steps that user want to delete.

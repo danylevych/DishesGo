@@ -34,7 +34,6 @@
             // 
             // numLabel
             // 
-            this.numLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numLabel.AutoSize = true;
             this.numLabel.BackColor = System.Drawing.Color.Transparent;
             this.numLabel.Font = new System.Drawing.Font("Russo One", 10F);
@@ -47,9 +46,11 @@
             // 
             // stepVal
             // 
+            this.stepVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.stepVal.Location = new System.Drawing.Point(80, 8);
             this.stepVal.Name = "stepVal";
-            this.stepVal.Size = new System.Drawing.Size(384, 28);
+            this.stepVal.Size = new System.Drawing.Size(484, 28);
             this.stepVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.stepVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.stepVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -72,7 +73,7 @@
             this.Controls.Add(this.numLabel);
             this.Controls.Add(this.stepVal);
             this.Name = "RecipeStepComponent";
-            this.Size = new System.Drawing.Size(480, 45);
+            this.Size = new System.Drawing.Size(580, 45);
             this.ResumeLayout(false);
             this.PerformLayout();
 

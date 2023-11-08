@@ -49,6 +49,7 @@ namespace DishesGo.src.Forms
             }
         }
 
+
         private void backButtonImg_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -57,7 +58,7 @@ namespace DishesGo.src.Forms
         private void saveChanging_Click(object sender, EventArgs e)
         {
             // User did not save all changes.
-            if(applyNames.Enabled || applyPhoto.Enabled || applyNickEmail.Enabled || applyPassword.Enabled)
+            if(applyNames.Visible || applyPhoto.Visible || applyNickEmail.Visible || applyPassword.Visible)
             {
                 MessageBox.Show("Ви не зберегли всі дані.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -66,26 +67,39 @@ namespace DishesGo.src.Forms
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
                 Users findedUser = context.Users.FirstOrDefault(userdb => userdb.user_id == user.user_id);
-                
-                if (findedUser != null)
+
+                if (findedUser == null)
                 {
-                    findedUser.email = user.email;
-                    findedUser.nickname = user.nickname;
-                    findedUser.first_name = user.first_name;
-                    findedUser.last_name = user.last_name;
-                    findedUser.user_photo = user.user_photo;
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
+
+                // Check if user made some changes.
+                if (findedUser.email == user.email && findedUser.nickname == user.nickname &&
+                    findedUser.first_name == user.first_name && findedUser.last_name == user.last_name &&
+                    findedUser.user_password == user.user_password && findedUser.user_photo.SequenceEqual(user.user_photo))
+                {
+                    return;
+                }
+
+
+                findedUser.email = user.email;
+                findedUser.nickname = user.nickname;
+                findedUser.first_name = user.first_name;
+                findedUser.last_name = user.last_name;
+                findedUser.user_photo = user.user_photo;
+                findedUser.user_password = user.user_password;
+
+                context.SaveChanges();
+
+                MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MainForm.Instance.Refresh(findedUser);
             }
         }
 
 
         private void editUserImg_Click(object sender, EventArgs e)
         {
-            applyPhoto.Enabled = true;
             // Open dialog window where user can choose image.
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -101,7 +115,7 @@ namespace DishesGo.src.Forms
                         if (cropingImgForm.SelectedButton == Tools.ImageCropingFormButton.SAVE)
                         {
                             userPhoto.Image = new Bitmap(cropingImgForm.GetCroppedImage());
-                            applyPhoto.Enabled = true; // User change the photo.
+                            applyPhoto.Visible = true;
                         }
                     }
                     catch (Exception ex)
@@ -118,7 +132,7 @@ namespace DishesGo.src.Forms
             using (MemoryStream ms = new MemoryStream(user.user_photo))
             {
                 userPhoto.Image = Image.FromStream(ms);
-                applyPhoto.Enabled = false;
+                applyPhoto.Visible = false;
             }
         }
 
@@ -127,7 +141,7 @@ namespace DishesGo.src.Forms
             // Set photo.
             user.user_photo = ImageRedactor.ToByteArray(userPhoto.Image);
 
-            applyPhoto.Enabled = false; // User setted photo.
+            applyPhoto.Visible = false; // User setted photo.
         }
 
 
@@ -136,7 +150,7 @@ namespace DishesGo.src.Forms
         {
             // Set enable as true, now user can edit the info.
             nickEmailGroupBox.Enabled = true;
-            applyNickEmail.Enabled = true;
+            applyNickEmail.Visible = true;
         }
 
         private void cancleNickEmail_Click(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace DishesGo.src.Forms
             nickname.Text = user.nickname;
             email.Text = user.email;
 
-            applyNickEmail.Enabled = false;
+            applyNickEmail.Visible = false;
 
             //isNicknameChanged = false;
             //isEmailChanged = false;
@@ -167,7 +181,7 @@ namespace DishesGo.src.Forms
             user.nickname = nickname.Text.Trim();
 
             nickEmailGroupBox.Enabled = false;
-            applyNickEmail.Enabled = false;
+            applyNickEmail.Visible = false;
         }
 
         private void nickname_TextChanged(object sender, EventArgs e)
@@ -271,7 +285,7 @@ namespace DishesGo.src.Forms
             // Set enable as true, now user can edit info.
             namesGroupBox.Enabled = true;
 
-            applyNames.Enabled = true;
+            applyNames.Visible = true;
         }
 
         private void cancleNames_Click(object sender, EventArgs e)
@@ -293,7 +307,7 @@ namespace DishesGo.src.Forms
             user.last_name = lastName.Text.Trim();
 
             namesGroupBox.Enabled = false;
-            applyNames.Enabled = false;
+            applyNames.Visible = false;
         }
 
         private void firstName_Leave(object sender, EventArgs e)
@@ -319,7 +333,7 @@ namespace DishesGo.src.Forms
             // Set enable in true, now user can change password.
             passwordsGroupBox.Enabled = true;
 
-            applyPassword.Enabled = true;
+            applyPassword.Visible = true;
         }
 
         private void canclePassword_Click(object sender, EventArgs e)
@@ -341,7 +355,7 @@ namespace DishesGo.src.Forms
             newPassword.Enabled = false;
             comfirmPassword.Enabled = false;
 
-            applyPassword.Enabled = false;
+            applyPassword.Visible = false;
         }
 
         private void applyPassword_Click(object sender, EventArgs e)
@@ -355,7 +369,7 @@ namespace DishesGo.src.Forms
             user.user_password = newPassword.Text.Trim();
             
             passwordsGroupBox.Enabled = false;
-            applyPassword.Enabled = false;
+            applyPassword.Visible = false;
         }
 
         private void oldPassword_Enter(object sender, EventArgs e)

@@ -74,9 +74,9 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.backButton.OverrideDefault.Border.Rounding = 1;
             this.backButton.OverrideDefault.Border.Width = 0;
-            this.backButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
-            this.backButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.Size = new System.Drawing.Size(40, 40);
+            this.backButton.OverrideFocus.Back.Color1 = System.Drawing.Color.LightYellow;
+            this.backButton.OverrideFocus.Back.Color2 = System.Drawing.Color.LightYellow;
+            this.backButton.Size = new System.Drawing.Size(30, 30);
             this.backButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.backButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.backButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Back;

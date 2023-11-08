@@ -58,10 +58,10 @@
             this.editNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cancleNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.applyPhoto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.userPhoto = new RashiUI.RashiCircularPictureBox();
             this.applyNickEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.applyPassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.applyNames = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.userPhoto = new RashiUI.RashiCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.namesGroupBox.Panel)).BeginInit();
             this.namesGroupBox.Panel.SuspendLayout();
@@ -748,7 +748,6 @@
             // 
             // applyPhoto
             // 
-            this.applyPhoto.Enabled = false;
             this.applyPhoto.Location = new System.Drawing.Point(208, 109);
             this.applyPhoto.Name = "applyPhoto";
             this.applyPhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -774,28 +773,11 @@
             this.applyPhoto.TabIndex = 36;
             this.applyPhoto.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.applyPhoto.Values.Text = "";
+            this.applyPhoto.Visible = false;
             this.applyPhoto.Click += new System.EventHandler(this.applyPhoto_Click);
-            // 
-            // userPhoto
-            // 
-            this.userPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.userPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userPhoto.Border = 1;
-            this.userPhoto.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
-            this.userPhoto.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.userPhoto.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
-            this.userPhoto.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.userPhoto.Gradiant = 50F;
-            this.userPhoto.Location = new System.Drawing.Point(79, 42);
-            this.userPhoto.Name = "userPhoto";
-            this.userPhoto.Size = new System.Drawing.Size(123, 123);
-            this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPhoto.TabIndex = 3;
-            this.userPhoto.TabStop = false;
             // 
             // applyNickEmail
             // 
-            this.applyNickEmail.Enabled = false;
             this.applyNickEmail.Location = new System.Drawing.Point(555, 72);
             this.applyNickEmail.Name = "applyNickEmail";
             this.applyNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
@@ -821,6 +803,7 @@
             this.applyNickEmail.TabIndex = 37;
             this.applyNickEmail.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.applyNickEmail.Values.Text = "";
+            this.applyNickEmail.Visible = false;
             this.applyNickEmail.Click += new System.EventHandler(this.applyNickEmail_Click);
             // 
             // applyPassword
@@ -851,6 +834,7 @@
             this.applyPassword.TabIndex = 38;
             this.applyPassword.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.applyPassword.Values.Text = "";
+            this.applyPassword.Visible = false;
             this.applyPassword.Click += new System.EventHandler(this.applyPassword_Click);
             // 
             // applyNames
@@ -881,7 +865,25 @@
             this.applyNames.TabIndex = 39;
             this.applyNames.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.applyNames.Values.Text = "";
+            this.applyNames.Visible = false;
             this.applyNames.Click += new System.EventHandler(this.applyNames_Click);
+            // 
+            // userPhoto
+            // 
+            this.userPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.userPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userPhoto.Border = 1;
+            this.userPhoto.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
+            this.userPhoto.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.userPhoto.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
+            this.userPhoto.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.userPhoto.Gradiant = 50F;
+            this.userPhoto.Location = new System.Drawing.Point(79, 42);
+            this.userPhoto.Name = "userPhoto";
+            this.userPhoto.Size = new System.Drawing.Size(123, 123);
+            this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPhoto.TabIndex = 3;
+            this.userPhoto.TabStop = false;
             // 
             // EditUserForm
             // 

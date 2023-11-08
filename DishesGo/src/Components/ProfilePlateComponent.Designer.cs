@@ -99,6 +99,7 @@
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.profileImg.TabIndex = 8;
             this.profileImg.TabStop = false;
+            this.profileImg.Click += new System.EventHandler(this.profileImg_Click);
             // 
             // ProfilePlateComponent
             // 

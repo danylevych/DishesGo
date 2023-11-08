@@ -223,8 +223,10 @@
             this.stepsPanel.Size = new System.Drawing.Size(587, 239);
             this.stepsPanel.TabIndex = 32;
             this.stepsPanel.Tag = "Steps";
+            this.stepsPanel.SizeChanged += new System.EventHandler(this.stepsPanel_SizeChanged);
             this.stepsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlAdded);
             this.stepsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlRemoved);
+            this.stepsPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.stepsPanel_DragDrop);
             // 
             // stepsLabels
             // 
@@ -254,14 +256,14 @@
             this.ingridientsLabel.TabIndex = 35;
             this.ingridientsLabel.Text = "Інгридієнти";
             // 
-            // ingrigientsPanel
+            // ingredientsPanel
             // 
             this.ingredientsPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.ingredientsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ingredientsPanel.AutoScroll = true;
             this.ingredientsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ingredientsPanel.Location = new System.Drawing.Point(374, 354);
-            this.ingredientsPanel.Name = "ingrigientsPanel";
+            this.ingredientsPanel.Name = "ingredientsPanel";
             this.ingredientsPanel.Size = new System.Drawing.Size(587, 240);
             this.ingredientsPanel.TabIndex = 34;
             this.ingredientsPanel.Tag = "Ingredients";

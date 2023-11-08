@@ -213,8 +213,6 @@
             this.settingsPanel.StateCommon.Color1 = System.Drawing.Color.Gainsboro;
             this.settingsPanel.TabIndex = 33;
             this.settingsPanel.Visible = false;
-            this.settingsPanel.MouseEnter += new System.EventHandler(this.settingsPanel_MouseEnter);
-            this.settingsPanel.MouseLeave += new System.EventHandler(this.settingsPanel_MouseLeave);
             // 
             // bookMarksButton
             // 

@@ -214,6 +214,7 @@
             // 
             // stepsPanel
             // 
+            this.stepsPanel.AllowDrop = true;
             this.stepsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stepsPanel.AutoScroll = true;
@@ -226,7 +227,6 @@
             this.stepsPanel.SizeChanged += new System.EventHandler(this.stepsPanel_SizeChanged);
             this.stepsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlAdded);
             this.stepsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlRemoved);
-            this.stepsPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.stepsPanel_DragDrop);
             // 
             // stepsLabels
             // 

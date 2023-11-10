@@ -200,6 +200,12 @@
     <Compile Include="src\Forms\ProfileForms\BookmarksForm.Designer.cs">
       <DependentUpon>BookmarksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\ProfileForms\EditRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ProfileForms\EditRecipeForm.Designer.cs">
+      <DependentUpon>EditRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\ProfileForms\EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ProfileForms\BookmarksForm.resx">
       <DependentUpon>BookmarksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ProfileForms\EditRecipeForm.resx">
+      <DependentUpon>EditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ProfileForms\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>

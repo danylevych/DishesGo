@@ -30,6 +30,8 @@
         {
             this.numLabel = new System.Windows.Forms.Label();
             this.stepVal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonSeparator = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator)).BeginInit();
             this.SuspendLayout();
             // 
             // numLabel
@@ -38,7 +40,7 @@
             this.numLabel.BackColor = System.Drawing.Color.Transparent;
             this.numLabel.Font = new System.Drawing.Font("Russo One", 10F);
             this.numLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numLabel.Location = new System.Drawing.Point(14, 14);
+            this.numLabel.Location = new System.Drawing.Point(32, 13);
             this.numLabel.Name = "numLabel";
             this.numLabel.Size = new System.Drawing.Size(53, 17);
             this.numLabel.TabIndex = 14;
@@ -48,9 +50,9 @@
             // 
             this.stepVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.stepVal.Location = new System.Drawing.Point(80, 8);
+            this.stepVal.Location = new System.Drawing.Point(102, 8);
             this.stepVal.Name = "stepVal";
-            this.stepVal.Size = new System.Drawing.Size(484, 28);
+            this.stepVal.Size = new System.Drawing.Size(462, 28);
             this.stepVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
             this.stepVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.stepVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -65,15 +67,36 @@
             this.stepVal.Tag = "";
             this.stepVal.Text = "\r\n";
             // 
+            // kryptonSeparator
+            // 
+            this.kryptonSeparator.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.kryptonSeparator.Location = new System.Drawing.Point(0, 0);
+            this.kryptonSeparator.Name = "kryptonSeparator";
+            this.kryptonSeparator.Size = new System.Drawing.Size(23, 45);
+            this.kryptonSeparator.StateCommon.Back.Color1 = System.Drawing.Color.LightYellow;
+            this.kryptonSeparator.StateCommon.Back.Color2 = System.Drawing.Color.LightYellow;
+            this.kryptonSeparator.StateCommon.Separator.Back.Color1 = System.Drawing.Color.LightYellow;
+            this.kryptonSeparator.StateCommon.Separator.Back.Color2 = System.Drawing.Color.LightYellow;
+            this.kryptonSeparator.StateCommon.Separator.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonSeparator.StateCommon.Separator.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonSeparator.StateCommon.Separator.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonSeparator.StateCommon.Separator.Border.Rounding = 5;
+            this.kryptonSeparator.TabIndex = 17;
+            // 
             // RecipeStepComponent
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.kryptonSeparator);
             this.Controls.Add(this.numLabel);
             this.Controls.Add(this.stepVal);
             this.Name = "RecipeStepComponent";
             this.Size = new System.Drawing.Size(580, 45);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,5 +106,6 @@
 
         private System.Windows.Forms.Label numLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox stepVal;
+        public ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator;
     }
 }

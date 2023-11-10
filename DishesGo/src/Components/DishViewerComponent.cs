@@ -1,4 +1,5 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Forms.ProfileForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -270,7 +271,7 @@ namespace DishesGo.src.Elements
             }
         }
 
-        // Deleting recipe.
+        // Deleting the recipe.
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Ви дійсно бажаєте видалити цей рецепт?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -282,6 +283,15 @@ namespace DishesGo.src.Elements
                     context.SaveChanges();
                 }
             }
+        }
+
+        // Editing the recipe.
+        private void editRecipeButton_Click(object sender, EventArgs e)
+        {
+            EditRecipeForm editRecipeForm = new EditRecipeForm(ReceiptId);
+            this.Hide();
+            editRecipeForm.ShowDialog(this);
+            this.Show();
         }
     }
 }

@@ -17,10 +17,10 @@ namespace DishesGo.src.Components
 {
     public partial class IngredientsComponent : UserControl
     {
-        public string Quantity { get { return quantityVal.Text.Trim(); } }
+        public string Quantity { get { return quantityVal.Text.Trim(); } set { quantityVal.Text = value; } }
         public int IngredientID { get { return IngredientsFactory.GetIngridientID(ingredientComboBox.SelectedItem.ToString().Trim()); } }
 
-        public IngredientsComponent(int number)
+        public IngredientsComponent(int number, Ingredients ingredient = null)
         {
             InitializeComponent();
 
@@ -33,6 +33,11 @@ namespace DishesGo.src.Components
             foreach (var item in IngredientsFactory.Pairs)
             {
                 ingredientComboBox.AddItem(item.Key, item.Value);
+            }
+
+            if (ingredient != null)
+            {
+                ingredientComboBox.SelectedItem = ingredient.ingredient_name;
             }
 
             this.Tag = number.ToString();

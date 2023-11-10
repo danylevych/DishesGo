@@ -63,46 +63,38 @@ namespace DishesGo.src.Components
             }
             stepsPanel.ResumeLayout();
         }
-        private void RecipeStepComponent_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                RecipeStepComponent control = sender as RecipeStepComponent;
-                DoDragDrop(control, DragDropEffects.Move);
-            }
-        }
-
-        private void stepsPanel_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(RecipeStepComponent)))
-            {
-                e.Effect = DragDropEffects.Move;
-            }
-        }
-
-        private void stepsPanel_DragDrop(object sender, DragEventArgs e)
-        {
-            Point clientPoint = stepsPanel.PointToClient(new Point(e.X, e.Y));
-            RecipeStepComponent component = e.Data.GetData(typeof(RecipeStepComponent)) as RecipeStepComponent;
-            if (component != null)
-            {
-                component.Location = new Point(clientPoint.X - component.Size.Width / 2, clientPoint.Y - component.Size.Height / 2);
-                stepsPanel.Controls.Add(component);
-            }
-        }
 
 
         // Select steps that user want to delete.
         private void SelectDeletingStep(object sender, EventArgs e)
         {
+            RecipeStepComponent senderComponent;
+
+            if (sender is KryptonSeparator)
+            {
+                senderComponent = ((sender as KryptonSeparator).Parent as RecipeStepComponent);
+            }
+            else
+            {
+                senderComponent = (sender as RecipeStepComponent);
+            }
+
+            if (stepDeleting == senderComponent.Tag.ToString() && !(sender is KryptonSeparator)) // We chose the same element.
+            {
+                (stepsPanel.Controls[System.Convert.ToInt32(stepDeleting) - 1] as RecipeStepComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                stepDeleting = string.Empty;
+                return;
+            }
+            
             if (stepDeleting != string.Empty) // We have selected some values.
             {
                 (stepsPanel.Controls[System.Convert.ToInt32(stepDeleting) - 1] as RecipeStepComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
             }
-
-            stepDeleting = (sender as RecipeStepComponent).Tag.ToString();
-            (sender as RecipeStepComponent).BackColor = Color.Aqua;
+           
+            stepDeleting = senderComponent.Tag.ToString();
+            senderComponent.BackColor = Color.Aqua;
         }
+
 
         private void addStepsButton_Click(object sender, EventArgs e)
         {
@@ -111,8 +103,15 @@ namespace DishesGo.src.Components
 
             RecipeStepComponent recipeStepComponent = new RecipeStepComponent(countOfSteps);
             recipeStepComponent.Click += SelectDeletingStep;
+            recipeStepComponent.ClickSeparator += SelectDeletingStep;
+
+            recipeStepComponent.AllowDrop = true;
+            recipeStepComponent.DragEnter += RecipeStepComponent_DragEnter;
+            recipeStepComponent.DragDrop += RecipeStepComponent_DragDrop;
+
             stepsPanel.Controls.Add(recipeStepComponent);
         }
+
 
         private void deleteStepButton_Click(object sender, EventArgs e)
         {
@@ -130,11 +129,34 @@ namespace DishesGo.src.Components
                 }
 
                 stepDeleting = string.Empty;
-                
-                for(int i = 1;  i <= countOfSteps; i++)
-                {
-                    (stepsPanel.Controls[i - 1] as RecipeStepComponent).UpdateNumber(i);
-                }
+
+                ReorderStepNumbers();
+            }
+        }
+
+        private void RecipeStepComponent_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void RecipeStepComponent_DragDrop(object sender, DragEventArgs e)
+        {
+            RecipeStepComponent draggedItem = (RecipeStepComponent)e.Data.GetData(typeof(RecipeStepComponent));
+
+            int newIndex = this.stepsPanel.Controls.GetChildIndex((Control)sender);
+
+            if (newIndex != -1)
+            {
+                this.stepsPanel.Controls.SetChildIndex(draggedItem, newIndex);
+                ReorderStepNumbers();
+            }
+        }
+
+        private void ReorderStepNumbers() // Update numder of steps.
+        {
+            for (int i = 0; i < countOfSteps; i++)
+            {
+                ((RecipeStepComponent)stepsPanel.Controls[i]).UpdateNumber(i + 1);
             }
         }
 
@@ -142,6 +164,13 @@ namespace DishesGo.src.Components
         // Deleting ingredients.
         private void SelectDeletingIngredient(object sender, EventArgs e)
         {
+            if (ingredientDeleting == (sender as IngredientsComponent).Tag.ToString())
+            {
+                (ingredientsPanel.Controls[System.Convert.ToInt32(ingredientDeleting) - 1] as IngredientsComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                ingredientDeleting = string.Empty;
+                return;
+            }
+
             if (ingredientDeleting != string.Empty) // We have selected some values.
             {
                 (ingredientsPanel.Controls[System.Convert.ToInt32(ingredientDeleting) - 1] as IngredientsComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -178,11 +207,8 @@ namespace DishesGo.src.Components
                 }
 
                 ingredientDeleting = string.Empty;
-
-                for (int i = 1; i <= countOfIngredients; i++)
-                {
-                    (ingredientsPanel.Controls[i - 1] as IngredientsComponent).UpdateIngredients(i);
-                }
+                
+                ReorderStepNumbers();
             }
         }
 

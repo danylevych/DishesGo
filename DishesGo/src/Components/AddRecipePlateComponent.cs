@@ -95,7 +95,6 @@ namespace DishesGo.src.Components
             senderComponent.BackColor = Color.Aqua;
         }
 
-
         private void addStepsButton_Click(object sender, EventArgs e)
         {
             countOfSteps++;
@@ -111,7 +110,6 @@ namespace DishesGo.src.Components
 
             stepsPanel.Controls.Add(recipeStepComponent);
         }
-
 
         private void deleteStepButton_Click(object sender, EventArgs e)
         {
@@ -133,6 +131,7 @@ namespace DishesGo.src.Components
                 ReorderStepNumbers();
             }
         }
+
 
         private void RecipeStepComponent_DragEnter(object sender, DragEventArgs e)
         {
@@ -207,8 +206,6 @@ namespace DishesGo.src.Components
                 }
 
                 ingredientDeleting = string.Empty;
-                
-                ReorderStepNumbers();
             }
         }
 

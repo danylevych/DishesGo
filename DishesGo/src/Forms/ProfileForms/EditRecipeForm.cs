@@ -2,6 +2,7 @@
 using DishesGo.Data;
 using DishesGo.src.Components;
 using DishesGo.src.Forms.ToolForms;
+using DishesGo.src.tools;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,19 +16,25 @@ namespace DishesGo.src.Forms.ProfileForms
 {
     public partial class EditRecipeForm : KryptonForm
     {
+        private readonly RecipeDetails recipeDetails;
         private string previousText = string.Empty;
 
-        private RecipeDetails recipeDetails;
+        private int countOfSteps = 0;
+        private string stepDeleting = string.Empty;
+
+        private int countOfIngredients = 0;
+        private string ingredientDeleting = string.Empty;
+
+
+        private readonly List<Kitchens> kitchens;
+        private readonly List<RecipeTypes> types;
+        private readonly List<RecipeStepComponent> stepComponents = new List<RecipeStepComponent>();
+        private readonly List<IngredientsComponent> ingredientComponents = new List<IngredientsComponent>();
 
 
         public EditRecipeForm(int recipeId)
         {
             InitializeComponent();
-
-            List<Kitchens> kitchens;
-            List<RecipeTypes> types;
-            List<RecipeStepComponent> stepComponents = new List<RecipeStepComponent>();
-            List<IngredientsComponent> ingredientComponents = new List<IngredientsComponent>();
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
@@ -43,6 +50,14 @@ namespace DishesGo.src.Forms.ProfileForms
                 {
                     var stepComponent = new RecipeStepComponent(System.Convert.ToInt32(step?.step_order));
                     stepComponent.Description = step?.description;
+
+                    // Add events for user ability to make changings.
+                    stepComponent.Click += SelectDeletingStep;
+                    stepComponent.ClickSeparator += SelectDeletingStep;
+
+                    stepComponent.DragEnter += RecipeStepComponent_DragEnter;
+                    stepComponent.DragDrop += RecipeStepComponent_DragDrop;
+
                     stepComponents.Add(stepComponent);
                 }
 
@@ -51,6 +66,8 @@ namespace DishesGo.src.Forms.ProfileForms
                 {
                     var ingredientComponent = new IngredientsComponent(i + 1, ingredients[i].Ingredients);
                     ingredientComponent.Quantity = ingredients[i].quantity;
+                    ingredientComponent.Click += SelectDeletingIngredient;
+
                     ingredientComponents.Add(ingredientComponent);
                 }
             }
@@ -58,47 +75,24 @@ namespace DishesGo.src.Forms.ProfileForms
             if (recipeDetails != null) 
             {
                 // Set photo.
-                if (recipeDetails.recipe_photo != null)
-                {
-                    using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
-                    {
-                        recipeImg.Image = Image.FromStream(ms);
-                    }
-                }
-                else
-                {
-                    recipeImg.Image = Properties.Resources.titlePhoto;
-                }
-
-                // Set the value for all labels.
-                titleVal.Text = recipeDetails?.recipe_title;
-                descriptionVal.Text = recipeDetails?.recipe_description;
-                timePrepareVal.Text = recipeDetails?.time_prepare.ToString();
-                caloriesVal.Text = recipeDetails?.calories.ToString();
+                disabelRecipeImg_Click(this, EventArgs.Empty);
 
                 // Set all combobox values.
                 kitchenComboBox.DataSource = kitchens;
                 kitchenComboBox.ValueMember = "kitchen_id";
                 kitchenComboBox.DisplayMember = "title";
-                kitchenComboBox.SelectedItem = kitchens.Find(k => k.title == recipeDetails.kitchen_title);
-                
+
                 typeComboBox.DataSource = types;
                 typeComboBox.ValueMember = "type_id";
                 typeComboBox.DisplayMember = "title";
-                typeComboBox.SelectedItem = types.Find(t => t.title == recipeDetails.recipe_type_title);
 
-                descriptionKitchen.Text = recipeDetails?.kitchen_description;
+                // Set all labels.
+                disableLabelsButton_Click(this, EventArgs.Empty);
+
 
                 // Filling all Flow Panels.
-                foreach (var stepComponent in stepComponents) 
-                {
-                    stepsPanel.Controls.Add(stepComponent);
-                }
-
-                foreach (var ingredientComponent in ingredientComponents)
-                {
-                    ingredientsPanel.Controls.Add(ingredientComponent);
-                }
+                disableStepsButton_Click(this, EventArgs.Empty);
+                disableIngredientsButton_Click(this, EventArgs.Empty);
             }
         }
 
@@ -124,6 +118,7 @@ namespace DishesGo.src.Forms.ProfileForms
                         if (cropingImgForm.SelectedButton == Tools.ImageCropingFormButton.SAVE)
                         {
                             recipeImg.Image = new Bitmap(cropingImgForm.GetCroppedImage());
+                            recipeImg.Tag = "newUserImg";
                         }
                     }
                     catch (Exception ex)
@@ -134,6 +129,7 @@ namespace DishesGo.src.Forms.ProfileForms
             }
         }
 
+        
         private void textBox_Enter(object sender, EventArgs e)
         {
             previousText = (sender as KryptonTextBox).Text;
@@ -149,6 +145,7 @@ namespace DishesGo.src.Forms.ProfileForms
             }
         }
 
+
         private void infoImg_MouseEnter(object sender, EventArgs e)
         {
             descriptionKitchen.Text = (kitchenComboBox.SelectedItem as Kitchens).description;
@@ -160,19 +157,316 @@ namespace DishesGo.src.Forms.ProfileForms
             descriptionKitchen.Visible = false;
         }
 
+
+        // Here the methods for diabeling changing are.
+        #region Disable Changings
         private void disabelRecipeImg_Click(object sender, EventArgs e)
         {
+            // Reset the image for the recipe.
             if (recipeDetails.recipe_photo != null)
             {
                 using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
                 {
                     recipeImg.Image = Image.FromStream(ms);
+                    recipeImg.Tag = "userImg";
                 }
             }
             else
             {
                 recipeImg.Image = Properties.Resources.titlePhoto;
+                recipeImg.Tag = "without";
             }
+        }
+
+        private void disableLabelsButton_Click(object sender, EventArgs e)
+        {
+            // Set the value for all labels.
+            titleVal.Text = recipeDetails?.recipe_title;
+            descriptionVal.Text = recipeDetails?.recipe_description;
+            timePrepareVal.Text = recipeDetails?.time_prepare.ToString();
+            caloriesVal.Text = recipeDetails?.calories.ToString();
+
+            kitchenComboBox.SelectedItem = kitchens.Find(k => k.title == recipeDetails.kitchen_title);
+            typeComboBox.SelectedItem = types.Find(t => t.title == recipeDetails.recipe_type_title);
+
+            descriptionKitchen.Text = recipeDetails?.kitchen_description;
+        }
+
+        private void disableIngredientsButton_Click(object sender, EventArgs e)
+        {
+            ingredientsPanel.Controls.Clear(); // Clear previous user's changing.
+
+            foreach (var ingredientComponent in ingredientComponents)
+            {
+                ingredientsPanel.Controls.Add(ingredientComponent);
+            }
+
+            countOfIngredients = ingredientComponents.Count;
+        }
+
+        private void disableStepsButton_Click(object sender, EventArgs e)
+        {
+            stepsPanel.Controls.Clear(); // Clear previous user's changing.
+
+            foreach (var stepComponent in stepComponents)
+            {
+                stepsPanel.Controls.Add(stepComponent);
+            }
+
+            countOfSteps = stepComponents.Count;
+        }
+        #endregion Disable Changings
+
+        // Here we store all methods for steps.
+        #region Step`s Componets 
+        private void SelectDeletingStep(object sender, EventArgs e)
+        {
+            RecipeStepComponent senderComponent;
+
+            if (sender is KryptonSeparator)
+            {
+                senderComponent = ((sender as KryptonSeparator).Parent as RecipeStepComponent);
+            }
+            else
+            {
+                senderComponent = (sender as RecipeStepComponent);
+            }
+
+            if (stepDeleting == senderComponent.Tag.ToString() && !(sender is KryptonSeparator)) // We chose the same element.
+            {
+                (stepsPanel.Controls[System.Convert.ToInt32(stepDeleting) - 1] as RecipeStepComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                stepDeleting = string.Empty;
+                return;
+            }
+
+            if (stepDeleting != string.Empty) // We have selected some values.
+            {
+                (stepsPanel.Controls[System.Convert.ToInt32(stepDeleting) - 1] as RecipeStepComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            }
+
+            stepDeleting = senderComponent.Tag.ToString();
+            senderComponent.BackColor = Color.Aqua;
+        }
+
+        private void addStepsButton_Click(object sender, EventArgs e)
+        {
+            countOfSteps++;
+            deleteStepButton.Visible = true;
+
+            RecipeStepComponent recipeStepComponent = new RecipeStepComponent(countOfSteps);
+            recipeStepComponent.Click += SelectDeletingStep;
+            recipeStepComponent.ClickSeparator += SelectDeletingStep;
+
+            recipeStepComponent.AllowDrop = true;
+            recipeStepComponent.DragEnter += RecipeStepComponent_DragEnter;
+            recipeStepComponent.DragDrop += RecipeStepComponent_DragDrop;
+
+            stepsPanel.Controls.Add(recipeStepComponent);
+        }
+
+        private void deleteStepButton_Click(object sender, EventArgs e)
+        {
+            if (stepDeleting != string.Empty)
+            {
+                // Removing item.
+                var deletingItem = stepsPanel.Controls[System.Convert.ToInt32(stepDeleting) - 1];
+                stepsPanel.Controls.Remove(deletingItem);
+
+                // Set and update all things that we need.
+                countOfSteps--;
+                if (countOfSteps == 0) // We haven't elements.
+                {
+                    deleteStepButton.Visible = false;
+                }
+
+                stepDeleting = string.Empty;
+
+                ReorderStepNumbers();
+            }
+        }
+
+        private void ReorderStepNumbers() // Update numder of steps.
+        {
+            for (int i = 0; i < countOfSteps; i++)
+            {
+                ((RecipeStepComponent)stepsPanel.Controls[i]).UpdateNumber(i + 1);
+            }
+        }
+
+        private void RecipeStepComponent_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void RecipeStepComponent_DragDrop(object sender, DragEventArgs e)
+        {
+            RecipeStepComponent draggedItem = (RecipeStepComponent)e.Data.GetData(typeof(RecipeStepComponent));
+
+            int newIndex = this.stepsPanel.Controls.GetChildIndex((Control)sender);
+
+            if (newIndex != -1)
+            {
+                this.stepsPanel.Controls.SetChildIndex(draggedItem, newIndex);
+                ReorderStepNumbers();
+            }
+        }
+        #endregion Step`s Componets
+
+        // Here we store the methods for ingredients.
+        #region Ingredient's Components
+        private void SelectDeletingIngredient(object sender, EventArgs e)
+        {
+            if (ingredientDeleting == (sender as IngredientsComponent).Tag.ToString())
+            {
+                (ingredientsPanel.Controls[System.Convert.ToInt32(ingredientDeleting) - 1] as IngredientsComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                ingredientDeleting = string.Empty;
+                return;
+            }
+
+            if (ingredientDeleting != string.Empty) // We have selected some values.
+            {
+                (ingredientsPanel.Controls[System.Convert.ToInt32(ingredientDeleting) - 1] as IngredientsComponent).BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            }
+
+            ingredientDeleting = (sender as IngredientsComponent).Tag.ToString();
+            (sender as IngredientsComponent).BackColor = Color.Aqua;
+        }
+
+        private void addIngridientsButton_Click(object sender, EventArgs e)
+        {
+            // Create an instance of ingredient component.
+            countOfIngredients++;
+            deleteIngridientButton.Visible = true;
+
+            IngredientsComponent ingredientComponent = new IngredientsComponent(countOfIngredients);
+            ingredientComponent.Click += SelectDeletingIngredient;
+
+            ingredientsPanel.Controls.Add(ingredientComponent);
+        }
+
+        private void deleteIngridientButton_Click(object sender, EventArgs e)
+        {
+            if (ingredientDeleting != string.Empty)
+            {
+                // Removing item.
+                var deletingItem = ingredientsPanel.Controls[System.Convert.ToInt32(ingredientDeleting) - 1];
+                ingredientsPanel.Controls.Remove(deletingItem);
+
+                // Set and update all things that we need.
+                countOfIngredients--;
+                if (countOfIngredients == 0) // We haven't elements.
+                {
+                    deleteIngridientButton.Visible = false;
+                }
+
+                ingredientDeleting = string.Empty;
+            }
+        }
+        #endregion Ingredient's Components
+
+        // Methods for two panels.
+        #region For two panels
+        private void Panel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            CheckIfPanelIsEmpty(sender);
+        }
+
+        private void Panel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            CheckIfPanelIsEmpty(sender);
+        }
+
+        private void CheckIfPanelIsEmpty(object sender)
+        {
+            FlowLayoutPanel panel = (sender as FlowLayoutPanel);
+
+            if (panel.Controls.Count == 0) // Our panel is empty.
+            {
+                // Known which panel is it.
+                if (panel.Tag.ToString() == "Steps")
+                {
+                    warningSteps.Visible = true;
+                }
+                else
+                {
+                    warningIngredients.Visible = true;
+                }
+            }
+            else
+            {
+                // Known which panel is it.
+                if (panel.Tag.ToString() == "Steps")
+                {
+                    warningSteps.Visible = false;
+                }
+                else
+                {
+                    warningIngredients.Visible = false;
+                }
+            }
+        }
+
+        #endregion For two panels
+
+        private void saveChanging_Click(object sender, EventArgs e)
+        {
+            if (warningIngredients.Visible) // User delete all ingredients and did not add new one.
+            {
+                MessageBox.Show("Ви не можете залишити страву без інгридієнтів!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (warningSteps.Visible) // User delete all steps and did not add new one.
+            {
+                MessageBox.Show("Ви не можете залишити страву без кроків приготування!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            RecipeDetails newRecipeDetails = recipeDetails;
+            
+            // Set all differences
+            newRecipeDetails.recipe_title = titleVal.Text.Trim();
+            newRecipeDetails.recipe_description = descriptionKitchen.Text.Trim();
+            newRecipeDetails.kitchen_id = (kitchenComboBox.SelectedItem as Kitchens).kitchen_id;
+            newRecipeDetails.type_id = (typeComboBox.SelectedItem as RecipeTypes).type_id;
+            newRecipeDetails.calories = Convert.ToInt32(caloriesVal.Text.Trim());
+            newRecipeDetails.time_prepare = Convert.ToInt32(timePrepareVal.Text.Trim());
+
+            string imgTag = recipeImg.Tag.ToString();
+            newRecipeDetails.recipe_photo = (imgTag == "without" ? null : (imgTag == "newUserImg" ? ImageRedactor.ToByteArray(recipeImg.Image) : recipeDetails.recipe_photo)); ;
+
+
+            if (CompareTwoRecipe(newRecipeDetails, recipeDetails) && (imgTag == "without" || imgTag == "userImg") &&
+                // If user made changings in steps.
+                CompareTwoListOf<RecipeStepComponent>(stepComponents, stepsPanel.Controls.OfType<RecipeStepComponent>().ToList(),
+                (leftItem, rightItem) => leftItem.StepNum == rightItem.StepNum) &&
+                // User made changings in the ingridient list.
+                CompareTwoListOf<IngredientsComponent>(ingredientComponents, ingredientsPanel.Controls.OfType<IngredientsComponent>().ToList(),
+                (leftItem, rightItem) => leftItem.IngredientID == rightItem.IngredientID))
+            {
+                MessageBox.Show("Ви не можете здійснити збереження, оскільки не змінили нічого!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+        }
+
+        private bool CompareTwoRecipe(RecipeDetails left, RecipeDetails right)
+        {
+            return (left.recipe_title == right.recipe_title && left.recipe_description == right.recipe_description &&
+                    left.kitchen_id == right.kitchen_id && left.type_id == right.type_id &&
+                    left.calories == right.calories && left.time_prepare == right.time_prepare);
+        }
+
+        private bool CompareTwoListOf<T>(List<T> left, List<T> right, Func<T, T, bool> compareFunction)
+        {
+            if (left.Count != right.Count)
+            {
+                return false;
+            }
+
+            HashSet<T> rightSet = new HashSet<T>(right, EqualityComparer<T>.Default);
+
+            return left.All(item => rightSet.Any(otherItem => compareFunction(item, otherItem)));
         }
     }
 }

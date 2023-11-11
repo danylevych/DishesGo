@@ -18,7 +18,24 @@ namespace DishesGo.src.Components
     public partial class IngredientsComponent : UserControl
     {
         public string Quantity { get { return quantityVal.Text.Trim(); } set { quantityVal.Text = value; } }
-        public int IngredientID { get { return IngredientsFactory.GetIngridientID(ingredientComboBox.SelectedItem.ToString().Trim()); } }
+        public int IngredientID { get 
+            {
+                try
+                {
+                    string name = ingredientComboBox.SelectedItem.ToString().Trim();
+                    if (name == null || name == string.Empty)
+                    {
+                        return -1;
+                    }
+
+                    return IngredientsFactory.GetIngridientID(name);
+                }
+                catch
+                {
+                    return -1;
+                }
+            }
+        }
 
         public IngredientsComponent(int number, Ingredients ingredient = null)
         {
@@ -63,5 +80,33 @@ namespace DishesGo.src.Components
                 quantityVal.Text = "Кількість";
             }
         }
+
+        // Comparing methods.
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            IngredientsComponent other = (IngredientsComponent)obj;
+            
+            if (this.Quantity == string.Empty || other.Quantity == string.Empty)
+            {
+                return base.Equals(obj);
+            }
+            else if (IngredientID == -1 || other.IngredientID == -1)
+            {
+                return base.Equals(obj);
+            }
+
+            return Quantity == other.Quantity && IngredientID == other.IngredientID;
+        }
+
+        public override int GetHashCode()
+        {
+            return Quantity.GetHashCode() ^ IngredientID;
+        }
+
     }
 }

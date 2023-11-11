@@ -61,5 +61,46 @@ namespace DishesGo.src.Components
             //ClickSeparator(kryptonSeparator, EventArgs.Empty);
             this.Refresh();
         }
+
+
+        // Comparing mhetods.
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            RecipeStepComponent other = (RecipeStepComponent)obj;
+
+            // Порівнюємо об'єкти за значенням
+            return StepNum == other.StepNum && Description == other.Description;
+        }
+
+        public override int GetHashCode()
+        {
+            // Генеруємо унікальний хеш-код на основі полів, які використовуються у Equals
+            return StepNum.GetHashCode() ^ Description?.GetHashCode() ?? 0;
+        }
+
+        public static bool operator ==(RecipeStepComponent left, RecipeStepComponent right)
+        {
+            if (ReferenceEquals(left, right))
+            {
+                return true;
+            }
+
+            if (left is null || right is null)
+            {
+                return false;
+            }
+
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(RecipeStepComponent left, RecipeStepComponent right)
+        {
+            return !(left == right);
+        }
     }
 }

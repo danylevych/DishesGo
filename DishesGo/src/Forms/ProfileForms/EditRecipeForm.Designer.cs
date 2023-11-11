@@ -36,6 +36,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.titleVal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.labelsGroup = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
+            this.descriptionKitchen = new System.Windows.Forms.Label();
+            this.infoImg = new System.Windows.Forms.PictureBox();
+            this.caloriesUnitLabel = new System.Windows.Forms.Label();
+            this.caloriesVal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timeUnitLabel = new System.Windows.Forms.Label();
             this.typeComboBox = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
             this.kitchenComboBox = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -44,12 +50,6 @@
             this.timePrepareLabel = new System.Windows.Forms.Label();
             this.descriptionVal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
-            this.timeUnitLabel = new System.Windows.Forms.Label();
-            this.caloriesUnitLabel = new System.Windows.Forms.Label();
-            this.caloriesVal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.descriptionKitchen = new System.Windows.Forms.Label();
-            this.infoImg = new System.Windows.Forms.PictureBox();
             this.backButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.warningSteps = new System.Windows.Forms.Label();
             this.deleteStepButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -61,16 +61,18 @@
             this.addIngridientsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ingridientsLabel = new System.Windows.Forms.Label();
             this.ingredientsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.disableLabelsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.disabelRecipeImg = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.disableIngredientsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.disableStepsButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.recipeImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelsGroup.Panel)).BeginInit();
             this.labelsGroup.Panel.SuspendLayout();
             this.labelsGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenComboBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoImg)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -94,11 +96,11 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Russo One", 18F);
+            this.titleLabel.Font = new System.Drawing.Font("Russo One", 23F);
             this.titleLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.titleLabel.Location = new System.Drawing.Point(439, 9);
+            this.titleLabel.Location = new System.Drawing.Point(440, 9);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(192, 29);
+            this.titleLabel.Size = new System.Drawing.Size(251, 38);
             this.titleLabel.TabIndex = 12;
             this.titleLabel.Text = "Зміна рецепту";
             // 
@@ -188,6 +190,7 @@
             this.saveChanging.StateTracking.Border.Width = 1;
             this.saveChanging.TabIndex = 31;
             this.saveChanging.Values.Text = "Зберегти";
+            this.saveChanging.Click += new System.EventHandler(this.saveChanging_Click);
             // 
             // recipeImg
             // 
@@ -276,6 +279,93 @@
             this.labelsGroup.StateCommon.Border.Rounding = 8;
             this.labelsGroup.StateCommon.Border.Width = 5;
             this.labelsGroup.TabIndex = 35;
+            // 
+            // descriptionKitchen
+            // 
+            this.descriptionKitchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.descriptionKitchen.BackColor = System.Drawing.Color.OldLace;
+            this.descriptionKitchen.Font = new System.Drawing.Font("Russo One", 7F);
+            this.descriptionKitchen.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.descriptionKitchen.Location = new System.Drawing.Point(335, 0);
+            this.descriptionKitchen.Name = "descriptionKitchen";
+            this.descriptionKitchen.Size = new System.Drawing.Size(189, 93);
+            this.descriptionKitchen.TabIndex = 63;
+            this.descriptionKitchen.Text = "опис";
+            this.descriptionKitchen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.descriptionKitchen.Visible = false;
+            // 
+            // infoImg
+            // 
+            this.infoImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.infoImg.Image = global::DishesGo.Properties.Resources.Info;
+            this.infoImg.Location = new System.Drawing.Point(309, 86);
+            this.infoImg.Name = "infoImg";
+            this.infoImg.Size = new System.Drawing.Size(20, 20);
+            this.infoImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.infoImg.TabIndex = 62;
+            this.infoImg.TabStop = false;
+            this.infoImg.MouseEnter += new System.EventHandler(this.infoImg_MouseEnter);
+            this.infoImg.MouseLeave += new System.EventHandler(this.infoImg_MouseLeave);
+            // 
+            // caloriesUnitLabel
+            // 
+            this.caloriesUnitLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.caloriesUnitLabel.AutoSize = true;
+            this.caloriesUnitLabel.BackColor = System.Drawing.Color.Transparent;
+            this.caloriesUnitLabel.Font = new System.Drawing.Font("Russo One", 8F);
+            this.caloriesUnitLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.caloriesUnitLabel.Location = new System.Drawing.Point(178, 119);
+            this.caloriesUnitLabel.Name = "caloriesUnitLabel";
+            this.caloriesUnitLabel.Size = new System.Drawing.Size(38, 13);
+            this.caloriesUnitLabel.TabIndex = 61;
+            this.caloriesUnitLabel.Text = "ккал.";
+            // 
+            // caloriesVal
+            // 
+            this.caloriesVal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.caloriesVal.Location = new System.Drawing.Point(94, 115);
+            this.caloriesVal.Name = "caloriesVal";
+            this.caloriesVal.Size = new System.Drawing.Size(78, 21);
+            this.caloriesVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
+            this.caloriesVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.caloriesVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.caloriesVal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.caloriesVal.StateCommon.Border.Rounding = 5;
+            this.caloriesVal.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.caloriesVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 6F);
+            this.caloriesVal.TabIndex = 60;
+            this.caloriesVal.TabStop = false;
+            this.caloriesVal.Tag = "";
+            this.caloriesVal.Enter += new System.EventHandler(this.textBox_Enter);
+            this.caloriesVal.Leave += new System.EventHandler(this.textBox_Leave);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Russo One", 8F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label2.Location = new System.Drawing.Point(35, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Калорії:";
+            // 
+            // timeUnitLabel
+            // 
+            this.timeUnitLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timeUnitLabel.AutoSize = true;
+            this.timeUnitLabel.BackColor = System.Drawing.Color.Transparent;
+            this.timeUnitLabel.Font = new System.Drawing.Font("Russo One", 8F);
+            this.timeUnitLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.timeUnitLabel.Location = new System.Drawing.Point(573, 115);
+            this.timeUnitLabel.Name = "timeUnitLabel";
+            this.timeUnitLabel.Size = new System.Drawing.Size(23, 13);
+            this.timeUnitLabel.TabIndex = 58;
+            this.timeUnitLabel.Text = "хв.";
             // 
             // typeComboBox
             // 
@@ -409,8 +499,6 @@
             this.descriptionVal.TabIndex = 51;
             this.descriptionVal.TabStop = false;
             this.descriptionVal.Tag = "";
-            this.descriptionVal.Enter += new System.EventHandler(this.textBox_Enter);
-            this.descriptionVal.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // descriptionLabel
             // 
@@ -424,93 +512,6 @@
             this.descriptionLabel.Size = new System.Drawing.Size(54, 19);
             this.descriptionLabel.TabIndex = 50;
             this.descriptionLabel.Text = "Опис:";
-            // 
-            // timeUnitLabel
-            // 
-            this.timeUnitLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.timeUnitLabel.AutoSize = true;
-            this.timeUnitLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeUnitLabel.Font = new System.Drawing.Font("Russo One", 8F);
-            this.timeUnitLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.timeUnitLabel.Location = new System.Drawing.Point(573, 115);
-            this.timeUnitLabel.Name = "timeUnitLabel";
-            this.timeUnitLabel.Size = new System.Drawing.Size(23, 13);
-            this.timeUnitLabel.TabIndex = 58;
-            this.timeUnitLabel.Text = "хв.";
-            // 
-            // caloriesUnitLabel
-            // 
-            this.caloriesUnitLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.caloriesUnitLabel.AutoSize = true;
-            this.caloriesUnitLabel.BackColor = System.Drawing.Color.Transparent;
-            this.caloriesUnitLabel.Font = new System.Drawing.Font("Russo One", 8F);
-            this.caloriesUnitLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.caloriesUnitLabel.Location = new System.Drawing.Point(178, 119);
-            this.caloriesUnitLabel.Name = "caloriesUnitLabel";
-            this.caloriesUnitLabel.Size = new System.Drawing.Size(38, 13);
-            this.caloriesUnitLabel.TabIndex = 61;
-            this.caloriesUnitLabel.Text = "ккал.";
-            // 
-            // caloriesVal
-            // 
-            this.caloriesVal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.caloriesVal.Location = new System.Drawing.Point(94, 115);
-            this.caloriesVal.Name = "caloriesVal";
-            this.caloriesVal.Size = new System.Drawing.Size(78, 21);
-            this.caloriesVal.StateCommon.Back.Color1 = System.Drawing.SystemColors.ControlLight;
-            this.caloriesVal.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.caloriesVal.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.caloriesVal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.caloriesVal.StateCommon.Border.Rounding = 5;
-            this.caloriesVal.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.caloriesVal.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 6F);
-            this.caloriesVal.TabIndex = 60;
-            this.caloriesVal.TabStop = false;
-            this.caloriesVal.Tag = "";
-            this.caloriesVal.Enter += new System.EventHandler(this.textBox_Enter);
-            this.caloriesVal.Leave += new System.EventHandler(this.textBox_Leave);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Russo One", 8F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(35, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "Калорії:";
-            // 
-            // descriptionKitchen
-            // 
-            this.descriptionKitchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.descriptionKitchen.BackColor = System.Drawing.Color.OldLace;
-            this.descriptionKitchen.Font = new System.Drawing.Font("Russo One", 7F);
-            this.descriptionKitchen.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.descriptionKitchen.Location = new System.Drawing.Point(335, 0);
-            this.descriptionKitchen.Name = "descriptionKitchen";
-            this.descriptionKitchen.Size = new System.Drawing.Size(189, 93);
-            this.descriptionKitchen.TabIndex = 63;
-            this.descriptionKitchen.Text = "опис";
-            this.descriptionKitchen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.descriptionKitchen.Visible = false;
-            // 
-            // infoImg
-            // 
-            this.infoImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.infoImg.Image = global::DishesGo.Properties.Resources.Info;
-            this.infoImg.Location = new System.Drawing.Point(309, 86);
-            this.infoImg.Name = "infoImg";
-            this.infoImg.Size = new System.Drawing.Size(20, 20);
-            this.infoImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.infoImg.TabIndex = 62;
-            this.infoImg.TabStop = false;
-            this.infoImg.MouseEnter += new System.EventHandler(this.infoImg_MouseEnter);
-            this.infoImg.MouseLeave += new System.EventHandler(this.infoImg_MouseLeave);
             // 
             // backButton
             // 
@@ -592,7 +593,7 @@
             this.deleteStepButton.TabIndex = 62;
             this.deleteStepButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.deleteStepButton.Values.Text = "";
-            this.deleteStepButton.Visible = false;
+            this.deleteStepButton.Click += new System.EventHandler(this.deleteStepButton_Click);
             // 
             // addStepsButton
             // 
@@ -627,6 +628,7 @@
             this.addStepsButton.TabIndex = 61;
             this.addStepsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.addStepsButton.Values.Text = "";
+            this.addStepsButton.Click += new System.EventHandler(this.addStepsButton_Click);
             // 
             // stepsLabels
             // 
@@ -654,6 +656,8 @@
             this.stepsPanel.Size = new System.Drawing.Size(630, 205);
             this.stepsPanel.TabIndex = 59;
             this.stepsPanel.Tag = "Steps";
+            this.stepsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlAdded);
+            this.stepsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlRemoved);
             // 
             // warningIngredients
             // 
@@ -702,7 +706,7 @@
             this.deleteIngridientButton.TabIndex = 67;
             this.deleteIngridientButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.deleteIngridientButton.Values.Text = "";
-            this.deleteIngridientButton.Visible = false;
+            this.deleteIngridientButton.Click += new System.EventHandler(this.deleteIngridientButton_Click);
             // 
             // addIngridientsButton
             // 
@@ -737,6 +741,7 @@
             this.addIngridientsButton.TabIndex = 66;
             this.addIngridientsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.addIngridientsButton.Values.Text = "";
+            this.addIngridientsButton.Click += new System.EventHandler(this.addIngridientsButton_Click);
             // 
             // ingridientsLabel
             // 
@@ -763,47 +768,49 @@
             this.ingredientsPanel.Size = new System.Drawing.Size(1038, 150);
             this.ingredientsPanel.TabIndex = 64;
             this.ingredientsPanel.Tag = "Ingredients";
+            this.ingredientsPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlAdded);
+            this.ingredientsPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Panel_ControlRemoved);
             // 
-            // kryptonButton1
+            // disableLabelsButton
             // 
-            this.kryptonButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButton1.AutoSize = true;
-            this.kryptonButton1.Location = new System.Drawing.Point(1066, 206);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.kryptonButton1.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.disableLabelsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.disableLabelsButton.AutoSize = true;
+            this.disableLabelsButton.Location = new System.Drawing.Point(1077, 79);
+            this.disableLabelsButton.Name = "disableLabelsButton";
+            this.disableLabelsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableLabelsButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.OverrideDefault.Border.Rounding = 1;
-            this.kryptonButton1.OverrideDefault.Border.Width = 0;
-            this.kryptonButton1.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
-            this.kryptonButton1.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
-            this.kryptonButton1.Size = new System.Drawing.Size(20, 20);
-            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
-            this.kryptonButton1.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.kryptonButton1.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.disableLabelsButton.OverrideDefault.Border.Rounding = 1;
+            this.disableLabelsButton.OverrideDefault.Border.Width = 0;
+            this.disableLabelsButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
+            this.disableLabelsButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
+            this.disableLabelsButton.Size = new System.Drawing.Size(20, 20);
+            this.disableLabelsButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.disableLabelsButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableLabelsButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StateCommon.Border.Rounding = 0;
-            this.kryptonButton1.StateCommon.Border.Width = 0;
-            this.kryptonButton1.TabIndex = 69;
-            this.kryptonButton1.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.kryptonButton1.Values.Text = "";
-            this.kryptonButton1.Visible = false;
+            this.disableLabelsButton.StateCommon.Border.Rounding = 0;
+            this.disableLabelsButton.StateCommon.Border.Width = 0;
+            this.disableLabelsButton.TabIndex = 69;
+            this.disableLabelsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.disableLabelsButton.Values.Text = "";
+            this.disableLabelsButton.Click += new System.EventHandler(this.disableLabelsButton_Click);
             // 
             // disabelRecipeImg
             // 
             this.disabelRecipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.disabelRecipeImg.AutoSize = true;
-            this.disabelRecipeImg.Location = new System.Drawing.Point(420, 440);
+            this.disabelRecipeImg.Location = new System.Drawing.Point(420, 441);
             this.disabelRecipeImg.Name = "disabelRecipeImg";
             this.disabelRecipeImg.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.disabelRecipeImg.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -832,16 +839,87 @@
             this.disabelRecipeImg.TabIndex = 70;
             this.disabelRecipeImg.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.disabelRecipeImg.Values.Text = "";
-            this.disabelRecipeImg.Visible = false;
             this.disabelRecipeImg.Click += new System.EventHandler(this.disabelRecipeImg_Click);
+            // 
+            // disableIngredientsButton
+            // 
+            this.disableIngredientsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.disableIngredientsButton.AutoSize = true;
+            this.disableIngredientsButton.Location = new System.Drawing.Point(1077, 511);
+            this.disableIngredientsButton.Name = "disableIngredientsButton";
+            this.disableIngredientsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableIngredientsButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableIngredientsButton.OverrideDefault.Border.Rounding = 1;
+            this.disableIngredientsButton.OverrideDefault.Border.Width = 0;
+            this.disableIngredientsButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
+            this.disableIngredientsButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
+            this.disableIngredientsButton.Size = new System.Drawing.Size(20, 20);
+            this.disableIngredientsButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.disableIngredientsButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableIngredientsButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableIngredientsButton.StateCommon.Border.Rounding = 0;
+            this.disableIngredientsButton.StateCommon.Border.Width = 0;
+            this.disableIngredientsButton.TabIndex = 71;
+            this.disableIngredientsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.disableIngredientsButton.Values.Text = "";
+            this.disableIngredientsButton.Click += new System.EventHandler(this.disableIngredientsButton_Click);
+            // 
+            // disableStepsButton
+            // 
+            this.disableStepsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.disableStepsButton.AutoSize = true;
+            this.disableStepsButton.Location = new System.Drawing.Point(1077, 284);
+            this.disableStepsButton.Name = "disableStepsButton";
+            this.disableStepsButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableStepsButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableStepsButton.OverrideDefault.Border.Rounding = 1;
+            this.disableStepsButton.OverrideDefault.Border.Width = 0;
+            this.disableStepsButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
+            this.disableStepsButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
+            this.disableStepsButton.Size = new System.Drawing.Size(20, 20);
+            this.disableStepsButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.disableStepsButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableStepsButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableStepsButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableStepsButton.StateCommon.Border.Rounding = 0;
+            this.disableStepsButton.StateCommon.Border.Width = 0;
+            this.disableStepsButton.TabIndex = 72;
+            this.disableStepsButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.disableStepsButton.Values.Text = "";
+            this.disableStepsButton.Click += new System.EventHandler(this.disableStepsButton_Click);
             // 
             // EditRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 682);
+            this.Controls.Add(this.disableStepsButton);
+            this.Controls.Add(this.disableIngredientsButton);
             this.Controls.Add(this.disabelRecipeImg);
-            this.Controls.Add(this.kryptonButton1);
+            this.Controls.Add(this.disableLabelsButton);
             this.Controls.Add(this.warningIngredients);
             this.Controls.Add(this.deleteIngridientButton);
             this.Controls.Add(this.addIngridientsButton);
@@ -861,6 +939,7 @@
             this.Name = "EditRecipeForm";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditRecipeForm";
             ((System.ComponentModel.ISupportInitialize)(this.recipeImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelsGroup.Panel)).EndInit();
@@ -868,9 +947,9 @@
             this.labelsGroup.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelsGroup)).EndInit();
             this.labelsGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.infoImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenComboBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -910,7 +989,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton addIngridientsButton;
         private System.Windows.Forms.Label ingridientsLabel;
         private System.Windows.Forms.FlowLayoutPanel ingredientsPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton disableLabelsButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton disabelRecipeImg;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton disableIngredientsButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton disableStepsButton;
     }
 }

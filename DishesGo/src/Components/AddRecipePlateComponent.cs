@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
+using DishesGo.Properties;
 using DishesGo.src.Forms.ToolForms;
 using DishesGo.src.tools;
 using System;
@@ -27,6 +28,8 @@ namespace DishesGo.src.Components
             this.userId = userId;
 
             InitializeComponent();
+
+            disableImageButton.Parent = RecipeImg;
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
@@ -282,6 +285,17 @@ namespace DishesGo.src.Components
             }
         }
 
+        // Disabeling the image for the recipe.
+        private void disableImageButton_Click(object sender, EventArgs e)
+        {
+            if (isPhotoSetted)
+            {
+                // Set the default photo for wallpapers.
+                RecipeImg.Image = Properties.Resources.titlePhoto;
+
+                isPhotoSetted = false;
+            }
+        }
 
         // Title's methods.
         private void titleVal_Enter(object sender, EventArgs e)

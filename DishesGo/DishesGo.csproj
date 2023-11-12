@@ -38,6 +38,50 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>titlePhoto.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>..\..\..\includes\Krypton\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
@@ -156,11 +200,38 @@
     <Compile Include="src\Components\IngridientsComponent.Designer.cs">
       <DependentUpon>IngridientsComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Components\Recipe\MiddleRecipeConponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\Recipe\OwnRecipeComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\Recipe\OwnRecipeComponent.Designer.cs">
+      <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\Recipe\RecipeComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\Recipe\RecipeComponent.Designer.cs">
+      <DependentUpon>RecipeComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Components\RecipeStepComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="src\Components\RecipeStepComponent.Designer.cs">
       <DependentUpon>RecipeStepComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\Recipe\SearchRecipeComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\Recipe\SearchRecipeComponent.Designer.cs">
+      <DependentUpon>SearchRecipeComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Components\SearchPlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\SearchPlateComponent.Designer.cs">
+      <DependentUpon>SearchPlateComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="src\dbClasses\SQLConection.cs" />
     <Compile Include="src\Components\BookmarksComponent.cs">
@@ -174,12 +245,6 @@
     </Compile>
     <Compile Include="src\Components\DishViewerComponent.Designer.cs">
       <DependentUpon>DishViewerComponent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\Components\OwnRecipeComponent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="src\Components\OwnRecipeComponent.Designer.cs">
-      <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Components\ProfilePlateComponent.cs">
       <SubType>UserControl</SubType>
@@ -258,14 +323,17 @@
     <EmbeddedResource Include="src\Components\IngridientsComponent.resx">
       <DependentUpon>IngridientsComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Components\OwnRecipeComponent.resx">
-      <DependentUpon>OwnRecipeComponent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="src\Components\ProfilePlateComponent.resx">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\RecipeStepComponent.resx">
       <DependentUpon>RecipeStepComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\Recipe\SearchRecipeComponent.resx">
+      <DependentUpon>SearchRecipeComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\SearchPlateComponent.resx">
+      <DependentUpon>SearchPlateComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ProfileForms\BookmarksForm.resx">
       <DependentUpon>BookmarksForm.cs</DependentUpon>
@@ -338,6 +406,9 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\Icons\titlePhoto.ico" />
+    <Content Include="titlePhoto.ico" />
+    <None Include="Resources\Img\UserAcrivity\Search.png" />
     <None Include="Resources\Img\UserAcrivity\Info.png" />
     <None Include="Resources\Img\UserAcrivity\Add.png" />
     <None Include="Resources\Img\UserAcrivity\Check.png" />

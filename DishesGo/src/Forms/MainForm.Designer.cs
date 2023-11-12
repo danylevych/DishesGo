@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.mainPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.search = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.searchLine = new System.Windows.Forms.PictureBox();
             this.addLine = new System.Windows.Forms.PictureBox();
             this.addRecipe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.settings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -43,6 +45,7 @@
             this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).BeginInit();
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
@@ -71,6 +74,8 @@
             // 
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.Controls.Add(this.search);
+            this.mainPanel.Controls.Add(this.searchLine);
             this.mainPanel.Controls.Add(this.addLine);
             this.mainPanel.Controls.Add(this.addRecipe);
             this.mainPanel.Controls.Add(this.settings);
@@ -82,6 +87,49 @@
             this.mainPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainPanel.TabIndex = 1;
+            // 
+            // search
+            // 
+            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.search.Location = new System.Drawing.Point(807, 10);
+            this.search.Name = "search";
+            this.search.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.search.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.search.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.search.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.search.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.search.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.search.OverrideFocus.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.search.OverrideFocus.Back.Color2 = System.Drawing.Color.Gainsboro;
+            this.search.Size = new System.Drawing.Size(30, 30);
+            this.search.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.search.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.search.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Search;
+            this.search.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.search.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.search.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.search.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.search.TabIndex = 36;
+            this.search.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.search.Values.Text = "";
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // searchLine
+            // 
+            this.searchLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.searchLine.Location = new System.Drawing.Point(792, 45);
+            this.searchLine.Name = "searchLine";
+            this.searchLine.Size = new System.Drawing.Size(60, 5);
+            this.searchLine.TabIndex = 35;
+            this.searchLine.TabStop = false;
+            this.searchLine.Visible = false;
             // 
             // addLine
             // 
@@ -495,6 +543,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
@@ -519,5 +568,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton editPtofileButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton addRecipe;
         private System.Windows.Forms.PictureBox addLine;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton search;
+        private System.Windows.Forms.PictureBox searchLine;
     }
 }

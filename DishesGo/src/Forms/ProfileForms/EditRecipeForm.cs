@@ -34,6 +34,8 @@ namespace DishesGo.src.Forms.ProfileForms
 
         public EditRecipeForm(int recipeId)
         {
+            this.DialogResult = DialogResult.No;
+
             InitializeComponent();
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
@@ -75,7 +77,20 @@ namespace DishesGo.src.Forms.ProfileForms
             if (recipeDetails != null) 
             {
                 // Set photo.
-                disabelRecipeImg_Click(this, EventArgs.Empty);
+                isDeletedPreviousPhoto = false;
+                if (recipeDetails.recipe_photo != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
+                    {
+                        recipeImg.Image = Image.FromStream(ms);
+                        recipeImg.Tag = "userImg";
+                    }
+                }
+                else
+                {
+                    recipeImg.Image = Properties.Resources.titlePhoto;
+                    recipeImg.Tag = "without";
+                }
 
                 // Set all combobox values.
                 kitchenComboBox.DataSource = kitchens;
@@ -88,7 +103,6 @@ namespace DishesGo.src.Forms.ProfileForms
 
                 // Set all labels.
                 disableLabelsButton_Click(this, EventArgs.Empty);
-
 
                 // Filling all Flow Panels.
                 disableStepsButton_Click(this, EventArgs.Empty);
@@ -157,25 +171,48 @@ namespace DishesGo.src.Forms.ProfileForms
             descriptionKitchen.Visible = false;
         }
 
+        // Methods for prepare time and calories.
+        private void inputOnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         // Here the methods for diabeling changing are.
         #region Disable Changings
+        private DateTime lastClickTime = DateTime.Now;
+        private bool isDeletedPreviousPhoto = false;
         private void disabelRecipeImg_Click(object sender, EventArgs e)
         {
-            // Reset the image for the recipe.
-            if (recipeDetails.recipe_photo != null)
-            {
-                using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
-                {
-                    recipeImg.Image = Image.FromStream(ms);
-                    recipeImg.Tag = "userImg";
-                }
-            }
-            else
+            TimeSpan elapsed = DateTime.Now - lastClickTime;
+
+            if (elapsed.TotalMilliseconds < SystemInformation.DoubleClickTime) // Two clicks delete previous image.
             {
                 recipeImg.Image = Properties.Resources.titlePhoto;
                 recipeImg.Tag = "without";
+                isDeletedPreviousPhoto = true; // We could not have an ability to set the ptrevious img again.
             }
+            else
+            {
+                // Reset the image for the recipe.
+                if (recipeDetails.recipe_photo != null && !isDeletedPreviousPhoto)
+                {
+                    using (MemoryStream ms = new MemoryStream(recipeDetails.recipe_photo))
+                    {
+                        recipeImg.Image = Image.FromStream(ms);
+                        recipeImg.Tag = "userImg";
+                    }
+                }
+                else
+                {
+                    recipeImg.Image = Properties.Resources.titlePhoto;
+                    recipeImg.Tag = "without";
+                }
+            }
+
+            lastClickTime = DateTime.Now;
         }
 
         private void disableLabelsButton_Click(object sender, EventArgs e)
@@ -422,18 +459,63 @@ namespace DishesGo.src.Forms.ProfileForms
                 return;
             }
 
-            RecipeDetails newRecipeDetails = recipeDetails;
-            
-            // Set all differences
-            newRecipeDetails.recipe_title = titleVal.Text.Trim();
-            newRecipeDetails.recipe_description = descriptionKitchen.Text.Trim();
-            newRecipeDetails.kitchen_id = (kitchenComboBox.SelectedItem as Kitchens).kitchen_id;
-            newRecipeDetails.type_id = (typeComboBox.SelectedItem as RecipeTypes).type_id;
-            newRecipeDetails.calories = Convert.ToInt32(caloriesVal.Text.Trim());
-            newRecipeDetails.time_prepare = Convert.ToInt32(timePrepareVal.Text.Trim());
+            // User have not created the steps.
+            if (countOfSteps == 0)
+            {
+                warningSteps.Visible = true;
+                return;
+            }
+
+            // User have not created the list of ingridients.
+            if (countOfIngredients == 0)
+            {
+                warningIngredients.Visible = true;
+                return;
+            }
+
+            // Check if we do not have step components without values.
+            foreach (RecipeStepComponent item in stepsPanel.Controls)
+            {
+                if (item.Description == string.Empty)
+                {
+                    MessageBox.Show("Деякі із кроків приготування не містять опису.\nБудь ласка заповніть їх.",
+                                    "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            // Chech if all of the ingredients component has all needed info.
+            foreach (IngredientsComponent item in ingredientsPanel.Controls)
+            {
+                try
+                {
+                    if (item.Quantity == string.Empty)
+                    {
+                        throw new Exception(); // We throw the exception, because the info message is in catch block.
+                    }
+
+                    int _ = item.IngredientID; // Here we can get an exception.
+                }
+                catch
+                {
+                    MessageBox.Show("Деякі із інгридієнтів приготування не містять усіх потрібних даних.\nБудь ласка заповніть їх.",
+                                    "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            RecipeDetails newRecipeDetails = new RecipeDetails
+            {
+                recipe_title = titleVal.Text.Trim(),
+                recipe_description = descriptionVal.Text.Trim(),
+                kitchen_id = (kitchenComboBox.SelectedItem as Kitchens).kitchen_id,
+                type_id = (typeComboBox.SelectedItem as RecipeTypes).type_id,
+                calories = Convert.ToInt32(caloriesVal.Text.Trim()),
+                time_prepare = Convert.ToInt32(timePrepareVal.Text.Trim())
+            };
 
             string imgTag = recipeImg.Tag.ToString();
-            newRecipeDetails.recipe_photo = (imgTag == "without" ? null : (imgTag == "newUserImg" ? ImageRedactor.ToByteArray(recipeImg.Image) : recipeDetails.recipe_photo)); ;
+            newRecipeDetails.recipe_photo = (imgTag == "without" ? null : (imgTag == "newUserImg" ? ImageRedactor.ToByteArray(recipeImg.Image) : recipeDetails.recipe_photo));
 
 
             if (CompareTwoRecipe(newRecipeDetails, recipeDetails) && (imgTag == "without" || imgTag == "userImg") &&
@@ -448,7 +530,107 @@ namespace DishesGo.src.Forms.ProfileForms
                 return;
             }
 
+            // If we are here it means that user made all action right.
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                Recipes recipe = context.Recipes.FirstOrDefault(r => r.recipe_id == recipeDetails.recipe_id);
+
+                recipe.title = newRecipeDetails.recipe_title;
+                recipe.description = newRecipeDetails.recipe_description;
+                recipe.recipe_photo = newRecipeDetails.recipe_photo;
+                recipe.time_prepare = Convert.ToInt32(timePrepareVal.Text.Trim());
+                recipe.calories = Convert.ToInt32(caloriesVal.Text.Trim());
+                recipe.kitchen_id = newRecipeDetails.kitchen_id;
+                recipe.type_id = newRecipeDetails.type_id;
+
+
+                context.SaveChanges();
+
+                // Update the recipe steps.
+                foreach (RecipeStepComponent stepComponent in stepsPanel.Controls.OfType<RecipeStepComponent>())
+                {
+                    RecipeSteps step = context.RecipeSteps
+                                              .FirstOrDefault(s => s.id_recipe == recipeDetails.recipe_id && s.step_order == stepComponent.StepNum);
+
+                    if (step != null)
+                    {
+                        // Updating existing steps.
+                        step.description = stepComponent.Description;
+                    }
+                    else
+                    {
+                        // Add new step.
+                        context.RecipeSteps.Add(new RecipeSteps
+                        {
+                            id_recipe = recipeDetails.recipe_id,
+                            step_order = stepComponent.StepNum,
+                            description = stepComponent.Description
+                        });
+                    }
+                }
+                context.SaveChanges();
+
+                // Update and add ingredients.
+                foreach (IngredientsComponent ingredientComponent in ingredientsPanel.Controls.OfType<IngredientsComponent>())
+                {
+                    DishIngredients ingredient = context.DishIngredients
+                                                        .FirstOrDefault(i => i.recipe_id == recipeDetails.recipe_id && i.ingredient_id == ingredientComponent.IngredientID);
+
+                    if (ingredient != null)
+                    {
+                        // Update an existing element.
+                        ingredient.quantity = ingredientComponent.Quantity;
+                        ingredient.ingredient_id = ingredientComponent.IngredientID;
+                    }
+                    else
+                    {
+                        // Add new ingredient.
+                        context.DishIngredients.Add(new DishIngredients
+                        {
+                            recipe_id = recipeDetails.recipe_id,
+                            ingredient_id = ingredientComponent.IngredientID,
+                            quantity = ingredientComponent.Quantity
+                        });
+                    }
+                }
+                context.SaveChanges();
+
+                // Deleting steps
+                var existingSteps = context.RecipeSteps
+                                           .Where(s => s.id_recipe == recipeDetails.recipe_id)
+                                           .ToList();
+
+                foreach (var existingStep in existingSteps)
+                {
+                    if (!stepsPanel.Controls.OfType<RecipeStepComponent>().Any(s => s.StepNum == existingStep.step_order))
+                    {
+                        context.RecipeSteps.Remove(existingStep);
+                    }
+                }
+
+                context.SaveChanges();
+
+                // Deleting ingredients.
+                var existingIngredients = context.DishIngredients
+                                                 .Where(i => i.recipe_id == recipeDetails.recipe_id)
+                                                 .ToList();
+
+                foreach (var existingIngredient in existingIngredients)
+                {
+                    if (!ingredientsPanel.Controls.OfType<IngredientsComponent>().Any(i => i.IngredientID == existingIngredient.ingredient_id))
+                    {
+                        // Якщо існуючий інгредієнт не знаходиться в новому списку, видаляємо його.
+                        context.DishIngredients.Remove(existingIngredient);
+                    }
+                }
+
+                context.SaveChanges();
+                
+                MessageBox.Show("Ви успішно оновили рецепт.", "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.Yes;
+            }
         }
+
 
         private bool CompareTwoRecipe(RecipeDetails left, RecipeDetails right)
         {

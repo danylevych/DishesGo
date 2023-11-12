@@ -1,25 +1,31 @@
 ﻿using DishesGo.Data;
-using DishesGo.src.Forms;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DishesGo.src.Elements
+namespace DishesGo.src.Components
 {
-    public partial class OwnRecipeComponent : UserControl
+    public abstract partial class RecipeComponent : UserControl
     {
-        private Users user;
+        protected Users user;
 
+        public int ReceiptId { get; set; }
+        public Image Image { get { return recipeImg.Image; } set { recipeImg.Image = value; } }
 
-        public OwnRecipeComponent()
+        public RecipeComponent()
         {
             InitializeComponent();
             border.Parent = recipeImg;
         }
 
-        public OwnRecipeComponent(Image image, int receiptId)
+        public RecipeComponent(Image image, int receiptId)
         {
             InitializeComponent();
             border.Parent = recipeImg;
@@ -28,7 +34,7 @@ namespace DishesGo.src.Elements
             ReceiptId = receiptId;
         }
 
-        public OwnRecipeComponent(Recipes recipe)
+        public RecipeComponent(Recipes recipe)
         {
             InitializeComponent();
             border.Parent = recipeImg;
@@ -61,19 +67,6 @@ namespace DishesGo.src.Elements
             {
                 user = context.Users.FirstOrDefault(userdb => userdb.user_id == recipe.user_id);
             }
-        }
-
-        public int ReceiptId { get; set; }
-        public Image Image { get { return recipeImg.Image; } set { recipeImg.Image = value; } }
-
-
-        private void border_Click(object sender, EventArgs e)
-        {
-            // Show the information about reciept.
-            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, true);
-            MainForm.Instance.Hide();
-            recipeViewerForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
         }
     }
 }

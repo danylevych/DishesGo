@@ -1,10 +1,9 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Components;
 using DishesGo.src.Forms;
-using DishesGo.src.tools;
 using System;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -31,6 +30,8 @@ namespace DishesGo.src.Elements
             using (DishesGo_dbEntities db = new DishesGo_dbEntities())
             {
                 var userRecipes = db.Recipes.Where(r => r.user_id == user.user_id).OrderByDescending(r => r.posting_date).ToList();
+                
+                // Add user's recipes.
                 if (userRecipes.Count > 0)
                 {
                     foreach (var recipe in userRecipes)

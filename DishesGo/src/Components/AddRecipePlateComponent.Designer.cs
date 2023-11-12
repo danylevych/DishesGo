@@ -62,6 +62,7 @@
             this.warningCalories = new System.Windows.Forms.Label();
             this.warningSteps = new System.Windows.Forms.Label();
             this.warningIngredients = new System.Windows.Forms.Label();
+            this.disableImageButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoImg)).BeginInit();
@@ -650,7 +651,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RecipeImg.BackColor = System.Drawing.SystemColors.ControlDark;
             this.RecipeImg.Image = global::DishesGo.Properties.Resources.titlePhoto;
-            this.RecipeImg.Location = new System.Drawing.Point(24, 63);
+            this.RecipeImg.Location = new System.Drawing.Point(25, 60);
             this.RecipeImg.Name = "RecipeImg";
             this.RecipeImg.Size = new System.Drawing.Size(320, 323);
             this.RecipeImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -771,10 +772,44 @@
             this.warningIngredients.Text = "Список інгридієнтів не може бути пустим.";
             this.warningIngredients.Visible = false;
             // 
+            // disableImageButton
+            // 
+            this.disableImageButton.Location = new System.Drawing.Point(0, 0);
+            this.disableImageButton.Name = "disableImageButton";
+            this.disableImageButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableImageButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableImageButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableImageButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableImageButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableImageButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableImageButton.OverrideDefault.Border.Rounding = 1;
+            this.disableImageButton.OverrideDefault.Border.Width = 0;
+            this.disableImageButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Silver;
+            this.disableImageButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
+            this.disableImageButton.Size = new System.Drawing.Size(20, 20);
+            this.disableImageButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.disableImageButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.disableImageButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Cansle;
+            this.disableImageButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.disableImageButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.disableImageButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.disableImageButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.disableImageButton.StateCommon.Border.Rounding = 0;
+            this.disableImageButton.StateCommon.Border.Width = 0;
+            this.disableImageButton.TabIndex = 60;
+            this.disableImageButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.disableImageButton.Values.Text = "";
+            this.disableImageButton.Click += new System.EventHandler(this.disableImageButton_Click);
+            // 
             // AddRecipePlateComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.disableImageButton);
             this.Controls.Add(this.warningIngredients);
             this.Controls.Add(this.warningSteps);
             this.Controls.Add(this.warningCalories);
@@ -856,5 +891,6 @@
         private System.Windows.Forms.Label warningCalories;
         private System.Windows.Forms.Label warningSteps;
         private System.Windows.Forms.Label warningIngredients;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton disableImageButton;
     }
 }

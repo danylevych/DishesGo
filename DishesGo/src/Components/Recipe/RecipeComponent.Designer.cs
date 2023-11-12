@@ -1,6 +1,8 @@
-﻿namespace DishesGo.src.Elements
+﻿using System;
+
+namespace DishesGo.src.Components
 {
-    partial class OwnRecipeComponent
+    abstract partial class RecipeComponent
     {
         /// <summary> 
         /// Required designer variable.
@@ -48,8 +50,8 @@
             // 
             // recipeImg
             // 
-            this.recipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.recipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.recipeImg.BackColor = System.Drawing.Color.Black;
             this.recipeImg.Image = global::DishesGo.Properties.Resources.titlePhoto;
@@ -60,7 +62,7 @@
             this.recipeImg.TabIndex = 0;
             this.recipeImg.TabStop = false;
             // 
-            // OwnRecipe
+            // RecipeComponent
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Cell;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -68,7 +70,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Controls.Add(this.border);
             this.Controls.Add(this.recipeImg);
-            this.Name = "OwnRecipe";
+            //this.Name = "RecipeComponent";
             this.Size = new System.Drawing.Size(220, 240);
             ((System.ComponentModel.ISupportInitialize)(this.border)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeImg)).EndInit();
@@ -78,7 +80,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox recipeImg;
-        private System.Windows.Forms.PictureBox border;
+        protected System.Windows.Forms.PictureBox recipeImg;
+        protected System.Windows.Forms.PictureBox border;
+
+        abstract protected void border_Click(object sender, EventArgs e);
     }
 }

@@ -339,6 +339,7 @@
             this.caloriesVal.TabStop = false;
             this.caloriesVal.Tag = "";
             this.caloriesVal.Enter += new System.EventHandler(this.textBox_Enter);
+            this.caloriesVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputOnlyNumbers_KeyPress);
             this.caloriesVal.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // label2
@@ -466,6 +467,7 @@
             this.timePrepareVal.TabStop = false;
             this.timePrepareVal.Tag = "Time";
             this.timePrepareVal.Enter += new System.EventHandler(this.textBox_Enter);
+            this.timePrepareVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputOnlyNumbers_KeyPress);
             this.timePrepareVal.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // timePrepareLabel
@@ -810,7 +812,7 @@
             // 
             this.disabelRecipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.disabelRecipeImg.AutoSize = true;
-            this.disabelRecipeImg.Location = new System.Drawing.Point(420, 441);
+            this.disabelRecipeImg.Location = new System.Drawing.Point(38, 95);
             this.disabelRecipeImg.Name = "disabelRecipeImg";
             this.disabelRecipeImg.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.disabelRecipeImg.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;

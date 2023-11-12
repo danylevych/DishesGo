@@ -54,6 +54,8 @@ namespace DishesGo.src
 
             mainPanel.Click += HideSettings;
             contextPanel.Click += HideSettings;
+
+            search_Click(this, EventArgs.Empty); // Start menu for user interface will be search panel.
         }
 
         public void Refresh(Users user)
@@ -129,11 +131,12 @@ namespace DishesGo.src
         {
             settingsPanel.Visible = false; // We hide the setings panel.
 
+            searchLine.Visible = false;
             photoLine.Visible = false;
             addLine.Visible = false;
         }
 
-        private void userPhoto_Click(object sender, EventArgs e)
+        public void userPhoto_Click(object sender, EventArgs e)
         {
             HideLines();
             contextPanel.Controls.Clear();
@@ -163,6 +166,23 @@ namespace DishesGo.src
                 addRecipePlate.Dock = DockStyle.Fill;
                 addRecipePlate.Click += HideSettings;
                 contextPanel.Controls.Add(addRecipePlate);
+            }
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+            HideLines();
+            contextPanel.Controls.Clear();
+
+            if (!searchLine.Visible)
+            {
+                contextPanel.Controls.Clear();
+                searchLine.Visible = true;
+
+                SearchPlateComponent searchPlateComponent = new SearchPlateComponent(user.user_id);
+                searchPlateComponent.Dock = DockStyle.Fill;
+                searchPlateComponent.Click += HideSettings;
+                contextPanel.Controls.Add(searchPlateComponent);
             }
         }
     }

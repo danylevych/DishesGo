@@ -3,13 +3,8 @@ using DishesGo.Data;
 using DishesGo.src.Elements;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DishesGo.src.Forms
 {
@@ -26,11 +21,11 @@ namespace DishesGo.src.Forms
                 {
                     foreach (var bookmark in bookmarks)
                     {
-                        BookmarksComponent bookmarksComponent = new BookmarksComponent(bookmark);
-                        bookmarksComponent.Parent = this;
+                        BookmarksComponent bookmarksComponent = new BookmarksComponent(bookmark)
+                        {
+                            Parent = this
+                        };
                         bookmarksPanel.Controls.Add(bookmarksComponent);
-                        bookmarksPanel.Controls.Add(new BookmarksComponent(bookmark));
-                        bookmarksPanel.Controls.Add(new BookmarksComponent(bookmark));
                     }
                 }
             }

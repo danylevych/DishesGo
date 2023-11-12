@@ -290,7 +290,13 @@ namespace DishesGo.src.Elements
         {
             EditRecipeForm editRecipeForm = new EditRecipeForm(ReceiptId);
             this.Hide();
-            editRecipeForm.ShowDialog(this);
+            if (editRecipeForm.ShowDialog(this) == DialogResult.Yes) // We have to update this form.
+            {
+                // Updating all information.
+                Init();
+                Refresh();
+                MainForm.Instance.userPhoto_Click(this, EventArgs.Empty);
+            }
             this.Show();
         }
     }

@@ -83,6 +83,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\..\..\includes\Krypton\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>..\..\..\includes\Krypton\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
@@ -252,6 +255,10 @@
     <Compile Include="src\Components\ProfilePlateComponent.Designer.cs">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Elements\CustomListBoxItem.cs" />
+    <Compile Include="src\Elements\ImageCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Elements\ImageComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -407,6 +414,8 @@
       <LastGenOutput>DBModels.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\Icons\titlePhoto.ico" />
+    <None Include="Resources\Img\UserAcrivity\BackReverce.png" />
+    <None Include="Resources\Img\UserAcrivity\Filter.png" />
     <Content Include="titlePhoto.ico" />
     <None Include="Resources\Img\UserAcrivity\Search.png" />
     <None Include="Resources\Img\UserAcrivity\Info.png" />

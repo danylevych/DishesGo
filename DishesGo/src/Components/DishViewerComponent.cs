@@ -274,6 +274,8 @@ namespace DishesGo.src.Elements
         // Deleting the recipe.
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            moreOptionPanel.Visible = false; // Hide the more panel.
+
             if (MessageBox.Show("Ви дійсно бажаєте видалити цей рецепт?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (DishesGo_dbEntities context = new DishesGo_dbEntities())
@@ -288,6 +290,8 @@ namespace DishesGo.src.Elements
         // Editing the recipe.
         private void editRecipeButton_Click(object sender, EventArgs e)
         {
+            moreOptionPanel.Visible = false; // Hide the more panel.
+
             EditRecipeForm editRecipeForm = new EditRecipeForm(ReceiptId);
             this.Hide();
             if (editRecipeForm.ShowDialog(this) == DialogResult.Yes) // We have to update this form.

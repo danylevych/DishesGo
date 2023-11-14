@@ -306,6 +306,7 @@
     <Compile Include="Data\Users.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Tools\Enums\SortTags.cs" />
     <Compile Include="src\Tools\Flyweights\IngredientsFactory.cs" />
     <Compile Include="src\Tools\ImageRedactor.cs" />
     <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
@@ -416,6 +417,8 @@
     <Content Include="Resources\Icons\titlePhoto.ico" />
     <None Include="Resources\Img\UserAcrivity\BackReverce.png" />
     <None Include="Resources\Img\UserAcrivity\Filter.png" />
+    <None Include="Resources\Img\UserAcrivity\LikeDown.png" />
+    <None Include="Resources\Img\UserAcrivity\LikeUp.png" />
     <Content Include="titlePhoto.ico" />
     <None Include="Resources\Img\UserAcrivity\Search.png" />
     <None Include="Resources\Img\UserAcrivity\Info.png" />

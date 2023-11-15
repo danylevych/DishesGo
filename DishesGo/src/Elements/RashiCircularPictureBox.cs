@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace RashiUI
 {
-    class RashiCircularPictureBox : PictureBox
+    public class RashiCircularPictureBox : PictureBox
     {
         private int border = 2;
         private Color colorBorder = Color.RoyalBlue;

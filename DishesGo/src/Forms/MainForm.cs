@@ -1,6 +1,7 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
 using DishesGo.src.Components;
+using DishesGo.src.Components.ProfilePlates;
 using DishesGo.src.Elements;
 using DishesGo.src.Forms;
 using DishesGo.src.tools;
@@ -145,7 +146,7 @@ namespace DishesGo.src
             {
                 photoLine.Visible = true;
 
-                ProfilePlateComponent profilePlate = new ProfilePlateComponent(user, userPhoto.Image);
+                ProfilePlateComponent profilePlate = new OwnProfilePlateComponent(user, userPhoto.Image);
                 profilePlate.Dock = DockStyle.Fill;
                 profilePlate.Click += HideSettings;
                 contextPanel.Controls.Add(profilePlate);

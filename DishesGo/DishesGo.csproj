@@ -203,6 +203,15 @@
     <Compile Include="src\Components\IngridientsComponent.Designer.cs">
       <DependentUpon>IngridientsComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Components\ProfilePlates\MiddleProfilePlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\ProfilePlates\OwnProfilePlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\ProfilePlates\UserProfilePlateComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="src\Components\Recipe\MiddleRecipeConponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +239,12 @@
     <Compile Include="src\Components\Recipe\SearchRecipeComponent.Designer.cs">
       <DependentUpon>SearchRecipeComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Components\Recipe\UserRecipeComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\Recipe\UserRecipeComponent.Designer.cs">
+      <DependentUpon>UserRecipeComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Components\SearchPlateComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -249,10 +264,10 @@
     <Compile Include="src\Components\DishViewerComponent.Designer.cs">
       <DependentUpon>DishViewerComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Components\ProfilePlateComponent.cs">
+    <Compile Include="src\Components\ProfilePlates\ProfilePlateComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Components\ProfilePlateComponent.Designer.cs">
+    <Compile Include="src\Components\ProfilePlates\ProfilePlateComponent.Designer.cs">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Elements\CustomListBoxItem.cs" />
@@ -311,6 +326,9 @@
     <Compile Include="src\Tools\ImageRedactor.cs" />
     <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
+    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchByDate.cs" />
+    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchByLikes.cs" />
+    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchStrategy.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,7 +349,7 @@
     <EmbeddedResource Include="src\Components\IngridientsComponent.resx">
       <DependentUpon>IngridientsComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Components\ProfilePlateComponent.resx">
+    <EmbeddedResource Include="src\Components\ProfilePlates\ProfilePlateComponent.resx">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\RecipeStepComponent.resx">
@@ -419,6 +437,8 @@
     <None Include="Resources\Img\UserAcrivity\Filter.png" />
     <None Include="Resources\Img\UserAcrivity\LikeDown.png" />
     <None Include="Resources\Img\UserAcrivity\LikeUp.png" />
+    <None Include="Resources\Img\UserAcrivity\TimeDown.png" />
+    <None Include="Resources\Img\UserAcrivity\TimeUp.png" />
     <Content Include="titlePhoto.ico" />
     <None Include="Resources\Img\UserAcrivity\Search.png" />
     <None Include="Resources\Img\UserAcrivity\Info.png" />

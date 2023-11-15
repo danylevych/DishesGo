@@ -243,6 +243,26 @@ namespace DishesGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TimeDown {
+            get {
+                object obj = ResourceManager.GetObject("TimeDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TimeUp {
+            get {
+                object obj = ResourceManager.GetObject("TimeUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap titlePhoto {
             get {
                 object obj = ResourceManager.GetObject("titlePhoto", resourceCulture);

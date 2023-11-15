@@ -1,6 +1,6 @@
 ﻿namespace DishesGo.src.Elements
 {
-    partial class ProfilePlateComponent
+    abstract partial class ProfilePlateComponent
     {
         /// <summary> 
         /// Required designer variable.
@@ -99,7 +99,6 @@
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.profileImg.TabIndex = 8;
             this.profileImg.TabStop = false;
-            this.profileImg.Click += new System.EventHandler(this.profileImg_Click);
             // 
             // ProfilePlateComponent
             // 
@@ -123,10 +122,10 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel recipesPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label nicknameLabel;
-        private System.Windows.Forms.Label profileNameLabel;
-        private RashiUI.RashiCircularPictureBox profileImg;
+        protected System.Windows.Forms.FlowLayoutPanel recipesPanel;
+        protected System.Windows.Forms.PictureBox pictureBox1;
+        protected System.Windows.Forms.Label nicknameLabel;
+        protected System.Windows.Forms.Label profileNameLabel;
+        protected RashiUI.RashiCircularPictureBox profileImg;
     }
 }

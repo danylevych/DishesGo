@@ -12,6 +12,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
+using DishesGo.src.Tools.Strategies.SearchStrategies;
 
 namespace DishesGo.src.Components
 {
@@ -49,7 +50,7 @@ namespace DishesGo.src.Components
                 }
             }
 
-            LoadMoreRecipes(true, false);
+            LoadMoreRecipes(new SearchByLikes(), true, false);
         }
 
         private void filtersButton_Click(object sender, EventArgs e)
@@ -83,15 +84,33 @@ namespace DishesGo.src.Components
 
             if (button.Tag.ToString() == "Up")
             {
-                sortByLikeButton.StateCommon.Back.Image = Properties.Resources.LikeDown;
                 button.Tag = "Down";
-                LoadMoreRecipes(true);
+
+                if (button.Name == "sortByLikeButton")
+                {
+                    button.StateCommon.Back.Image = Properties.Resources.LikeDown;
+                    LoadMoreRecipes(new SearchByLikes(), true);
+                }
+                else if (button.Name == "sortByDateButton")
+                {
+                    button.StateCommon.Back.Image = Properties.Resources.TimeDown;
+                    LoadMoreRecipes(new SearchByDate(), true);
+                }
             }
             else
             {
-                sortByLikeButton.StateCommon.Back.Image = Properties.Resources.LikeUp;
                 button.Tag = "Up";
-                LoadMoreRecipes(true, false);
+
+                if (button.Name == "sortByLikeButton")
+                {
+                    button.StateCommon.Back.Image = Properties.Resources.LikeUp;
+                    LoadMoreRecipes(new SearchByLikes(), true, false);
+                }
+                else if (button.Name == "sortByDateButton")
+                {
+                    button.StateCommon.Back.Image = Properties.Resources.TimeUp;
+                    LoadMoreRecipes(new SearchByDate(), true, false);
+                }
             }
         }
 
@@ -104,8 +123,6 @@ namespace DishesGo.src.Components
 
                 var loadedRecipes = await query.ToListAsync();
 
-                recipePanel.Controls.Clear();
-
                 foreach (var recipe in loadedRecipes)
                 {
                     recipePanel.Controls.Add(new SearchRecipeComponent(recipe));
@@ -113,8 +130,7 @@ namespace DishesGo.src.Components
             }
         }
 
-
-        private async void LoadMoreRecipes(bool fromStart = false, bool isASC = true)
+        private async void LoadMoreRecipes<TKey>(SearchStrategy<TKey> searchStrategy, bool fromStart = false, bool isASC = true)
         {
             if (fromStart)
             {
@@ -127,11 +143,11 @@ namespace DishesGo.src.Components
 
             if (isASC)
             {
-                await LoadAndDisplayRecipesAsync(query => query.Select(selector).OrderBy(predicat).Skip(startIndex).Take(recipesToLoad));
+                await LoadAndDisplayRecipesAsync(query => query.Where(searchStrategy.Predicat).OrderBy(searchStrategy.KeySelector).Skip(startIndex).Take(recipesToLoad));
             }
             else
             {
-                await LoadAndDisplayRecipesAsync(query => query.Select(selector).OrderByDescending(predicat).Skip(startIndex).Take(recipesToLoad));
+                await LoadAndDisplayRecipesAsync(query => query.Where(searchStrategy.Predicat).OrderByDescending(searchStrategy.KeySelector).Skip(startIndex).Take(recipesToLoad));
             }
         }
 
@@ -140,8 +156,15 @@ namespace DishesGo.src.Components
         {
             if (e.Type == ScrollEventType.SmallIncrement && e.NewValue + e.NewValue >= recipePanel.VerticalScroll.Maximum)
             {
-                LoadMoreRecipes();
+                //LoadMoreRecipes();
             }
+        }
+
+        private void applyFiltersButton_Click(object sender, EventArgs e)
+        {
+            // TODO: Make checking if user set some of the filters.
+
+
         }
     }
 }

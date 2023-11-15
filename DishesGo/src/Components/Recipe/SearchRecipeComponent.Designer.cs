@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.recipeNameLabel = new System.Windows.Forms.Label();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.userPhoto = new RashiUI.RashiCircularPictureBox();
-            this.recipeNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.recipeImg)).BeginInit();
             this.recipeImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.border)).BeginInit();
@@ -58,6 +58,20 @@
             this.bottomPanel.Name = "bottomPanel";
             this.bottomPanel.Size = new System.Drawing.Size(220, 56);
             this.bottomPanel.TabIndex = 1;
+            this.bottomPanel.Click += new System.EventHandler(this.border_Click);
+            // 
+            // recipeNameLabel
+            // 
+            this.recipeNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.recipeNameLabel.AutoSize = true;
+            this.recipeNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.recipeNameLabel.Font = new System.Drawing.Font("Russo One", 10F);
+            this.recipeNameLabel.Location = new System.Drawing.Point(5, 10);
+            this.recipeNameLabel.Name = "recipeNameLabel";
+            this.recipeNameLabel.Size = new System.Drawing.Size(90, 17);
+            this.recipeNameLabel.TabIndex = 19;
+            this.recipeNameLabel.Text = "recipeName";
+            this.recipeNameLabel.Click += new System.EventHandler(this.border_Click);
             // 
             // nicknameLabel
             // 
@@ -71,6 +85,7 @@
             this.nicknameLabel.Size = new System.Drawing.Size(52, 12);
             this.nicknameLabel.TabIndex = 18;
             this.nicknameLabel.Text = "nickname";
+            this.nicknameLabel.Click += new System.EventHandler(this.user_Click);
             // 
             // userPhoto
             // 
@@ -88,18 +103,7 @@
             this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userPhoto.TabIndex = 17;
             this.userPhoto.TabStop = false;
-            // 
-            // recipeNameLabel
-            // 
-            this.recipeNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.recipeNameLabel.AutoSize = true;
-            this.recipeNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.recipeNameLabel.Font = new System.Drawing.Font("Russo One", 10F);
-            this.recipeNameLabel.Location = new System.Drawing.Point(5, 10);
-            this.recipeNameLabel.Name = "recipeNameLabel";
-            this.recipeNameLabel.Size = new System.Drawing.Size(90, 17);
-            this.recipeNameLabel.TabIndex = 19;
-            this.recipeNameLabel.Text = "recipeName";
+            this.userPhoto.Click += new System.EventHandler(this.user_Click);
             // 
             // SearchRecipeComponent
             // 

@@ -35,12 +35,14 @@
             this.filtersPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.recipeTypesCheckBoxes = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.imageCheckedListBox1 = new DishesGo.src.Elements.ImageCheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.kitchenCheckBoxes = new System.Windows.Forms.CheckedListBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.sortByLikeButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.sortByDateButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.imageCheckedListBox1 = new DishesGo.src.Elements.ImageCheckedListBox();
+            this.applyFiltersButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.filtersPanel)).BeginInit();
             this.filtersPanel.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +117,7 @@
             this.filtersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.filtersPanel.AutoScroll = true;
+            this.filtersPanel.Controls.Add(this.applyFiltersButton);
             this.filtersPanel.Controls.Add(this.recipeTypesCheckBoxes);
             this.filtersPanel.Controls.Add(this.label3);
             this.filtersPanel.Controls.Add(this.imageCheckedListBox1);
@@ -154,18 +157,6 @@
             this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 42;
             this.label3.Text = "Тип рецепту";
-            // 
-            // imageCheckedListBox1
-            // 
-            this.imageCheckedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.imageCheckedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.imageCheckedListBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.imageCheckedListBox1.Font = new System.Drawing.Font("Russo One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.imageCheckedListBox1.FormattingEnabled = true;
-            this.imageCheckedListBox1.Location = new System.Drawing.Point(15, 447);
-            this.imageCheckedListBox1.Name = "imageCheckedListBox1";
-            this.imageCheckedListBox1.Size = new System.Drawing.Size(306, 110);
-            this.imageCheckedListBox1.TabIndex = 41;
             // 
             // label2
             // 
@@ -211,7 +202,7 @@
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Russo One", 15F);
             this.titleLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.titleLabel.Location = new System.Drawing.Point(123, 0);
+            this.titleLabel.Location = new System.Drawing.Point(123, 6);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(98, 25);
             this.titleLabel.TabIndex = 13;
@@ -252,11 +243,148 @@
             this.sortByLikeButton.Values.Text = "";
             this.sortByLikeButton.Click += new System.EventHandler(this.sortByButton_Click);
             // 
+            // sortByDateButton
+            // 
+            this.sortByDateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sortByDateButton.Location = new System.Drawing.Point(929, 581);
+            this.sortByDateButton.Name = "sortByDateButton";
+            this.sortByDateButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.OverrideDefault.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.sortByDateButton.OverrideDefault.Border.Color1 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.OverrideDefault.Border.Color2 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.sortByDateButton.OverrideDefault.Border.Rounding = 1;
+            this.sortByDateButton.OverrideDefault.Border.Width = 0;
+            this.sortByDateButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.Size = new System.Drawing.Size(20, 20);
+            this.sortByDateButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.TimeUp;
+            this.sortByDateButton.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.sortByDateButton.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.sortByDateButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.sortByDateButton.StateCommon.Border.Rounding = 0;
+            this.sortByDateButton.StateCommon.Border.Width = 0;
+            this.sortByDateButton.TabIndex = 40;
+            this.sortByDateButton.Tag = "Up";
+            this.sortByDateButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.sortByDateButton.Values.Text = "";
+            this.sortByDateButton.Click += new System.EventHandler(this.sortByButton_Click);
+            // 
+            // imageCheckedListBox1
+            // 
+            this.imageCheckedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.imageCheckedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.imageCheckedListBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.imageCheckedListBox1.Font = new System.Drawing.Font("Russo One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.imageCheckedListBox1.FormattingEnabled = true;
+            this.imageCheckedListBox1.Location = new System.Drawing.Point(15, 447);
+            this.imageCheckedListBox1.Name = "imageCheckedListBox1";
+            this.imageCheckedListBox1.Size = new System.Drawing.Size(306, 110);
+            this.imageCheckedListBox1.TabIndex = 41;
+            // 
+            // applyFiltersButton
+            // 
+            this.applyFiltersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyFiltersButton.AutoSize = true;
+            this.applyFiltersButton.Location = new System.Drawing.Point(252, 7);
+            this.applyFiltersButton.Name = "applyFiltersButton";
+            this.applyFiltersButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideDefault.Back.ColorAngle = 45F;
+            this.applyFiltersButton.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideDefault.Border.ColorAngle = 45F;
+            this.applyFiltersButton.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.OverrideDefault.Border.Rounding = 13;
+            this.applyFiltersButton.OverrideDefault.Border.Width = 1;
+            this.applyFiltersButton.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideFocus.Back.ColorAngle = 45F;
+            this.applyFiltersButton.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.OverrideFocus.Border.ColorAngle = 45F;
+            this.applyFiltersButton.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.OverrideFocus.Border.Rounding = 13;
+            this.applyFiltersButton.OverrideFocus.Border.Width = 1;
+            this.applyFiltersButton.Size = new System.Drawing.Size(77, 25);
+            this.applyFiltersButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateCommon.Back.ColorAngle = 45F;
+            this.applyFiltersButton.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateCommon.Border.ColorAngle = 45F;
+            this.applyFiltersButton.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.StateCommon.Border.Rounding = 13;
+            this.applyFiltersButton.StateCommon.Border.Width = 1;
+            this.applyFiltersButton.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Orbitron", 7F, System.Drawing.FontStyle.Bold);
+            this.applyFiltersButton.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateDisabled.Back.ColorAngle = 45F;
+            this.applyFiltersButton.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateDisabled.Border.ColorAngle = 45F;
+            this.applyFiltersButton.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.StateDisabled.Border.Rounding = 13;
+            this.applyFiltersButton.StateDisabled.Border.Width = 1;
+            this.applyFiltersButton.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateNormal.Back.ColorAngle = 45F;
+            this.applyFiltersButton.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateNormal.Border.ColorAngle = 45F;
+            this.applyFiltersButton.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.StateNormal.Border.Rounding = 13;
+            this.applyFiltersButton.StateNormal.Border.Width = 1;
+            this.applyFiltersButton.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StatePressed.Back.ColorAngle = 45F;
+            this.applyFiltersButton.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StatePressed.Border.ColorAngle = 45F;
+            this.applyFiltersButton.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.StatePressed.Border.Rounding = 13;
+            this.applyFiltersButton.StatePressed.Border.Width = 1;
+            this.applyFiltersButton.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateTracking.Back.ColorAngle = 45F;
+            this.applyFiltersButton.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
+            this.applyFiltersButton.StateTracking.Border.ColorAngle = 45F;
+            this.applyFiltersButton.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.applyFiltersButton.StateTracking.Border.Rounding = 13;
+            this.applyFiltersButton.StateTracking.Border.Width = 1;
+            this.applyFiltersButton.TabIndex = 44;
+            this.applyFiltersButton.Values.Text = "Застосувати";
+            this.applyFiltersButton.Click += new System.EventHandler(this.applyFiltersButton_Click);
+            // 
             // SearchPlateComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(245)))), ((int)(((byte)(252)))));
+            this.Controls.Add(this.sortByDateButton);
             this.Controls.Add(this.sortByLikeButton);
             this.Controls.Add(this.filtersPanel);
             this.Controls.Add(this.filtersButton);
@@ -284,5 +412,7 @@
         private System.Windows.Forms.CheckedListBox recipeTypesCheckBoxes;
         private System.Windows.Forms.Label label3;
         private ComponentFactory.Krypton.Toolkit.KryptonButton sortByLikeButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton sortByDateButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton applyFiltersButton;
     }
 }

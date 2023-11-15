@@ -1,9 +1,11 @@
 ﻿using DishesGo.Data;
+using DishesGo.src.Components.ProfilePlates;
 using DishesGo.src.Forms;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace DishesGo.src.Components.Recipe
 {
@@ -40,15 +42,6 @@ namespace DishesGo.src.Components.Recipe
             Init();
         }
 
-        protected override void border_Click(object sender, EventArgs e)
-        {
-            // Show the information about reciept.
-            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
-            MainForm.Instance.Hide();
-            recipeViewerForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
-        }
-
         private void Init()
         {
             recipeNameLabel.Text = (recipe.title.Length > 40 ? recipe.title.Substring(0, 45) + "..." : recipe.title);
@@ -67,6 +60,23 @@ namespace DishesGo.src.Components.Recipe
             }
 
             nicknameLabel.Text = recipe?.Users?.nickname;
+        }
+
+        protected override void border_Click(object sender, EventArgs e)
+        {
+            // Show the information about reciept.
+            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
+            MainForm.Instance.Hide();
+            recipeViewerForm.ShowDialog(MainForm.Instance);
+            MainForm.Instance.Show();
+        }
+
+        protected void user_Click(object sender, EventArgs e)
+        {
+            UserProfilePlateComponent userProfilePanel = new UserProfilePlateComponent(user, userPhoto.Image);
+            userProfilePanel.Dock = DockStyle.Fill;
+            MainForm.Instance.Context.Controls.Add(userProfilePanel);
+            userProfilePanel.BringToFront();
         }
     }
 }

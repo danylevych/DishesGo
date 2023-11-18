@@ -809,6 +809,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.disableImageButton);
             this.Controls.Add(this.warningIngredients);
             this.Controls.Add(this.warningSteps);

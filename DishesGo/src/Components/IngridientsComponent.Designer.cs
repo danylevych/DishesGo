@@ -108,7 +108,7 @@
             this.ingredientComboBox.TabIndex = 18;
             this.ingredientComboBox.TabStop = false;
             // 
-            // IngridientsComponent
+            // IngredientsComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +116,7 @@
             this.Controls.Add(this.ingredientComboBox);
             this.Controls.Add(this.quantityVal);
             this.Controls.Add(this.descriptionLabel);
-            this.Name = "IngridientsComponent";
+            this.Name = "IngredientsComponent";
             this.Size = new System.Drawing.Size(189, 125);
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishesGo_dbDataSet)).EndInit();

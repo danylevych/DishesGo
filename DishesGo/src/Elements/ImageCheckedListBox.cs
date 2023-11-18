@@ -12,7 +12,27 @@ namespace DishesGo.src.Elements
 
     public class ImageCheckedListBox : ListBox
     {
-        private int hoveredIndex = -1;
+        public List<CustomListBoxItem> CheckedItems {
+            get
+            {
+                List<CustomListBoxItem> checkedItems = new List<CustomListBoxItem>();
+
+                foreach (CustomListBoxItem item in this.Items)
+                {
+                    if (item.IsChecked) 
+                    {
+                        checkedItems.Add(item);
+                    }
+                }
+
+                return checkedItems;
+            }
+        }
+
+        public delegate void SelectedIndexChangedHandler(object sender, EventArgs e);
+        public event SelectedIndexChangedHandler ItemChecked;
+
+
 
         public ImageCheckedListBox() : base()
         {
@@ -33,6 +53,9 @@ namespace DishesGo.src.Elements
                 CustomListBoxItem item = (CustomListBoxItem)Items[index];
                 item.IsChecked = !item.IsChecked;
 
+                // Викидаємо подію, якщо вона існує
+                OnItemChecked(new EventArgs());
+
                 // Redraw the ListBox to reflect the updated state
                 Invalidate();
             }
@@ -50,7 +73,7 @@ namespace DishesGo.src.Elements
             {
                 CustomListBoxItem item = (CustomListBoxItem)Items[e.Index];
 
-                if (e.Index == hoveredIndex)
+                if (e.Index == -1)
                 {
                     e.Graphics.FillRectangle(Brushes.LightGray, e.Bounds);
                 }
@@ -61,6 +84,11 @@ namespace DishesGo.src.Elements
 
                 e.Graphics.DrawString(item.Name, Font, Brushes.Black, new PointF(e.Bounds.Left + 60, e.Bounds.Top + 10));
             }
+        }
+
+        protected virtual void OnItemChecked(EventArgs e)
+        {
+            ItemChecked?.Invoke(this, e);
         }
     }
 }

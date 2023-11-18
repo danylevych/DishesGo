@@ -209,8 +209,14 @@
     <Compile Include="src\Components\ProfilePlates\OwnProfilePlateComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="src\Components\ProfilePlates\OwnProfilePlateComponent.Designer.cs">
+      <DependentUpon>OwnProfilePlateComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Components\ProfilePlates\UserProfilePlateComponent.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Components\ProfilePlates\UserProfilePlateComponent.Designer.cs">
+      <DependentUpon>UserProfilePlateComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Components\Recipe\MiddleRecipeConponent.cs">
       <SubType>UserControl</SubType>
@@ -326,9 +332,6 @@
     <Compile Include="src\Tools\ImageRedactor.cs" />
     <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
-    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchByDate.cs" />
-    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchByLikes.cs" />
-    <Compile Include="src\Tools\Strategies\SearchStrategies\SearchStrategy.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\ProfilePlates\ProfilePlateComponent.resx">
       <DependentUpon>ProfilePlateComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\ProfilePlates\UserProfilePlateComponent.resx">
+      <DependentUpon>UserProfilePlateComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Components\RecipeStepComponent.resx">
       <DependentUpon>RecipeStepComponent.cs</DependentUpon>

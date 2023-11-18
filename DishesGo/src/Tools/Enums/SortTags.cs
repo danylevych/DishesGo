@@ -1,8 +1,14 @@
-﻿namespace DishesGo.src.Tools.Enums
+﻿using System.Linq.Expressions;
+using System.Linq;
+using System;
+
+namespace DishesGo.src.Tools.Enums
 {
     public enum SortTags
     {
-        Up,
-        Down,
+        UpByLikes,
+        DownByLikes,
+        UpByDate,
+        DownByDate
     }
 }

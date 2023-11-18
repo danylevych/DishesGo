@@ -128,6 +128,7 @@
             this.name.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.name.TabIndex = 5;
             this.name.Text = "name";
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             this.name.Leave += new System.EventHandler(this.firstName_Leave);
             // 
             // nicknameLabel
@@ -185,6 +186,7 @@
             this.lastName.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
             this.lastName.TabIndex = 14;
             this.lastName.Text = "lastName";
+            this.lastName.TextChanged += new System.EventHandler(this.lastName_TextChanged);
             this.lastName.Leave += new System.EventHandler(this.lastName_Leave);
             // 
             // namesGroupBox
@@ -215,7 +217,7 @@
             // nickEmailGroupBox
             // 
             this.nickEmailGroupBox.Enabled = false;
-            this.nickEmailGroupBox.Location = new System.Drawing.Point(238, 53);
+            this.nickEmailGroupBox.Location = new System.Drawing.Point(252, 58);
             this.nickEmailGroupBox.Name = "nickEmailGroupBox";
             // 
             // nickEmailGroupBox.Panel
@@ -241,7 +243,7 @@
             // 
             this.email.Location = new System.Drawing.Point(114, 48);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(172, 24);
+            this.email.Size = new System.Drawing.Size(172, 22);
             this.email.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
             this.email.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.email.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
@@ -249,7 +251,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.email.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.email.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 10F);
+            this.email.StateCommon.Content.Font = new System.Drawing.Font("Russo One", 9F);
             this.email.TabIndex = 15;
             this.email.Tag = "email";
             this.email.Text = "email";
@@ -263,7 +265,7 @@
             this.emailLabel.BackColor = System.Drawing.Color.Transparent;
             this.emailLabel.Font = new System.Drawing.Font("Russo One", 10F);
             this.emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.emailLabel.Location = new System.Drawing.Point(52, 48);
+            this.emailLabel.Location = new System.Drawing.Point(52, 49);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(56, 17);
             this.emailLabel.TabIndex = 15;
@@ -284,8 +286,8 @@
             this.passwordsGroupBox.Panel.Controls.Add(this.newPasswordLabel);
             this.passwordsGroupBox.Panel.Controls.Add(this.oldPasswordLabel);
             this.passwordsGroupBox.Size = new System.Drawing.Size(318, 100);
-            this.passwordsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
-            this.passwordsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.passwordsGroupBox.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
+            this.passwordsGroupBox.StateCommon.Back.Color2 = System.Drawing.SystemColors.Control;
             this.passwordsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
             this.passwordsGroupBox.StateCommon.Border.Color2 = System.Drawing.Color.White;
             this.passwordsGroupBox.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -303,8 +305,8 @@
             this.comfirmPassword.Name = "comfirmPassword";
             this.comfirmPassword.Size = new System.Drawing.Size(141, 24);
             this.comfirmPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
-            this.comfirmPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.comfirmPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.comfirmPassword.StateCommon.Border.Color1 = System.Drawing.SystemColors.Control;
+            this.comfirmPassword.StateCommon.Border.Color2 = System.Drawing.SystemColors.Control;
             this.comfirmPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -323,8 +325,8 @@
             this.newPassword.Name = "newPassword";
             this.newPassword.Size = new System.Drawing.Size(141, 24);
             this.newPassword.StateCommon.Back.Color1 = System.Drawing.SystemColors.Control;
-            this.newPassword.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.newPassword.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.newPassword.StateCommon.Border.Color1 = System.Drawing.SystemColors.Control;
+            this.newPassword.StateCommon.Border.Color2 = System.Drawing.SystemColors.Control;
             this.newPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -483,7 +485,7 @@
             // 
             // editPhoto
             // 
-            this.editPhoto.Location = new System.Drawing.Point(195, 135);
+            this.editPhoto.Location = new System.Drawing.Point(196, 135);
             this.editPhoto.Name = "editPhoto";
             this.editPhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.editPhoto.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -555,7 +557,7 @@
             this.backButton.OverrideDefault.Border.Width = 0;
             this.backButton.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
             this.backButton.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
-            this.backButton.Size = new System.Drawing.Size(30, 30);
+            this.backButton.Size = new System.Drawing.Size(25, 25);
             this.backButton.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.backButton.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.backButton.StateCommon.Back.Image = global::DishesGo.Properties.Resources.Back;
@@ -574,7 +576,7 @@
             // 
             // editNickEmail
             // 
-            this.editNickEmail.Location = new System.Drawing.Point(555, 95);
+            this.editNickEmail.Location = new System.Drawing.Point(571, 100);
             this.editNickEmail.Name = "editNickEmail";
             this.editNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.editNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -603,7 +605,7 @@
             // 
             // cancleNickEmail
             // 
-            this.cancleNickEmail.Location = new System.Drawing.Point(555, 123);
+            this.cancleNickEmail.Location = new System.Drawing.Point(571, 128);
             this.cancleNickEmail.Name = "cancleNickEmail";
             this.cancleNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.cancleNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -632,7 +634,7 @@
             // 
             // editPassword
             // 
-            this.editPassword.Location = new System.Drawing.Point(343, 225);
+            this.editPassword.Location = new System.Drawing.Point(346, 225);
             this.editPassword.Name = "editPassword";
             this.editPassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.editPassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -661,7 +663,7 @@
             // 
             // canclePassword
             // 
-            this.canclePassword.Location = new System.Drawing.Point(343, 250);
+            this.canclePassword.Location = new System.Drawing.Point(346, 250);
             this.canclePassword.Name = "canclePassword";
             this.canclePassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.canclePassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -690,7 +692,7 @@
             // 
             // editNames
             // 
-            this.editNames.Location = new System.Drawing.Point(613, 220);
+            this.editNames.Location = new System.Drawing.Point(616, 222);
             this.editNames.Name = "editNames";
             this.editNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.editNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -719,7 +721,7 @@
             // 
             // cancleNames
             // 
-            this.cancleNames.Location = new System.Drawing.Point(613, 245);
+            this.cancleNames.Location = new System.Drawing.Point(616, 247);
             this.cancleNames.Name = "cancleNames";
             this.cancleNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.cancleNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -748,7 +750,7 @@
             // 
             // applyPhoto
             // 
-            this.applyPhoto.Location = new System.Drawing.Point(208, 109);
+            this.applyPhoto.Location = new System.Drawing.Point(206, 109);
             this.applyPhoto.Name = "applyPhoto";
             this.applyPhoto.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.applyPhoto.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -778,7 +780,7 @@
             // 
             // applyNickEmail
             // 
-            this.applyNickEmail.Location = new System.Drawing.Point(555, 72);
+            this.applyNickEmail.Location = new System.Drawing.Point(571, 77);
             this.applyNickEmail.Name = "applyNickEmail";
             this.applyNickEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.applyNickEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -809,7 +811,7 @@
             // applyPassword
             // 
             this.applyPassword.Enabled = false;
-            this.applyPassword.Location = new System.Drawing.Point(343, 202);
+            this.applyPassword.Location = new System.Drawing.Point(346, 202);
             this.applyPassword.Name = "applyPassword";
             this.applyPassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.applyPassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -839,8 +841,7 @@
             // 
             // applyNames
             // 
-            this.applyNames.Enabled = false;
-            this.applyNames.Location = new System.Drawing.Point(613, 197);
+            this.applyNames.Location = new System.Drawing.Point(616, 199);
             this.applyNames.Name = "applyNames";
             this.applyNames.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.applyNames.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;

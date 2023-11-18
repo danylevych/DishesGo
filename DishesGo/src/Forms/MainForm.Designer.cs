@@ -37,21 +37,21 @@
             this.addRecipe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.settings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.photoLine = new System.Windows.Forms.PictureBox();
-            this.userPhoto = new RashiUI.RashiCircularPictureBox();
             this.contextPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.settingsPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.bookMarksButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.exitFromProfile = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.editPtofileButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.userPhoto = new RashiUI.RashiCircularPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).BeginInit();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).BeginInit();
             this.settingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -217,25 +217,6 @@
             this.photoLine.TabStop = false;
             this.photoLine.Visible = false;
             // 
-            // userPhoto
-            // 
-            this.userPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.userPhoto.Border = 1;
-            this.userPhoto.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
-            this.userPhoto.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.userPhoto.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
-            this.userPhoto.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
-            this.userPhoto.Gradiant = 50F;
-            this.userPhoto.Location = new System.Drawing.Point(933, 3);
-            this.userPhoto.Name = "userPhoto";
-            this.userPhoto.Size = new System.Drawing.Size(40, 40);
-            this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPhoto.TabIndex = 2;
-            this.userPhoto.TabStop = false;
-            this.userPhoto.Click += new System.EventHandler(this.userPhoto_Click);
-            // 
             // contextPanel
             // 
             this.contextPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -244,7 +225,7 @@
             this.contextPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.contextPanel.Location = new System.Drawing.Point(0, 48);
             this.contextPanel.Name = "contextPanel";
-            this.contextPanel.Size = new System.Drawing.Size(986, 608);
+            this.contextPanel.Size = new System.Drawing.Size(986, 616);
             this.contextPanel.StateCommon.Color1 = System.Drawing.SystemColors.AppWorkspace;
             this.contextPanel.StateCommon.Color2 = System.Drawing.SystemColors.Control;
             this.contextPanel.TabIndex = 2;
@@ -526,6 +507,25 @@
             this.editPtofileButton.Values.Text = "Редагувати профіль";
             this.editPtofileButton.Click += new System.EventHandler(this.editPtofileButton_Click);
             // 
+            // userPhoto
+            // 
+            this.userPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.userPhoto.Border = 1;
+            this.userPhoto.BorderCap = System.Drawing.Drawing2D.DashCap.Round;
+            this.userPhoto.Borderstyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.userPhoto.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
+            this.userPhoto.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
+            this.userPhoto.Gradiant = 50F;
+            this.userPhoto.Location = new System.Drawing.Point(933, 3);
+            this.userPhoto.Name = "userPhoto";
+            this.userPhoto.Size = new System.Drawing.Size(40, 40);
+            this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPhoto.TabIndex = 2;
+            this.userPhoto.TabStop = false;
+            this.userPhoto.Click += new System.EventHandler(this.userPhoto_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,22 +534,24 @@
             this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.contextPanel);
             this.Controls.Add(this.mainPanel);
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "MainForm";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DishesGo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.mainPanel)).EndInit();
             this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contextPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPanel)).EndInit();
             this.settingsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }

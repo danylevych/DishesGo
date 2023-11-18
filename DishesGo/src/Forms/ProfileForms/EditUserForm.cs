@@ -12,7 +12,7 @@ namespace DishesGo.src.Forms
 {
     public partial class EditUserForm : KryptonForm
     {
-        private Users user;
+        private readonly Users user;
 
         private bool isWrongNickOrEmail = false;
         private bool isPasswordChanged = false;
@@ -58,7 +58,7 @@ namespace DishesGo.src.Forms
         private void saveChanging_Click(object sender, EventArgs e)
         {
             // User did not save all changes.
-            if(applyNames.Visible || applyPhoto.Visible || applyNickEmail.Visible || applyPassword.Visible)
+            if(applyNames.Visible || applyPhoto.Visible || isWrongNickOrEmail || !isPasswordChanged)
             {
                 MessageBox.Show("Ви не зберегли всі дані.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -98,6 +98,7 @@ namespace DishesGo.src.Forms
         }
 
 
+        #region Image redactor
         private void editUserImg_Click(object sender, EventArgs e)
         {
             // Open dialog window where user can choose image.
@@ -143,14 +144,18 @@ namespace DishesGo.src.Forms
 
             applyPhoto.Visible = false; // User setted photo.
         }
+        #endregion Image redactor
 
-
-
+        #region Email and nickname
         private void editNickEmail_Click(object sender, EventArgs e)
         {
             // Set enable as true, now user can edit the info.
             nickEmailGroupBox.Enabled = true;
-            applyNickEmail.Visible = true;
+            //applyNickEmail.Visible = true;
+
+            // Red means that user is making changing.
+            nickEmailGroupBox.StateCommon.Border.Color1 = Color.Red;
+            nickEmailGroupBox.StateCommon.Border.Color2 = Color.Red;
         }
 
         private void cancleNickEmail_Click(object sender, EventArgs e)
@@ -163,8 +168,8 @@ namespace DishesGo.src.Forms
 
             applyNickEmail.Visible = false;
 
-            //isNicknameChanged = false;
-            //isEmailChanged = false;
+            nickEmailGroupBox.StateCommon.Border.Color1 = Color.White;
+            nickEmailGroupBox.StateCommon.Border.Color2 = Color.White;
         }
 
         private void applyNickEmail_Click(object sender, EventArgs e)
@@ -182,6 +187,10 @@ namespace DishesGo.src.Forms
 
             nickEmailGroupBox.Enabled = false;
             applyNickEmail.Visible = false;
+
+            nickEmailGroupBox.StateCommon.Border.Color1 = Color.White;
+            nickEmailGroupBox.StateCommon.Border.Color2 = Color.White;
+
         }
 
         private void nickname_TextChanged(object sender, EventArgs e)
@@ -200,31 +209,45 @@ namespace DishesGo.src.Forms
         {
             if (fieldValue.Trim() != "" && fieldValue.Trim() != userValue)
             {
-                using (DishesGo_dbDataSet context = new DishesGo_dbDataSet())
+                using (DishesGo_dbEntities context = new DishesGo_dbEntities())
                 {
                     // if field exists in db.
                     var fieldExists = false;
 
-                    if (textBox == nickname)
+                    if (textBox.Tag.ToString() == "nickname")
                     {
                         fieldExists = context.Users.FirstOrDefault(dbuser => dbuser.nickname == fieldValue.Trim()) != null;
                     }
-                    else if (textBox == email)
+                    else if (textBox.Tag.ToString() == "email")
                     {
                         fieldExists = context.Users.FirstOrDefault(dbuser => dbuser.email == fieldValue.Trim()) != null;
                     }
 
-                    if (fieldExists)
+                    if (fieldExists) // Show for user that his value exists.
                     {
-                        label.ForeColor = Color.Red;
+                        textBox.StateCommon.Content.Color1 = Color.Red;
                         isWrongNickOrEmail = true;
+
+                        applyNickEmail.Enabled = false;
+                        applyNickEmail.Visible = false;
                     }
                     else
                     {
-                        label.ForeColor = System.Drawing.SystemColors.ControlDark;
+                        textBox.StateCommon.Content.Color1 = Color.Black;
                         isWrongNickOrEmail = false;
+
+                        applyNickEmail.Enabled = true;
+                        applyNickEmail.Visible = true;
                     }
                 }
+            }
+            else
+            {
+                textBox.StateCommon.Content.Color1 = Color.Black;
+                isWrongNickOrEmail = false;
+
+                applyNickEmail.Enabled = false;
+                applyNickEmail.Visible = false;
             }
         }
 
@@ -277,15 +300,17 @@ namespace DishesGo.src.Forms
                 emailLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             }
         }
+        #endregion Email and nickname
 
-
-
+        #region Names
         private void editNames_Click(object sender, EventArgs e)
         {
             // Set enable as true, now user can edit info.
             namesGroupBox.Enabled = true;
 
-            applyNames.Visible = true;
+            // Show the user he is able to make changings.
+            namesGroupBox.StateCommon.Border.Color1 = Color.Red;
+            namesGroupBox.StateCommon.Border.Color2 = Color.Red;
         }
 
         private void cancleNames_Click(object sender, EventArgs e)
@@ -296,8 +321,8 @@ namespace DishesGo.src.Forms
             name.Text = user.first_name;
             lastName.Text = user.last_name;
 
-            //isFirstNameChanged = false;
-            //isLastNameChanged = false;
+            namesGroupBox.StateCommon.Border.Color1 = Color.White;
+            namesGroupBox.StateCommon.Border.Color2 = Color.White;
         }
 
         private void applyNames_Click(object sender, EventArgs e)
@@ -308,6 +333,34 @@ namespace DishesGo.src.Forms
 
             namesGroupBox.Enabled = false;
             applyNames.Visible = false;
+
+            namesGroupBox.StateCommon.Border.Color1 = Color.White;
+            namesGroupBox.StateCommon.Border.Color2 = Color.White;
+        }
+
+
+        private void name_TextChanged(object sender, EventArgs e)
+        {
+            if (name.Text.Trim() != user.first_name)
+            {
+                applyNames.Visible = true;
+            }
+            else
+            { 
+                applyNames.Visible = false;
+            }
+        }
+
+        private void lastName_TextChanged(object sender, EventArgs e)
+        {
+            if (lastName.Text.Trim() != user.last_name)
+            {
+                applyNames.Visible = true;
+            }
+            else
+            {
+                applyNames.Visible = false;
+            }
         }
 
         private void firstName_Leave(object sender, EventArgs e)
@@ -325,53 +378,10 @@ namespace DishesGo.src.Forms
                 lastName.Text = user.last_name;
             }
         }
+        #endregion Names
 
-
-
-        private void editPassword_Click(object sender, EventArgs e)
-        {
-            // Set enable in true, now user can change password.
-            passwordsGroupBox.Enabled = true;
-
-            applyPassword.Visible = true;
-        }
-
-        private void canclePassword_Click(object sender, EventArgs e)
-        {
-            // Set enable in state false and discard all chnges.
-            passwordsGroupBox.Enabled = false;
-            
-            // Set previous values.
-            oldPassword.Text = "старий пароль";
-            newPassword.Text = "новий пароль";
-            comfirmPassword.Text = "пароль іще раз";
-
-            // Disable showing the text as password text
-            oldPassword.UseSystemPasswordChar = false;
-            newPassword.UseSystemPasswordChar = false;
-            comfirmPassword.UseSystemPasswordChar = false;
-
-            // Disable access ability to old and comfirm variable.
-            newPassword.Enabled = false;
-            comfirmPassword.Enabled = false;
-
-            applyPassword.Visible = false;
-        }
-
-        private void applyPassword_Click(object sender, EventArgs e)
-        {
-            if (!isPasswordChanged)
-            {
-                MessageBox.Show("Поля в групі 'Паролі' не збережені.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            user.user_password = newPassword.Text.Trim();
-            
-            passwordsGroupBox.Enabled = false;
-            applyPassword.Visible = false;
-        }
-
+        #region Password
+        #region Enter and leave methods for password
         private void oldPassword_Enter(object sender, EventArgs e)
         {
             if (oldPassword.Text == "старий пароль")
@@ -431,19 +441,79 @@ namespace DishesGo.src.Forms
                 canclePassword_Click(sender, e); // Discard user actions.
             }
         }
+        #endregion Enter and leave methods for password
 
+        private void editPassword_Click(object sender, EventArgs e)
+        {
+            // Set enable in true, now user can change password.
+            isPasswordChanged = false;
+            passwordsGroupBox.Enabled = true;
+            passwordsGroupBox.StateCommon.Border.Color1 = Color.Red;
+            passwordsGroupBox.StateCommon.Border.Color2 = Color.Red;
+        }
+
+        private void canclePassword_Click(object sender, EventArgs e)
+        {
+            // Set enable in state false and discard all chnges.
+            passwordsGroupBox.Enabled = false;
+
+            applyPassword.Visible = false;
+            applyPassword.Enabled = false;
+
+            // Set previous values.
+            oldPassword.Text = "старий пароль";
+            newPassword.Text = "новий пароль";
+            comfirmPassword.Text = "пароль іще раз";
+            comfirmPassword.StateCommon.Content.Color1 = Color.Black;
+
+            // Disable showing the text as password text
+            oldPassword.UseSystemPasswordChar = false;
+            newPassword.UseSystemPasswordChar = false;
+            comfirmPassword.UseSystemPasswordChar = false;
+
+            // Disable access ability to old and comfirm variable.
+            newPassword.Enabled = false;
+            comfirmPassword.Enabled = false;
+
+            isPasswordChanged = false;
+            passwordsGroupBox.StateCommon.Border.Color1 = Color.White;
+            passwordsGroupBox.StateCommon.Border.Color2 = Color.White;
+        }
+
+        private void applyPassword_Click(object sender, EventArgs e)
+        {
+            if (!isPasswordChanged) // Never happend
+            {
+                MessageBox.Show("Поля в групі 'Паролі' не збережені.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            user.user_password = newPassword.Text.Trim();
+
+            canclePassword_Click(this, e); // Set previous data.
+            //passwordsGroupBox.Enabled = true; // Set flag that we have changed password.
+            isPasswordChanged = true;
+        }
 
         private void comfirmPassword_TextChanged(object sender, EventArgs e)
         {
-            if (comfirmPassword.Text != "" && comfirmPassword.Text != "пароль ще раз" && comfirmPassword.Text.Trim() != newPassword.Text.Trim())
-            {
-                comfirmPassword.StateCommon.Content.Color1 = Color.Red;
-                isPasswordChanged = false;
-            }
-            else
+            if (comfirmPassword.Text.Trim() == newPassword.Text.Trim()) // User comfirmed password.
             {
                 comfirmPassword.StateCommon.Content.Color1 = Color.Black;
                 isPasswordChanged = true;
+
+                // Show and make allow apply button.
+                applyPassword.Visible = true;
+                applyPassword.Enabled = true;
+            }
+            else
+            {
+                comfirmPassword.StateCommon.Content.Color1 = Color.Red;
+                isPasswordChanged = false;
+
+                // If we have entered new password set the apply button in disable.
+                applyPassword.Visible = false;
+                applyPassword.Enabled = false;
             }
         }
 
@@ -481,5 +551,7 @@ namespace DishesGo.src.Forms
 
             isPasswordChanged = true; // User enter new password.
         }
+        #endregion Password
+
     }
 }

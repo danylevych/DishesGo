@@ -2,24 +2,28 @@
 using DishesGo.src.Forms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DishesGo.src.Components.ProfilePlates
 {
-    public class OwnProfilePlateComponent :
+    public partial class OwnProfilePlateComponent :
 #if DEBUG
         MiddleProfilePlateComponent
 #else
         ProfilePlateComponent
 #endif
     {
-        public OwnProfilePlateComponent(Users user, Image userPhoto) 
+        public OwnProfilePlateComponent(Users user, Image userPhoto)
             : base(user, userPhoto)
         {
             profileImg.Click += profileImg_Click;
+            InitializeComponent();
         }
 
         protected override void AddRecipe(Recipes recipe)

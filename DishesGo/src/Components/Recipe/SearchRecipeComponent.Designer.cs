@@ -85,7 +85,7 @@
             this.nicknameLabel.Size = new System.Drawing.Size(52, 12);
             this.nicknameLabel.TabIndex = 18;
             this.nicknameLabel.Text = "nickname";
-            this.nicknameLabel.Click += new System.EventHandler(this.user_Click);
+            this.nicknameLabel.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // userPhoto
             // 
@@ -103,7 +103,7 @@
             this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userPhoto.TabIndex = 17;
             this.userPhoto.TabStop = false;
-            this.userPhoto.Click += new System.EventHandler(this.user_Click);
+            this.userPhoto.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // SearchRecipeComponent
             // 

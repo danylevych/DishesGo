@@ -24,6 +24,8 @@ namespace DishesGo.src.Elements
         {
             items.Add(new ImageComboBoxItem(text, image));
             Items.Add(text);
+
+            items = items.OrderBy(r => r.Text).ToList();
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
@@ -52,15 +54,5 @@ namespace DishesGo.src.Elements
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.DrawImage(items[e.Index].Image, new Rectangle(e.Bounds.Location, new Size(e.Bounds.Height - 2, e.Bounds.Height - 2)));
         }
-        //protected override void OnSelectedIndexChanged(EventArgs e)
-        //{
-        //    base.OnSelectedIndexChanged(e);
-
-        //    if (this.SelectedIndex > -1)
-        //    {
-        //        var g = this.CreateGraphics();
-        //        items[1].Image.Draw(g, 0, 0, 1);
-        //    }
-        //}
     }
 }

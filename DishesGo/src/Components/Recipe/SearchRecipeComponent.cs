@@ -18,6 +18,7 @@ namespace DishesGo.src.Components.Recipe
     {
         private readonly Recipes recipe;
 
+
         public SearchRecipeComponent() : base()
         {
             InitializeComponent();
@@ -71,9 +72,16 @@ namespace DishesGo.src.Components.Recipe
             MainForm.Instance.Show();
         }
 
-        protected void user_Click(object sender, EventArgs e)
+        // User click the profile photo or the name of the profile.
+        protected void userProfile_Click(object sender, EventArgs e)
         {
             UserProfilePlateComponent userProfilePanel = new UserProfilePlateComponent(user, userPhoto.Image);
+            
+            userProfilePanel.BackButtonClick = (sender1, e1) =>
+            {
+                MainForm.Instance.Context.Controls.Remove(userProfilePanel); // Delete profile panel from components.
+            };
+
             userProfilePanel.Dock = DockStyle.Fill;
             MainForm.Instance.Context.Controls.Add(userProfilePanel);
             userProfilePanel.BringToFront();

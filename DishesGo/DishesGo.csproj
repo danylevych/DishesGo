@@ -332,6 +332,7 @@
     <Compile Include="src\Tools\ImageRedactor.cs" />
     <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
+    <Compile Include="src\Tools\PasswordHasher.cs" />
     <EmbeddedResource Include="RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </EmbeddedResource>

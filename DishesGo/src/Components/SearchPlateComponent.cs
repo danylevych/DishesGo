@@ -32,7 +32,7 @@ namespace DishesGo.src.Components
 
             InitializeComponent();
 
-            clearUserImput.Parent = searchTextBox;
+            //clearUserImput.Parent = searchTextBox;
             startRecipePanelPos = recipePanel.Location;
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())

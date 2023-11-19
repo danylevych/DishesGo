@@ -86,7 +86,7 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Russo One", 47.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLabel.Location = new System.Drawing.Point(37, 97);
+            this.titleLabel.Location = new System.Drawing.Point(37, 96);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(344, 77);
             this.titleLabel.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.discriptionLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.discriptionLabel.AutoSize = true;
             this.discriptionLabel.Font = new System.Drawing.Font("Russo One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.discriptionLabel.Location = new System.Drawing.Point(34, 200);
+            this.discriptionLabel.Location = new System.Drawing.Point(34, 199);
             this.discriptionLabel.Name = "discriptionLabel";
             this.discriptionLabel.Size = new System.Drawing.Size(372, 69);
             this.discriptionLabel.TabIndex = 1;
@@ -109,7 +109,7 @@
             this.quetionLable.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.quetionLable.AutoSize = true;
             this.quetionLable.Font = new System.Drawing.Font("Russo One", 19.75F, System.Drawing.FontStyle.Bold);
-            this.quetionLable.Location = new System.Drawing.Point(32, 323);
+            this.quetionLable.Location = new System.Drawing.Point(32, 322);
             this.quetionLable.Name = "quetionLable";
             this.quetionLable.Size = new System.Drawing.Size(163, 66);
             this.quetionLable.TabIndex = 2;
@@ -118,7 +118,7 @@
             // loginButton
             // 
             this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.loginButton.Location = new System.Drawing.Point(225, 323);
+            this.loginButton.Location = new System.Drawing.Point(225, 322);
             this.loginButton.Name = "loginButton";
             this.loginButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.loginButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -206,7 +206,7 @@
             // signinButton
             // 
             this.signinButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.signinButton.Location = new System.Drawing.Point(209, 365);
+            this.signinButton.Location = new System.Drawing.Point(209, 364);
             this.signinButton.Name = "signinButton";
             this.signinButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.signinButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -309,9 +309,9 @@
             this.registrPanel.Controls.Add(this.lastnameLabel);
             this.registrPanel.Controls.Add(this.emailLabel);
             this.registrPanel.Controls.Add(this.registrationTitle);
-            this.registrPanel.Location = new System.Drawing.Point(441, -9);
+            this.registrPanel.Location = new System.Drawing.Point(444, -9);
             this.registrPanel.Name = "registrPanel";
-            this.registrPanel.Size = new System.Drawing.Size(381, 529);
+            this.registrPanel.Size = new System.Drawing.Size(381, 528);
             this.registrPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.registrPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.registrPanel.TabIndex = 7;
@@ -837,9 +837,9 @@
             this.loginPanel.Controls.Add(this.passwordLoginPlateLabel);
             this.loginPanel.Controls.Add(this.loginLoginPlateLabel);
             this.loginPanel.Controls.Add(this.titleLoginPlate);
-            this.loginPanel.Location = new System.Drawing.Point(429, 1);
+            this.loginPanel.Location = new System.Drawing.Point(432, 1);
             this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(393, 516);
+            this.loginPanel.Size = new System.Drawing.Size(393, 515);
             this.loginPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.loginPanel.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.loginPanel.TabIndex = 18;
@@ -931,6 +931,7 @@
             this.loginLoginPlateButton.StateTracking.Border.Width = 1;
             this.loginLoginPlateButton.TabIndex = 8;
             this.loginLoginPlateButton.Values.Text = "Ввійти";
+            this.loginLoginPlateButton.Visible = false;
             this.loginLoginPlateButton.Click += new System.EventHandler(this.loginLoginPlateButton_Click);
             // 
             // passwordLoginPlateText
@@ -939,6 +940,7 @@
             this.passwordLoginPlateText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.passwordLoginPlateText.Enabled = false;
             this.passwordLoginPlateText.Location = new System.Drawing.Point(128, 278);
             this.passwordLoginPlateText.Name = "passwordLoginPlateText";
             this.passwordLoginPlateText.PasswordChar = '●';
@@ -991,6 +993,7 @@
             this.passwordLoginPlateText.Text = "Введіть пароль";
             this.passwordLoginPlateText.UseMnemonic = false;
             this.passwordLoginPlateText.UseSystemPasswordChar = true;
+            this.passwordLoginPlateText.TextChanged += new System.EventHandler(this.passwordLoginPlateText_TextChanged);
             this.passwordLoginPlateText.Enter += new System.EventHandler(this.passwordLoginPlateText_Enter);
             this.passwordLoginPlateText.Leave += new System.EventHandler(this.passwordLoginPlateText_Leave);
             // 
@@ -1050,6 +1053,7 @@
             this.loginLoginPlateText.TabIndex = 7;
             this.loginLoginPlateText.Text = "Введіть логін";
             this.loginLoginPlateText.UseMnemonic = false;
+            this.loginLoginPlateText.TextChanged += new System.EventHandler(this.loginLoginPlateText_TextChanged);
             this.loginLoginPlateText.Enter += new System.EventHandler(this.loginLoginPlateText_Enter);
             this.loginLoginPlateText.Leave += new System.EventHandler(this.loginLoginPlateText_Leave);
             // 
@@ -1102,7 +1106,7 @@
             this.titleImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.titleImage.Location = new System.Drawing.Point(431, -9);
             this.titleImage.Name = "titleImage";
-            this.titleImage.Size = new System.Drawing.Size(381, 516);
+            this.titleImage.Size = new System.Drawing.Size(381, 515);
             this.titleImage.TabIndex = 0;
             this.titleImage.TabStop = false;
             // 
@@ -1111,7 +1115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(821, 512);
+            this.ClientSize = new System.Drawing.Size(824, 511);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registrPanel);
             this.Controls.Add(this.signinButton);
@@ -1120,12 +1124,15 @@
             this.Controls.Add(this.quetionLable);
             this.Controls.Add(this.discriptionLabel);
             this.Controls.Add(this.titleLabel);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(840, 550);
             this.Name = "RegistrLoginForm";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DishesGo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.registrPanel)).EndInit();
             this.registrPanel.ResumeLayout(false);
             this.registrPanel.PerformLayout();

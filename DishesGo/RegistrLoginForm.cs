@@ -8,16 +8,60 @@ using DishesGo.src;
 using System.IO;
 using DishesGo.src.tools;
 using Newtonsoft.Json;
+using System.Xml.Serialization;
+using System.Diagnostics.Eventing.Reader;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Collections.Generic;
+using DishesGo.src.Tools;
 
 namespace DishesGo
 {
     public partial class RegistrLoginForm : KryptonForm
     {
+        private class UserCashInfo
+        {
+            public string Email { get; set; }
+            public string NickName { get; set; }
+        }
+
+        private List<UserCashInfo> users; // This does not save data in RAM.
+        
+
         public RegistrLoginForm()
         {
             InitializeComponent();
+
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                users = context.Users.Select(u => new UserCashInfo { Email = u.email, NickName = u.nickname }).ToList();
+            }
         }
 
+        private void MainFormButton_Click(object sender, EventArgs e)
+        {
+            KryptonButton caller = ((KryptonButton)sender);
+
+            if (caller.Name == loginButton.Name)
+            {
+                if (registrPanel.Visible)
+                {
+                    registrPanel.Visible = false;
+                }
+                loginPanel.Visible = true;
+            }
+            else if (caller.Name == signinButton.Name)
+            {
+                if (loginPanel.Visible)
+                {
+                    loginPanel.Visible = false;
+                }
+                registrPanel.Visible = true;
+            }
+        }
+
+
+        #region Registration
         private void emailText_Enter(object sender, EventArgs e)
         {
             // User select the text label.
@@ -102,8 +146,9 @@ namespace DishesGo
         // TODO: chech if nikname has already exist in db.
         private void nicnameText_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
+
 
 
         private void passwordText_Enter(object sender, EventArgs e)
@@ -159,105 +204,6 @@ namespace DishesGo
                 }
             }
         }
-
-
-        private void MainFormButton_Click(object sender, EventArgs e)
-        {
-            KryptonButton caller = ((KryptonButton)sender);
-
-            if (caller.Name == loginButton.Name)
-            {
-                if (registrPanel.Visible)
-                {
-                    registrPanel.Visible = false;
-                }
-                loginPanel.Visible = true;
-            }
-            else if (caller.Name == signinButton.Name)
-            {
-                if (loginPanel.Visible)
-                {
-                    loginPanel.Visible = false;
-                }
-                registrPanel.Visible = true;
-            }
-        }
-
-
-        private void loginLoginPlateText_Enter(object sender, EventArgs e)
-        {
-            if (loginLoginPlateText.Text == "Введіть логін")
-            {
-                loginLoginPlateText.Text = "";
-            }
-        }
-
-        private void loginLoginPlateText_Leave(object sender, EventArgs e)
-        {
-            if (loginLoginPlateText.Text == "")
-            {
-                loginLoginPlateText.Text = "Введіть логін";
-            }
-        }
-
-        private void passwordLoginPlateText_Enter(object sender, EventArgs e)
-        {
-            if (passwordLoginPlateText.Text == "Введіть пароль")
-            {
-                passwordLoginPlateText.Text = "";
-            }
-        }
-
-        private void passwordLoginPlateText_Leave(object sender, EventArgs e)
-        {
-            if (passwordLoginPlateText.Text == "")
-            {
-                passwordLoginPlateText.Text = "Введіть пароль";
-            }
-        }
-
-        // The user try to enter.
-        private void loginLoginPlateButton_Click(object sender, EventArgs e)
-        {
-            if (loginLoginPlateButton.Text != "Введіть логін" && loginLoginPlateButton.Text != "" &&
-                passwordLoginPlateLabel.Text != "Введіть пароль" && passwordLoginPlateLabel.Text != "")
-            {
-                string login = loginLoginPlateText.Text.Trim();
-                string password = passwordLoginPlateText.Text.Trim();
-
-                using (DishesGo_dbEntities db = new DishesGo_dbEntities())
-                {
-                    Users currentUser = db.Users.FirstOrDefault(user => user.email == login || user.nickname == login);
-                    if (currentUser != null)
-                    {
-                        if (db.Users.Any(user => user.user_password == password && (user.nickname == login || user.email == login)))
-                        {
-                            JsonUserData userData = new JsonUserData()
-                            {
-                                email = currentUser.email,
-                                nickname = currentUser.nickname,
-                                isLogined = true
-                            };
-
-                            File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
-
-                            MainForm mainForm = new MainForm(currentUser);
-                            mainForm.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ви ввели направильний пароль.", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ви ввели направильний логін.", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-        }
-
 
         private void signinRegPlateButton_Click(object sender, EventArgs e)
         {
@@ -338,7 +284,7 @@ namespace DishesGo
                     if (db.SaveChanges() > 0)
                     {
                         JsonUserData userData = new JsonUserData()
-                        { 
+                        {
                             email = email,
                             nickname = nickname,
                             isLogined = true
@@ -358,5 +304,106 @@ namespace DishesGo
             }
         }
 
+        #endregion Registration
+
+        #region Login
+        private void loginLoginPlateText_Enter(object sender, EventArgs e)
+        {
+            if (loginLoginPlateText.Text == "Введіть логін")
+            {
+                loginLoginPlateText.Text = "";
+            }
+        }
+
+        private void loginLoginPlateText_Leave(object sender, EventArgs e)
+        {
+            if (loginLoginPlateText.Text == "")
+            {
+                loginLoginPlateText.Text = "Введіть логін";
+            }
+        }
+
+        private void loginLoginPlateText_TextChanged(object sender, EventArgs e)
+        {
+            string login = loginLoginPlateText.Text.Trim();
+            if (login != "" && login != "Введіть логін") // We do not have the user in db.
+            {
+                if (users.Any(u => u.Email == login || u.NickName == login))
+                {
+                    loginLoginPlateLabel.ForeColor = Color.Black;
+                    passwordLoginPlateText.Enabled = true; // User can enter the password.
+                }
+                else
+                {
+                    loginLoginPlateLabel.ForeColor = Color.Red;
+                    passwordLoginPlateText.Enabled = false; // User cannot enter the password.
+                }
+            }
+            else
+            {
+                loginLoginPlateLabel.ForeColor = Color.Black;
+            }
+        }
+
+        private void passwordLoginPlateText_Enter(object sender, EventArgs e)
+        {
+            if (passwordLoginPlateText.Text == "Введіть пароль")
+            {
+                passwordLoginPlateText.Text = "";
+            }
+        }
+
+        private void passwordLoginPlateText_Leave(object sender, EventArgs e)
+        {
+            if (passwordLoginPlateText.Text == "")
+            {
+                passwordLoginPlateText.Text = "Введіть пароль";
+            }
+        }
+
+        private void passwordLoginPlateText_TextChanged(object sender, EventArgs e)
+        {
+            string login = loginLoginPlateText.Text.Trim();
+            string password = passwordLoginPlateText.Text.Trim();
+
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                var user = context.Users.FirstOrDefault(u => u.email == login || u.nickname == login);
+
+                if (user != null && PasswordHasher.VerifyPassword(password, user.user_password)) // The user with the login exists.
+                {
+                    loginLoginPlateButton.Visible = true;
+                }
+                else // We do not have the user in db.
+                {
+                    loginLoginPlateButton.Visible = false;
+                }
+            }
+        }
+
+        // The user try to enter.
+        private void loginLoginPlateButton_Click(object sender, EventArgs e)
+        {
+            string login = loginLoginPlateText.Text.Trim();
+            string password = passwordLoginPlateText.Text.Trim();
+
+            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
+            {
+                // We do not check if current user is null, because if it is that we would not have been here.
+                Users currentUser = context.Users.FirstOrDefault(user => user.email == login || user.nickname == login);
+                JsonUserData userData = new JsonUserData()
+                {
+                    email = currentUser.email,
+                    nickname = currentUser.nickname,
+                    isLogined = true
+                };
+
+                File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
+
+                this.Close();
+                Application.Run(new MainForm(currentUser));
+            }
+        }
+        #endregion Login
     }
 }

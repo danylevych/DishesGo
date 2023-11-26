@@ -1,6 +1,7 @@
 ﻿using DishesGo.Data;
 using DishesGo.src.Elements;
 using DishesGo.src.Forms;
+using DishesGo.src.Forms.ToolForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,10 +37,13 @@ namespace DishesGo.src.Components.ProfilePlates
 
         private void profileImg_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm(user);
-            MainForm.Instance.Hide();
-            editUserForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
+            using (BackgroundForm background = new BackgroundForm(MainForm.Instance))
+            {
+                using (EditUserForm editUserForm = new EditUserForm(user))
+                {
+                    editUserForm.ShowDialog(background);
+                }
+            }
         }
     }
 }

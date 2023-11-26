@@ -25,8 +25,8 @@ namespace DishesGo
             public string NickName { get; set; }
         }
 
-        private List<UserCashInfo> users; // This does not save data in RAM.
-        
+        private List<UserCashInfo> users;
+
 
         public RegistrLoginForm()
         {
@@ -34,7 +34,7 @@ namespace DishesGo
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
-                users = context.Users.Select(u => new UserCashInfo { Email = u.email, NickName = u.nickname }).ToList();
+                users = context.Users.Select(u => new UserCashInfo { Email = u.email, NickName = u.nickname }).Take(2).ToList();
             }
         }
 
@@ -69,6 +69,7 @@ namespace DishesGo
             {
                 emailText.Text = "";
             }
+            emailNotValid.Visible = false;
         }
 
         private void emailText_Leave(object sender, EventArgs e)
@@ -80,13 +81,7 @@ namespace DishesGo
             }
         }
 
-        // TODO: check if e-mail has already exist in db.
-        private void emailText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
+       
         private void lastnameText_Enter(object sender, EventArgs e)
         {
             // User leave the label.
@@ -94,6 +89,7 @@ namespace DishesGo
             {
                 lastnameText.Text = "";
             }
+            lastNameNotValid.Visible = false;
         }
 
         private void lastnameText_Leave(object sender, EventArgs e)
@@ -113,6 +109,7 @@ namespace DishesGo
             {
                 nameText.Text = "";
             }
+            nameNotValid.Visible = false;
         }
 
         private void nameText_Leave(object sender, EventArgs e)
@@ -132,6 +129,7 @@ namespace DishesGo
             {
                 nicnameText.Text = "";
             }
+            nicknameNotValid.Visible = false;
         }
 
         private void nicnameText_Leave(object sender, EventArgs e)
@@ -143,13 +141,6 @@ namespace DishesGo
             }
         }
 
-        // TODO: chech if nikname has already exist in db.
-        private void nicnameText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void passwordText_Enter(object sender, EventArgs e)
         {
@@ -158,6 +149,7 @@ namespace DishesGo
             {
                 passwordText.Text = "";
             }
+            passwordNotValid.Visible = false;
         }
 
         private void passwordText_Leave(object sender, EventArgs e)
@@ -169,6 +161,20 @@ namespace DishesGo
             }
         }
 
+        private void passwordText_TextChanged(object sender, EventArgs e)
+        {
+            string password = passwordText.Text.Trim();
+            
+            // We look if user entered password.
+            if (password != string.Empty && password != "Введіть пароль")
+            {
+                comfirmPassText.Enabled = true;
+            }
+            else
+            {
+                comfirmPassText.Enabled = false;
+            }
+        }
 
         private void comfirmPassText_Enter(object sender, EventArgs e)
         {
@@ -195,79 +201,98 @@ namespace DishesGo
                 if (passwordText.Text != comfirmPassText.Text)
                 {
                     comfirmPassLabel.ForeColor = Color.Red;
-                    comfirmPassLabel.BackColor = Color.White;
                 }
                 else
                 {
-                    comfirmPassLabel.ForeColor = System.Drawing.Color.Black;
-                    comfirmPassLabel.BackColor = Color.White;
+                    comfirmPassLabel.ForeColor = Color.Black;
                 }
             }
         }
 
         private void signinRegPlateButton_Click(object sender, EventArgs e)
         {
+            emailNotValid.Visible = false;
+            lastNameNotValid.Visible = false;
+            nameNotValid.Visible = false;
+            nicknameNotValid.Visible = false;
+            passwordNotValid.Visible = false;
+
             bool addToTable = true;
 
-            if (emailText.Text == "Введіть свій e-mail" && emailText.Text == "")
+            string firstName = nameText.Text.Trim();
+            string lastName = lastnameText.Text.Trim();
+            string email = emailText.Text.Trim();
+            string nickname = nicnameText.Text.Trim();
+            string userPassword = passwordText.Text.Trim();
+
+            // User does not input the email.
+            if (email == "Введіть свій e-mail" || email == "")
             {
-                MessageBox.Show("Поле - Пошта не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                emailNotValid.Text = "e-mail не може бути пустим";
+                emailNotValid.Visible = true;
+
                 addToTable = false;
             }
 
             using (DishesGo_dbEntities db = new DishesGo_dbEntities())
             {
-                if (db.Users.Any(user => user.email == emailText.Text.Trim()))
+                // Email exists in db.
+                if (db.Users.Any(user => user.email == email))
                 {
-                    MessageBox.Show("Користувач із таким email уже існує.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    emailNotValid.Text = "Такий e-mail уже існує";
+                    emailNotValid.Visible = true;
                     addToTable = false;
                 }
 
-                if (db.Users.Any(user => user.nickname == nicnameText.Text.Trim()))
+                // Nickname exists in db.
+                if (db.Users.Any(user => user.nickname == nickname))
                 {
-                    MessageBox.Show("Користувач із таким nickname уже існує.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nicknameNotValid.Text = "Користувач із таким nickname уже існує.";
+                    nicknameNotValid.Visible = true;
                     addToTable = false;
                 }
             }
 
-            if (lastnameText.Text == "Введіть своє прізвище" && lastnameLabel.Text != "")
+            // Last name is empty.
+            if (lastName == "Введіть своє прізвище" || lastName == "")
             {
-                MessageBox.Show("Поле - Прізвище не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lastNameNotValid.Text = "Прізвище не може бути пустим";
+                lastNameNotValid.Visible = true; 
                 addToTable = false;
             }
 
-            if (nameText.Text == "Введіть своє ім'я" && nameText.Text != "")
+            // First name is empty.
+            if (firstName == "Введіть своє ім'я" || firstName == "")
             {
-                MessageBox.Show("Поле - Ім'я не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                nameNotValid.Text = "Ім'я  не може бути пустим";
+                nameNotValid.Visible = true;
                 addToTable = false;
             }
 
-            if (nicnameText.Text == "Введіть нікнейм" && nicnameText.Text != "")
+            // Nickname is empty.
+            if (nickname == "Введіть нікнейм" || nickname == "")
             {
-                MessageBox.Show("Поле - Нікнейм не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                nicknameNotValid.Text = "Нікнейм  не може бути пустим";
+                nicknameNotValid.Visible = true;
                 addToTable = false;
             }
 
-            if (passwordText.Text == "Введіть пароль" && passwordText.Text != "")
+            // Password is empty.
+            if (userPassword == "Введіть пароль" || userPassword == "")
             {
-                MessageBox.Show("Поле - Пароль не може бути пустим.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                passwordNotValid.Text = "Пароль не може бути пустим";
+                passwordNotValid.Visible = true;
                 addToTable = false;
             }
 
-            if (passwordText.Text != comfirmPassText.Text)
+            if (!comfirmPassText.Enabled)
             {
-                MessageBox.Show("Паролі не відповідають одне одному.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comfirmPassLabel.ForeColor = Color.Red;
                 addToTable = false;
             }
 
             if (addToTable)
             {
-                string firstName = nameText.Text.Trim();
-                string lastName = lastnameText.Text.Trim();
-                string email = emailText.Text.Trim();
-                string nickname = nicnameText.Text.Trim();
-                string userPassword = passwordText.Text.Trim();
-
                 Users user = new Users()
                 {
                     first_name = firstName,
@@ -303,7 +328,6 @@ namespace DishesGo
                 }
             }
         }
-
         #endregion Registration
 
         #region Login
@@ -326,17 +350,24 @@ namespace DishesGo
         private void loginLoginPlateText_TextChanged(object sender, EventArgs e)
         {
             string login = loginLoginPlateText.Text.Trim();
-            if (login != "" && login != "Введіть логін") // We do not have the user in db.
+            if (login != "" && login != "Введіть логін")
             {
-                if (users.Any(u => u.Email == login || u.NickName == login))
+                using (DishesGo_dbEntities context = new DishesGo_dbEntities())
                 {
-                    loginLoginPlateLabel.ForeColor = Color.Black;
-                    passwordLoginPlateText.Enabled = true; // User can enter the password.
-                }
-                else
-                {
-                    loginLoginPlateLabel.ForeColor = Color.Red;
-                    passwordLoginPlateText.Enabled = false; // User cannot enter the password.
+                    var matchingUsers = context.Users
+                                               .Where(u => u.email == login || u.nickname == login)
+                                               .ToList();
+
+                    if (matchingUsers.Any())
+                    {
+                        loginLoginPlateLabel.ForeColor = Color.Black;
+                        passwordLoginPlateText.Enabled = true; // User can enter the password.
+                    }
+                    else
+                    {
+                        loginLoginPlateLabel.ForeColor = Color.Red;
+                        passwordLoginPlateText.Enabled = false; // User cannot enter the password.
+                    }
                 }
             }
             else
@@ -400,8 +431,7 @@ namespace DishesGo
 
                 File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
 
-                this.Close();
-                Application.Run(new MainForm(currentUser));
+                Application.Restart();
             }
         }
         #endregion Login

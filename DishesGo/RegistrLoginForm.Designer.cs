@@ -36,6 +36,11 @@
             this.loginButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.signinButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.registrPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.passwordNotValid = new System.Windows.Forms.Label();
+            this.nicknameNotValid = new System.Windows.Forms.Label();
+            this.nameNotValid = new System.Windows.Forms.Label();
+            this.lastNameNotValid = new System.Windows.Forms.Label();
+            this.emailNotValid = new System.Windows.Forms.Label();
             this.signinRegPlateButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.comfirmPassText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.passwordText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -295,6 +300,11 @@
             // 
             this.registrPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.registrPanel.Controls.Add(this.passwordNotValid);
+            this.registrPanel.Controls.Add(this.nicknameNotValid);
+            this.registrPanel.Controls.Add(this.nameNotValid);
+            this.registrPanel.Controls.Add(this.lastNameNotValid);
+            this.registrPanel.Controls.Add(this.emailNotValid);
             this.registrPanel.Controls.Add(this.signinRegPlateButton);
             this.registrPanel.Controls.Add(this.comfirmPassText);
             this.registrPanel.Controls.Add(this.passwordText);
@@ -317,10 +327,75 @@
             this.registrPanel.TabIndex = 7;
             this.registrPanel.Visible = false;
             // 
+            // passwordNotValid
+            // 
+            this.passwordNotValid.AutoSize = true;
+            this.passwordNotValid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.passwordNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.passwordNotValid.ForeColor = System.Drawing.Color.Red;
+            this.passwordNotValid.Location = new System.Drawing.Point(141, 381);
+            this.passwordNotValid.Name = "passwordNotValid";
+            this.passwordNotValid.Size = new System.Drawing.Size(155, 13);
+            this.passwordNotValid.TabIndex = 22;
+            this.passwordNotValid.Text = "Пароль не може бути пустим";
+            this.passwordNotValid.Visible = false;
+            // 
+            // nicknameNotValid
+            // 
+            this.nicknameNotValid.AutoSize = true;
+            this.nicknameNotValid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.nicknameNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.nicknameNotValid.ForeColor = System.Drawing.Color.Red;
+            this.nicknameNotValid.Location = new System.Drawing.Point(141, 331);
+            this.nicknameNotValid.Name = "nicknameNotValid";
+            this.nicknameNotValid.Size = new System.Drawing.Size(162, 13);
+            this.nicknameNotValid.TabIndex = 21;
+            this.nicknameNotValid.Text = "Нікнейм  не може бути пустим";
+            this.nicknameNotValid.Visible = false;
+            // 
+            // nameNotValid
+            // 
+            this.nameNotValid.AutoSize = true;
+            this.nameNotValid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.nameNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.nameNotValid.ForeColor = System.Drawing.Color.Red;
+            this.nameNotValid.Location = new System.Drawing.Point(95, 278);
+            this.nameNotValid.Name = "nameNotValid";
+            this.nameNotValid.Size = new System.Drawing.Size(139, 13);
+            this.nameNotValid.TabIndex = 20;
+            this.nameNotValid.Text = "Ім\'я  не може бути пустим";
+            this.nameNotValid.Visible = false;
+            // 
+            // lastNameNotValid
+            // 
+            this.lastNameNotValid.AutoSize = true;
+            this.lastNameNotValid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.lastNameNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lastNameNotValid.ForeColor = System.Drawing.Color.Red;
+            this.lastNameNotValid.Location = new System.Drawing.Point(152, 222);
+            this.lastNameNotValid.Name = "lastNameNotValid";
+            this.lastNameNotValid.Size = new System.Drawing.Size(166, 13);
+            this.lastNameNotValid.TabIndex = 19;
+            this.lastNameNotValid.Text = "Прізвище не може бути пустим";
+            this.lastNameNotValid.Visible = false;
+            // 
+            // emailNotValid
+            // 
+            this.emailNotValid.AutoSize = true;
+            this.emailNotValid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.emailNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.emailNotValid.ForeColor = System.Drawing.Color.Red;
+            this.emailNotValid.Location = new System.Drawing.Point(43, 174);
+            this.emailNotValid.Name = "emailNotValid";
+            this.emailNotValid.Size = new System.Drawing.Size(144, 13);
+            this.emailNotValid.TabIndex = 18;
+            this.emailNotValid.Text = "e-mail не може бути пустим";
+            this.emailNotValid.Visible = false;
+            // 
             // signinRegPlateButton
             // 
             this.signinRegPlateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.signinRegPlateButton.Location = new System.Drawing.Point(108, 435);
+            this.signinRegPlateButton.Location = new System.Drawing.Point(108, 475);
             this.signinRegPlateButton.Name = "signinRegPlateButton";
             this.signinRegPlateButton.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.signinRegPlateButton.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
@@ -408,7 +483,8 @@
             // comfirmPassText
             // 
             this.comfirmPassText.AlwaysActive = false;
-            this.comfirmPassText.Location = new System.Drawing.Point(34, 384);
+            this.comfirmPassText.Enabled = false;
+            this.comfirmPassText.Location = new System.Drawing.Point(34, 420);
             this.comfirmPassText.Name = "comfirmPassText";
             this.comfirmPassText.PasswordChar = '●';
             this.comfirmPassText.Size = new System.Drawing.Size(314, 29);
@@ -467,7 +543,7 @@
             // passwordText
             // 
             this.passwordText.AlwaysActive = false;
-            this.passwordText.Location = new System.Drawing.Point(123, 315);
+            this.passwordText.Location = new System.Drawing.Point(123, 351);
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '●';
             this.passwordText.Size = new System.Drawing.Size(227, 29);
@@ -519,13 +595,14 @@
             this.passwordText.Text = "Введіть пароль";
             this.passwordText.UseMnemonic = false;
             this.passwordText.UseSystemPasswordChar = true;
+            this.passwordText.TextChanged += new System.EventHandler(this.passwordText_TextChanged);
             this.passwordText.Enter += new System.EventHandler(this.passwordText_Enter);
             this.passwordText.Leave += new System.EventHandler(this.passwordText_Leave);
             // 
             // nicnameText
             // 
             this.nicnameText.AlwaysActive = false;
-            this.nicnameText.Location = new System.Drawing.Point(132, 272);
+            this.nicnameText.Location = new System.Drawing.Point(132, 301);
             this.nicnameText.Name = "nicnameText";
             this.nicnameText.Size = new System.Drawing.Size(218, 29);
             this.nicnameText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -575,14 +652,13 @@
             this.nicnameText.TabIndex = 15;
             this.nicnameText.Text = "Введіть нікнейм";
             this.nicnameText.UseMnemonic = false;
-            this.nicnameText.TextChanged += new System.EventHandler(this.nicnameText_TextChanged);
             this.nicnameText.Enter += new System.EventHandler(this.nicnameText_Enter);
             this.nicnameText.Leave += new System.EventHandler(this.nicnameText_Leave);
             // 
             // nameText
             // 
             this.nameText.AlwaysActive = false;
-            this.nameText.Location = new System.Drawing.Point(88, 230);
+            this.nameText.Location = new System.Drawing.Point(88, 248);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(260, 29);
             this.nameText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -638,7 +714,7 @@
             // lastnameText
             // 
             this.lastnameText.AlwaysActive = false;
-            this.lastnameText.Location = new System.Drawing.Point(144, 186);
+            this.lastnameText.Location = new System.Drawing.Point(144, 193);
             this.lastnameText.Name = "lastnameText";
             this.lastnameText.Size = new System.Drawing.Size(204, 29);
             this.lastnameText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(235)))), ((int)(((byte)(148)))));
@@ -744,7 +820,6 @@
             this.emailText.TabIndex = 7;
             this.emailText.Text = "Введіть свій e-mail";
             this.emailText.UseMnemonic = false;
-            this.emailText.TextChanged += new System.EventHandler(this.emailText_TextChanged);
             this.emailText.Enter += new System.EventHandler(this.emailText_Enter);
             this.emailText.Leave += new System.EventHandler(this.emailText_Leave);
             // 
@@ -753,7 +828,7 @@
             this.comfirmPassLabel.AutoSize = true;
             this.comfirmPassLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.comfirmPassLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.comfirmPassLabel.Location = new System.Drawing.Point(30, 358);
+            this.comfirmPassLabel.Location = new System.Drawing.Point(30, 394);
             this.comfirmPassLabel.Name = "comfirmPassLabel";
             this.comfirmPassLabel.Size = new System.Drawing.Size(250, 23);
             this.comfirmPassLabel.TabIndex = 6;
@@ -764,7 +839,7 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.passwordLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.passwordLabel.Location = new System.Drawing.Point(30, 315);
+            this.passwordLabel.Location = new System.Drawing.Point(30, 351);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(87, 23);
             this.passwordLabel.TabIndex = 5;
@@ -775,7 +850,7 @@
             this.nicLabel.AutoSize = true;
             this.nicLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.nicLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.nicLabel.Location = new System.Drawing.Point(30, 272);
+            this.nicLabel.Location = new System.Drawing.Point(30, 301);
             this.nicLabel.Name = "nicLabel";
             this.nicLabel.Size = new System.Drawing.Size(96, 23);
             this.nicLabel.TabIndex = 4;
@@ -786,7 +861,7 @@
             this.firstnameLabel.AutoSize = true;
             this.firstnameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.firstnameLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.firstnameLabel.Location = new System.Drawing.Point(30, 230);
+            this.firstnameLabel.Location = new System.Drawing.Point(30, 248);
             this.firstnameLabel.Name = "firstnameLabel";
             this.firstnameLabel.Size = new System.Drawing.Size(54, 23);
             this.firstnameLabel.TabIndex = 3;
@@ -797,7 +872,7 @@
             this.lastnameLabel.AutoSize = true;
             this.lastnameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.lastnameLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.lastnameLabel.Location = new System.Drawing.Point(30, 186);
+            this.lastnameLabel.Location = new System.Drawing.Point(30, 193);
             this.lastnameLabel.Name = "lastnameLabel";
             this.lastnameLabel.Size = new System.Drawing.Size(108, 23);
             this.lastnameLabel.TabIndex = 2;
@@ -837,7 +912,7 @@
             this.loginPanel.Controls.Add(this.passwordLoginPlateLabel);
             this.loginPanel.Controls.Add(this.loginLoginPlateLabel);
             this.loginPanel.Controls.Add(this.titleLoginPlate);
-            this.loginPanel.Location = new System.Drawing.Point(432, 1);
+            this.loginPanel.Location = new System.Drawing.Point(440, 0);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(393, 515);
             this.loginPanel.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
@@ -1176,6 +1251,11 @@
         private System.Windows.Forms.Label passwordLoginPlateLabel;
         private System.Windows.Forms.Label loginLoginPlateLabel;
         private System.Windows.Forms.Label titleLoginPlate;
+        private System.Windows.Forms.Label passwordNotValid;
+        private System.Windows.Forms.Label nicknameNotValid;
+        private System.Windows.Forms.Label nameNotValid;
+        private System.Windows.Forms.Label lastNameNotValid;
+        private System.Windows.Forms.Label emailNotValid;
     }
 }
 

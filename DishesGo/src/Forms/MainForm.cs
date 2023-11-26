@@ -4,6 +4,7 @@ using DishesGo.src.Components;
 using DishesGo.src.Components.ProfilePlates;
 using DishesGo.src.Elements;
 using DishesGo.src.Forms;
+using DishesGo.src.Forms.ToolForms;
 using DishesGo.src.tools;
 using System;
 using System.Drawing;
@@ -114,18 +115,20 @@ namespace DishesGo.src
 
         private void editPtofileButton_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm(user);
-            MainForm.Instance.Hide();
-            editUserForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
+            using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
+            {
+                EditUserForm editUserForm = new EditUserForm(user);
+                editUserForm.ShowDialog(backgroundForm);
+            }
         }
 
         private void bookMarksButton_Click(object sender, EventArgs e)
         {
-            BookmarksForm bookmarksForm = new BookmarksForm(user.user_id);
-            MainForm.Instance.Hide();
-            bookmarksForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
+            using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
+            {
+                BookmarksForm bookmarksForm = new BookmarksForm(user.user_id);
+                bookmarksForm.ShowDialog(backgroundForm);
+            }
         }
 
         private void HideLines()

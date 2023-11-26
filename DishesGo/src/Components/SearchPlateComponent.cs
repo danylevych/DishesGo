@@ -25,7 +25,6 @@ namespace DishesGo.src.Components
         private Expression<Func<Recipes, bool>> predicat = r => r.recipe_id == r.recipe_id; // For likes.
 
         
-
         public SearchPlateComponent(int userId)
         {
             this.userId = userId;
@@ -283,7 +282,7 @@ namespace DishesGo.src.Components
 
                 foreach (var recipe in loadedRecipes)
                 {
-                    recipePanel.Controls.Add(new SearchRecipeComponent(recipe));
+                    recipePanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users));
                 }
             }
         }

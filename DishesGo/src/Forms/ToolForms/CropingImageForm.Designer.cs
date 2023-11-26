@@ -201,6 +201,7 @@
             this.Name = "CropingImageForm";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CropingImage";
             ((System.ComponentModel.ISupportInitialize)(this.photo)).EndInit();
             this.ResumeLayout(false);

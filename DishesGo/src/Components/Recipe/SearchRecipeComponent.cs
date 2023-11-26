@@ -1,6 +1,7 @@
 ﻿using DishesGo.Data;
 using DishesGo.src.Components.ProfilePlates;
 using DishesGo.src.Forms;
+using DishesGo.src.Forms.ToolForms;
 using System;
 using System.Drawing;
 using System.IO;
@@ -18,28 +19,17 @@ namespace DishesGo.src.Components.Recipe
     {
         private readonly Recipes recipe;
 
-
         public SearchRecipeComponent() : base()
         {
             InitializeComponent();
         }
 
-        public SearchRecipeComponent(Image image, int receiptId) : base(image, receiptId) 
+        public SearchRecipeComponent(Recipes recipe, Users user) : base(recipe)
         {
-            InitializeComponent();
-            
-            // Find the recipe.
-            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
-            {
-                recipe = context.Recipes.FirstOrDefault(r => r.recipe_id == receiptId);
-            }
-            Init();
-        }
-
-        public SearchRecipeComponent(Recipes recipe) : base(recipe)
-        {
-            InitializeComponent();
+            this.user = user;
             this.recipe = recipe;
+
+            InitializeComponent();
             Init();
         }
 
@@ -66,10 +56,11 @@ namespace DishesGo.src.Components.Recipe
         protected override void border_Click(object sender, EventArgs e)
         {
             // Show the information about reciept.
-            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
-            MainForm.Instance.Hide();
-            recipeViewerForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
+            using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
+            {
+                RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
+                recipeViewerForm.ShowDialog(backgroundForm);
+            }
         }
 
         // User click the profile photo or the name of the profile.

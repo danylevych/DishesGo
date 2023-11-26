@@ -2,10 +2,12 @@
 using DishesGo.Data;
 using DishesGo.src.Forms.ToolForms;
 using DishesGo.src.tools;
+using DishesGo.src.Tools;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Forms
@@ -57,8 +59,11 @@ namespace DishesGo.src.Forms
 
         private void saveChanging_Click(object sender, EventArgs e)
         {
-            // User did not save all changes.
-            if(applyNames.Visible || applyPhoto.Visible || isWrongNickOrEmail || !isPasswordChanged)
+            // For checking if all data saved.
+            Func<KryptonGroupBox, bool> IsSaved = (element) => element.StateCommon.Border.Color1 != Color.Red &&
+                                                               element.StateCommon.Border.Color1 != Color.Red;
+            // User did not save all data.
+            if (IsSaved(namesGroupBox) || IsSaved(passwordsGroupBox) || IsSaved(nickEmailGroupBox) || applyPhoto.Visible)
             {
                 MessageBox.Show("Ви не зберегли всі дані.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -96,6 +101,7 @@ namespace DishesGo.src.Forms
                 MainForm.Instance.Refresh(findedUser);
             }
         }
+
 
 
         #region Image redactor
@@ -519,7 +525,8 @@ namespace DishesGo.src.Forms
 
         private void oldPassword_TextChanged(object sender, EventArgs e)
         {
-            if (oldPassword.Text != "" && oldPassword.Text != "старий пароль" && oldPassword.Text.Trim() != user.user_password)
+            if (oldPassword.Text != "" && oldPassword.Text != "старий пароль" && 
+                PasswordHasher.VerifyPassword(oldPassword.Text.Trim(), user.user_password)) // Chaeck if user pasvord is valid.
             {
                 oldPassword.StateCommon.Content.Color1 = Color.Red;
 
@@ -552,6 +559,5 @@ namespace DishesGo.src.Forms
             isPasswordChanged = true; // User enter new password.
         }
         #endregion Password
-
     }
 }

@@ -24,7 +24,7 @@ namespace DishesGo.src.Components.ProfilePlates
 
         protected override void AddRecipe(Recipes recipe)
         {
-            RecipeComponent ownRecipe = new UserRecipeComponent(recipe);
+            RecipeComponent ownRecipe = new UserRecipeComponent(recipe, user);
             ownRecipe.Parent = this;
             recipesPanel.Controls.Add(ownRecipe);
         }

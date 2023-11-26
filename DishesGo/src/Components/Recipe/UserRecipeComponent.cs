@@ -1,7 +1,9 @@
 ﻿using DishesGo.Data;
 using DishesGo.src.Forms;
+using DishesGo.src.Forms.ToolForms;
 using System;
 using System.Drawing;
+using System.Windows.Forms.VisualStyles;
 
 namespace DishesGo.src.Components.Recipe
 {
@@ -17,23 +19,20 @@ namespace DishesGo.src.Components.Recipe
             InitializeComponent();
         }
 
-        public UserRecipeComponent(Image image, int receiptId) : base(image, receiptId)
+        public UserRecipeComponent(Recipes recipe, Users user) : base(recipe)
         {
             InitializeComponent();
-        }
-
-        public UserRecipeComponent(Recipes recipe) : base(recipe)
-        {
-            InitializeComponent();
+            this.user = user;
         }
 
         protected override void border_Click(object sender, EventArgs e)
         {
             // Show the information about reciept.
-            RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
-            MainForm.Instance.Hide();
-            recipeViewerForm.ShowDialog(MainForm.Instance);
-            MainForm.Instance.Show();
+            using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
+            {
+                RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
+                recipeViewerForm.ShowDialog(backgroundForm);
+            }
         }
     }
 }

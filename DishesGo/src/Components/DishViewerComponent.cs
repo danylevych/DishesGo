@@ -136,10 +136,7 @@ namespace DishesGo.src.Elements
                         stepsVal.Text = formattedSteps.ToString();
 
 
-
-
                         // Set bookmark button.
-                        
                         bool isOwnBookmark = (context.Bookmarks.FirstOrDefault(bookmark => bookmark.id_recipe == recipeDetails.recipe_id &&
                                                                                            bookmark.id_user == user.user_id) != null);
 
@@ -173,7 +170,7 @@ namespace DishesGo.src.Elements
                             likeButtonImg.Tag = "EmptyLike";
                         }
 
-                        countOfLikeLabel.Text = likes.Count.ToString();
+                        countOfLikeLabel.Text = context.Likes.Where(l => l.id_recipe == ReceiptId).ToList().Count.ToString();
                         
                         if (!isOwn)
                         {

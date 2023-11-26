@@ -10,8 +10,6 @@ namespace DishesGo.src.Components.Recipe
     {
         public MiddleRecipeConponent() : base() { }
 
-        public MiddleRecipeConponent(Image image, int receiptId) : base(image, receiptId) { }
-
         public MiddleRecipeConponent(Recipes recipe) : base(recipe) { }
 
         protected override void border_Click(object sender, EventArgs e)

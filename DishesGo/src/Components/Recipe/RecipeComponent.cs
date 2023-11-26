@@ -15,6 +15,7 @@ namespace DishesGo.src.Components
     public abstract partial class RecipeComponent : UserControl
     {
         protected Users user;
+        protected Users caller;
 
         public int ReceiptId { get; set; }
         public Image Image { get { return recipeImg.Image; } set { recipeImg.Image = value; } }
@@ -23,15 +24,6 @@ namespace DishesGo.src.Components
         {
             InitializeComponent();
             border.Parent = recipeImg;
-        }
-
-        public RecipeComponent(Image image, int receiptId)
-        {
-            InitializeComponent();
-            border.Parent = recipeImg;
-
-            Image = image;
-            ReceiptId = receiptId;
         }
 
         public RecipeComponent(Recipes recipe)
@@ -61,11 +53,6 @@ namespace DishesGo.src.Components
                 {
                     this.Image = Properties.Resources.titlePhoto;
                 }
-            }
-
-            using (DishesGo_dbEntities context = new DishesGo_dbEntities())
-            {
-                user = context.Users.FirstOrDefault(userdb => userdb.user_id == recipe.user_id);
             }
         }
     }

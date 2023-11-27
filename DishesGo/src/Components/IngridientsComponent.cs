@@ -27,6 +27,25 @@ namespace DishesGo.src.Components
             }
         }
 
+        public IngredientsComponent(IngredientsComponent other)
+        {
+            InitializeComponent();
+
+            // Копіюємо значення поля Quantity
+            this.Quantity = other.Quantity;
+
+            foreach (var item in IngredientsFactory.Pairs)
+            {
+                ingredientComboBox.AddItem(item.Key, item.Value);
+            }
+
+            // Копіюємо значення поля IngredientID
+            this.ingredientComboBox.SelectedItem = other.ingredientComboBox.SelectedItem;
+
+            // Копіюємо значення поля Tag
+            this.Tag = other.Tag;
+        }
+
         public IngredientsComponent(int number, Ingredients ingredient = null)
         {
             InitializeComponent();
@@ -95,7 +114,13 @@ namespace DishesGo.src.Components
 
         public override int GetHashCode()
         {
-            return Quantity.GetHashCode() ^ IngredientID;
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Quantity.GetHashCode();
+                hash = hash * 23 + IngredientID.GetHashCode();
+                return hash;
+            }
         }
     }
 }

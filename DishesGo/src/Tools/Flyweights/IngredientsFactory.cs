@@ -1,13 +1,9 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using DishesGo.Data;
+﻿using DishesGo.Data;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DishesGo.src.Tools.Flyweights
 {

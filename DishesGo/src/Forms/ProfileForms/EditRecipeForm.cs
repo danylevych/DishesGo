@@ -8,8 +8,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Forms.ProfileForms
@@ -53,13 +51,6 @@ namespace DishesGo.src.Forms.ProfileForms
                     var stepComponent = new RecipeStepComponent(System.Convert.ToInt32(step?.step_order));
                     stepComponent.Description = step?.description;
 
-                    // Add events for user ability to make changings.
-                    stepComponent.Click += SelectDeletingStep;
-                    stepComponent.ClickSeparator += SelectDeletingStep;
-
-                    stepComponent.DragEnter += RecipeStepComponent_DragEnter;
-                    stepComponent.DragDrop += RecipeStepComponent_DragDrop;
-
                     stepComponents.Add(stepComponent);
                 }
 
@@ -68,7 +59,6 @@ namespace DishesGo.src.Forms.ProfileForms
                 {
                     var ingredientComponent = new IngredientsComponent(i + 1, ingredients[i].Ingredients);
                     ingredientComponent.Quantity = ingredients[i].quantity;
-                    ingredientComponent.Click += SelectDeletingIngredient;
 
                     ingredientComponents.Add(ingredientComponent);
                 }
@@ -147,7 +137,7 @@ namespace DishesGo.src.Forms.ProfileForms
         private void textBox_Enter(object sender, EventArgs e)
         {
             previousText = (sender as KryptonTextBox).Text;
-            (sender as KryptonTextBox).Text = string.Empty;
+            //(sender as KryptonTextBox).Text = string.Empty;
         }
 
         private void textBox_Leave(object sender, EventArgs e)
@@ -235,7 +225,9 @@ namespace DishesGo.src.Forms.ProfileForms
 
             foreach (var ingredientComponent in ingredientComponents)
             {
-                ingredientsPanel.Controls.Add(ingredientComponent);
+                var newIingredientComponent = new IngredientsComponent(ingredientComponent);
+                newIingredientComponent.Click += SelectDeletingIngredient;
+                ingredientsPanel.Controls.Add(newIingredientComponent);
             }
 
             countOfIngredients = ingredientComponents.Count;
@@ -247,7 +239,16 @@ namespace DishesGo.src.Forms.ProfileForms
 
             foreach (var stepComponent in stepComponents)
             {
-                stepsPanel.Controls.Add(stepComponent);
+                var newStepComponent = new RecipeStepComponent(stepComponent);
+
+                // Add events for user ability to make changings.
+                newStepComponent.Click += SelectDeletingStep;
+                newStepComponent.ClickSeparator += SelectDeletingStep;
+
+                newStepComponent.DragEnter += RecipeStepComponent_DragEnter;
+                newStepComponent.DragDrop += RecipeStepComponent_DragDrop;
+
+                stepsPanel.Controls.Add(newStepComponent);
             }
 
             countOfSteps = stepComponents.Count;
@@ -521,10 +522,10 @@ namespace DishesGo.src.Forms.ProfileForms
             if (CompareTwoRecipe(newRecipeDetails, recipeDetails) && (imgTag == "without" || imgTag == "userImg") &&
                 // If user made changings in steps.
                 CompareTwoListOf<RecipeStepComponent>(stepComponents, stepsPanel.Controls.OfType<RecipeStepComponent>().ToList(),
-                (leftItem, rightItem) => leftItem.StepNum == rightItem.StepNum) &&
+                (leftItem, rightItem) => leftItem.StepNum == rightItem.StepNum && leftItem.Description == rightItem.Description) &&
                 // User made changings in the ingridient list.
                 CompareTwoListOf<IngredientsComponent>(ingredientComponents, ingredientsPanel.Controls.OfType<IngredientsComponent>().ToList(),
-                (leftItem, rightItem) => leftItem.IngredientID == rightItem.IngredientID))
+                (leftItem, rightItem) => leftItem.IngredientID == rightItem.IngredientID && leftItem.Quantity == rightItem.Quantity))
             {
                 MessageBox.Show("Ви не можете здійснити збереження, оскільки не змінили нічого!", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

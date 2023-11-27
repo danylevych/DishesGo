@@ -368,6 +368,9 @@
     <EmbeddedResource Include="src\Components\RecipeStepComponent.resx">
       <DependentUpon>RecipeStepComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Components\Recipe\RecipeComponent.resx">
+      <DependentUpon>RecipeComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Components\Recipe\SearchRecipeComponent.resx">
       <DependentUpon>SearchRecipeComponent.cs</DependentUpon>
     </EmbeddedResource>

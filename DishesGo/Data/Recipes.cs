@@ -32,7 +32,7 @@ namespace DishesGo.Data
         public Nullable<int> user_id { get; set; }
         public Nullable<int> kitchen_id { get; set; }
         public Nullable<int> type_id { get; set; }
-        public System.DateTime posting_date { get; set; }
+        public Nullable<System.DateTime> posting_date { get; set; }
     
         public virtual Kitchens Kitchens { get; set; }
         public virtual RecipeTypes RecipeTypes { get; set; }

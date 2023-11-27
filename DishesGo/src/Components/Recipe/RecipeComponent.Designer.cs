@@ -50,8 +50,8 @@ namespace DishesGo.src.Components
             // 
             // recipeImg
             // 
-            this.recipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.recipeImg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.recipeImg.BackColor = System.Drawing.Color.Black;
             this.recipeImg.Image = global::DishesGo.Properties.Resources.titlePhoto;
@@ -70,7 +70,7 @@ namespace DishesGo.src.Components
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Controls.Add(this.border);
             this.Controls.Add(this.recipeImg);
-            //this.Name = "RecipeComponent";
+            this.Name = "RecipeComponent";
             this.Size = new System.Drawing.Size(220, 240);
             ((System.ComponentModel.ISupportInitialize)(this.border)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeImg)).EndInit();

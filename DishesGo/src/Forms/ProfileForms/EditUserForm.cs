@@ -63,7 +63,7 @@ namespace DishesGo.src.Forms
             Func<KryptonGroupBox, bool> IsSaved = (element) => element.StateCommon.Border.Color1 != Color.Red &&
                                                                element.StateCommon.Border.Color1 != Color.Red;
             // User did not save all data.
-            if (IsSaved(namesGroupBox) || IsSaved(passwordsGroupBox) || IsSaved(nickEmailGroupBox) || applyPhoto.Visible)
+            if (!IsSaved(namesGroupBox) || !IsSaved(passwordsGroupBox) || !IsSaved(nickEmailGroupBox) || applyPhoto.Visible)
             {
                 MessageBox.Show("Ви не зберегли всі дані.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -81,7 +81,8 @@ namespace DishesGo.src.Forms
                 // Check if user made some changes.
                 if (findedUser.email == user.email && findedUser.nickname == user.nickname &&
                     findedUser.first_name == user.first_name && findedUser.last_name == user.last_name &&
-                    findedUser.user_password == user.user_password && findedUser.user_photo.SequenceEqual(user.user_photo))
+                    findedUser.user_password == user.user_password && 
+                    (findedUser.user_photo == null? false : findedUser.user_photo.SequenceEqual(user.user_photo))) // Does the user photo not exixst or equal to previous?
                 {
                     return;
                 }
@@ -92,9 +93,10 @@ namespace DishesGo.src.Forms
                 findedUser.first_name = user.first_name;
                 findedUser.last_name = user.last_name;
                 findedUser.user_photo = user.user_photo;
-                findedUser.user_password = user.user_password;
-
+                findedUser.user_password = findedUser.user_password == user.user_password? user.user_password : PasswordHasher.HashPassword(user.user_password);
+                
                 context.SaveChanges();
+                
 
                 MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -78,8 +78,13 @@ namespace DishesGo.src.Elements
                     kitchenVal.Text = recipeDetails.kitchen_title;
                     timeVal.Text = recipeDetails.time_prepare.ToString() + " хв.";
                     caloriesVal.Text = recipeDetails.calories.ToString() + " ккал.";
-                    descriptionVal.Text = recipeDetails.recipe_description;
                     dateVal.Text = recipeDetails.posting_date?.ToString("yyyy-MM-dd");
+
+                    StringBuilder formateDescription = new StringBuilder();
+                    FormateText(formateDescription, recipeDetails.recipe_description.Split(' '), 50);
+                    descriptionVal.Text = formateDescription.ToString().Trim();
+
+
 
                     // Add steps and bottom panel elements.
                     using (var context = new DishesGo_dbEntities())
@@ -96,8 +101,12 @@ namespace DishesGo.src.Elements
                                 formattedIngredients.AppendLine();
                             }
 
-                            ingredientsVal.Text = formattedIngredients.ToString();
+                            ingredientsVal.Text = formattedIngredients.ToString().Trim();
                         }
+
+                        
+
+
 
                         var recipeSteps = context.RecipeSteps.Where(rs => rs.id_recipe == ReceiptId).ToList();
                         StringBuilder formattedSteps = new StringBuilder();
@@ -108,32 +117,34 @@ namespace DishesGo.src.Elements
                             formattedSteps.AppendLine($"- Крок {step.step_order}");
 
                             string description = step.description;
-                            string[] words = description.Split(' ');
 
-                            string currentLine = "";
+                            FormateText(formattedSteps, description.Split(' '));
+                            //string[] words = description.Split(' ');
 
-                            foreach (var word in words)
-                            {
-                                if ((currentLine + word).Length > 45)
-                                {
-                                    formattedSteps.AppendLine($"  {currentLine}");
-                                    currentLine = word + " ";
-                                }
-                                else
-                                {
-                                    currentLine += word + " ";
-                                }
-                            }
+                            //string currentLine = "";
 
-                            if (!string.IsNullOrWhiteSpace(currentLine))
-                            {
-                                formattedSteps.AppendLine($"  {currentLine}");
-                            }
+                            //foreach (var word in words)
+                            //{
+                            //    if ((currentLine + word).Length > 45)
+                            //    {
+                            //        formattedSteps.AppendLine($"  {currentLine}");
+                            //        currentLine = word + " ";
+                            //    }
+                            //    else
+                            //    {
+                            //        currentLine += word + " ";
+                            //    }
+                            //}
 
-                            formattedSteps.AppendLine();
+                            //if (!string.IsNullOrWhiteSpace(currentLine))
+                            //{
+                            //    formattedSteps.AppendLine($"  {currentLine}");
+                            //}
+
+                            //formattedSteps.AppendLine();
                         }
 
-                        stepsVal.Text = formattedSteps.ToString();
+                        stepsVal.Text = formattedSteps.ToString().Trim();
 
 
                         // Set bookmark button.
@@ -177,9 +188,39 @@ namespace DishesGo.src.Elements
                             moreButton.Visible = false;
                         }
                     }
+                    //stepsGroupBox.Dock = DockStyle.Bottom;
+                    
+                    kryptonPanel2.AutoScrollMinSize = new Size(kryptonPanel2.AutoScrollMinSize.Width, 150 + descriptiomGroupBox.Height + ingredientsGroupBox.Height + stepsGroupBox.Height);
+                    //kryptonPanel2.AutoScroll = true;
+                    ingredientsGroupBox.Location = new Point(ingredientsGroupBox.Location.X, descriptiomGroupBox.Bottom);
+                    stepsGroupBox.Location = new Point(stepsGroupBox.Location.X, ingredientsGroupBox.Bottom);
                 }
             }
         }
+
+        private void FormateText(StringBuilder formattedSteps, string[] words, int numOfCharPerLine = 45)
+        {
+            string currentLine = "";
+            foreach (var word in words)
+            {
+                if ((currentLine + word).Length > numOfCharPerLine)
+                {
+                    formattedSteps.AppendLine($"  {currentLine}");
+                    currentLine = word + " ";
+                }
+                else
+                {
+                    currentLine += word + " ";
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(currentLine))
+            {
+                formattedSteps.AppendLine($"  {currentLine}");
+            }
+
+            formattedSteps.AppendLine();
+        }
+
 
         private void likeButton_Click(object sender, EventArgs e)
         {

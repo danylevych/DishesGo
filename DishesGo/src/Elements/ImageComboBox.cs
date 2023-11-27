@@ -25,7 +25,7 @@ namespace DishesGo.src.Elements
             items.Add(new ImageComboBoxItem(text, image));
             Items.Add(text);
 
-            items = items.OrderBy(r => r.Text).ToList();
+            items = items.OrderBy(r => r.Text, StringComparer.Ordinal).ToList();
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)

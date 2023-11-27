@@ -49,6 +49,8 @@ namespace DishesGo.src.Components
                 }
             }
 
+            recipePanel.Scroll += recipePanel_Scroll;
+
             // Set option for search.
             searchTextBox.Enter += (sender, e) => {
                 if ((searchTextBox.Text.Trim() == "Пошук..."))
@@ -120,12 +122,14 @@ namespace DishesGo.src.Components
             if (!Convert.ToBoolean(filtersButton.Tag))
             {
                 recipePanel.Location = new Point(filtersPanel.Width + startRecipePanelPos.X, startRecipePanelPos.Y);
+                recipePanel.Size = new Size(recipePanel.Width - filtersPanel.Width, filtersPanel.Height);
                 filtersPanel.Visible = true;
                 filtersButton.Tag = true; // We have opened the filters panel.
             }
             else
             {
                 recipePanel.Location = startRecipePanelPos;
+                recipePanel.Size = new Size(recipePanel.Width + filtersPanel.Width, filtersPanel.Height);
                 filtersPanel.Visible = false;
                 filtersButton.Tag = false; // We have closed the filters panel.
             }
@@ -194,7 +198,7 @@ namespace DishesGo.src.Components
             predicat = r =>
                 (!selectedKitchens.Any() || selectedKitchens.Contains(r.Kitchens.title)) &&
                 (!selectedRecipeTypes.Any() || selectedRecipeTypes.Contains(r.RecipeTypes.title)) &&
-                (!selectedIngredients.Any() || r.DishIngredients.Any(i => selectedIngredients.Contains(i.Ingredients.ingredient_name)));
+                (!selectedIngredients.Any() || r.DishIngredients.Count(di => selectedIngredients.Contains(di.Ingredients.ingredient_name)) == selectedIngredients.Count);
 
             LoadMoreRecipes(true);
         }
@@ -248,7 +252,7 @@ namespace DishesGo.src.Components
                 recipePanel.Controls.Clear();
             }
 
-            int recipesToLoad = 20;
+            int recipesToLoad = 30;
             int startIndex = recipePanel.Controls.Count;
 
             switch (sortTag)
@@ -285,6 +289,11 @@ namespace DishesGo.src.Components
                     recipePanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users));
                 }
             }
+        }
+
+        private void recipePanel_SizeChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,23 @@ namespace DishesGo.src.Components
         public string Description { get { return stepVal.Text.Trim(); } set { stepVal.Text = value; } }
         public event EventHandler ClickSeparator;
 
+        public RecipeStepComponent(RecipeStepComponent other)
+        {
+            InitializeComponent();
+
+            StepNum = other.StepNum;
+            Description = other.Description;
+
+            kryptonSeparator.Parent = this;
+
+            kryptonSeparator.MouseDown += RecipeStepComponent_MouseDown;
+            kryptonSeparator.MouseMove += RecipeStepComponent_MouseMove;
+            kryptonSeparator.MouseUp += RecipeStepComponent_MouseUp;
+
+            numLabel.Text = "Крок " + StepNum.ToString() + ":";
+            this.Tag = StepNum.ToString();
+        }
+
         public RecipeStepComponent(int number)
         {
             StepNum = number;

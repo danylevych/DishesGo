@@ -63,6 +63,7 @@
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.dishImg = new System.Windows.Forms.PictureBox();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moreOptionPanel)).BeginInit();
@@ -110,22 +111,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.moreButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
+            this.kryptonPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.kryptonPanel1.Controls.Add(this.moreOptionPanel);
-            this.kryptonPanel1.Controls.Add(this.addingComment);
-            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
-            this.kryptonPanel1.Controls.Add(this.header);
+            this.kryptonPanel1.Controls.Add(this.kryptonPanel3);
             this.kryptonPanel1.Controls.Add(this.dishImg);
             this.kryptonPanel1.Location = new System.Drawing.Point(-2, -1);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Palette = this.kryptonPalette1;
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.kryptonPanel1.Size = new System.Drawing.Size(781, 410);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.kryptonPanel1.StateCommon.ColorAngle = 130F;
             this.kryptonPanel1.TabIndex = 0;
@@ -134,7 +135,7 @@
             // 
             this.moreOptionPanel.Controls.Add(this.editRecipeButton);
             this.moreOptionPanel.Controls.Add(this.deleteButton);
-            this.moreOptionPanel.Location = new System.Drawing.Point(604, 30);
+            this.moreOptionPanel.Location = new System.Drawing.Point(605, 30);
             this.moreOptionPanel.Name = "moreOptionPanel";
             this.moreOptionPanel.Size = new System.Drawing.Size(159, 85);
             this.moreOptionPanel.StateCommon.Color1 = System.Drawing.Color.WhiteSmoke;
@@ -321,7 +322,8 @@
             // 
             // addingComment
             // 
-            this.addingComment.Location = new System.Drawing.Point(410, 360);
+            this.addingComment.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.addingComment.Location = new System.Drawing.Point(0, 369);
             this.addingComment.Name = "addingComment";
             // 
             // addingComment.Panel
@@ -329,7 +331,7 @@
             this.addingComment.Panel.Controls.Add(this.bookmarkButtonImage);
             this.addingComment.Panel.Controls.Add(this.countOfLikeLabel);
             this.addingComment.Panel.Controls.Add(this.likeButtonImg);
-            this.addingComment.Size = new System.Drawing.Size(370, 50);
+            this.addingComment.Size = new System.Drawing.Size(373, 42);
             this.addingComment.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.addingComment.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.addingComment.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -346,9 +348,9 @@
             // 
             this.bookmarkButtonImage.BackColor = System.Drawing.Color.Transparent;
             this.bookmarkButtonImage.Image = global::DishesGo.Properties.Resources.EmptyBookmark;
-            this.bookmarkButtonImage.Location = new System.Drawing.Point(320, 7);
+            this.bookmarkButtonImage.Location = new System.Drawing.Point(326, 3);
             this.bookmarkButtonImage.Name = "bookmarkButtonImage";
-            this.bookmarkButtonImage.Size = new System.Drawing.Size(30, 31);
+            this.bookmarkButtonImage.Size = new System.Drawing.Size(27, 27);
             this.bookmarkButtonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bookmarkButtonImage.TabIndex = 19;
             this.bookmarkButtonImage.TabStop = false;
@@ -360,7 +362,7 @@
             this.countOfLikeLabel.BackColor = System.Drawing.Color.Transparent;
             this.countOfLikeLabel.Font = new System.Drawing.Font("Russo One", 12F);
             this.countOfLikeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.countOfLikeLabel.Location = new System.Drawing.Point(61, 15);
+            this.countOfLikeLabel.Location = new System.Drawing.Point(46, 8);
             this.countOfLikeLabel.Name = "countOfLikeLabel";
             this.countOfLikeLabel.Size = new System.Drawing.Size(15, 19);
             this.countOfLikeLabel.TabIndex = 18;
@@ -370,9 +372,9 @@
             // 
             this.likeButtonImg.BackColor = System.Drawing.Color.Transparent;
             this.likeButtonImg.Image = global::DishesGo.Properties.Resources.EmptyLike;
-            this.likeButtonImg.Location = new System.Drawing.Point(16, 2);
+            this.likeButtonImg.Location = new System.Drawing.Point(11, 2);
             this.likeButtonImg.Name = "likeButtonImg";
-            this.likeButtonImg.Size = new System.Drawing.Size(40, 40);
+            this.likeButtonImg.Size = new System.Drawing.Size(30, 30);
             this.likeButtonImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.likeButtonImg.TabIndex = 0;
             this.likeButtonImg.TabStop = false;
@@ -389,25 +391,25 @@
             this.kryptonPanel2.Controls.Add(this.descriptiomGroupBox);
             this.kryptonPanel2.Controls.Add(this.timeGroup);
             this.kryptonPanel2.Controls.Add(this.caloriesGroup);
-            this.kryptonPanel2.Location = new System.Drawing.Point(410, 42);
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 39);
             this.kryptonPanel2.Margin = new System.Windows.Forms.Padding(5);
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.kryptonPanel2.Size = new System.Drawing.Size(370, 318);
+            this.kryptonPanel2.Size = new System.Drawing.Size(372, 329);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.LightGray;
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.LightGray;
             this.kryptonPanel2.TabIndex = 23;
             // 
             // postingDateGroup
             // 
-            this.postingDateGroup.Location = new System.Drawing.Point(171, 65);
+            this.postingDateGroup.Location = new System.Drawing.Point(166, 65);
             this.postingDateGroup.Name = "postingDateGroup";
             // 
             // postingDateGroup.Panel
             // 
             this.postingDateGroup.Panel.Controls.Add(this.dateVal);
             this.postingDateGroup.Panel.Controls.Add(this.label1);
-            this.postingDateGroup.Size = new System.Drawing.Size(182, 30);
+            this.postingDateGroup.Size = new System.Drawing.Size(181, 30);
             this.postingDateGroup.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.postingDateGroup.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.postingDateGroup.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -458,15 +460,15 @@
             // 
             this.stepsGroupBox.AutoSize = true;
             this.stepsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.stepsGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.stepsGroupBox.Location = new System.Drawing.Point(8, 270);
+            this.stepsGroupBox.Location = new System.Drawing.Point(8, 268);
             this.stepsGroupBox.Name = "stepsGroupBox";
             // 
             // stepsGroupBox.Panel
             // 
             this.stepsGroupBox.Panel.AutoScroll = true;
             this.stepsGroupBox.Panel.Controls.Add(this.stepsVal);
-            this.stepsGroupBox.Size = new System.Drawing.Size(362, 48);
+            this.stepsGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.stepsGroupBox.Size = new System.Drawing.Size(339, 55);
             this.stepsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.stepsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.stepsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -502,14 +504,14 @@
             // 
             this.ingredientsGroupBox.AutoSize = true;
             this.ingredientsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-            this.ingredientsGroupBox.Location = new System.Drawing.Point(8, 175);
+            this.ingredientsGroupBox.Location = new System.Drawing.Point(8, 177);
             this.ingredientsGroupBox.Name = "ingredientsGroupBox";
             // 
             // ingredientsGroupBox.Panel
             // 
             this.ingredientsGroupBox.Panel.AutoScroll = true;
             this.ingredientsGroupBox.Panel.Controls.Add(this.ingredientsVal);
-            this.ingredientsGroupBox.Size = new System.Drawing.Size(345, 85);
+            this.ingredientsGroupBox.Size = new System.Drawing.Size(339, 85);
             this.ingredientsGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.ingredientsGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.ingredientsGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -584,13 +586,15 @@
             // 
             // descriptiomGroupBox
             // 
+            this.descriptiomGroupBox.AutoSize = true;
+            this.descriptiomGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.descriptiomGroupBox.Location = new System.Drawing.Point(8, 101);
             this.descriptiomGroupBox.Name = "descriptiomGroupBox";
             // 
             // descriptiomGroupBox.Panel
             // 
             this.descriptiomGroupBox.Panel.Controls.Add(this.descriptionVal);
-            this.descriptiomGroupBox.Size = new System.Drawing.Size(345, 67);
+            this.descriptiomGroupBox.Size = new System.Drawing.Size(339, 70);
             this.descriptiomGroupBox.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.descriptiomGroupBox.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.descriptiomGroupBox.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -608,25 +612,26 @@
             // 
             // descriptionVal
             // 
+            this.descriptionVal.AutoSize = true;
             this.descriptionVal.BackColor = System.Drawing.Color.Transparent;
             this.descriptionVal.Font = new System.Drawing.Font("Russo One", 8F);
             this.descriptionVal.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.descriptionVal.Location = new System.Drawing.Point(3, 0);
+            this.descriptionVal.Location = new System.Drawing.Point(4, 0);
             this.descriptionVal.Name = "descriptionVal";
-            this.descriptionVal.Size = new System.Drawing.Size(333, 55);
+            this.descriptionVal.Size = new System.Drawing.Size(72, 13);
             this.descriptionVal.TabIndex = 18;
             this.descriptionVal.Text = "description";
             // 
             // timeGroup
             // 
-            this.timeGroup.Location = new System.Drawing.Point(207, 29);
+            this.timeGroup.Location = new System.Drawing.Point(203, 29);
             this.timeGroup.Name = "timeGroup";
             // 
             // timeGroup.Panel
             // 
             this.timeGroup.Panel.Controls.Add(this.timeVal);
             this.timeGroup.Panel.Controls.Add(this.label3);
-            this.timeGroup.Size = new System.Drawing.Size(146, 30);
+            this.timeGroup.Size = new System.Drawing.Size(144, 30);
             this.timeGroup.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.timeGroup.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
             this.timeGroup.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -709,7 +714,8 @@
             // 
             // header
             // 
-            this.header.Location = new System.Drawing.Point(410, 0);
+            this.header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
             // 
             // header.Panel
@@ -717,7 +723,7 @@
             this.header.Panel.Controls.Add(this.moreButton);
             this.header.Panel.Controls.Add(this.profileImg);
             this.header.Panel.Controls.Add(this.nicknameLabel);
-            this.header.Size = new System.Drawing.Size(370, 40);
+            this.header.Size = new System.Drawing.Size(373, 40);
             this.header.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.header.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.header.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -753,7 +759,7 @@
             this.profileImg.ColorBorder = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
             this.profileImg.ColorBorder2 = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(230)))), ((int)(((byte)(148)))));
             this.profileImg.Gradiant = 50F;
-            this.profileImg.Location = new System.Drawing.Point(0, 1);
+            this.profileImg.Location = new System.Drawing.Point(1, 1);
             this.profileImg.Name = "profileImg";
             this.profileImg.Size = new System.Drawing.Size(31, 31);
             this.profileImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -766,7 +772,7 @@
             this.nicknameLabel.AutoSize = true;
             this.nicknameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nicknameLabel.Font = new System.Drawing.Font("Russo One", 9F);
-            this.nicknameLabel.Location = new System.Drawing.Point(33, 10);
+            this.nicknameLabel.Location = new System.Drawing.Point(34, 10);
             this.nicknameLabel.Name = "nicknameLabel";
             this.nicknameLabel.Size = new System.Drawing.Size(66, 14);
             this.nicknameLabel.TabIndex = 11;
@@ -790,6 +796,18 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPalette1.Common.StateCommon.Border.Rounding = 12;
             this.kryptonPalette1.Common.StateCommon.Border.Width = 5;
+            // 
+            // kryptonPanel3
+            // 
+            this.kryptonPanel3.Controls.Add(this.addingComment);
+            this.kryptonPanel3.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel3.Controls.Add(this.header);
+            this.kryptonPanel3.Location = new System.Drawing.Point(408, 0);
+            this.kryptonPanel3.Name = "kryptonPanel3";
+            this.kryptonPanel3.Size = new System.Drawing.Size(373, 411);
+            this.kryptonPanel3.StateCommon.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPanel3.StateCommon.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPanel3.TabIndex = 24;
             // 
             // DishViewer
             // 
@@ -835,6 +853,7 @@
             this.kitchenGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.descriptiomGroupBox.Panel)).EndInit();
             this.descriptiomGroupBox.Panel.ResumeLayout(false);
+            this.descriptiomGroupBox.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.descriptiomGroupBox)).EndInit();
             this.descriptiomGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.timeGroup.Panel)).EndInit();
@@ -855,6 +874,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.moreButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dishImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
+            this.kryptonPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -895,5 +916,6 @@
         private System.Windows.Forms.Label ingredientsVal;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox stepsGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonButton editRecipeButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
     }
 }

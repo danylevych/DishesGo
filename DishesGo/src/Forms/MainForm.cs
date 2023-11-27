@@ -109,7 +109,7 @@ namespace DishesGo.src
             {
                 File.WriteAllText(configs.userDataPath, string.Empty); // Rewrite user data file.
                 MainForm.Instance.Close();                             // Close MainForm.
-                Application.Run(new RegistrLoginForm());               // Run RegistrationForm.
+                Application.Restart();                                 // Run RegistrationForm.
             }
         }
 

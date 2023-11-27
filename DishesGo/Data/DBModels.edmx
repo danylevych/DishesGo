@@ -59,7 +59,7 @@
           <Property Name="user_id" Type="int" />
           <Property Name="kitchen_id" Type="int" />
           <Property Name="type_id" Type="int" />
-          <Property Name="posting_date" Type="datetime" Nullable="false" />
+          <Property Name="posting_date" Type="datetime" />
         </EntityType>
         <EntityType Name="RecipeSteps">
           <Key>
@@ -104,7 +104,7 @@
           <Property Name="last_name" Type="varchar" MaxLength="70" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="90" Nullable="false" />
           <Property Name="nickname" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="user_password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="64" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DishesGo_db.dbo.RecipeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -406,7 +406,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <Property Name="last_name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nickname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="user_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Users" ToRole="Recipes" />
           <NavigationProperty Name="Bookmarks" Relationship="DishesGo_dbModel.FK__Bookmarks__id_us__5BE2A6F2" FromRole="Users" ToRole="Bookmarks" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_user__59063A47" FromRole="Users" ToRole="Likes" />
@@ -521,7 +521,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <NavigationProperty Name="Kitchens" Relationship="DishesGo_dbModel.FK__Recipes__kitchen__4E88ABD4" FromRole="Recipes" ToRole="Kitchens" />
           <NavigationProperty Name="RecipeTypes" Relationship="DishesGo_dbModel.FK__Recipes__type_id__4F7CD00D" FromRole="Recipes" ToRole="RecipeTypes" />
           <NavigationProperty Name="Users" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Recipes" ToRole="Users" />
-          <Property Name="posting_date" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="posting_date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Bookmarks" Relationship="DishesGo_dbModel.FK__Bookmarks__id_re__5CD6CB2B" FromRole="Recipes" ToRole="Bookmarks" />
           <NavigationProperty Name="DishIngredients" Relationship="DishesGo_dbModel.FK__DishIngre__recip__619B8048" FromRole="Recipes" ToRole="DishIngredients" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_recipe__5812160E" FromRole="Recipes" ToRole="Likes" />

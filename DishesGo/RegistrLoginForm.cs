@@ -317,9 +317,7 @@ namespace DishesGo
 
                         File.WriteAllText(configs.userDataPath, JsonConvert.SerializeObject(userData, Formatting.Indented));
 
-                        MainForm mainForm = new MainForm(user);
-                        mainForm.Show();
-                        this.Hide();
+                        Application.Restart();
                     }
                     else
                     {

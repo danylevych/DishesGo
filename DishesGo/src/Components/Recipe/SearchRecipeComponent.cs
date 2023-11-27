@@ -28,7 +28,7 @@ namespace DishesGo.src.Components.Recipe
         {
             this.user = user;
             this.recipe = recipe;
-
+            this.Margin = new Padding(10);
             InitializeComponent();
             Init();
         }

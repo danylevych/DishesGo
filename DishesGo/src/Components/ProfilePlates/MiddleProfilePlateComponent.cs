@@ -9,13 +9,15 @@ namespace DishesGo.src.Components.ProfilePlates
     // work with the designer.
     public class MiddleProfilePlateComponent : ProfilePlateComponent
     {
-        public MiddleProfilePlateComponent(Users user = null, Image userPhoto = null) 
-            : base(user, userPhoto)
+        public MiddleProfilePlateComponent()
+            : base()
         {
-            InitializeComponent();
         }
 
-        private void InitializeComponent() {    }
+        public MiddleProfilePlateComponent(Users user, Image userPhoto) 
+            : base(user, userPhoto)
+        {
+        }
 
         protected override void AddRecipe(Recipes recipe)
         {

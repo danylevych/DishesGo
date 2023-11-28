@@ -1,6 +1,7 @@
 ﻿using DishesGo.Data;
 using DishesGo.src.Elements;
 using DishesGo.src.Forms;
+using DishesGo.src.Forms.ProfileForms;
 using DishesGo.src.Forms.ToolForms;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,17 @@ namespace DishesGo.src.Components.ProfilePlates
                 using (EditUserForm editUserForm = new EditUserForm(user))
                 {
                     editUserForm.ShowDialog(background);
+                }
+            }
+        }
+
+        private void viewFollowing(object sender, EventArgs e)
+        {
+            using (BackgroundForm background = new BackgroundForm(MainForm.Instance))
+            {
+                using (FollowingListForm followingListForm = new FollowingListForm(user.user_id))
+                {
+                    followingListForm.ShowDialog(background);
                 }
             }
         }

@@ -1,6 +1,6 @@
-﻿namespace DishesGo.src.Forms
+﻿namespace DishesGo.src.Forms.ProfileForms
 {
-    partial class BookmarksForm
+    partial class FollowingListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.backButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.bookmarksPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.usersPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.mainLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Location = new System.Drawing.Point(9, 11);
             this.backButton.Name = "backButton";
             this.backButton.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
             this.backButton.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
@@ -79,21 +79,21 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.backButton.StateCommon.Border.Rounding = 0;
             this.backButton.StateCommon.Border.Width = 0;
-            this.backButton.TabIndex = 30;
+            this.backButton.TabIndex = 31;
             this.backButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.backButton.Values.Text = "";
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // bookmarksPanel
+            // usersPanel
             // 
-            this.bookmarksPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.usersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bookmarksPanel.AutoScroll = true;
-            this.bookmarksPanel.Location = new System.Drawing.Point(24, 50);
-            this.bookmarksPanel.Name = "bookmarksPanel";
-            this.bookmarksPanel.Size = new System.Drawing.Size(235, 380);
-            this.bookmarksPanel.TabIndex = 31;
+            this.usersPanel.AutoScroll = true;
+            this.usersPanel.Location = new System.Drawing.Point(24, 50);
+            this.usersPanel.Name = "usersPanel";
+            this.usersPanel.Size = new System.Drawing.Size(266, 437);
+            this.usersPanel.TabIndex = 32;
             // 
             // mainLabel
             // 
@@ -101,28 +101,27 @@
             this.mainLabel.AutoSize = true;
             this.mainLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.mainLabel.Location = new System.Drawing.Point(91, 17);
+            this.mainLabel.Location = new System.Drawing.Point(106, 17);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(103, 23);
-            this.mainLabel.TabIndex = 11;
-            this.mainLabel.Text = "Закладки";
+            this.mainLabel.Size = new System.Drawing.Size(100, 23);
+            this.mainLabel.TabIndex = 33;
+            this.mainLabel.Text = "Підписки";
             // 
-            // BookmarksForm
+            // FollowingListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(282, 450);
+            this.ClientSize = new System.Drawing.Size(313, 507);
             this.Controls.Add(this.mainLabel);
-            this.Controls.Add(this.bookmarksPanel);
+            this.Controls.Add(this.usersPanel);
             this.Controls.Add(this.backButton);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "BookmarksForm";
+            this.Name = "FollowingListForm";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "BookmarksForm";
+            this.Text = "FollowingListForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +131,7 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton backButton;
-        private System.Windows.Forms.FlowLayoutPanel bookmarksPanel;
+        private System.Windows.Forms.FlowLayoutPanel usersPanel;
         private System.Windows.Forms.Label mainLabel;
     }
 }

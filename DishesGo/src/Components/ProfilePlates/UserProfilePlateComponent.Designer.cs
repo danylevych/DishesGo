@@ -29,9 +29,26 @@
         private void InitializeComponent()
         {
             this.backButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.followingEvent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileImg)).BeginInit();
             this.SuspendLayout();
+            // 
+            // followersLabel
+            // 
+            this.followersLabel.Location = new System.Drawing.Point(451, 94);
+            // 
+            // followingLabel
+            // 
+            this.followingLabel.Location = new System.Drawing.Point(546, 94);
+            // 
+            // followersCount
+            // 
+            this.followersCount.Location = new System.Drawing.Point(451, 74);
+            // 
+            // followingCount
+            // 
+            this.followingCount.Location = new System.Drawing.Point(536, 74);
             // 
             // backButton
             // 
@@ -65,12 +82,31 @@
             this.backButton.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.backButton.Values.Text = "";
             // 
+            // followingEvent
+            // 
+            this.followingEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.followingEvent.AutoSize = true;
+            this.followingEvent.Font = new System.Drawing.Font("Russo One", 12F);
+            this.followingEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(220)))), ((int)(((byte)(148)))));
+            this.followingEvent.Location = new System.Drawing.Point(474, 126);
+            this.followingEvent.Name = "followingEvent";
+            this.followingEvent.Size = new System.Drawing.Size(113, 19);
+            this.followingEvent.TabIndex = 17;
+            this.followingEvent.Tag = true;
+            this.followingEvent.Text = "Підписатися";
+            // 
             // UserProfilePlateComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.backButton);
+            this.Controls.Add(this.followingEvent);
             this.Name = "UserProfilePlateComponent";
+            this.Controls.SetChildIndex(this.followingEvent, 0);
+            this.Controls.SetChildIndex(this.followersLabel, 0);
+            this.Controls.SetChildIndex(this.followingLabel, 0);
+            this.Controls.SetChildIndex(this.followersCount, 0);
+            this.Controls.SetChildIndex(this.followingCount, 0);
             this.Controls.SetChildIndex(this.profileImg, 0);
             this.Controls.SetChildIndex(this.profileNameLabel, 0);
             this.Controls.SetChildIndex(this.nicknameLabel, 0);
@@ -86,5 +122,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonButton backButton;
+        private System.Windows.Forms.Label followingEvent;
     }
 }

@@ -29,6 +29,9 @@
         <EntityTypeShape EntityType="DishesGo_dbModel.RecipeDetails" Width="1.5" PointX="8.375" PointY="8.75" />
         <EntityTypeShape EntityType="DishesGo_dbModel.RecipeIngredientsView" Width="2.625" PointX="7.375" PointY="0.625" />
         <EntityTypeShape EntityType="DishesGo_dbModel.UpdateLog" Width="1.5" PointX="0.875" PointY="9.875" />
+        <EntityTypeShape EntityType="DishesGo_dbModel.Subscription" Width="1.5" PointX="3.25" PointY="10.625" />
+        <AssociationConnector Association="DishesGo_dbModel.FK__Subscript__subsc__55F4C372" />
+        <AssociationConnector Association="DishesGo_dbModel.FK__Subscript__targe__56E8E7AB" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

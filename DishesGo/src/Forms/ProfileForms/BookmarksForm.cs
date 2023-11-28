@@ -29,8 +29,6 @@ namespace DishesGo.src.Forms
                     }
                 }
             }
-            
-            
         }
 
         private void backButton_Click(object sender, EventArgs e)

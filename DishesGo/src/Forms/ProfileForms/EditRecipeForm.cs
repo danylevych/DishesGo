@@ -79,7 +79,7 @@ namespace DishesGo.src.Forms.ProfileForms
                 else
                 {
                     recipeImg.Image = Properties.Resources.titlePhoto;
-                    recipeImg.Tag = "without";
+                    recipeImg.Tag = "userImg";
                 }
 
                 // Set all combobox values.
@@ -519,7 +519,7 @@ namespace DishesGo.src.Forms.ProfileForms
             newRecipeDetails.recipe_photo = (imgTag == "without" ? null : (imgTag == "newUserImg" ? ImageRedactor.ToByteArray(recipeImg.Image) : recipeDetails.recipe_photo));
 
 
-            if (CompareTwoRecipe(newRecipeDetails, recipeDetails) && (imgTag == "without" || imgTag == "userImg") &&
+            if (CompareTwoRecipe(newRecipeDetails, recipeDetails) && (imgTag == "userImg") &&
                 // If user made changings in steps.
                 CompareTwoListOf<RecipeStepComponent>(stepComponents, stepsPanel.Controls.OfType<RecipeStepComponent>().ToList(),
                 (leftItem, rightItem) => leftItem.StepNum == rightItem.StepNum && leftItem.Description == rightItem.Description) &&

@@ -286,7 +286,7 @@ namespace DishesGo.src.Components
 
                 foreach (var recipe in loadedRecipes)
                 {
-                    recipePanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users));
+                    recipePanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users, context.Users.FirstOrDefault(u => u.user_id == userId)));
                 }
             }
         }

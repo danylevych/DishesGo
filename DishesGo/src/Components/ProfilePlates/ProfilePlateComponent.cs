@@ -18,11 +18,10 @@ namespace DishesGo.src.Elements
         public string ProfileName { get { return profileNameLabel.Text; } set { profileNameLabel.Text = value; } }
         public Image Image { get { return profileImg.Image; } set { profileImg.Image = value; } }
 
+        public ProfilePlateComponent() { InitializeComponent(); }
 
         public ProfilePlateComponent(Users user, Image userPhoto)
         {
-            this.user = user;
-
             InitializeComponent();
 
             profileImg.Image = userPhoto;
@@ -31,6 +30,11 @@ namespace DishesGo.src.Elements
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
+                this.user = context.Users.FirstOrDefault(u => u.user_id == user.user_id);
+
+                followersCount.Text = this.user.Followers.Count.ToString();
+                followingCount.Text = this.user.Following.Count.ToString();
+
                 var userRecipes = context.Recipes.Where(r => r.user_id == user.user_id).OrderByDescending(r => r.posting_date).ToList();
                 
                 // Add user's recipes.

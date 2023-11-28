@@ -77,6 +77,14 @@
           <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Subscriptions">
+          <Key>
+            <PropertyRef Name="subscription_id" />
+          </Key>
+          <Property Name="subscription_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subscriber_id" Type="int" />
+          <Property Name="target_user_id" Type="int" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -147,6 +155,30 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <Property Name="ingredient_name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="quantity" Type="varchar" MaxLength="70" />
         </EntityType>
+        <Association Name="FK__Subscript__subsc__55F4C372">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Subscriptions">
+              <PropertyRef Name="subscriber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscript__targe__56E8E7AB">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Subscriptions" Type="Self.Subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Subscriptions">
+              <PropertyRef Name="target_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Bookmarks_Recipes">
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -317,6 +349,7 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeSteps" EntityType="Self.RecipeSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RecipeTypes" EntityType="Self.RecipeTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriptions" EntityType="Self.Subscriptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UpdateLogs" EntityType="Self.UpdateLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -351,6 +384,14 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
     [RecipeIngredientsView].[quantity] AS [quantity]
     FROM [dbo].[RecipeIngredientsView] AS [RecipeIngredientsView]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__Subscript__subsc__55F4C372" Association="Self.FK__Subscript__subsc__55F4C372">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscript__targe__56E8E7AB" Association="Self.FK__Subscript__targe__56E8E7AB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscriptions" EntitySet="Subscriptions" />
+          </AssociationSet>
           <AssociationSet Name="FK_Bookmarks_Recipes" Association="Self.FK_Bookmarks_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="Bookmarks" EntitySet="Bookmarks" />
@@ -410,6 +451,8 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <NavigationProperty Name="Recipes" Relationship="DishesGo_dbModel.FK__Recipes__user_id__4D94879B" FromRole="Users" ToRole="Recipes" />
           <NavigationProperty Name="Bookmarks" Relationship="DishesGo_dbModel.FK__Bookmarks__id_us__5BE2A6F2" FromRole="Users" ToRole="Bookmarks" />
           <NavigationProperty Name="Likes" Relationship="DishesGo_dbModel.FK__Likes__id_user__59063A47" FromRole="Users" ToRole="Likes" />
+          <NavigationProperty Name="Following" Relationship="DishesGo_dbModel.FK__Subscript__subsc__55F4C372" FromRole="Users" ToRole="Subscription" />
+          <NavigationProperty Name="Followers" Relationship="DishesGo_dbModel.FK__Subscript__targe__56E8E7AB" FromRole="Users" ToRole="Subscription" />
         </EntityType>
         <EntityContainer Name="DishesGo_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.Users" />
@@ -495,6 +538,15 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="UpdateLogs" EntityType="DishesGo_dbModel.UpdateLog" />
+          <EntitySet Name="Subscriptions" EntityType="DishesGo_dbModel.Subscription" />
+          <AssociationSet Name="FK__Subscript__subsc__55F4C372" Association="DishesGo_dbModel.FK__Subscript__subsc__55F4C372">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscript__targe__56E8E7AB" Association="DishesGo_dbModel.FK__Subscript__targe__56E8E7AB">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Kitchens">
           <Key>
@@ -770,6 +822,40 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
           <Property Name="table_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="last_update" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="subscription_id" />
+          </Key>
+          <Property Name="subscription_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subscriber_id" Type="Int32" />
+          <Property Name="target_user_id" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="DishesGo_dbModel.FK__Subscript__subsc__55F4C372" FromRole="Subscription" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="DishesGo_dbModel.FK__Subscript__targe__56E8E7AB" FromRole="Subscription" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__Subscript__subsc__55F4C372">
+          <End Type="DishesGo_dbModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="DishesGo_dbModel.Subscription" Role="Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="subscriber_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscript__targe__56E8E7AB">
+          <End Type="DishesGo_dbModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="DishesGo_dbModel.Subscription" Role="Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="target_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -944,6 +1030,15 @@ warning 6002: The table/view 'DishesGo_db.dbo.RecipeIngredientsView' does not ha
               <MappingFragment StoreEntitySet="UpdateLogs">
                 <ScalarProperty Name="last_update" ColumnName="last_update" />
                 <ScalarProperty Name="table_name" ColumnName="table_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriptions">
+            <EntityTypeMapping TypeName="DishesGo_dbModel.Subscription">
+              <MappingFragment StoreEntitySet="Subscriptions">
+                <ScalarProperty Name="target_user_id" ColumnName="target_user_id" />
+                <ScalarProperty Name="subscriber_id" ColumnName="subscriber_id" />
+                <ScalarProperty Name="subscription_id" ColumnName="subscription_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

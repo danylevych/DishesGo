@@ -17,6 +17,7 @@ namespace DishesGo.src.Components.Recipe
         RecipeComponent
 #endif
     {
+        private readonly Users caller;
         private readonly Recipes recipe;
 
         public SearchRecipeComponent() : base()
@@ -24,13 +25,14 @@ namespace DishesGo.src.Components.Recipe
             InitializeComponent();
         }
 
-        public SearchRecipeComponent(Recipes recipe, Users user) : base(recipe)
+        public SearchRecipeComponent(Recipes recipe, Users user, Users caller) : base(recipe)
         {
             this.user = user;
             this.recipe = recipe;
             this.Margin = new Padding(10);
             InitializeComponent();
             Init();
+            this.caller = caller;
         }
 
         private void Init()
@@ -66,7 +68,7 @@ namespace DishesGo.src.Components.Recipe
         // User click the profile photo or the name of the profile.
         protected void userProfile_Click(object sender, EventArgs e)
         {
-            UserProfilePlateComponent userProfilePanel = new UserProfilePlateComponent(user, userPhoto.Image);
+            UserProfilePlateComponent userProfilePanel = new UserProfilePlateComponent(user, userPhoto.Image, caller);
             
             userProfilePanel.BackButtonClick = (sender1, e1) =>
             {

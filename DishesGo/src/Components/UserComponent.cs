@@ -12,6 +12,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DishesGo.src.Components
 {
@@ -19,6 +20,31 @@ namespace DishesGo.src.Components
     {
         private Users caller;
         private Users user;
+
+        public UserComponent(Users caller, Users user)
+        {
+            InitializeComponent();
+            this.caller = caller;
+            this.user = user;
+
+            if (user.user_photo == null)
+            {
+                userPhoto.Image = Properties.Resources.withoutPhoto;
+            }
+            else
+            {
+                using (MemoryStream ms = new MemoryStream(user.user_photo))
+                {
+                    userPhoto.Image = Image.FromStream(ms);
+                }
+            }
+
+            nicknameLabel.Text = user.nickname;
+
+            this.Click += OpenProfileClick;
+            userPhoto.Click += OpenProfileClick;
+            this.nicknameLabel.Click += OpenProfileClick;
+        }
 
         public UserComponent(Subscription subscription)
         {
@@ -43,7 +69,6 @@ namespace DishesGo.src.Components
             this.Click += OpenProfileClick;
             userPhoto.Click += OpenProfileClick;
             this.nicknameLabel.Click += OpenProfileClick;
-
         }
 
         private void OpenProfileClick(object sender, EventArgs e) 

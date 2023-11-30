@@ -60,15 +60,15 @@
             this.userPhoto.Name = "userPhoto";
             this.userPhoto.Size = new System.Drawing.Size(30, 30);
             this.userPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.userPhoto.TabIndex = 17;
+            this.userPhoto.TabIndex = 19;
             this.userPhoto.TabStop = false;
             // 
             // UserComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.userPhoto);
+            this.Controls.Add(this.nicknameLabel);
             this.Name = "UserComponent";
             this.Size = new System.Drawing.Size(250, 40);
             ((System.ComponentModel.ISupportInitialize)(this.userPhoto)).EndInit();

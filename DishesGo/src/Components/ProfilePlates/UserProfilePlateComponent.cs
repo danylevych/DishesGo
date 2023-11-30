@@ -22,7 +22,7 @@ namespace DishesGo.src.Components.ProfilePlates
         {
             InitializeComponent();
 
-            if (caller.user_id == user.user_id) // User cannot follow by himself.
+            if (caller.user_id == user.user_id) // User cannot follow to himself.
             {
                 followingEvent.Visible = false;
             }

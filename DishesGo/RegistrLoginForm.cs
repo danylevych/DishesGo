@@ -1,19 +1,15 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using DishesGo.Data;
+using DishesGo.src.tools;
+using DishesGo.src.Tools;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using DishesGo.Data;
-using DishesGo.src;
-using System.IO;
-using DishesGo.src.tools;
-using Newtonsoft.Json;
-using System.Xml.Serialization;
-using System.Diagnostics.Eventing.Reader;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using System.Collections.Generic;
-using DishesGo.src.Tools;
 
 namespace DishesGo
 {
@@ -229,6 +225,15 @@ namespace DishesGo
             if (email == "Введіть свій e-mail" || email == "")
             {
                 emailNotValid.Text = "e-mail не може бути пустим";
+                emailNotValid.Visible = true;
+
+                addToTable = false;
+            }
+
+            // Check if user's email is valide.
+            if (!EmailValidator.IsValidEmail(email))
+            {
+                emailNotValid.Text = "e-mail має неправильний формат";
                 emailNotValid.Visible = true;
 
                 addToTable = false;

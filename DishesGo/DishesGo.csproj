@@ -344,6 +344,12 @@
     <Compile Include="src\Forms\ToolForms\CropingImageForm.Designer.cs">
       <DependentUpon>CropingImageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\ToolForms\SearchUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ToolForms\SearchUserForm.Designer.cs">
+      <DependentUpon>SearchUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\ToolForms\ViewUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,7 @@
     <Compile Include="Data\Users.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Tools\EmailValidator.cs" />
     <Compile Include="src\Tools\Enums\SortTags.cs" />
     <Compile Include="src\Tools\Flyweights\IngredientsFactory.cs" />
     <Compile Include="src\Tools\ImageRedactor.cs" />
@@ -428,6 +435,9 @@
     <EmbeddedResource Include="src\Forms\ToolForms\CropingImageForm.resx">
       <DependentUpon>CropingImageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ToolForms\SearchUserForm.resx">
+      <DependentUpon>SearchUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ToolForms\ViewUserForm.resx">
       <DependentUpon>ViewUserForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,6 +501,10 @@
     <None Include="Resources\Img\UserAcrivity\LikeUp.png" />
     <None Include="Resources\Img\UserAcrivity\TimeDown.png" />
     <None Include="Resources\Img\UserAcrivity\TimeUp.png" />
+    <None Include="Resources\Img\UserAcrivity\FindUser.png" />
+    <None Include="Resources\Img\UserAcrivity\Home.png" />
+    <None Include="Resources\Img\UserAcrivity\Exit.png" />
+    <None Include="Resources\Img\UserAcrivity\BookmarkButton.png" />
     <Content Include="titlePhoto.ico" />
     <None Include="Resources\Img\UserAcrivity\Search.png" />
     <None Include="Resources\Img\UserAcrivity\Info.png" />

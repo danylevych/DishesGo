@@ -32,7 +32,7 @@ namespace DishesGo.src.Components
             InitializeComponent();
 
             //clearUserImput.Parent = searchTextBox;
-            startRecipePanelPos = recipePanel.Location;
+            startRecipePanelPos = recipesPanel.Location;
 
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
@@ -49,7 +49,7 @@ namespace DishesGo.src.Components
                 }
             }
 
-            recipePanel.Scroll += recipePanel_Scroll;
+            //recipesPanel.Scroll += recipePanel_Scroll;
 
             // Set option for search.
             searchTextBox.Enter += (sender, e) => {
@@ -121,15 +121,15 @@ namespace DishesGo.src.Components
         {
             if (!Convert.ToBoolean(filtersButton.Tag))
             {
-                recipePanel.Location = new Point(filtersPanel.Width + startRecipePanelPos.X, startRecipePanelPos.Y);
-                recipePanel.Size = new Size(recipePanel.Width - filtersPanel.Width, filtersPanel.Height);
+                recipesPanel.Location = new Point(filtersPanel.Width + startRecipePanelPos.X, startRecipePanelPos.Y);
+                recipesPanel.Size = new Size(recipesPanel.Width - filtersPanel.Width, filtersPanel.Height);
                 filtersPanel.Visible = true;
                 filtersButton.Tag = true; // We have opened the filters panel.
             }
             else
             {
-                recipePanel.Location = startRecipePanelPos;
-                recipePanel.Size = new Size(recipePanel.Width + filtersPanel.Width, filtersPanel.Height);
+                recipesPanel.Location = startRecipePanelPos;
+                recipesPanel.Size = new Size(recipesPanel.Width + filtersPanel.Width, filtersPanel.Height);
                 filtersPanel.Visible = false;
                 filtersButton.Tag = false; // We have closed the filters panel.
             }
@@ -232,7 +232,7 @@ namespace DishesGo.src.Components
         private void recipePanel_Scroll(object sender, ScrollEventArgs e)
         {
             // User scrolled all recipes.
-            if (e.Type == ScrollEventType.SmallIncrement && e.NewValue + recipePanel.Height >= recipePanel.VerticalScroll.Maximum)
+            if (e.Type == ScrollEventType.SmallIncrement && e.NewValue + recipesPanel.Height >= recipesPanel.VerticalScroll.Maximum)
             {
                 // Loading new recipes.
                 LoadMoreRecipes(false);
@@ -249,11 +249,11 @@ namespace DishesGo.src.Components
 
             if (fromStart)
             {
-                recipePanel.Controls.Clear();
+                recipesPanel.Controls.Clear();
             }
 
             int recipesToLoad = 30;
-            int startIndex = recipePanel.Controls.Count;
+            int startIndex = recipesPanel.Controls.Count;
 
             switch (sortTag)
             {
@@ -286,14 +286,9 @@ namespace DishesGo.src.Components
 
                 foreach (var recipe in loadedRecipes)
                 {
-                    recipePanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users, context.Users.FirstOrDefault(u => u.user_id == userId)));
+                    recipesPanel.Controls.Add(new SearchRecipeComponent(recipe, recipe.Users, context.Users.FirstOrDefault(u => u.user_id == userId)));
                 }
             }
-        }
-
-        private void recipePanel_SizeChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

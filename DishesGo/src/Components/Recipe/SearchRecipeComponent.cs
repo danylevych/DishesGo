@@ -29,7 +29,6 @@ namespace DishesGo.src.Components.Recipe
         {
             this.user = user;
             this.recipe = recipe;
-            this.Margin = new Padding(10);
             InitializeComponent();
             Init();
             this.caller = caller;
@@ -60,7 +59,7 @@ namespace DishesGo.src.Components.Recipe
             // Show the information about reciept.
             using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
             {
-                RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, user, false);
+                RecipeViewerForm recipeViewerForm = new RecipeViewerForm(ReceiptId, caller, false);
                 recipeViewerForm.ShowDialog(backgroundForm);
             }
         }

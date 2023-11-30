@@ -17,7 +17,7 @@ namespace DishesGo.src.Elements
     {
         private RecipeDetails recipeDetails;
         private bool isOwn;
-        private Users user;
+        private readonly Users user;
 
 
         public int ReceiptId { get; set; }
@@ -71,6 +71,7 @@ namespace DishesGo.src.Elements
                     {
                         profileImg.Image = Properties.Resources.withoutPhoto;
                     }
+
                     nicknameLabel.Text = recipeDetails.nickname;
 
                     // Set all fields.
@@ -83,8 +84,6 @@ namespace DishesGo.src.Elements
                     StringBuilder formateDescription = new StringBuilder();
                     FormateText(formateDescription, recipeDetails.recipe_description.Split(' '), 50);
                     descriptionVal.Text = formateDescription.ToString().Trim();
-
-
 
                     // Add steps and bottom panel elements.
                     using (var context = new DishesGo_dbEntities())
@@ -103,10 +102,6 @@ namespace DishesGo.src.Elements
 
                             ingredientsVal.Text = formattedIngredients.ToString().Trim();
                         }
-
-                        
-
-
 
                         var recipeSteps = context.RecipeSteps.Where(rs => rs.id_recipe == ReceiptId).ToList();
                         StringBuilder formattedSteps = new StringBuilder();
@@ -163,10 +158,7 @@ namespace DishesGo.src.Elements
                         }
 
                         // Set like button.
-                        var likes = context.Likes
-                                           .Where(like => like.id_recipe == ReceiptId &&
-                                                          like.id_user == user.user_id)
-                                           .ToList();
+                        var likes = context.Likes.Where(like => like.id_recipe == ReceiptId).ToList();
 
                         bool isOwnerLikes = (likes.Find(like => like.id_user == user.user_id) != null);
 
@@ -181,7 +173,7 @@ namespace DishesGo.src.Elements
                             likeButtonImg.Tag = "EmptyLike";
                         }
 
-                        countOfLikeLabel.Text = context.Likes.Where(l => l.id_recipe == ReceiptId).ToList().Count.ToString();
+                        countOfLikeLabel.Text = likes.Count.ToString();
                         
                         if (!isOwn)
                         {
@@ -237,7 +229,7 @@ namespace DishesGo.src.Elements
                     Likes like = new Likes
                     {
                         id_user = user.user_id,
-                        id_recipe = recipeDetails.recipe_id
+                        id_recipe = ReceiptId
                     };
                     context.Likes.Add(like);
                 }
@@ -248,7 +240,7 @@ namespace DishesGo.src.Elements
                     likeButtonImg.Image = Properties.Resources.EmptyLike;
 
                     // Delete like.
-                    Likes likeToDelete = context.Likes.FirstOrDefault(like => like.id_user == recipeDetails.user_id && like.id_recipe == ReceiptId);
+                    Likes likeToDelete = context.Likes.FirstOrDefault(like => like.id_user == user.user_id && like.id_recipe == ReceiptId);
                     if (likeToDelete != null)
                     {
                         context.Likes.Remove(likeToDelete);
@@ -284,7 +276,7 @@ namespace DishesGo.src.Elements
 
                     // Delete from bookmarks.
                     Bookmarks bookmarkToDelete = context.Bookmarks
-                                                        .FirstOrDefault(bookmark => bookmark.id_user == recipeDetails.user_id &&
+                                                        .FirstOrDefault(bookmark => bookmark.id_user == user.user_id &&
                                                                                     bookmark.id_recipe == ReceiptId);
 
                     if (bookmarkToDelete != null)

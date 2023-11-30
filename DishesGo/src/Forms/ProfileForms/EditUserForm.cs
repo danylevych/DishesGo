@@ -100,7 +100,7 @@ namespace DishesGo.src.Forms
 
                 MessageBox.Show("Ви успішно змінили дані профілю.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MainForm.Instance.Refresh(findedUser);
+                MainForm.Instance.Refresh(true);
             }
         }
 
@@ -210,7 +210,22 @@ namespace DishesGo.src.Forms
         private void email_TextChanged(object sender, EventArgs e)
         {
             KryptonTextBox textBox = (KryptonTextBox)sender;
-            ValidateField(textBox, emailLabel, textBox.Text, user.email);
+            
+            // Check if user imput's address is valid.
+            if (EmailValidator.IsValidEmail(textBox.Text.Trim()))
+            {
+                textBox.StateCommon.Content.Color1 = Color.Black;
+               
+                ValidateField(textBox, emailLabel, textBox.Text, user.email);
+            }
+            else
+            {
+                textBox.StateCommon.Content.Color1 = Color.Red;
+                isWrongNickOrEmail = true;
+
+                applyNickEmail.Enabled = false;
+                applyNickEmail.Visible = false;
+            }
         }
 
         private void ValidateField(KryptonTextBox textBox, Label label, string fieldValue, string userValue)
@@ -527,38 +542,34 @@ namespace DishesGo.src.Forms
 
         private void oldPassword_TextChanged(object sender, EventArgs e)
         {
-            if (oldPassword.Text != "" && oldPassword.Text != "старий пароль" && 
-                PasswordHasher.VerifyPassword(oldPassword.Text.Trim(), user.user_password)) // Chaeck if user pasvord is valid.
+            if (oldPassword.Text != "" && oldPassword.Text != "старий пароль")
             {
-                oldPassword.StateCommon.Content.Color1 = Color.Red;
+                // User entered the password that euqual to his.
+                if (PasswordHasher.VerifyPassword(oldPassword.Text.Trim(), user.user_password))
+                {
+                    oldPassword.StateCommon.Content.Color1 = Color.Black;
 
-                // Disallow user to the next action.
+                    // Allow usere to make changes.
+                    newPassword.Enabled = true;
+                    comfirmPassword.Enabled = true;
+                }
+                else
+                {
+                    oldPassword.StateCommon.Content.Color1 = Color.Red;
+
+                    // Allow usere to make changes.
+                    newPassword.Enabled = false;
+                    comfirmPassword.Enabled = false;
+                }
+            }
+            else // User didn't entered the password.
+            {
+                oldPassword.StateCommon.Content.Color1 = Color.Black;
+                isPasswordChanged = false;
+
                 newPassword.Enabled = false;
                 comfirmPassword.Enabled = false;
-
-                // Set previous values.
-                newPassword.Text = "новий пароль";
-                comfirmPassword.Text = "пароль ще раз";
-                
-                isPasswordChanged = false; // User entered invalid password.
-                return;
             }
-            else if (oldPassword.Text != "" && oldPassword.Text != "старий пароль") // User entered password, that equal previous.
-            {
-                oldPassword.StateCommon.Content.Color1 = Color.Black;
-
-                // Allow usere to make changes.
-                newPassword.Enabled = true;
-                comfirmPassword.Enabled = true;
-            }
-            else
-            {
-                oldPassword.StateCommon.Content.Color1 = Color.Black;
-                isPasswordChanged = false; // User did not enter password.
-                return;
-            }
-
-            isPasswordChanged = true; // User enter new password.
         }
         #endregion Password
     }

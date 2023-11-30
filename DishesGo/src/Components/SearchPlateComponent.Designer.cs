@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.recipePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.recipesPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.filtersButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.filtersPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -39,6 +39,7 @@
             this.applyFiltersButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.recipeTypesCheckBoxes = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ingredientsCheckBoxes = new DishesGo.src.Elements.ImageCheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.kitchenCheckBoxes = new System.Windows.Forms.CheckedListBox();
@@ -47,27 +48,26 @@
             this.sortByDateButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.searchTextBox = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.clearUserImput = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.ingredientsCheckBoxes = new DishesGo.src.Elements.ImageCheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.filtersPanel)).BeginInit();
             this.filtersPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // recipePanel
+            // recipesPanel
             // 
-            this.recipePanel.AllowDrop = true;
-            this.recipePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.recipesPanel.AllowDrop = true;
+            this.recipesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.recipePanel.AutoScroll = true;
-            this.recipePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.recipePanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.recipePanel.Location = new System.Drawing.Point(38, 15);
-            this.recipePanel.Margin = new System.Windows.Forms.Padding(0);
-            this.recipePanel.Name = "recipePanel";
-            this.recipePanel.Size = new System.Drawing.Size(907, 560);
-            this.recipePanel.TabIndex = 33;
-            this.recipePanel.Tag = "Steps";
-            this.recipePanel.SizeChanged += new System.EventHandler(this.recipePanel_SizeChanged);
+            this.recipesPanel.AutoScroll = true;
+            this.recipesPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.recipesPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.recipesPanel.Location = new System.Drawing.Point(38, 15);
+            this.recipesPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.recipesPanel.Name = "recipesPanel";
+            this.recipesPanel.Size = new System.Drawing.Size(907, 560);
+            this.recipesPanel.TabIndex = 33;
+            this.recipesPanel.Tag = "Steps";
+            //this.recipesPanel.SizeChanged += new System.EventHandler(this.recipePanel_SizeChanged);
             // 
             // kryptonPalette1
             // 
@@ -354,6 +354,19 @@
             this.label3.TabIndex = 42;
             this.label3.Text = "Тип рецепту";
             // 
+            // ingredientsCheckBoxes
+            // 
+            this.ingredientsCheckBoxes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ingredientsCheckBoxes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ingredientsCheckBoxes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ingredientsCheckBoxes.Font = new System.Drawing.Font("Russo One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ingredientsCheckBoxes.FormattingEnabled = true;
+            this.ingredientsCheckBoxes.Location = new System.Drawing.Point(15, 447);
+            this.ingredientsCheckBoxes.Name = "ingredientsCheckBoxes";
+            this.ingredientsCheckBoxes.Size = new System.Drawing.Size(306, 110);
+            this.ingredientsCheckBoxes.TabIndex = 41;
+            this.ingredientsCheckBoxes.TabStop = false;
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -529,19 +542,6 @@
             this.clearUserImput.Values.Text = "";
             this.clearUserImput.Click += new System.EventHandler(this.clearUserImput_Click);
             // 
-            // ingredientsCheckBoxes
-            // 
-            this.ingredientsCheckBoxes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ingredientsCheckBoxes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ingredientsCheckBoxes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ingredientsCheckBoxes.Font = new System.Drawing.Font("Russo One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ingredientsCheckBoxes.FormattingEnabled = true;
-            this.ingredientsCheckBoxes.Location = new System.Drawing.Point(15, 447);
-            this.ingredientsCheckBoxes.Name = "ingredientsCheckBoxes";
-            this.ingredientsCheckBoxes.Size = new System.Drawing.Size(306, 110);
-            this.ingredientsCheckBoxes.TabIndex = 41;
-            this.ingredientsCheckBoxes.TabStop = false;
-            // 
             // SearchPlateComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,7 +553,7 @@
             this.Controls.Add(this.sortByLikeButton);
             this.Controls.Add(this.filtersPanel);
             this.Controls.Add(this.filtersButton);
-            this.Controls.Add(this.recipePanel);
+            this.Controls.Add(this.recipesPanel);
             this.Name = "SearchPlateComponent";
             this.Size = new System.Drawing.Size(986, 611);
             ((System.ComponentModel.ISupportInitialize)(this.filtersPanel)).EndInit();
@@ -566,7 +566,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel recipePanel;
+        private System.Windows.Forms.FlowLayoutPanel recipesPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton filtersButton;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel filtersPanel;

@@ -113,30 +113,7 @@ namespace DishesGo.src.Elements
 
                             string description = step.description;
 
-                            FormateText(formattedSteps, description.Split(' '));
-                            //string[] words = description.Split(' ');
-
-                            //string currentLine = "";
-
-                            //foreach (var word in words)
-                            //{
-                            //    if ((currentLine + word).Length > 45)
-                            //    {
-                            //        formattedSteps.AppendLine($"  {currentLine}");
-                            //        currentLine = word + " ";
-                            //    }
-                            //    else
-                            //    {
-                            //        currentLine += word + " ";
-                            //    }
-                            //}
-
-                            //if (!string.IsNullOrWhiteSpace(currentLine))
-                            //{
-                            //    formattedSteps.AppendLine($"  {currentLine}");
-                            //}
-
-                            //formattedSteps.AppendLine();
+                            FormateText(formattedSteps, description.Split(' '), 45, "  ");
                         }
 
                         stepsVal.Text = formattedSteps.ToString().Trim();
@@ -190,7 +167,7 @@ namespace DishesGo.src.Elements
             }
         }
 
-        private void FormateText(StringBuilder formattedSteps, string[] words, int numOfCharPerLine = 45)
+        private void FormateText(StringBuilder formattedSteps, string[] words, int numOfCharPerLine = 45, string fillers = "")
         {
             string currentLine = "";
             foreach (var word in words)
@@ -207,7 +184,7 @@ namespace DishesGo.src.Elements
             }
             if (!string.IsNullOrWhiteSpace(currentLine))
             {
-                formattedSteps.AppendLine($"  {currentLine}");
+                formattedSteps.AppendLine($"{fillers}{currentLine}");
             }
 
             formattedSteps.AppendLine();

@@ -85,8 +85,7 @@
             // 
             // title
             // 
-            this.title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Russo One", 19F, System.Drawing.FontStyle.Bold);
             this.title.Location = new System.Drawing.Point(357, 0);
@@ -253,9 +252,9 @@
             this.ingridientsLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.ingridientsLabel.Location = new System.Drawing.Point(390, 328);
             this.ingridientsLabel.Name = "ingridientsLabel";
-            this.ingridientsLabel.Size = new System.Drawing.Size(126, 23);
+            this.ingridientsLabel.Size = new System.Drawing.Size(125, 23);
             this.ingridientsLabel.TabIndex = 35;
-            this.ingridientsLabel.Text = "Інгридієнти";
+            this.ingridientsLabel.Text = "Інгредієнти";
             // 
             // ingredientsPanel
             // 

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="DishesGo.Data.DishesGo_dbEntities">
+    <Position X="7" Y="6" Width="4" />
+    <Members>
+      <Method Name="sp_alterdiagram" Hidden="true" />
+      <Method Name="sp_creatediagram" Hidden="true" />
+      <Method Name="sp_dropdiagram" Hidden="true" />
+      <Method Name="sp_helpdiagramdefinition" Hidden="true" />
+      <Method Name="sp_helpdiagrams" Hidden="true" />
+      <Method Name="sp_renamediagram" Hidden="true" />
+      <Method Name="sp_upgraddiagrams" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Recipes" Type="DishesGo.Data.Recipes">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.921" Y="0.126" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="RecipeTypes" Type="DishesGo.Data.RecipeTypes" FixedFromPoint="true">
+      <Path>
+        <Point X="10.75" Y="8.261" />
+        <Point X="10.75" Y="9.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RecipeSteps" Type="DishesGo.Data.RecipeSteps">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.477" Y="0.437" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Subscriptions" Type="DishesGo.Data.Subscription">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.398" Y="0.192" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAIQACCEQABhFAAAAAACYCAAEQAEAAACAAAEEAAAAAA=</HashCode>
+      <FileName>Data\DBModels.Context.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Bookmarks" />
+      <Property Name="DishIngredients" />
+      <Property Name="Ingredients" />
+      <Property Name="Kitchens" />
+      <Property Name="Likes" />
+      <Property Name="Recipes" />
+      <Property Name="RecipeTypes" />
+      <Property Name="RecipeSteps" />
+      <Property Name="Subscriptions" />
+      <Property Name="Users" />
+      <Property Name="UpdateLogs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DishesGo.Data.Bookmarks">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAIAAAAAAgAAAAIAAAgAAAAAA=</HashCode>
+      <FileName>Data\Bookmarks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.DishIngredients">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAICAAAAAAAACAAAgAAAAAAAA=</HashCode>
+      <FileName>Data\DishIngredients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Ingredients">
+    <Position X="13.75" Y="8.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAgAAAAIAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Ingredients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Kitchens">
+    <Position X="4.25" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAIAAAIAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Kitchens.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Likes">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIACAAAAAAAAAAAAAAIAAAAAAgAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Data\Likes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Recipes">
+    <Position X="1.75" Y="8.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAACCkQABABABAIsAAAAAAAQAAAAACAAAEACAAAAA=</HashCode>
+      <FileName>Data\Recipes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.RecipeTypes">
+    <Position X="8.75" Y="9.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\RecipeTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.RecipeSteps">
+    <Position X="10.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAIAAAAAAgAAAAAAEAAAABAAA=</HashCode>
+      <FileName>Data\RecipeSteps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Subscription">
+    <Position X="6" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAACgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Subscription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.Users">
+    <Position X="2.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAABAAQAgCAAAIAAAAAAAAAACAAAAAgAAQQA=</HashCode>
+      <FileName>Data\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.Data.UpdateLog">
+    <Position X="7.5" Y="4" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\UpdateLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -477,7 +477,7 @@ namespace DishesGo.src.Components
             {
                 try
                 {
-                    if (item.Quantity == string.Empty)
+                    if (item.Quantity == string.Empty || item.Quantity == "Кількість")
                     {
                         throw new Exception(); // We throw the exception, because the info message is in catch block.
                     }
@@ -486,7 +486,7 @@ namespace DishesGo.src.Components
                 }
                 catch
                 {
-                    MessageBox.Show("Деякі із інгридієнтів приготування не містять усіх потрібних даних.\nБудь ласка заповніть їх.",
+                    MessageBox.Show("Деякі із інгредієнтів приготування не містять усіх потрібних даних.\nБудь ласка заповніть їх.",
                                     "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -547,6 +547,8 @@ namespace DishesGo.src.Components
                 context.SaveChanges();
 
                 MessageBox.Show("Ви успішно створили рецепт.", "Iнформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MainForm.Instance.addRecipe_Click(this, EventArgs.Empty); // Reload the form
             }
         }
     }

@@ -7,7 +7,6 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Forms
@@ -82,7 +81,7 @@ namespace DishesGo.src.Forms
                 if (findedUser.email == user.email && findedUser.nickname == user.nickname &&
                     findedUser.first_name == user.first_name && findedUser.last_name == user.last_name &&
                     findedUser.user_password == user.user_password && 
-                    (findedUser.user_photo == null? false : findedUser.user_photo.SequenceEqual(user.user_photo))) // Does the user photo not exixst or equal to previous?
+                    (findedUser.user_photo == null? true : findedUser.user_photo.SequenceEqual(user.user_photo))) // Does the user photo not exixst or equal to previous?
                 {
                     return;
                 }
@@ -137,11 +136,14 @@ namespace DishesGo.src.Forms
 
         private void canslePhoto_Click(object sender, EventArgs e)
         {
-            // Discard user changing.
-            using (MemoryStream ms = new MemoryStream(user.user_photo))
+            if (user.user_photo != null)
             {
-                userPhoto.Image = Image.FromStream(ms);
-                applyPhoto.Visible = false;
+                // Discard user changing.
+                using (MemoryStream ms = new MemoryStream(user.user_photo))
+                {
+                    userPhoto.Image = Image.FromStream(ms);
+                    applyPhoto.Visible = false;
+                }
             }
         }
 

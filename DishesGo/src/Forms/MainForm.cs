@@ -83,7 +83,6 @@ namespace DishesGo.src
         }
 
 
-
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -105,15 +104,6 @@ namespace DishesGo.src
             using (DishesGo_dbEntities context = new DishesGo_dbEntities())
             {
                 return context.Users.FirstOrDefault(u => u.user_id == user.user_id);
-            }
-        }
-
-        private void editPtofileButton_Click(object sender, EventArgs e)
-        {
-            using (BackgroundForm backgroundForm = new BackgroundForm(MainForm.Instance))
-            {
-                EditUserForm editUserForm = new EditUserForm(GetUser());
-                editUserForm.ShowDialog(backgroundForm);
             }
         }
 
@@ -151,7 +141,7 @@ namespace DishesGo.src
             }
         }
 
-        private void addRecipe_Click(object sender, EventArgs e)
+        public void addRecipe_Click(object sender, EventArgs e)
         {
             HideLines();
             contextPanel.Controls.Clear();

@@ -17,7 +17,7 @@ namespace DishesGo.src.Components.Recipe
         RecipeComponent
 #endif
     {
-        private readonly Users caller;
+        //private readonly Users caller;
         private readonly Recipes recipe;
 
         public SearchRecipeComponent() : base()
@@ -36,8 +36,8 @@ namespace DishesGo.src.Components.Recipe
 
         private void Init()
         {
-            recipeNameLabel.Text = (recipe.title.Length > 40 ? recipe.title.Substring(0, 45) + "..." : recipe.title);
-            
+            recipeNameLabel.Text = (recipe.title.Length > 25 ? recipe.title.Substring(0, 25) + "..." : recipe.title);
+
             // Set the user photo;
             if (recipe.Users.user_photo != null)
             {

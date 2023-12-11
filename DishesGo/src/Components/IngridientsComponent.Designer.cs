@@ -92,9 +92,9 @@
             // 
             this.ingredientComboBox.BackColor = System.Drawing.Color.LightYellow;
             this.ingredientComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ingredientComboBox.DropDownHeight = 120;
+            this.ingredientComboBox.DropDownHeight = 200;
             this.ingredientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ingredientComboBox.DropDownWidth = 260;
+            this.ingredientComboBox.DropDownWidth = 200;
             this.ingredientComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ingredientComboBox.Font = new System.Drawing.Font("Russo One", 10F);
             this.ingredientComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;

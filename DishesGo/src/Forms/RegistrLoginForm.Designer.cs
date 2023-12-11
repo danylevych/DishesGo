@@ -206,7 +206,7 @@
             this.loginButton.StateTracking.Border.Width = 1;
             this.loginButton.TabIndex = 5;
             this.loginButton.Values.Text = "Вхід";
-            this.loginButton.Click += new System.EventHandler(this.MainFormButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.OpenPanelButton_Click);
             // 
             // signinButton
             // 
@@ -294,7 +294,7 @@
             this.signinButton.StateTracking.Border.Width = 1;
             this.signinButton.TabIndex = 6;
             this.signinButton.Values.Text = "Зареєструватися";
-            this.signinButton.Click += new System.EventHandler(this.MainFormButton_Click);
+            this.signinButton.Click += new System.EventHandler(this.OpenPanelButton_Click);
             // 
             // registrPanel
             // 

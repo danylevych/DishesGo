@@ -186,10 +186,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegistrLoginForm.cs">
+    <Compile Include="src\Forms\RegistrLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrLoginForm.Designer.cs">
+    <Compile Include="src\Forms\RegistrLoginForm.Designer.cs">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -266,7 +266,6 @@
     <Compile Include="src\Components\UserComponent.Designer.cs">
       <DependentUpon>UserComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\dbClasses\SQLConection.cs" />
     <Compile Include="src\Components\BookmarksComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,7 +366,7 @@
     <Compile Include="src\Tools\Enums\ImageTypeFormat.cs" />
     <Compile Include="src\Tools\JsonUserData.cs" />
     <Compile Include="src\Tools\PasswordHasher.cs" />
-    <EmbeddedResource Include="RegistrLoginForm.resx">
+    <EmbeddedResource Include="src\Forms\RegistrLoginForm.resx">
       <DependentUpon>RegistrLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -445,9 +444,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="src\Diagrams\ClassDiagram.cd" />
     <None Include="Data\DBModels.edmx.diagram">
       <DependentUpon>DBModels.edmx</DependentUpon>
     </None>
+    <None Include="src\Diagrams\ModelsClassDiagram.cd" />
     <Resource Include="Data\Json\user.json" />
     <None Include="Data\DishesGo_dbDataSet.xsc">
       <DependentUpon>DishesGo_dbDataSet.xsd</DependentUpon>

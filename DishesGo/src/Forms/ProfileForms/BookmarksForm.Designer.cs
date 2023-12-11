@@ -92,7 +92,7 @@
             this.bookmarksPanel.AutoScroll = true;
             this.bookmarksPanel.Location = new System.Drawing.Point(24, 50);
             this.bookmarksPanel.Name = "bookmarksPanel";
-            this.bookmarksPanel.Size = new System.Drawing.Size(235, 380);
+            this.bookmarksPanel.Size = new System.Drawing.Size(251, 380);
             this.bookmarksPanel.TabIndex = 31;
             // 
             // mainLabel
@@ -101,7 +101,7 @@
             this.mainLabel.AutoSize = true;
             this.mainLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainLabel.Font = new System.Drawing.Font("Russo One", 14.25F);
-            this.mainLabel.Location = new System.Drawing.Point(91, 17);
+            this.mainLabel.Location = new System.Drawing.Point(99, 17);
             this.mainLabel.Name = "mainLabel";
             this.mainLabel.Size = new System.Drawing.Size(103, 23);
             this.mainLabel.TabIndex = 11;
@@ -112,7 +112,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(282, 450);
+            this.ClientSize = new System.Drawing.Size(298, 450);
             this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.bookmarksPanel);
             this.Controls.Add(this.backButton);

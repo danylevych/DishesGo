@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DishesGo.src.Components.RecipeComponent" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAACAAAAAAAACAAABCAAAAABAAAAAAAAEAAQE=</HashCode>
+      <FileName>src\Components\Recipe\RecipeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.Recipe.SearchRecipeComponent" Collapsed="true">
+    <Position X="1" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAICCAQAAAAACAAAACAAAAAAIAAAACAAEAAAI=</HashCode>
+      <FileName>src\Components\Recipe\SearchRecipeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.Recipe.MiddleRecipeConponent" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>src\Components\Recipe\MiddleRecipeConponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.Recipe.UserRecipeComponent">
+    <Position X="3.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>src\Components\Recipe\UserRecipeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.OwnRecipeComponent" Collapsed="true">
+    <Position X="6.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>src\Components\Recipe\OwnRecipeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Elements.ProfilePlateComponent">
+    <Position X="17" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAAACCAAAAQAACAABgCACAgABAAACAAACBAAQA=</HashCode>
+      <FileName>src\Components\ProfilePlates\ProfilePlateComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.ProfilePlates.MiddleProfilePlateComponent" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\ProfilePlates\MiddleProfilePlateComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.ProfilePlates.OwnProfilePlateComponent" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAAAAAAACAAAACACAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\ProfilePlates\OwnProfilePlateComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DishesGo.src.Components.ProfilePlates.UserProfilePlateComponent" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAACAAAACASAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>src\Components\ProfilePlates\UserProfilePlateComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

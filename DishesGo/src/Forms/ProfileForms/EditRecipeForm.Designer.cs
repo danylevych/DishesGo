@@ -672,7 +672,7 @@
             this.warningIngredients.Name = "warningIngredients";
             this.warningIngredients.Size = new System.Drawing.Size(210, 13);
             this.warningIngredients.TabIndex = 68;
-            this.warningIngredients.Text = "Список інгридієнтів не може бути пустим.";
+            this.warningIngredients.Text = "Список інгредієнтів не може бути пустим.";
             this.warningIngredients.Visible = false;
             // 
             // deleteIngridientButton
@@ -755,9 +755,9 @@
             this.ingridientsLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.ingridientsLabel.Location = new System.Drawing.Point(54, 475);
             this.ingridientsLabel.Name = "ingridientsLabel";
-            this.ingridientsLabel.Size = new System.Drawing.Size(126, 23);
+            this.ingridientsLabel.Size = new System.Drawing.Size(125, 23);
             this.ingridientsLabel.TabIndex = 65;
-            this.ingridientsLabel.Text = "Інгридієнти";
+            this.ingridientsLabel.Text = "Інгредієнти";
             // 
             // ingredientsPanel
             // 

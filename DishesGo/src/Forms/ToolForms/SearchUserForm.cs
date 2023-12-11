@@ -1,17 +1,9 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using DishesGo.Data;
 using DishesGo.src.Components;
-using DishesGo.src.Components.ProfilePlates;
-using DishesGo.src.Components.Recipe;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DishesGo.src.Forms.ToolForms

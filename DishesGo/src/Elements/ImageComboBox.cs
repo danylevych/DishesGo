@@ -25,7 +25,7 @@ namespace DishesGo.src.Elements
             items.Add(new ImageComboBoxItem(text, image));
             Items.Add(text);
 
-            items = items.OrderBy(r => r.Text, StringComparer.Ordinal).ToList();
+            items = items.OrderBy(r => r.Text, StringComparer.InvariantCultureIgnoreCase).ToList();
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
@@ -49,7 +49,7 @@ namespace DishesGo.src.Elements
                 }
                 foreColor = cbo.ForeColor;
             }
-            TextRenderer.DrawText(e.Graphics, cbo.GetItemText(cbo.Items[e.Index]), e.Font, new Point(e.Bounds.Height + 5, e.Bounds.Y + 7), foreColor);
+            TextRenderer.DrawText(e.Graphics, cbo.GetItemText(items[e.Index].Text), e.Font, new Point(e.Bounds.Height + 5, e.Bounds.Y + 7), foreColor);
 
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.DrawImage(items[e.Index].Image, new Rectangle(e.Bounds.Location, new Size(e.Bounds.Height - 2, e.Bounds.Height - 2)));

@@ -34,7 +34,7 @@ namespace DishesGo
             }
         }
 
-        private void MainFormButton_Click(object sender, EventArgs e)
+        private void OpenPanelButton_Click(object sender, EventArgs e)
         {
             KryptonButton caller = ((KryptonButton)sender);
 
@@ -291,6 +291,12 @@ namespace DishesGo
             }
 
             if (!comfirmPassText.Enabled)
+            {
+                comfirmPassLabel.ForeColor = Color.Red;
+                addToTable = false;
+            }
+
+            if (comfirmPassText.Text.Trim() != userPassword)
             {
                 comfirmPassLabel.ForeColor = Color.Red;
                 addToTable = false;
